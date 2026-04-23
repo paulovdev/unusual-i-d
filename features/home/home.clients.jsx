@@ -1,0 +1,47 @@
+"use client";
+
+import React from "react";
+import {
+  SiApple,
+  SiGoogle,
+  SiIkea,
+  SiBehance,
+  SiPinterest,
+  SiNotion,
+  SiFigma,
+} from "react-icons/si";
+
+const logos = [
+  <SiIkea />,
+  <SiFigma />,
+  <SiApple />,
+  <SiGoogle />,
+  <SiBehance />,
+  <SiPinterest />,
+  <SiNotion />,
+];
+
+const HomeClients = () => {
+  return (
+    <section id="clients" className="relative px-15 max-md:px-5 ">
+      <div className="mb-10 flex items-center gap-2">
+        <span className="size-2 bg-p rounded-[1px]" />
+        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-widest leading-none uppercase">
+          Trusted worldwide
+        </p>
+      </div>
+
+      <div className="relative py-20 w-full">
+        <div className="flex items-center justify-between">
+          {logos.map((icon, i) => (
+            <div key={i} className="text-p text-[62px]">
+              {icon}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HomeClients;
