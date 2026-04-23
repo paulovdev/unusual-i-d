@@ -11,7 +11,6 @@ import HomeWorks2 from "@/features/home/home.works2";
 import Lenis from "lenis";
 
 import { useEffect, useRef } from "react";
-import HomeWorks from "./home.works";
 
 const Index = ({ work }) => {
   const lenisRef = useRef(null);
