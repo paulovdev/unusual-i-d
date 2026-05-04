@@ -1,0 +1,284 @@
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+import Lenis from "lenis";
+
+import { IoClose } from "react-icons/io5";
+import { motion } from "motion/react";
+import TextAnimated from "@/components/ui/text-animated";
+import { BiSearch } from "react-icons/bi";
+import { useWorkStore } from "@/store/useWorkStore";
+import { RxUpdate } from "react-icons/rx";
+
+const textSlide = {
+  initial: { y: "100%" },
+  animate: (custom) => ({
+    y: "0%",
+    transition: {
+      duration: 0.8,
+      ease: [0.33, 1, 0.68, 1],
+      delay: custom,
+    },
+  }),
+};
+
+const menuAnim = {
+  initial: { clipPath: "inset(0% 0% 0% 100%)" },
+  animate: {
+    clipPath: "inset(0% 0% 0% 0%)",
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+  },
+  exit: {
+    clipPath: "inset(0% 0% 0% 100%)",
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+const overlayAnim = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+export const SearchModal = ({ lenis, work }) => {
+  const { setActiveWork, query, setQuery, closeSearch } = useWorkStore();
+  const [randomSuggestions, setRandomSuggestions] = useState([]);
+
+  const scrollRef = useRef(null);
+  const modalLenis = useRef(null);
+
+  useEffect(() => {
+    lenis?.current?.stop();
+
+    modalLenis.current = new Lenis({
+      wrapper: scrollRef.current,
+      content: scrollRef.current,
+      smoothWheel: true,
+      syncTouch: true,
+    });
+
+    function raf(time) {
+      modalLenis.current?.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      modalLenis.current?.destroy();
+
+      lenis?.current?.start();
+    };
+  }, [lenis]);
+
+  const suggestions = query
+    ? work
+        .filter((item) =>
+          item.title.toLowerCase().includes(query.toLowerCase()),
+        )
+        .slice(0, 3)
+    : randomSuggestions;
+
+  useEffect(() => {
+    setRandomSuggestions(work.slice(0, 4));
+  }, [work]);
+
+  const shuffleSuggestions = () => {
+    const arr = [...work];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    setRandomSuggestions(arr.slice(0, 4));
+  };
+
+  return (
+    <>
+      <motion.div
+        className="fixed right-0 top-0 m-4 pt-15 px-10 w-[45vw] h-[calc(100%-32px)] bg-p/25 backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        variants={menuAnim}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+      >
+        <motion.button
+          type="button"
+          onClick={closeSearch}
+          initial={{ scale: 0, rotate: -90 }}
+          animate={{
+            scale: 1,
+            rotate: 0,
+            transition: {
+              duration: 0.8,
+              ease: [0.76, 0, 0.24, 1],
+              delay: 0.2,
+            },
+          }}
+          exit={{
+            scale: 0,
+            rotate: 90,
+            transition: {
+              duration: 0.4,
+              ease: [0.76, 0, 0.24, 1],
+            },
+          }}
+          className="absolute top-5 right-5 z-30 group"
+        >
+          <motion.button
+            whileTap={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "#000",
+            }}
+            className="p-3 backdrop-blur-2xl rounded-sm group max-md:p-2 bg-s"
+          >
+            <IoClose
+              className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
+                transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            />
+          </motion.button>
+        </motion.button>
+
+        <div className="size-full overflow-y-scroll" ref={scrollRef}>
+          <div className="flex flex-col items-start">
+            <TextAnimated
+              phrases={["Navigateㅤ"]}
+              variants={textSlide}
+              as="h2"
+              className="flex flex-col"
+              lineClassName="mb-5 font-i-sans font-normal text-s text-[72px] tracking-[-0.07em]
+               leading-none max-md:text-[42px]"
+              wordClassName="mr-2"
+              wordDelay={0.065}
+              lineDelay={0.025}
+            />
+            <div className="relative w-full">
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search spaces..."
+                className="w-full p-5 border border-s/25 rounded-sm outline-none font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase "
+              />
+              {query ? (
+                <span
+                  onClick={() => setQuery("")}
+                  className="absolute right-4 top-3.5 group"
+                >
+                  <IoClose
+                    className="text-s text-[28px] 
+                  hover:scale-110 hover:rotate-90 
+                  transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                  />{" "}
+                </span>
+              ) : (
+                <span className="absolute right-4 top-3.5">
+                  <BiSearch className="text-s text-[28px]" />{" "}
+                </span>
+              )}
+            </div>
+
+            <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
+              <div className="flex-1">
+                <div className="size-fit flex items-center gap-2">
+                  <span className="size-2 bg-s rounded-[1px]" />
+                  {query === "" ? (
+                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      suggestions
+                    </p>
+                  ) : (
+                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      {suggestions.length} results
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="flex-[1.25] w-full flex flex-col gap-5">
+                {suggestions.map((item, i) => (
+                  <motion.div
+                    key={item.title}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="relative w-full group"
+                    onClick={() => {
+                      setActiveWork(item);
+                      closeSearch();
+                    }}
+                  >
+                    <figure
+                      className="w-full h-60 overflow-hidden rounded-sm border border-transparent
+                    group-hover:border-s duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                    >
+                      <Image
+                        src={item.heroMedia?.image?.asset?.url}
+                        width={1000}
+                        height={1000}
+                        alt=""
+                        className="size-full object-cover"
+                      />
+
+                      <div className="absolute left-5 bottom-5">
+                        <p className="mb-2 text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                          {item.title}
+                        </p>
+
+                        <p className="text-s/70 text-[12px] tracking-[0.05em] leading-none uppercase ">
+                          {item.category} / {item.year}
+                        </p>
+                      </div>
+                    </figure>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <motion.button
+            whileTap={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "#000",
+            }}
+            onClick={() => {
+              if (query) {
+                setQuery("");
+              } else {
+                shuffleSuggestions();
+              }
+            }}
+            className="mb-10 p-5 px-10 w-full bg-s backdrop-blur-2xl rounded-sm 
+            flex items-center justify-center gap-5 group"
+          >
+            <RxUpdate
+              className="text-[22px] text-p group-hover:rotate-155 group-hover:text-s
+            transition-all duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            />
+            <p
+              className="font-azeret font-medium 
+            text-p text-[14px] tracking-[0.05em] leading-none uppercase
+             group-hover:text-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            >
+              update suggestions
+            </p>
+          </motion.button>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-[900]"
+        variants={overlayAnim}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        onClick={closeSearch}
+      />
+    </>
+  );
+};

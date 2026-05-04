@@ -26,12 +26,12 @@ const HomeClients = () => {
     <section id="clients" className="relative px-15 max-md:px-5 ">
       <div className="mb-10 flex items-center gap-2">
         <span className="size-2 bg-p rounded-[1px]" />
-        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-widest leading-none uppercase">
+        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
           Trusted worldwide
         </p>
       </div>
 
-      <div className="relative py-20 w-full">
+      <div className="relative py-30 w-full">
         <div className="flex items-center justify-between">
           {logos.map((icon, i) => (
             <div key={i} className="text-p text-[62px]">

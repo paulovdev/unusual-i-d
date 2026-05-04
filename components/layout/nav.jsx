@@ -2,6 +2,12 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import String from "../ui/string";
+import { usePathname } from "next/navigation";
+import { FaBehance, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { useWorkStore } from "@/store/useWorkStore";
+import { IoIosSearch } from "react-icons/io";
+import { SearchModal } from "../modal/search/search-modal";
 
 export const menuContainer = {
   initial: {
@@ -54,16 +60,14 @@ export const menuOverlay = {
 };
 
 const navData = [
-  { label: "intro", href: "#intro" },
-  { label: "about", href: "#about" },
-  { label: "works", href: "#works" },
-  { label: "what we do", href: "#what-we-do" },
-  { label: "statement", href: "#statement" },
-  { label: "clients", href: "#clients" },
-  { label: "cta", href: "#cta" },
+  { label: "home", href: "/" },
+  { label: "studio", href: "/studio" },
+  { label: "spaces", href: "/spaces" },
+  { label: "contact us", href: "/contact" },
 ];
 
-const Menu = ({ setMenu, activeSection }) => {
+const Menu = ({ setMenu }) => {
+  const pathname = usePathname();
   return (
     <>
       <motion.div
@@ -75,7 +79,7 @@ const Menu = ({ setMenu, activeSection }) => {
          w-100 bg-p/50 backdrop-blur-2xl rounded-md z-90 pointer-events-none"
       >
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{
             opacity: 1,
             y: 0,
@@ -83,45 +87,42 @@ const Menu = ({ setMenu, activeSection }) => {
           }}
           exit={{
             opacity: 0,
-            y: -10,
+            y: 15,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="relative p-6 py-10 size-full flex flex-col items-start pointer-events-auto"
+          className="relative p-6 py-10 size-full flex flex-col items-start justify-between pointer-events-auto"
         >
-          {navData.map((nav, i) => {
-            const active = nav.href === `#${activeSection}`;
+          <div className="w-full flex flex-col items-start">
+            <p className="mb-5 font-azeret font-medium text-s/50 text-[12px] tracking-[0.05em] uppercase">
+              MENU
+            </p>
+            <span className="mb-5 w-full h-px bg-s/25" />
+            {navData.map((nav, i) => {
+              const active = pathname === nav.href;
 
-            const handleClick = (e) => {
-              e.preventDefault();
-
-              const target = document.querySelector(nav.href);
-
-              if (target) {
-                target.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
-              }
-
-              setMenu(false);
-            };
-
-            return (
-              <a
-                href={nav.href}
-                onClick={handleClick}
-                className={`${active ? "mt-5 mb-7" : "mb-2"} size-fit flex items-center gap-2`}
-                key={i}
-              >
-                {active && <span className="size-2 bg-s rounded-[1px]" />}
-                <p
-                  className={`max-w-125 font-azeret font-medium ${active ? "text-s" : "text-s/50 hover:text-s"} text-[14px] tracking-widest leading-none uppercase transition-all duration-250`}
+              return (
+                <a
+                  href={nav.href}
+                  key={i}
+                  onClick={() => setMenu(false)}
+                  className={`${active ? "mt-5 mb-7" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  {nav.label}
-                </p>
-              </a>
-            );
-          })}
+                  {active && <span className="size-2 bg-s rounded-[1px]" />}
+                  <p
+                    className={`max-w-125 font-azeret font-medium ${active ? "text-s" : "text-s/50 hover:text-s"} text-[14px] tracking-[0.05em] leading-none uppercase transition-all duration-250`}
+                  >
+                    {nav.label}
+                  </p>
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-5 ">
+            <FaXTwitter className="text-s text-[24px]" />
+            <FaInstagram className="text-s text-[24px]" />
+            <FaBehance className="text-s text-[24px]" />
+          </div>
         </motion.div>
       </motion.div>
       <motion.div
@@ -138,32 +139,7 @@ const Menu = ({ setMenu, activeSection }) => {
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
-  const [activeSection, setActiveSection] = useState("intro");
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: 0,
-      },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-
+  const { openSearch } = useWorkStore();
   return (
     <>
       <nav className="fixed inset-5 flex items-end justify-center z-100 pointer-events-none">
@@ -174,7 +150,8 @@ const Nav = () => {
           <motion.figure
             className="relative " /* w-8 h-8  */
             animate={{
-              y: menu ? -120 : 0,
+              y: menu ? -85 : 0,
+              x: menu ? 150 : 0,
               scale: menu ? 1.5 : 1,
               transition: {
                 duration: 0.8,
@@ -228,7 +205,7 @@ const Nav = () => {
         </button>
       </nav>
       <AnimatePresence mode="wait">
-        {menu && <Menu setMenu={setMenu} activeSection={activeSection} />}
+        {menu && <Menu setMenu={setMenu} />}
       </AnimatePresence>
     </>
   );

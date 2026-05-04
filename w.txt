@@ -271,7 +271,7 @@ const Card = ({ work, index }) => {
                 <span
                   className="font-azeret font-medium 
                   text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate
-                  max-md:text-[12px]"
+                  "
                 >
                   {work.category}
                 </span>
@@ -279,7 +279,7 @@ const Card = ({ work, index }) => {
                 <span
                   className="font-azeret font-medium 
                   text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase
-                  max-md:text-[12px]"
+                  "
                 >
                   2024
                 </span>
@@ -303,8 +303,8 @@ const Card = ({ work, index }) => {
                   <span className="size-2 bg-s rounded-[1px]" />
                   <p
                     className="font-azeret font-medium 
-                    text-s text-[14px] tracking-widest leading-none uppercase
-                    max-md:text-[12px]"
+                    text-s text-[14px] tracking-[0.05em] leading-none uppercase
+                    "
                   >
                     about work
                   </p>
@@ -320,7 +320,7 @@ const Card = ({ work, index }) => {
                   className="flex flex-col"
                   lineClassName="max-w-150 mb-5 font-azeret font-medium 
                   text-s text-[14px] tracking-[0.05em] leading-[1.2] uppercase 
-                  max-md:text-[12px]"
+                  "
                   wordClassName="mr-2"
                   wordDelay={0.035}
                   lineDelay={0.035}
@@ -388,7 +388,7 @@ const HomeWorks = () => {
       >
         <div className="relative top-10 flex items-center gap-2">
           <span className="size-2 bg-s rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-widest leading-none uppercase">
+          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
             Selected works
           </p>
         </div>

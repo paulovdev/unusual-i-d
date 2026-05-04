@@ -21,7 +21,7 @@ const Button = ({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 1.1 }}
-      className={`w-fit px-6 h-12.5 rounded-md
+      className={`w-fit p-5 px-10 rounded-sm 
         flex items-center justify-center select-none cursor-default
         transition-colors duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)] ${hovered ? hoverBg : bg}`}
     >
@@ -58,7 +58,7 @@ const Button = ({
             x: hovered ? 2 : 0,
           }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
-          className={`font-azeret font-semibold text-[12px] tracking-[0.05em] leading-none uppercase transition-colors duration-500 ${
+          className={`font-azeret font-semibold text-[14px] tracking-[0.05em] leading-none uppercase transition-colors duration-500 ${
             hovered ? hoverTextColor : textColor
           }`}
         >

@@ -8,7 +8,7 @@ const HomeCTA = () => {
       <div className="p-15 max-md:px-5">
         <div className="mb-10 size-fit flex items-center gap-2">
           <span className="size-2 bg-s rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-widest leading-none uppercase">
+          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
             Start a project
           </p>
         </div>

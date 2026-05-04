@@ -6,6 +6,7 @@ const ImageComponent = ({ image, className }) => {
     <Image
       src={urlFor(image).quality(100).url()}
       fill
+      sizes=""
       alt={image.alt || "Image"}
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}

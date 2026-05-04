@@ -1,11 +1,14 @@
 import Button from "@/components/ui/button";
 import TextAnimated from "@/components/ui/text-animated";
 import Image from "next/image";
-import React from "react";
+import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import reel from "@/public/assets/images/reel.jpg";
-import { IoMdPlay } from "react-icons/io";
+
+import Link from "next/link";
+import { LuDoorClosed, LuDoorOpen } from "react-icons/lu";
+import { useRouter } from "next/navigation";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -20,6 +23,8 @@ const textSlide = {
 };
 
 const HomeAbout = () => {
+  const router = useRouter();
+  const [hover, setHover] = useState(null);
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -29,7 +34,7 @@ const HomeAbout = () => {
     <section id="about" className="relative h-fit p-15 max-md:px-5" ref={ref}>
       <div className="mb-20 size-fit flex items-center gap-2">
         <span className="size-2 bg-p rounded-[1px]" />
-        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-widest leading-none uppercase">
+        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
           Approach
         </p>
       </div>
@@ -58,16 +63,17 @@ const HomeAbout = () => {
         className="mt-10 w-full flex items-start justify-end gap-5
         max-md:justify-between max-md:gap-2"
       >
-        <Button
-          text="The studio"
-          bg="bg-p"
-          textColor="text-s"
-          iconColor="text-s"
-          hoverBg="bg-s"
-          hoverTextColor="text-p"
-          hoverIconColor="text-p"
-        />
-
+        <Link href="/studio">
+          <Button
+            text="The studio"
+            bg="bg-p"
+            textColor="text-s"
+            iconColor="text-s"
+            hoverBg="bg-s"
+            hoverTextColor="text-p"
+            hoverIconColor="text-p"
+          />
+        </Link>
         <motion.figure
           initial={{ scale: 0 }}
           animate={{
@@ -80,6 +86,9 @@ const HomeAbout = () => {
           }}
           className="relative w-125 h-75 overflow-hidden rounded-md group
           max-md:w-74 max-md:h-50"
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(null)}
+          onClick={() => router.push("/spaces")}
         >
           <Image
             src={reel}
@@ -93,8 +102,37 @@ const HomeAbout = () => {
           />
 
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-2 opacity-80 group-hover:opacity-100 transition">
-              <IoMdPlay className="text-s text-[14px]" />
+            <div className="flex items-center gap-2">
+              <AnimatePresence mode="wait">
+                <div className="" key={hover}>
+                  {hover ? (
+                    <motion.div
+                      initial={{ opacity: 0.5 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0.5 }}
+                      transition={{
+                        duration: 0.1,
+                        ease: [0.76, 0, 0.24, 1],
+                      }}
+                    >
+                      <LuDoorOpen className="text-s text-[20px]" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0.5 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0.5 }}
+                      transition={{
+                        duration: 0.1,
+                        ease: [0.76, 0, 0.24, 1],
+                      }}
+                    >
+                      <LuDoorClosed className="text-s text-[20px]" />
+                    </motion.div>
+                  )}
+                </div>
+              </AnimatePresence>
+
               <p className="font-azeret text-[12px] tracking-[0.2em] uppercase text-s">
                 Enter spaces
               </p>

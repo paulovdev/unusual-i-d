@@ -16,7 +16,7 @@ const textSlide = {
     },
   }),
 };
-const HomeWhatWeDo = () => {
+const StudioWhatWeDo = () => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -26,12 +26,12 @@ const HomeWhatWeDo = () => {
       <div className="p-15 max-md:px-5">
         <div className="mb-10 size-fit flex items-center gap-2">
           <span className="size-2 bg-s rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-widest leading-none uppercase">
+          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
             WHAT WE DO
           </p>
         </div>
         <div className="pt-50 flex flex-col items-start gap-10">
-          <p className="max-w-125 font-azeret font-medium text-s/75 text-[14px] tracking-widest leading-[1.1] uppercase">
+          <p className="max-w-125 font-azeret font-medium text-s/75 text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
             Spatial capabilities
           </p>
           <TextAnimated
@@ -42,9 +42,9 @@ const HomeWhatWeDo = () => {
             animate={inView}
             as="h2"
             className="flex flex-col"
-            lineClassName="max-w-225 font-i-sans font-normal 
-            text-s text-[48px] tracking-[-0.07em] leading-none
-            max-md:text-[38px]
+            lineClassName="font-i-sans font-normal 
+        text-s text-[68px] tracking-[-0.07em] leading-none
+        max-md:text-[38px]
         "
             wordClassName="mr-2"
             wordDelay={0.035}
@@ -54,7 +54,7 @@ const HomeWhatWeDo = () => {
           <span className="w-full h-px bg-s/25" />
           <div className="w-full h-fit grid grid-cols-4 grid-rows-2 max-md:grid-cols-2">
             <div className="min-h-75 flex flex-col items-start gap-5 max-md:col-span-2 max-md:min-h-40">
-              <span className="font-azeret font-medium text-s text-[14px] tracking-widest leading-[1.1] uppercase">
+              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
                 Interior design
               </span>
               <TextAnimated
@@ -76,7 +76,7 @@ const HomeWhatWeDo = () => {
               className="row-start-2 col-start-2 min-h-75 flex flex-col items-start gap-5 
             max-md:row-start-3 max-md:col-start-1 max-md:col-span-2 max-md:min-h-60"
             >
-              <span className="font-azeret font-medium text-s text-[14px] tracking-widest leading-[1.1] uppercase">
+              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
                 Spatial direction
               </span>
               <TextAnimated
@@ -107,7 +107,7 @@ const HomeWhatWeDo = () => {
               className="col-start-3 min-h-75 flex flex-col items-start gap-5 
             max-md:col-span-2 max-md:min-h-40"
             >
-              <span className="font-azeret font-medium text-s text-[14px] tracking-widest leading-[1.1] uppercase">
+              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
                 Material & finishes
               </span>
               <TextAnimated
@@ -129,7 +129,7 @@ const HomeWhatWeDo = () => {
               className="min-h-75 flex flex-col items-start gap-5 
             max-md:col-span-2 max-md:min-h-40"
             >
-              <span className="font-azeret font-medium text-s text-[14px] tracking-widest leading-[1.1] uppercase">
+              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
                 Lighting design
               </span>
               <TextAnimated
@@ -168,7 +168,6 @@ const HomeWhatWeDo = () => {
               alt="ring-1"
               className="relative w-150 h-screen max-md:w-75 max-md:h-[50vh]"
             /> */}
-            <String inView={inView} />
           </motion.figure>
         </div>
       </div>
@@ -176,4 +175,4 @@ const HomeWhatWeDo = () => {
   );
 };
 
-export default HomeWhatWeDo;
+export default StudioWhatWeDo;
