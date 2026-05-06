@@ -45,6 +45,7 @@ const HomeIntro = () => {
             alt="home-hero-image"
             className="object-cover size-full brightness-75"
             placeholder="blur"
+            priority
           />
           {/*   <video
             src="/assets/videos/bg.mp4"

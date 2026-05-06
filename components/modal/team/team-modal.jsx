@@ -6,6 +6,9 @@ import Lenis from "lenis";
 import { IoClose } from "react-icons/io5";
 import { motion } from "motion/react";
 import TextAnimated from "@/components/ui/text-animated";
+import { FiMapPin } from "react-icons/fi";
+import { FaInstagram } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -129,15 +132,24 @@ export const TeamModal = ({ member, lenis, onClose }) => {
         </motion.div>
 
         <div className="size-full overflow-y-scroll" ref={scrollRef}>
-          <div className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            }}
+            exit={{
+              opacity: 0,
+              y: 15,
+              transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+            }}
+            className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
+          >
             <div className="w-full flex flex-col gap-15 max-md:mb-10">
               <div className="flex items-center">
                 <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate ">
                   {member.role}
-                </span>
-                <span className="mx-5 text-s">/</span>
-                <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
-                  {member.email}
                 </span>
               </div>
               <TextAnimated
@@ -152,6 +164,9 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 lineDelay={0.025}
               />
             </div>
+
+            {/*  */}
+
             <div className="relative mt-10 w-full h-[50vh]">
               <Image
                 src={member.src}
@@ -161,8 +176,61 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 className="object-cover rounded-md"
               />
             </div>
+            <div className="w-full flex flex-col gap-3">
+              <div className="mt-10 w-full flex">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <MdOutlineEmail className="text-s text-[14px]" />
 
-            <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
+                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      e-mail
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-15">
+                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                    {member.email}
+                  </p>
+                </div>
+              </div>
+              <div className="w-full flex">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <FaInstagram className="text-s text-[14px]" />
+
+                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      instagram
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-15">
+                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                    {member.instagram}
+                  </p>
+                </div>
+              </div>
+              <div className="w-full flex">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <FiMapPin className="text-s text-[14px]" />
+
+                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      location
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-15">
+                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                    {member.location}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="my-10 w-full h-px bg-s/15"></div>
+            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
                   <span className="size-2 bg-s rounded-[1px]" />
@@ -186,7 +254,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
 

@@ -6,8 +6,7 @@ import { usePathname } from "next/navigation";
 import { FaBehance, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useWorkStore } from "@/store/useWorkStore";
-import { IoIosSearch } from "react-icons/io";
-import { SearchModal } from "../modal/search/search-modal";
+
 
 export const menuContainer = {
   initial: {

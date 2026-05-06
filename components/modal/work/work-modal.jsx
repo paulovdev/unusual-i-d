@@ -129,9 +129,23 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
           </motion.button>
         </motion.div>
 
-        <div ref={scrollRef} className="size-full overflow-y-scroll">
+        <motion.div
+          ref={scrollRef}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
+          exit={{
+            opacity: 0,
+            y: 15,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
+          className="size-full overflow-y-scroll"
+        >
           <WorkModalContent work={work} />
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* OVERLAY */}
@@ -171,7 +185,6 @@ const WorkModalContent = ({ work }) => {
 
   return (
     <div className="size-full flex flex-col items-end justify-between max-md:gap-5">
-      {/* HEADER */}
       <div className="w-full flex flex-col gap-15 max-md:mb-10">
         <div className="flex items-center">
           <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate ">

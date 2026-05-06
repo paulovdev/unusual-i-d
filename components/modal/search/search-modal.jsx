@@ -9,6 +9,7 @@ import TextAnimated from "@/components/ui/text-animated";
 import { BiSearch } from "react-icons/bi";
 import { useWorkStore } from "@/store/useWorkStore";
 import { RxUpdate } from "react-icons/rx";
+import ImageComponent from "@/components/ui/image";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -48,8 +49,9 @@ const overlayAnim = {
 
 export const SearchModal = ({ lenis, work }) => {
   const { setActiveWork, query, setQuery, closeSearch } = useWorkStore();
-  const [randomSuggestions, setRandomSuggestions] = useState([]);
-
+  const [randomSuggestions, setRandomSuggestions] = useState(
+    () => work?.slice(0, 4) || [],
+  );
   const scrollRef = useRef(null);
   const modalLenis = useRef(null);
 
@@ -84,10 +86,6 @@ export const SearchModal = ({ lenis, work }) => {
         )
         .slice(0, 3)
     : randomSuggestions;
-
-  useEffect(() => {
-    setRandomSuggestions(work.slice(0, 4));
-  }, [work]);
 
   const shuffleSuggestions = () => {
     const arr = [...work];
@@ -130,7 +128,7 @@ export const SearchModal = ({ lenis, work }) => {
           }}
           className="absolute top-5 right-5 z-30 group"
         >
-          <motion.button
+          <motion.div
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
@@ -142,10 +140,24 @@ export const SearchModal = ({ lenis, work }) => {
               className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
-          </motion.button>
+          </motion.div>
         </motion.button>
 
-        <div className="size-full overflow-y-scroll" ref={scrollRef}>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
+          exit={{
+            opacity: 0,
+            y: 15,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
+          className="size-full overflow-y-scroll"
+          ref={scrollRef}
+        >
           <div className="flex flex-col items-start">
             <TextAnimated
               phrases={["Navigateㅤ"]}
@@ -218,7 +230,7 @@ export const SearchModal = ({ lenis, work }) => {
                     group-hover:border-s duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
                     >
                       <Image
-                        src={item.heroMedia?.image?.asset?.url}
+                        src={item?.heroMedia?.image.asset.url}
                         width={1000}
                         height={1000}
                         alt=""
@@ -268,7 +280,7 @@ export const SearchModal = ({ lenis, work }) => {
               update suggestions
             </p>
           </motion.button>
-        </div>
+        </motion.div>
       </motion.div>
 
       <motion.div

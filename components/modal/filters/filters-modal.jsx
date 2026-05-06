@@ -163,7 +163,7 @@ export const FiltersModal = ({ lenis }) => {
           }}
           className="absolute top-5 right-5 z-30 group"
         >
-          <motion.button
+          <motion.div
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
@@ -175,10 +175,21 @@ export const FiltersModal = ({ lenis }) => {
               className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
-          </motion.button>
+          </motion.div>
         </motion.button>
 
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
+          exit={{
+            opacity: 0,
+            y: 15,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+          }}
           className="relative size-full overflow-y-scroll flex flex-col justify-between"
           ref={scrollRef}
         >
@@ -308,7 +319,7 @@ export const FiltersModal = ({ lenis }) => {
               </p>
             </motion.button>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       <motion.div
