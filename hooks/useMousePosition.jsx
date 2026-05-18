@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useMotionValue, useSpring } from "motion/react";
+import { useMotionValue, useSpring } from "framer-motion";
 
 export function useMousePosition() {
   const x = useMotionValue(0);

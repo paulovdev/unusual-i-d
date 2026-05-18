@@ -1,7 +1,7 @@
 import TextAnimated from "@/components/ui/text-animated";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useState } from "react";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { awards } from "@/data/data";

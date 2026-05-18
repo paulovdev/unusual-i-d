@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const TextAnimated = ({
   phrases,
@@ -21,15 +21,14 @@ const TextAnimated = ({
         return (
           <LineTag key={lineIndex} className={lineClassName}>
             {words.map((word, wordIndex) => {
-              const delay =
-                lineIndex * lineDelay + wordIndex * wordDelay;
+              const delay = lineIndex * lineDelay + wordIndex * wordDelay;
 
               return (
                 <span
                   key={wordIndex}
                   className="inline-block overflow-hidden align-bottom"
                   style={{
-                    paddingBottom: "0.1em",  
+                    paddingBottom: "0.1em",
                   }}
                 >
                   <motion.span

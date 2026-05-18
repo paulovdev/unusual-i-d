@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { TeamModal } from "@/components/modal/team/team-modal";
 
 const Card = ({ member, activeMember, onClick, index, inView }) => {

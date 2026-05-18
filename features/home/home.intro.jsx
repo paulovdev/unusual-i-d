@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "@/components/ui/button";
 import TextAnimated from "@/components/ui/text-animated";
 import { useInView } from "react-intersection-observer";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { IoSunnyOutline } from "react-icons/io5";
 import { PiGps } from "react-icons/pi";
 

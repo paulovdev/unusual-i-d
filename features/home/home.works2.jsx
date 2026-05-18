@@ -4,7 +4,12 @@ import TextAnimated from "@/components/ui/text-animated";
 
 import React, { useState, useRef, useMemo } from "react";
 
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 import ImageComponent from "@/components/ui/image";
 import WorkModal from "@/components/modal/work/work-modal";

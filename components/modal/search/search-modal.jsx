@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Lenis from "lenis";
 
 import { IoClose } from "react-icons/io5";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import TextAnimated from "@/components/ui/text-animated";
 import { BiSearch } from "react-icons/bi";
 import { useWorkStore } from "@/store/useWorkStore";

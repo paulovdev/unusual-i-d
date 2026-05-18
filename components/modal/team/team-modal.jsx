@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
 import { IoClose } from "react-icons/io5";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import TextAnimated from "@/components/ui/text-animated";
 import { FiMapPin } from "react-icons/fi";
 import { FaInstagram } from "react-icons/fa";

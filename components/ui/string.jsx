@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const OPEN_GAP = 2;
 const CLOSED_GAP = 4;

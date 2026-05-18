@@ -2,7 +2,7 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
 import imgTest from "@/public/assets/images/home/bg.jpg";
 import Image from "next/image";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import TextAnimated from "@/components/ui/text-animated";
 import { useState } from "react";
 
