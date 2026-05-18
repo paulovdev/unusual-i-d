@@ -6,7 +6,12 @@ const ImageComponent = ({ image, className }) => {
     <Image
       src={urlFor(image).quality(100).url()}
       fill
-      sizes=""
+      sizes="
+        (max-width: 640px) 100vw,
+        (max-width: 1024px) 50vw,
+        (max-width: 1536px) 33vw,
+        25vw
+      "
       alt={image.alt || "Image"}
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}
@@ -14,4 +19,5 @@ const ImageComponent = ({ image, className }) => {
     />
   );
 };
+
 export default ImageComponent;

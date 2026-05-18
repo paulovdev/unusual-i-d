@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "@/components/ui/button";
 import TextAnimated from "@/components/ui/text-animated";
 import { useInView } from "react-intersection-observer";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { IoSunnyOutline } from "react-icons/io5";
 import { PiGps } from "react-icons/pi";
 
@@ -64,13 +64,13 @@ const HomeIntro = () => {
                   className="font-azeret font-medium 
               text-s text-[12px] tracking-none leading-[1.1] uppercase"
                 >
-                  LIGHT — CONTROLLED
+                  LUZ — CONTROLADA
                 </p>
                 <p
                   className="font-azeret font-medium 
               text-s text-[12px] tracking-none leading-[1.1] uppercase"
                 >
-                  SPACE — ACTIVE
+                  ESPAÇO — VIVO
                 </p>
               </div>
             </div>
@@ -81,13 +81,13 @@ const HomeIntro = () => {
                   className="font-azeret font-medium 
               text-s text-[12px] tracking-none leading-[1.1] uppercase"
                 >
-                  FORM — STRUCTURE
+                  FORMA — ESTRUTURA
                 </p>
                 <p
                   className="font-azeret font-medium 
               text-s text-[12px] tracking-none leading-[1.1] uppercase"
                 >
-                  MATERIAL — BALANCE
+                  MATERIAL — EQUILÍBRIO
                 </p>
               </div>
             </div>
@@ -98,17 +98,17 @@ const HomeIntro = () => {
         max-lg:p-10 max-lg:py-30 max-md:py-30 max-md:p-5"
         >
           <TextAnimated
-            phrases={[`We shape space, light and atmosphere.`]}
+            phrases={[`Moldamos espaço, luz e atmosfera.`]}
             variants={textSlide}
             as="h2"
             className="flex flex-col"
-            lineClassName="font-i-sans font-normal 
+            lineClassName="font-neue font-normal 
               text-center text-s text-[96px] tracking-[-0.07em] leading-[1.1]
               max-lg:text-[62px] max-md:text-[42px] 
         "
             wordClassName="mr-2"
-            wordDelay={0.035}
-            lineDelay={0.035}
+            wordDelay={0.015}
+            lineDelay={0.1}
           />
         </div>
         <motion.div
@@ -122,14 +122,14 @@ const HomeIntro = () => {
             <div className="size-fit flex items-center gap-2">
               <span className="size-2 bg-s rounded-[1px]" />
               <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                Space is not decoration.
+                Espaço não é decoração.
               </p>
             </div>
 
             <TextAnimated
               phrases={[
-                `It is structure, tension and balance.`,
-                `We design environments through light, material and proportion — creating spaces that feel precise, calm and deeply intentional.`,
+                `É estrutura, tensão e equilíbrio.`,
+                `Projetamos ambientes através da luz, dos materiais e da proporção — criando espaços precisos, calmos e profundamente intencionais.`,
               ]}
               variants={textSlide}
               animate={inView}
@@ -139,8 +139,8 @@ const HomeIntro = () => {
               text-s/75 text-[14px] tracking-none leading-[1.1] uppercase
         "
               wordClassName="mr-2"
-              wordDelay={0.035}
-              lineDelay={0.035}
+              wordDelay={0.015}
+              lineDelay={0.1}
             />
             {/*    <Button
               text="view work"

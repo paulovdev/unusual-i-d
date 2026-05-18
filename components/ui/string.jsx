@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const OPEN_GAP = 2;
 const CLOSED_GAP = 4;
@@ -25,7 +25,6 @@ const Ring = ({ i, menuOpen }) => {
       initial={{
         opacity: 0,
         y: closedBaseY + CLOSED_GAP / 2,
-       
       }}
       animate={{
         opacity: 1,
@@ -61,7 +60,7 @@ const Ring = ({ i, menuOpen }) => {
       }}
     >
       <motion.div
-        className="border-s rounded-full"
+        className="border-s rounded-xs"
         animate={{
           width: WIDTH,
           height: menuOpen ? OPEN_HEIGHT : CLOSED_HEIGHT,

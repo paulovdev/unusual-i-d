@@ -62,12 +62,40 @@ export const FiltersModal = ({ lenis }) => {
   const years = ["all", "2026", "2025", "2024"];
   const status = ["all", "completed", "ongoing", "concept"];
   const styles = [
-    { value: "minimal", icon: "—" },
+    { value: "minimalist", icon: "—" },
     { value: "modern", icon: "▭" },
     { value: "industrial", icon: "▦" },
     { value: "luxury", icon: "✦" },
     { value: "warm", icon: "☀" },
   ];
+
+  const yearLabel = (y) => {
+    if (y === "all") return "Todos os espaços";
+    if (y === "2026") return "Mais recentes (2026)";
+    if (y === "2025") return "2025";
+    if (y === "2024") return "2024";
+    return y;
+  };
+
+  const statusLabel = (s) => {
+    if (s === "all") return "Todos";
+    if (s === "completed") return "Concluído";
+    if (s === "ongoing") return "Em andamento";
+    if (s === "concept") return "Conceitual";
+    return s;
+  };
+
+  const styleLabel = (v) => {
+    const map = {
+      minimalist: "Minimalista",
+      modern: "Moderno",
+      industrial: "Industrial",
+      luxury: "Luxo",
+      warm: "Aconchegante",
+    };
+    return map[v] || v;
+  };
+
   useEffect(() => {
     lenis?.current?.stop();
 
@@ -107,7 +135,7 @@ export const FiltersModal = ({ lenis }) => {
       )}
       <span
         className={`font-azeret font-medium text-[14px] tracking-[0.05em] leading-none uppercase 
-           ${active ? "text-s" : "text-s/50 hover:text-s/75"}`}
+           ${active ? "text-p" : "text-p/50 hover:text-p/75"}`}
       >
         {label}
       </span>
@@ -120,12 +148,15 @@ export const FiltersModal = ({ lenis }) => {
         className={`flex flex-col items-center gap-2 p-5 border rounded-sm transition-all
         ${
           active
-            ? "bg-s text-p border-s"
-            : "border-s/25 text-s/50 hover:text-s hover:border-s/50"
+            ? "bg-p text-s border-s"
+            : "border-p/10 text-p/50 hover:text-p hover:border-p/50"
         }`}
       >
         <span className="text-[22px]">{item.icon}</span>
-        <span className="font-azeret font-medium  text-[12px] tracking-[0.05em] leading-none uppercase ">
+        <span
+          className="font-azeret font-medium 
+        text-[12px] tracking-[0.05em] leading-none uppercase "
+        >
           {item.value}
         </span>
       </button>
@@ -134,7 +165,7 @@ export const FiltersModal = ({ lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-15 px-10 w-[45vw] h-[calc(100%-32px)] bg-p/25 backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[45vw] h-[calc(100%-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -167,12 +198,12 @@ export const FiltersModal = ({ lenis }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl rounded-sm group  bg-s"
+            className="p-3 backdrop-blur-2xl border border-s/10 rounded-sm group  bg-p"
           >
             <IoClose
-              className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.div>
@@ -195,14 +226,14 @@ export const FiltersModal = ({ lenis }) => {
         >
           <div className="flex flex-col items-start">
             <TextAnimated
-              phrases={["Categoriesㅤ"]}
+              phrases={["Categoriasᅠ"]}
               variants={textSlide}
               as="h2"
               className="flex flex-col"
-              lineClassName="mb-15 font-i-sans font-normal text-s text-[72px] tracking-[-0.07em] leading-none max-md:text-[42px]"
+              lineClassName="mb-15 font-neue font-normal text-p text-[72px] tracking-[-0.07em] leading-none max-md:text-[42px]"
               wordClassName="mr-2"
-              wordDelay={0.065}
-              lineDelay={0.025}
+              wordDelay={0.015}
+              lineDelay={0.1}
             />
 
             {/* YEAR */}
@@ -210,8 +241,8 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-s rounded-[1px]" />
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                  <span className="size-2 bg-p rounded-[1px]" />
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                     year
                   </p>
                 </div>
@@ -220,13 +251,7 @@ export const FiltersModal = ({ lenis }) => {
                 {years.map((y) => (
                   <Item
                     key={y}
-                    label={
-                      y === "all"
-                        ? "All"
-                        : y && y === "2026"
-                          ? "Recent (2026)"
-                          : y
-                    }
+                    label={yearLabel(y)}
                     active={activeYear === y}
                     onClick={() => setActiveYear(y)}
                     color="bg-blue-400"
@@ -234,14 +259,14 @@ export const FiltersModal = ({ lenis }) => {
                 ))}
               </div>
             </div>
-            <div className="w-full h-px bg-s/20 my-10" />
+            <div className="w-full h-px bg-p/10 my-10" />
 
             {/* STATUS */}
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-s rounded-[1px]" />
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                  <span className="size-2 bg-p rounded-[1px]" />
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                     status
                   </p>
                 </div>
@@ -250,7 +275,7 @@ export const FiltersModal = ({ lenis }) => {
                 {status.map((s) => (
                   <Item
                     key={s}
-                    label={s}
+                    label={statusLabel(s)}
                     active={activeStatus === s}
                     onClick={() => setActiveStatus(s)}
                     color="bg-green-400"
@@ -259,14 +284,14 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-s/20 my-10" />
+            <div className="w-full h-px bg-p/10 my-10" />
 
             {/* STYLE */}
             <div className=" w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="size-2 bg-s rounded-[1px]" />
-                  <p className="text-s text-[14px] uppercase">style</p>
+                  <span className="size-2 bg-p rounded-[1px]" />
+                  <p className="text-p text-[14px] uppercase">style</p>
                 </div>
               </div>
 
@@ -274,7 +299,10 @@ export const FiltersModal = ({ lenis }) => {
                 {styles.map((item) => (
                   <StyleItem
                     key={item.value}
-                    item={item}
+                    item={{
+                      ...item,
+                      value: styleLabel(item.value),
+                    }}
                     active={activeStyles.includes(item.value)}
                     onClick={() => setActiveStyles(item.value)}
                   />
@@ -290,14 +318,14 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#fff",
               }}
               onClick={resetAll}
-              className="p-5 px-10 w-full bg-p backdrop-blur-2xl rounded-sm group "
+              className="p-5 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm group "
             >
               <p
                 className="font-azeret font-semibold 
               text-s text-[12px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-p transition-colors duration-500"
               >
-                reset all
+                limpar filtros
               </p>
             </motion.button>
 
@@ -308,14 +336,14 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#000",
               }}
               onClick={closeFilters}
-              className="p-5 px-10 w-full bg-s backdrop-blur-2xl rounded-sm group"
+              className="p-5 px-10 w-full bg-s border border-s/10 backdrop-blur-2xl rounded-sm group"
             >
               <p
                 className="font-azeret font-semibold 
               text-p text-[12px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-s transition-colors duration-500"
               >
-                apply & close
+                aplicar filtros e fechar
               </p>
             </motion.button>
           </div>

@@ -99,7 +99,8 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-15 px-10 w-[45vw] h-[calc(100%-32px)] bg-p/25 backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[45vw] h-[calc(100%-32px)]
+         bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -132,12 +133,12 @@ export const SearchModal = ({ lenis, work }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl rounded-sm group max-md:p-2 bg-s"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
           >
             <IoClose
-              className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.div>
@@ -160,23 +161,24 @@ export const SearchModal = ({ lenis, work }) => {
         >
           <div className="flex flex-col items-start">
             <TextAnimated
-              phrases={["Navigateㅤ"]}
+              phrases={["Navegueㅤ"]}
               variants={textSlide}
               as="h2"
               className="flex flex-col"
-              lineClassName="mb-5 font-i-sans font-normal text-s text-[72px] tracking-[-0.07em]
+              lineClassName="mb-5 font-neue font-normal text-p text-[72px] tracking-[-0.07em]
                leading-none max-md:text-[42px]"
               wordClassName="mr-2"
-              wordDelay={0.065}
-              lineDelay={0.025}
+              wordDelay={0.015}
+              lineDelay={0.1}
             />
             <div className="relative w-full">
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search spaces..."
-                className="w-full p-5 border border-s/25 rounded-sm outline-none font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase "
+                placeholder="Pesquise por espaços..."
+                className="w-full p-5 border border-p/10 rounded-sm outline-none 
+                font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase "
               />
               {query ? (
                 <span
@@ -184,14 +186,14 @@ export const SearchModal = ({ lenis, work }) => {
                   className="absolute right-4 top-3.5 group"
                 >
                   <IoClose
-                    className="text-s text-[28px] 
+                    className="text-p text-[28px] 
                   hover:scale-110 hover:rotate-90 
                   transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
                   />{" "}
                 </span>
               ) : (
                 <span className="absolute right-4 top-3.5">
-                  <BiSearch className="text-s text-[28px]" />{" "}
+                  <BiSearch className="text-p text-[28px]" />{" "}
                 </span>
               )}
             </div>
@@ -199,14 +201,18 @@ export const SearchModal = ({ lenis, work }) => {
             <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-s rounded-[1px]" />
+                  <span className="size-2 bg-p " />
                   {query === "" ? (
-                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      suggestions
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      sugestões
                     </p>
                   ) : (
-                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      {suggestions.length} results
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      {suggestions.length === 1 ? (
+                        <span>{suggestions.length} resultado</span>
+                      ) : (
+                        <span>{suggestions.length} resultados</span>
+                      )}
                     </p>
                   )}
                 </div>
@@ -226,8 +232,9 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-60 overflow-hidden rounded-sm border border-transparent
-                    group-hover:border-s duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      className="w-full h-60 overflow-hidden rounded-sm 
+                      border border-transparent
+                    group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
                     >
                       <Image
                         src={item?.heroMedia?.image.asset.url}
@@ -242,7 +249,7 @@ export const SearchModal = ({ lenis, work }) => {
                           {item.title}
                         </p>
 
-                        <p className="text-s/70 text-[12px] tracking-[0.05em] leading-none uppercase ">
+                        <p className="text-s/75 text-[12px] tracking-[0.05em] leading-none uppercase ">
                           {item.category} / {item.year}
                         </p>
                       </div>
@@ -256,7 +263,7 @@ export const SearchModal = ({ lenis, work }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
             onClick={() => {
               if (query) {
@@ -265,19 +272,19 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="mb-10 p-5 px-10 w-full bg-s backdrop-blur-2xl rounded-sm 
+            className="mb-10 p-5 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate
-              className="text-[22px] text-p group-hover:rotate-155 group-hover:text-s
+              className="text-[22px] text-s group-hover:rotate-155 group-hover:text-p
             transition-all duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
             <p
               className="font-azeret font-medium 
-            text-p text-[14px] tracking-[0.05em] leading-none uppercase
-             group-hover:text-s transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            text-s text-[14px] tracking-[0.05em] leading-none uppercase
+             group-hover:text-p transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             >
-              update suggestions
+              atualizar sugestões
             </p>
           </motion.button>
         </motion.div>

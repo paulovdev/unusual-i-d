@@ -30,20 +30,20 @@ const HomeStatement = () => {
       <div className="w-full h-screen flex flex-col items-start justify-end gap-25">
         <TextAnimated
           phrases={[
-            `Space is not decoration.`,
-            `It is structure, tension and balance.`,
+            `Cada decisão nasce da relação entre luz, proporção e materialidade.`,
+            `Buscamos equilíbrio entre precisão e sensibilidade para criar espaços silenciosos, claros e intencionais.`,
           ]}
           variants={textSlide}
           animate={inView}
           as="h2"
           className="flex flex-col"
-          lineClassName="font-i-sans font-normal 
-        text-p text-[68px] tracking-[-0.07em] leading-none
+          lineClassName="mb-10 font-neue font-normal 
+        text-p text-[64px] tracking-[-0.07em] leading-none
         max-md:text-[38px]
         "
           wordClassName="mr-2"
-          wordDelay={0.035}
-          lineDelay={0.035}
+          wordDelay={0.015}
+          lineDelay={0.4}
         />
 
         <div className="size-full flex items-center justify-between max-md:flex-col">
@@ -62,13 +62,14 @@ const HomeStatement = () => {
             <Image
               src={element}
               fill
+              sizes=""
               alt="saq"
               className="object-cover w-275 h-150 rounded-md max-md:w-full"
             />
           </motion.figure>
           <TextAnimated
             phrases={[
-              `Every element — from light to material, from proportion to detail — is considered to create environments that feel calm, precise and intentional.`,
+              `Cada elemento — da luz ao material, da proporção ao detalhe — é pensado para construir ambientes calmos, precisos e profundamente intencionais.`,
             ]}
             variants={textSlide}
             animate={inView}
@@ -77,11 +78,11 @@ const HomeStatement = () => {
             lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase
         "
             wordClassName="mr-2"
-            wordDelay={0.035}
-            lineDelay={0.035}
+            wordDelay={0.015}
+            lineDelay={0.4}
           />
         </div>
-        <span className="w-full h-px bg-p/25" />
+        <span className="w-full h-px bg-s/10" />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Lenis from "lenis";
 import { IoClose } from "react-icons/io5";
 import TextAnimated from "@/components/ui/text-animated";
@@ -85,7 +85,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-15 w-[45vw] h-[calc(100vh-32px)] bg-s/10 backdrop-blur-3xl rounded-sm z-[1000]
+        className="fixed left-0 top-0 m-4 p-10 w-[45vw] h-[calc(100vh-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000]
         max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
@@ -118,12 +118,12 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl rounded-sm group max-md:p-2 bg-s"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
           >
             <IoClose
-              className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.button>
@@ -150,7 +150,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
 
       {/* OVERLAY */}
       <motion.div
-        className="fixed inset-0 bg-p/75 backdrop-blur-lg z-[900]"
+        className="fixed inset-0 bg-p/75 backdrop-blur-lg z-900"
         variants={overlayAnim}
         initial="initial"
         animate="animate"
@@ -180,46 +180,57 @@ const WorkModalContent = ({ work }) => {
       break;
 
     default:
-      color = "bg-s/30";
+      color = "bg-p/30";
   }
 
   return (
     <div className="size-full flex flex-col items-end justify-between max-md:gap-5">
       <div className="w-full flex flex-col gap-15 max-md:mb-10">
-        <div className="flex items-center">
-          <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate ">
-            {work.category}
-          </span>
-          <span className="mx-5 text-s">/</span>
-          <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate ">
-            {work.year}
-          </span>
+        <div className="w-full flex items-center gap-5">
+          <div className="flex-1 size-fit flex items-center gap-2">
+            <span className="size-2 bg-p rounded-[1px]" />
+            <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+              {work.mark}
+            </p>
+          </div>
+          <div className="flex-1 flex items-center gap-2">
+            <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
+              {work.category}
+            </span>
+            <span className="mx-5 text-p">/</span>
+            <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
+              {work.year}
+            </span>
+          </div>
         </div>
         <TextAnimated
-          phrases={[work.title]}
+          phrases={[work.title + "ㅤ"]}
           variants={textSlide}
           as="h2"
           className="flex flex-col"
-          lineClassName="font-i-sans font-normal text-s text-[72px] tracking-[-0.07em]
+          lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.05em]
                leading-none max-md:text-[42px]"
           wordClassName="mr-2"
-          wordDelay={0.065}
-          lineDelay={0.025}
+          wordDelay={0.015}
+          lineDelay={0.1}
         />
         <div className="flex flex-col gap-3">
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiMapPin className="text-s text-[14px]" />
+                <FiMapPin className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  location
+                <p
+                  className="font-azeret font-medium
+                text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                >
+                  localização
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                 {work.location.city}, {work.location.country}
               </p>
             </div>
@@ -227,16 +238,16 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiGrid className="text-s text-[14px]" />
+                <FiGrid className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  area
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                  área
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                 {work.area}
                 <span className="lowercase!">m²</span>
               </p>
@@ -245,9 +256,9 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiCircle className="text-s text-[14px]" />
+                <FiCircle className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                   status
                 </p>
               </div>
@@ -255,8 +266,8 @@ const WorkModalContent = ({ work }) => {
 
             <div className="flex-1 flex flex-col gap-15">
               <div className="size-fit flex items-center gap-2">
-                <span className={`size-2 rounded-[1px] ${color} `} />
-                <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
+                <span className={`size-2  ${color} `} />
+                <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
                   {work.status}
                 </span>
               </div>
@@ -265,16 +276,16 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiLayers className="text-s text-[14px]" />
+                <FiLayers className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  style
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                  estilo
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                 {work.styles.join(", ")}
               </p>
             </div>
@@ -282,16 +293,16 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiUser className="text-s text-[14px]" />
+                <FiUser className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  client
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                  cliente
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                 {work.client}
               </p>
             </div>
@@ -299,16 +310,16 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiUsers className="text-s text-[14px]" />
+                <FiUsers className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  consultants
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                  consultores
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="max-w-90 max-md:max-w-50 font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase truncate">
+              <p className="max-w-90 max-md:max-w-50 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase truncate">
                 {work.consultants}
               </p>
             </div>
@@ -316,16 +327,16 @@ const WorkModalContent = ({ work }) => {
           <div className="w-full flex ">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiCamera className="text-s text-[14px]" />
+                <FiCamera className="text-p text-[14px]" />
 
-                <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                  photograph
+                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                  fotografia
                 </p>
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                 {work.photograph}
               </p>
             </div>
@@ -363,7 +374,7 @@ const WorkImageBlock = ({ block }) => {
       />
 
       {block.overlayText && (
-        <p className="absolute bottom-5 right-5 font-azeret text-s text-[14px] uppercase">
+        <p className="absolute bottom-5 right-5 font-azeret font-medium text-s text-[14px] uppercase">
           {block.overlayText}
         </p>
       )}
@@ -376,9 +387,9 @@ const WorkTextBlock = ({ block }) => {
     <div className="my-10 w-full flex max-md:flex-col max-md:gap-5">
       <div className="flex-1 max-md:mb-5">
         <div className="flex items-center gap-2">
-          <span className="size-2 bg-s rounded-[1px]" />
+          <span className="size-2 bg-p " />
           {block.label && (
-            <p className="font-azeret text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+            <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
               {block.label}
             </p>
           )}
@@ -391,10 +402,10 @@ const WorkTextBlock = ({ block }) => {
           variants={textSlide}
           as="span"
           className="flex flex-col"
-          lineClassName="max-w-150 mb-5 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
+          lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
           wordClassName="mr-1"
-          wordDelay={0.035}
-          lineDelay={0.035}
+          wordDelay={0.015}
+          lineDelay={0.4}
         />
       </div>
     </div>

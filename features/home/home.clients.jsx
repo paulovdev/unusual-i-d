@@ -27,7 +27,7 @@ const HomeClients = () => {
       <div className="mb-10 flex items-center gap-2">
         <span className="size-2 bg-p rounded-[1px]" />
         <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-          Trusted worldwide
+          Estúdios & parceiros
         </p>
       </div>
 

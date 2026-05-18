@@ -17,42 +17,43 @@ const textSlide = {
     },
   }),
 };
+
 const testimonials = [
   {
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“The space feels exactly how we imagined — calm, precise and effortless.`,
-      `Every detail was carefully considered, without ever feeling overdesigned.”`,
+      `“O projeto ficou exatamente como imaginávamos — calmo, preciso e funcional.”`,
+      `Cada detalhe foi cuidadosamente pensado, sem excessos ou elementos desnecessários.”`,
     ],
-    client: "— Private Client",
-    space: "pumpolex",
+    client: "Cliente privado",
+    space: "residência contemporânea",
   },
   {
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“Working with the team was seamless from start to finish.`,
-      `They translated abstract ideas into something tangible and refined.”`,
+      `“O processo de trabalho foi fluido do início ao fim.”`,
+      `As ideias foram traduzidas em um interior coerente, funcional e refinado.”`,
     ],
-    client: "— Art Director",
-    space: "noir studio",
+    client: "Diretor de arte",
+    space: "estúdio criativo",
   },
   {
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“There’s a quiet confidence in how everything comes together.`,
-      `Nothing screams for attention, yet everything feels intentional.”`,
+      `“Existe uma harmonia silenciosa em cada decisão do projeto.”`,
+      `Nada é excessivo — tudo tem função dentro do ambiente.”`,
     ],
-    client: "— Architect",
-    space: "atelier 21",
+    client: "Arquiteto",
+    space: "apartamento autoral",
   },
 ];
 
 const Card = ({ testimonial, index }) => {
   return (
-    <motion.div className="relative w-full h-[75vh] border border-p/25 flex items-center rounded-md overflow-hidden">
+    <motion.div className="relative w-full h-[75vh] border border-p/25 flex items-center  overflow-hidden">
       {/* IMAGE */}
       <motion.figure
         initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
@@ -64,6 +65,7 @@ const Card = ({ testimonial, index }) => {
         <Image
           src={testimonial.spaceImg}
           fill
+          sizes=""
           alt={testimonial.client}
           className="object-cover brightness-75"
         />
@@ -74,7 +76,7 @@ const Card = ({ testimonial, index }) => {
             0{index + 1}/0{testimonials.length}
           </p>
           <p className="self-end font-azeret text-s text-[14px] uppercase">
-            from {testimonial.space} space
+            de {testimonial.space} → projeto {testimonial.space}
           </p>
         </div>
       </motion.figure>
@@ -103,12 +105,12 @@ const Card = ({ testimonial, index }) => {
           variants={textSlide}
           as="h2"
           className="flex flex-col"
-          lineClassName="mb-10 font-i-sans font-normal 
+          lineClassName="mb-10 font-neue font-normal 
             text-p text-[48px] tracking-[-0.07em] leading-none
             max-md:text-[38px]"
           wordClassName="mr-2"
-          wordDelay={0.035}
-          lineDelay={0.035}
+          wordDelay={0.015}
+          lineDelay={0.1}
         />
 
         <p className="self-end font-azeret text-p text-[14px] uppercase">
@@ -149,9 +151,9 @@ const StudioTestimonials = () => {
         ref={ref}
       >
         <div className=" size-fit flex items-center gap-2">
-          <span className="size-2 bg-p rounded-[1px]" />
+          <span className="size-2 bg-p " />
           <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-            TESTIMONIALS
+            Depoimentos
           </p>
         </div>
         <div className="flex items-center gap-5">

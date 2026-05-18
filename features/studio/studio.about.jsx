@@ -30,25 +30,25 @@ const StudioAbout = () => {
         <div className="flex-1 size-fit flex items-center gap-2">
           <span className="size-2 bg-p rounded-[1px]" />
           <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-            ABOUT THE STUDIO
+            Sobre o estúdio
           </p>
         </div>
         <div className="flex-3">
           <TextAnimated
             phrases={[
-              `Our work combines strategic clarity with visual sensitivity, shaping identities, campaigns and platforms that feel contemporary, precise and emotionally resonant.`,
+              `Nosso trabalho combina clareza de projeto e sensibilidade estética, criando interiores contemporâneos, funcionais e visualmente equilibrados.`,
             ]}
             variants={textSlide}
             animate={inView}
             as="p"
             className="flex flex-col"
-            lineClassName="mb-10 font-i-sans font-normal 
-        text-p text-[68px] tracking-[-0.07em] leading-none
+            lineClassName="mb-10 font-neue font-normal 
+        text-p text-[64px] tracking-[-0.07em] leading-none
         max-md:text-[38px]
         "
             wordClassName="mr-2"
-            wordDelay={0.035}
-            lineDelay={0.035}
+            wordDelay={0.015}
+            lineDelay={0.2}
           />
         </div>
       </div>
@@ -62,23 +62,23 @@ const StudioAbout = () => {
         <div className="flex-3">
           <TextAnimated
             phrases={[
-              `Unusual® is a creative agency working across branding, campaigns, art direction and digital design. `,
-              `We build sharp visual systems and memorable experiences for brands, founders and cultural projects that want a distinct point of view.`,
+              `INCOMUM® é um estúdio de design de interiores que desenvolve projetos residenciais e comerciais com foco em funcionalidade, estética e conforto.`,
+              `Criamos ambientes com identidade própria através da organização do layout, seleção de materiais e definição de acabamentos.`,
             ]}
             variants={textSlide}
             animate={inView}
             as="p"
             className="flex flex-col"
-            lineClassName="mb-10 font-i-sans font-normal 
-        text-p text-[68px] tracking-[-0.07em] leading-none
+            lineClassName="mb-10 font-neue font-normal 
+        text-p text-[64px] tracking-[-0.07em] leading-none
         max-md:text-[38px]
         "
             wordClassName="mr-2"
-            wordDelay={0.035}
-            lineDelay={0.035}
+            wordDelay={0.015}
+            lineDelay={0.2}
           />
           <Button
-            text="who we are"
+            text="quem somos"
             bg="bg-p"
             textColor="text-s"
             iconColor="text-s"

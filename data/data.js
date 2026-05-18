@@ -9,121 +9,165 @@ import team08 from "@/public/assets/images/team/b.jpg";
 import team09 from "@/public/assets/images/team/c.jpg";
 import team10 from "@/public/assets/images/team/a.jpg";
 import team11 from "@/public/assets/images/team/b.jpg";
-
+import award1 from "@/public/assets/images/awards/img-1.jpg";
+import award2 from "@/public/assets/images/awards/img-2.jpg";
+import award3 from "@/public/assets/images/awards/img-3.jpg";
+import award4 from "@/public/assets/images/awards/img-4.jpg";
 export const team = [
   {
     src: team01,
     name: "Luna Carvalho",
-    role: "Creative Director",
+    role: "Diretora de Design de Interiores",
     bio: [
-      `Leads the studio’s creative vision, developing concepts that merge fashion, film, and digital culture. `,
-      `With a background in visual storytelling and editorial direction, she works closely with brands, artists, and cultural institutions to craft distinctive narratives.`,
-      `Her approach focuses on building strong visual identities and emotionally resonant experiences that connect design, motion, and storytelling into a cohesive creative language.`,
+      `Responsável pela direção criativa dos projetos de interiores, definindo conceito, linguagem material e identidade espacial de cada ambiente.`,
+      `Atua desde a concepção até a execução, garantindo coerência entre planta, volumetria, iluminação e acabamentos.`,
+      `Seu trabalho foca em criar interiores funcionais, precisos e com forte intenção estética.`,
     ],
     email: "luna@studio.com",
     instagram: "@lunacarvalho",
-    location: "São Paulo, Brazil",
+    location: "São Paulo, Brasil",
   },
   {
     src: team02,
     name: "Sofia Almeida",
-    role: "Fashion Film Director",
+    role: "Arquiteta de Interiores",
     bio: [
-      `Directs cinematic fashion films and visual campaigns that explore movement, atmosphere, and emotion. Her work blends editorial aesthetics with narrative filmmaking, creating immersive visual experiences for fashion brands and cultural projects.`,
-
-      `Drawing inspiration from contemporary cinema and art direction, she focuses on building strong visual moods that translate fashion into storytelling.`,
+      `Desenvolve projetos de interiores residenciais e comerciais com foco em funcionalidade, circulação e conforto espacial.`,
+      `Trabalha na definição de layouts, ergonomia e organização dos ambientes.`,
     ],
     email: "sofia@studio.com",
-    instagram: "@sofiafilms",
-    location: "Lisbon, Portugal",
+    instagram: "@sofiainteriores",
+    location: "Lisboa, Portugal",
   },
   {
     src: team03,
     name: "Mateo Ribeiro",
-    role: "Visual Research & Styling",
+    role: "Designer de Materiais e Acabamentos",
     bio: [
-      `Specializes in visual research, cultural references, and styling development for editorial and campaign projects. His work involves exploring archives, trends, and artistic movements to shape strong conceptual foundations.`,
-
-      `By translating research into aesthetic direction, he helps define the visual tone and identity of each project the studio produces.`,
+      `Especialista na seleção de materiais, texturas e revestimentos para projetos de interiores.`,
+      `Pesquisa combinações de superfícies, cores e sensações táteis para criar ambientes equilibrados e consistentes.`,
     ],
     email: "mateo@studio.com",
-    instagram: "@mateoribeiro",
-    location: "Rio de Janeiro, Brazil",
+    instagram: "@mateointeriores",
+    location: "Rio de Janeiro, Brasil",
   },
   {
     src: team04,
     name: "Enzo Martins",
-    role: "Director of Photography",
+    role: "Projetista de Iluminação",
     bio: [
-      `A cinematographer focused on crafting expressive lighting and cinematic compositions for film, fashion, and digital productions. His work emphasizes atmosphere, texture, and emotional depth through carefully constructed visual language.`,
-
-      `Collaborating closely with directors and art teams, he translates creative concepts into striking imagery.`,
+      `Desenvolve projetos de iluminação natural e artificial aplicados a interiores residenciais e comerciais.`,
+      `Trabalha com temperatura de cor, intensidade e posicionamento para valorizar arquitetura e materiais.`,
     ],
     email: "enzo@studio.com",
-    instagram: "@enzodp",
-    location: "São Paulo, Brazil",
+    instagram: "@enzolight",
+    location: "São Paulo, Brasil",
   },
   {
     src: team05,
     name: "Ava Costa",
-    role: "Art Director",
-    bio: "Develops visual systems and art direction for campaigns, editorials, and digital experiences. Her practice focuses on balancing typography, layout, and imagery to create cohesive brand aesthetics. With a strong eye for composition and detail, she shapes the visual language that connects concept, design, and storytelling.",
+    role: "Designer de Interiores",
+    bio: [
+      `Cria projetos de interiores com foco em composição, mobiliário e organização espacial.`,
+      `Trabalha na integração entre estética, funcionalidade e conforto visual.`,
+    ],
     email: "ava@studio.com",
     instagram: "@avacosta",
-    location: "Rio de Janeiro, Brazil",
+    location: "Rio de Janeiro, Brasil",
   },
   {
     src: team06,
     name: "Lucas Fernandes",
-    role: "Motion Designer",
-    bio: "Creates motion systems, animations, and dynamic visual transitions for digital experiences and brand storytelling. His work explores rhythm, timing, and movement to bring static visuals to life. Combining design principles with experimentation, he builds motion languages that enhance narrative and interaction.",
+    role: "Projetista 3D de Interiores",
+    bio: [
+      `Desenvolve visualizações 3D de projetos de interiores para estudo de materiais, iluminação e volumetria.`,
+      `Transforma conceitos em imagens realistas para validação de projeto e apresentação.`,
+    ],
     email: "lucas@studio.com",
-    instagram: "@lucasmotion",
+    instagram: "@lucas3dinteriores",
     location: "Porto, Portugal",
   },
   {
     src: team07,
     name: "Isabella Rocha",
-    role: "Producer",
-    bio: "Oversees the production pipeline across film, fashion, and digital projects, ensuring ideas move smoothly from concept to final execution. She coordinates teams, schedules, and resources while maintaining creative integrity throughout the process. Her role bridges strategy, logistics, and collaboration.",
+    role: "Coordenadora de Projetos",
+    bio: [
+      `Coordena etapas de projeto de interiores, desde briefing até execução em obra.`,
+      `Garante alinhamento entre clientes, fornecedores e equipe de design.`,
+    ],
     email: "isabella@studio.com",
-    instagram: "@isarochaprod",
-    location: "São Paulo, Brazil",
+    instagram: "@isacoord",
+    location: "São Paulo, Brasil",
   },
   {
     src: team08,
     name: "Daniel Torres",
-    role: "3D Artist",
-    bio: "Designs digital environments, objects, and CGI visuals that expand the studio’s creative language into immersive spaces. His work blends realism and abstraction, exploring the intersection between technology, design, and storytelling. Through experimentation with lighting, materials, and motion, he builds striking digital worlds.",
+    role: "Visualizador Arquitetônico",
+    bio: [
+      `Cria renders e visualizações de interiores com foco em materiais, luz e atmosfera.`,
+      `Auxilia na validação estética e técnica dos projetos antes da execução.`,
+    ],
     email: "daniel@studio.com",
-    instagram: "@dani3d",
-    location: "Barcelona, Spain",
+    instagram: "@danielviz",
+    location: "Barcelona, Espanha",
   },
   {
     src: team09,
     name: "Camila Duarte",
-    role: "Photographer",
-    bio: "Focuses on editorial and campaign photography with an emphasis on light, texture, and narrative composition. Her work explores the intersection between fashion, portraiture, and cultural storytelling. Through a cinematic approach to imagery, she captures moments that feel both intimate and visually powerful.",
+    role: "Fotógrafa de Interiores",
+    bio: [
+      `Registra projetos de interiores com foco em luz natural, composição e materiais.`,
+      `Documenta ambientes concluídos para portfólio e publicação editorial.`,
+    ],
     email: "camila@studio.com",
-    instagram: "@camiladuarte",
-    location: "Rio de Janeiro, Brazil",
+    instagram: "@camilainteriores",
+    location: "Rio de Janeiro, Brasil",
   },
   {
     src: team10,
     name: "Thiago Mendes",
-    role: "Sound Designer",
-    bio: "Creates immersive soundscapes and audio identities for films, installations, and digital experiences. His work explores the emotional impact of sound as a storytelling element, combining field recordings, synthesis, and composition. By shaping sonic environments, he adds depth and atmosphere to visual narratives.",
+    role: "Consultor de Acústica e Conforto Ambiental",
+    bio: [
+      `Trabalha com acústica, conforto térmico e sensorial em projetos de interiores.`,
+      `Ajuda a otimizar a experiência do usuário dentro dos ambientes.`,
+    ],
     email: "thiago@studio.com",
-    instagram: "@thiagosound",
-    location: "Berlin, Germany",
+    instagram: "@thiagoacustica",
+    location: "Berlim, Alemanha",
   },
   {
     src: team11,
     name: "Julia Santos",
-    role: "Brand Strategist",
-    bio: "Works at the intersection of research, storytelling, and brand development. She builds strategic frameworks that help brands define their voice, positioning, and cultural relevance. By connecting insight with creative direction, she helps transform ideas into meaningful brand narratives.",
+    role: "Consultora de Conceito de Interiores",
+    bio: [
+      `Desenvolve diretrizes conceituais para projetos de interiores residenciais e comerciais.`,
+      `Conecta estética, função e identidade do cliente em um conceito coeso de projeto.`,
+    ],
     email: "julia@studio.com",
-    instagram: "@juliastrategy",
-    location: "London, UK",
+    instagram: "@juliaconceito",
+    location: "Londres, Reino Unido",
+  },
+];
+
+export const awards = [
+  {
+    title: "Editorial de interiores residenciais",
+    year: "2026",
+    image: award1,
+  },
+  {
+    title: "Interiores comerciais em destaque",
+    year: "2026",
+    image: award2,
+  },
+  {
+    title: "Curadoria de ambientes residenciais",
+    year: "2025",
+    image: award3,
+  },
+  {
+    title: "Reconhecimento em design minimalista",
+    year: "2025",
+    image: award4,
   },
 ];

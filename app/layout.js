@@ -1,8 +1,9 @@
 import { Instrument_Sans, Azeret_Mono } from "next/font/google";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
 
 const iSans = Instrument_Sans({
-  variable: "--font-i-sans",
+  variable: "--font-neue",
   subsets: ["latin"],
 });
 
@@ -18,11 +19,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${iSans.variable} ${azeret.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        id="noise"
+        className={`${iSans.variable} ${azeret.variable} h-full antialiased`}
+      >
+        <body className="min-h-full flex flex-col bg-[#fefcf5]">
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

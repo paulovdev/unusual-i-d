@@ -31,21 +31,24 @@ const StudioIntro = () => {
         <div className="mb-8 size-fit flex items-center gap-2">
           <span className="size-2 bg-p rounded-[1px]" />
           <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-            About the studio
+            Sobre o estúdio
           </p>
         </div>
         <TextAnimated
-          phrases={[`Passionately shaping glass`, `Into timeless design`]}
+          phrases={[
+            `Criamos interiores com intenção`,
+            `Definidos por layout, materiais e luz`,
+          ]}
           variants={textSlide}
           as="h2"
           className="flex flex-col"
-          lineClassName="font-i-sans font-normal 
+          lineClassName="font-neue font-normal 
               text-center text-p text-[96px] tracking-[-0.07em] leading-[1.1]
               max-lg:text-[62px] max-md:text-[42px] 
         "
           wordClassName="mr-2"
-          wordDelay={0.035}
-          lineDelay={0.035}
+          wordDelay={0.015}
+          lineDelay={0.2}
         />
       </div>
       <Image

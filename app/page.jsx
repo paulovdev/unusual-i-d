@@ -6,7 +6,9 @@ import { WORK_QUERY } from "@/lib/sanity.queries";
 
 export default async function Page() {
   const work = await client.fetch(WORK_QUERY);
-
+  if (!work) {
+    return <div>asdasdas</div>;
+  }
   return (
     <>
       <Nav />

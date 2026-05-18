@@ -4,12 +4,7 @@ import TextAnimated from "@/components/ui/text-animated";
 
 import React, { useState, useRef, useMemo } from "react";
 
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 
 import ImageComponent from "@/components/ui/image";
 import WorkModal from "@/components/modal/work/work-modal";
@@ -59,7 +54,7 @@ const Works = ({ work, setHover, setActiveWork, activeWork, i }) => {
             variants={textSlide}
             as="h2"
             className="flex flex-col"
-            lineClassName="font-i-sans font-normal 
+            lineClassName="font-neue font-normal 
               text-center text-s text-[96px] tracking-[-0.07em] leading-[1.1]
               max-lg:text-[62px] max-md:text-[42px]"
             wordClassName="mr-2"
@@ -94,14 +89,14 @@ const HomeWorks2 = ({ work, lenis }) => {
     <>
       <section id="works" className="relative h-fit pointer-events-none">
         <div className="mb-10 p-15 max-md:px-5 size-fit flex items-center gap-2 z-10">
-          <span className="size-2 bg-p rounded-[1px]" />
+          <span className="relative -top-px size-2 bg-p rounded-[1px]" />
           <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
-            Selected spaces
+            Espaços selecionados
           </p>
         </div>
 
         <div className="flex flex-col items-center justify-center select-none">
-          {work.map((item, i) => (
+          {work.slice(0, 3).map((item, i) => (
             <Works
               key={i}
               i={i}

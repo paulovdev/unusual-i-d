@@ -87,7 +87,8 @@ export const TeamModal = ({ member, lenis, onClose }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-15 w-[45vw] h-[calc(100vh-32px)] bg-s/10 backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed left-0 top-0 m-4 p-10 w-[45vw] h-[calc(100vh-32px)] 
+       bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -120,12 +121,12 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl rounded-sm group max-md:p-2 bg-s"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
           >
             <IoClose
-              className="text-p text-[24px] group-hover:text-s group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.button>
@@ -147,21 +148,23 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
           >
             <div className="w-full flex flex-col gap-15 max-md:mb-10">
-              <div className="flex items-center">
-                <span className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase truncate ">
+              <div className=" size-fit flex items-center gap-2">
+                <span className="size-2 bg-p rounded-[1px]" />
+                <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
                   {member.role}
-                </span>
+                </p>
               </div>
+
               <TextAnimated
                 phrases={[member.name]}
                 variants={textSlide}
                 as="h2"
                 className="flex flex-col"
-                lineClassName="font-i-sans font-normal text-s text-[72px] tracking-[-0.07em]
+                lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.07em]
                leading-none max-md:text-[42px]"
                 wordClassName="mr-2"
-                wordDelay={0.065}
-                lineDelay={0.025}
+                wordDelay={0.015}
+                lineDelay={0.1}
               />
             </div>
 
@@ -172,6 +175,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 src={member.src}
                 alt={member.name}
                 fill
+                sizes=""
                 placeholder="blur"
                 className="object-cover rounded-md"
               />
@@ -180,16 +184,16 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <div className="mt-10 w-full flex">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <MdOutlineEmail className="text-s text-[14px]" />
+                    <MdOutlineEmail className="text-p text-[14px]" />
 
-                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                       e-mail
                     </p>
                   </div>
                 </div>
 
                 <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
                     {member.email}
                   </p>
                 </div>
@@ -197,16 +201,16 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <div className="w-full flex">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <FaInstagram className="text-s text-[14px]" />
+                    <FaInstagram className="text-p text-[14px]" />
 
-                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                       instagram
                     </p>
                   </div>
                 </div>
 
                 <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
                     {member.instagram}
                   </p>
                 </div>
@@ -214,28 +218,28 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <div className="w-full flex">
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <FiMapPin className="text-s text-[14px]" />
+                    <FiMapPin className="text-p text-[14px]" />
 
-                    <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      location
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      localização
                     </p>
                   </div>
                 </div>
 
                 <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
                     {member.location}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="my-10 w-full h-px bg-s/15"></div>
+            <div className="my-10 w-full h-px bg-p/10"></div>
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-s rounded-[1px]" />
-                  <p className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
-                    bio
+                  <span className="size-2 bg-p " />
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                    biografia
                   </p>
                 </div>
               </div>
@@ -247,10 +251,10 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   variants={textSlide}
                   as="span"
                   className="flex flex-col"
-                  lineClassName="max-w-150 mb-5 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
+                  lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
                   wordClassName="mr-2"
-                  wordDelay={0.035}
-                  lineDelay={0.035}
+                  wordDelay={0.015}
+                  lineDelay={0.4}
                 />
               </div>
             </div>

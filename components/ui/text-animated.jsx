@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const TextAnimated = ({
   phrases,
@@ -6,12 +6,11 @@ const TextAnimated = ({
   animate = true,
   as = "div",
   wordDelay = 0.03,
-  lineDelay = 0.015,
+  lineDelay = 0.2,
   className = "",
   lineClassName = "",
   wordClassName = "",
 }) => {
-  let cumulativeDelay = 0;
   const LineTag = as;
 
   return (
@@ -19,33 +18,34 @@ const TextAnimated = ({
       {phrases.map((phrase, lineIndex) => {
         const words = phrase.split(" ");
 
-        const line = (
+        return (
           <LineTag key={lineIndex} className={lineClassName}>
             {words.map((word, wordIndex) => {
-              const delay = cumulativeDelay + wordIndex * wordDelay;
+              const delay =
+                lineIndex * lineDelay + wordIndex * wordDelay;
 
               return (
                 <span
                   key={wordIndex}
-                  className={`inline-block overflow-hidden ${wordClassName}`}
+                  className="inline-block overflow-hidden align-bottom"
+                  style={{
+                    paddingBottom: "0.1em",  
+                  }}
                 >
                   <motion.span
                     custom={delay}
                     variants={variants}
                     initial="initial"
                     animate={animate ? "animate" : "initial"}
-                    className="inline-block will-change-transform"
+                    className={`inline-block will-change-transform ${wordClassName}`}
                   >
-                    {word}
+                    {word}&nbsp;
                   </motion.span>
                 </span>
               );
             })}
           </LineTag>
         );
-
-        cumulativeDelay += words.length * lineDelay;
-        return line;
       })}
     </div>
   );

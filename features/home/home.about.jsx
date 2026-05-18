@@ -9,6 +9,7 @@ import reel from "@/public/assets/images/reel.jpg";
 import Link from "next/link";
 import { LuDoorClosed, LuDoorOpen } from "react-icons/lu";
 import { useRouter } from "next/navigation";
+import TransitionLink from "@/components/ui/link";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -35,26 +36,26 @@ const HomeAbout = () => {
       <div className="mb-20 size-fit flex items-center gap-2">
         <span className="size-2 bg-p rounded-[1px]" />
         <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-          Approach
+          Conceito
         </p>
       </div>
 
       <TextAnimated
         phrases={[
-          `Space is not decoration. It is structure, tension and balance.`,
-          `Defined by light, material and proportion — creating environments that feel calm, precise and intentional.`,
+          `Projetamos interiores a partir da relação entre luz, matéria e silêncio espacial.`,
+          `Cada ambiente é pensado com precisão e calma — criando espaços contemporâneos, sensoriais e duradouros.`,
         ]}
         variants={textSlide}
         animate={inView}
         as="h2"
-        className="flex flex-col max-w-400"
-        lineClassName="mb-10 font-i-sans font-normal 
-        text-p text-[68px] tracking-[-0.07em] leading-none
+        className="flex flex-col max-w-425"
+        lineClassName="mb-10 font-neue font-normal 
+        text-p text-[64px] tracking-[-0.07em] leading-none
         max-md:text-[38px]
         "
         wordClassName="mr-2"
-        wordDelay={0.035}
-        lineDelay={0.04}
+        wordDelay={0.015}
+        lineDelay={0.4}
       />
 
       <div className="mt-15 w-full h-px bg-p/15" />
@@ -63,9 +64,9 @@ const HomeAbout = () => {
         className="mt-10 w-full flex items-start justify-end gap-5
         max-md:justify-between max-md:gap-2"
       >
-        <Link href="/studio">
+        <TransitionLink href="/studio">
           <Button
-            text="The studio"
+            text="estúdio"
             bg="bg-p"
             textColor="text-s"
             iconColor="text-s"
@@ -73,72 +74,74 @@ const HomeAbout = () => {
             hoverTextColor="text-p"
             hoverIconColor="text-p"
           />
-        </Link>
-        <motion.figure
-          initial={{ scale: 0 }}
-          animate={{
-            scale: inView ? 1 : 0,
-            transition: {
-              duration: 0.8,
-              delay: 0.25,
-              ease: [0.76, 0, 0.24, 1],
-            },
-          }}
-          className="relative w-125 h-75 overflow-hidden rounded-md group
+        </TransitionLink>
+        <TransitionLink href="/spaces">
+          <motion.figure
+            initial={{ scale: 0 }}
+            animate={{
+              scale: inView ? 1 : 0,
+              transition: {
+                duration: 0.8,
+                delay: 0.25,
+                ease: [0.76, 0, 0.24, 1],
+              },
+            }}
+            className="relative w-125 h-75 overflow-hidden rounded-md group
           max-md:w-74 max-md:h-50"
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(null)}
-          onClick={() => router.push("/spaces")}
-        >
-          <Image
-            src={reel}
-            width={2000}
-            height={2000}
-            alt="spaces preview"
-            className="object-cover size-full rounded-md brightness-75
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(null)}
+            onClick={() => router.push("/spaces")}
+          >
+            <Image
+              src={reel}
+              width={2000}
+              height={2000}
+              alt="spaces preview"
+              className="object-cover size-full rounded-md brightness-75
             transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]
             group-hover:scale-110"
-            placeholder="blur"
-          />
+              placeholder="blur"
+            />
 
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-2">
-              <AnimatePresence mode="wait">
-                <div className="" key={hover}>
-                  {hover ? (
-                    <motion.div
-                      initial={{ opacity: 0.5 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0.5 }}
-                      transition={{
-                        duration: 0.1,
-                        ease: [0.76, 0, 0.24, 1],
-                      }}
-                    >
-                      <LuDoorOpen className="text-s text-[20px]" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      initial={{ opacity: 0.5 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0.5 }}
-                      transition={{
-                        duration: 0.1,
-                        ease: [0.76, 0, 0.24, 1],
-                      }}
-                    >
-                      <LuDoorClosed className="text-s text-[20px]" />
-                    </motion.div>
-                  )}
-                </div>
-              </AnimatePresence>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex items-center gap-2">
+                <AnimatePresence mode="wait">
+                  <div className="" key={hover}>
+                    {hover ? (
+                      <motion.div
+                        initial={{ opacity: 0.5 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0.5 }}
+                        transition={{
+                          duration: 0.1,
+                          ease: [0.76, 0, 0.24, 1],
+                        }}
+                      >
+                        <LuDoorOpen className="text-s text-[20px]" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        initial={{ opacity: 0.5 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0.5 }}
+                        transition={{
+                          duration: 0.1,
+                          ease: [0.76, 0, 0.24, 1],
+                        }}
+                      >
+                        <LuDoorClosed className="text-s text-[20px]" />
+                      </motion.div>
+                    )}
+                  </div>
+                </AnimatePresence>
 
-              <p className="font-azeret text-[12px] tracking-[0.2em] uppercase text-s">
-                Enter spaces
-              </p>
+                <p className="font-azeret text-[12px] tracking-[0.2em] uppercase text-s">
+                  ver espaços
+                </p>
+              </div>
             </div>
-          </div>
-        </motion.figure>
+          </motion.figure>
+        </TransitionLink>
       </div>
     </section>
   );

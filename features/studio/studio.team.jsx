@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "motion/react";
 import { TeamModal } from "@/components/modal/team/team-modal";
 
-const Card = ({ member, activeMember, onClick, index }) => {
+const Card = ({ member, activeMember, onClick, index, inView }) => {
   return (
     <motion.div
       className="relative w-full cursor-pointer group"
@@ -20,7 +20,6 @@ const Card = ({ member, activeMember, onClick, index }) => {
       }}
       transition={{
         duration: 0.5,
-
         ease: [0.76, 0, 0.24, 1],
       }}
       onClick={onClick}
@@ -28,12 +27,12 @@ const Card = ({ member, activeMember, onClick, index }) => {
       <motion.figure
         initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
         animate={{
-          clipPath: "inset(0% 0% 0% 0%)",
+          clipPath: inView ? "inset(0% 0% 0% 0%)" : "inset(0% 100% 0% 0%)",
         }}
         exit={{ clipPath: "inset(0% 100% 0% 0%)" }}
         transition={{
-          duration: 0.5,
-          delay: index * 0.025,
+          duration: 0.8,
+          delay: index * 0.05,
           ease: [0.76, 0, 0.24, 1],
         }}
         className="relative w-full h-[60vh] max-ds:h-[35vh] overflow-hidden"
@@ -52,7 +51,7 @@ const Card = ({ member, activeMember, onClick, index }) => {
             </p>
             <div className="w-full flex items-center justify-between">
               <p
-                className="font-i-sans font-normal 
+                className="font-neue font-normal 
             text-s text-[32px] tracking-[-0.05em] leading-none
             max-md:text-[34px]"
               >
@@ -76,8 +75,7 @@ const StudioTeam = ({ lenis }) => {
 
   const itemsPerPage = 4;
   const canGoPrev = startIndex > 0;
-  const canGoNext = startIndex + itemsPerPage < team.length;
-  const visibleMembers = team.slice(startIndex, startIndex + itemsPerPage);
+  const canGoNext = startIndex < team.length - itemsPerPage;
 
   const handleNext = () => {
     if (!canGoNext) return;
@@ -89,7 +87,6 @@ const StudioTeam = ({ lenis }) => {
     setStartIndex((prev) => prev - 1);
   };
 
-  /*  */
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -97,11 +94,7 @@ const StudioTeam = ({ lenis }) => {
 
   return (
     <>
-      <section
-        id="about"
-        className="relative mb-30 px-15 max-md:px-5"
-        ref={ref}
-      >
+      <section id="about" className="relative px-15 max-md:px-5" ref={ref}>
         <div className="my-15 w-full h-px bg-p/15" />
         <div
           className="mb-10 flex items-center justify-between gap-10 select-none"
@@ -110,7 +103,7 @@ const StudioTeam = ({ lenis }) => {
           <div className=" size-fit flex items-center gap-2">
             <span className="size-2 bg-p rounded-[1px]" />
             <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-              OUR TEAM
+              nossa equipe
             </p>
           </div>
           <div className="flex items-center gap-5">
@@ -162,19 +155,35 @@ const StudioTeam = ({ lenis }) => {
 
         {/*  */}
 
-        <div className="flex items-center gap-2">
-          <AnimatePresence mode="wait">
-            {visibleMembers.map((member, i) => (
-              <Card
-                key={`${i}-${member.name}`}
-                index={i}
-                member={member}
-                activeMember={activeMember}
-                onClick={() => setActiveMember(member)}
-              />
+        <div className="overflow-hidden w-full">
+          <motion.div
+            animate={{
+              x: `-${startIndex * 25}%`,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.76, 0, 0.24, 1],
+            }}
+            className="flex gap-2"
+          >
+            {team.map((member, i) => (
+              <div
+                key={member.name}
+                className="min-w-[calc(25%-6px)] max-md:min-w-full"
+              >
+                <Card
+                  index={i}
+                  member={member}
+                  activeMember={activeMember}
+                  onClick={() => setActiveMember(member)}
+                  inView={inView}
+                />
+              </div>
             ))}
-          </AnimatePresence>
+          </motion.div>
         </div>
+
+        <div className="mt-15 mb-20 w-full h-px bg-p/10"></div>
       </section>
       <AnimatePresence mode="wait">
         {activeMember && (

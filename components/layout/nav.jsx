@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import String from "../ui/string";
 import { usePathname } from "next/navigation";
 import { FaBehance, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useWorkStore } from "@/store/useWorkStore";
-
+import { useTransitionRouter } from "next-view-transitions";
+import TransitionLink from "../ui/link";
 
 export const menuContainer = {
   initial: {
@@ -59,14 +60,16 @@ export const menuOverlay = {
 };
 
 const navData = [
-  { label: "home", href: "/" },
-  { label: "studio", href: "/studio" },
-  { label: "spaces", href: "/spaces" },
-  { label: "contact us", href: "/contact" },
+  { label: "início", href: "/" },
+  { label: "estúdio", href: "/studio" },
+  { label: "espaços (projetos)", href: "/spaces" },
+  { label: "entre em contato conosco", href: "/contact" },
 ];
 
 const Menu = ({ setMenu }) => {
   const pathname = usePathname();
+  const router = useTransitionRouter();
+
   return (
     <>
       <motion.div
@@ -92,17 +95,17 @@ const Menu = ({ setMenu }) => {
           className="relative p-6 py-10 size-full flex flex-col items-start justify-between pointer-events-auto"
         >
           <div className="w-full flex flex-col items-start">
-            <p className="mb-5 font-azeret font-medium text-s/50 text-[12px] tracking-[0.05em] uppercase">
-              MENU
+            <p className="mb-4 font-azeret font-medium text-s/50 text-[12px] tracking-[0.05em] uppercase">
+              Navegue pelo site
             </p>
-            <span className="mb-5 w-full h-px bg-s/25" />
+            <span className="mb-10 w-full h-px bg-s/25" />
             {navData.map((nav, i) => {
               const active = pathname === nav.href;
 
               return (
-                <a
-                  href={nav.href}
+                <TransitionLink
                   key={i}
+                  href={nav.href}
                   onClick={() => setMenu(false)}
                   className={`${active ? "mt-5 mb-7" : "mb-2"} size-fit flex items-center gap-2`}
                 >
@@ -112,7 +115,7 @@ const Menu = ({ setMenu }) => {
                   >
                     {nav.label}
                   </p>
-                </a>
+                </TransitionLink>
               );
             })}
           </div>
@@ -138,13 +141,13 @@ const Menu = ({ setMenu }) => {
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
-  const { openSearch } = useWorkStore();
+
   return (
     <>
       <nav className="fixed inset-5 flex items-end justify-center z-100 pointer-events-none">
         <button className="w-100 px-6 h-16 bg-p/50 backdrop-blur-2xl rounded-md flex items-center justify-between gap-8 pointer-events-auto">
           <p className="font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase">
-            UNUSUAL<span>®</span>
+            INCOMUM<span>®</span>
           </p>
           <motion.figure
             className="relative " /* w-8 h-8  */
@@ -166,7 +169,7 @@ const Nav = () => {
           >
             <AnimatePresence mode="wait" initial={false}>
               <motion.p
-                key={menu ? "close" : "menu"}
+                key={menu ? "fechar" : "menu"}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{
                   opacity: 1,
@@ -180,7 +183,7 @@ const Nav = () => {
                 }}
                 className="min-w-10 font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase"
               >
-                {menu ? "CLOSE" : "MENU"}
+                {menu ? "fechar" : "MENU"}
               </motion.p>
             </AnimatePresence>
             <div className="size-fit flex flex-col items-start gap-1.5">
