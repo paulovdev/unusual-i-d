@@ -2,7 +2,7 @@ import Image from "next/image";
 import element from "@/public/assets/images/circle.jpg";
 import { useInView } from "react-intersection-observer";
 import TextAnimated from "@/components/ui/text-animated";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const textSlide = {
   initial: { y: "100%" },

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import String from "../ui/string";
 import { usePathname } from "next/navigation";
 import { FaBehance, FaInstagram } from "react-icons/fa";

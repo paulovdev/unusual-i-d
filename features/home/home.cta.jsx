@@ -1,6 +1,6 @@
 import { StartProjectModal } from "@/components/modal/start-project/start-project-modal";
 import Button from "@/components/ui/button";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import React, { useState } from "react";
 

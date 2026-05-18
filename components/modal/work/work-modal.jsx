@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Lenis from "lenis";
 import { IoClose } from "react-icons/io5";
 import TextAnimated from "@/components/ui/text-animated";

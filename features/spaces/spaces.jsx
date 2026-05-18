@@ -5,7 +5,7 @@ import SpacesIntro from "@/features/spaces/spaces.intro";
 import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
 import SpacesWorks from "./spaces.works";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 
 import { useWorkStore } from "@/store/useWorkStore";
 import WorkModal from "@/components/modal/work/work-modal";

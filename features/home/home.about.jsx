@@ -3,7 +3,7 @@ import TextAnimated from "@/components/ui/text-animated";
 import Image from "next/image";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import reel from "@/public/assets/images/reel.jpg";
 
 import Link from "next/link";

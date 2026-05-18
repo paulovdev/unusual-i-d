@@ -2,12 +2,7 @@
 
 import ImageComponent from "@/components/ui/image";
 import TextAnimated from "@/components/ui/text-animated";
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { IoIosSearch } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
 

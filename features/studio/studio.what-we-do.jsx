@@ -1,5 +1,5 @@
 import TextAnimated from "@/components/ui/text-animated";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { PiLampPendantBold } from "react-icons/pi";
 import { TbLayoutGrid } from "react-icons/tb";
