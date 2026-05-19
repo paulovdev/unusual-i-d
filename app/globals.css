@@ -67,14 +67,15 @@ html {
   -moz-osx-font-smoothing: grayscale !important;
   font-smooth: never !important;
   letter-spacing: 0;
+  background: #121212;
 }
 
 body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  width: 100dvw;
 
+  background: #121212;
   font-family: "Azeret Mono", sans-serif;
 }
 
@@ -86,8 +87,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   content: "";
   opacity: 0.025;
   z-index: 99999;
