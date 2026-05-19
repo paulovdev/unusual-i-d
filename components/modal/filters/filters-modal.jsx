@@ -54,11 +54,16 @@ export const FiltersModal = ({ lenis }) => {
     setActiveStatus,
     activeStyles,
     setActiveStyles,
+    activeArea,
+    setActiveArea,
+    activeLocation,
+    setActiveLocation,
     closeFilters,
     resetStyles,
   } = useWorkStore();
   /*  */
 
+  const areaValue = activeArea === "all" ? 0 : activeArea;
   const years = ["all", "2026", "2025", "2024"];
   const status = ["all", "completed", "ongoing", "concept"];
   const styles = [
@@ -69,6 +74,19 @@ export const FiltersModal = ({ lenis }) => {
     { value: "warm", icon: "☀" },
   ];
 
+  const locations = [
+    "all",
+    "Brasil",
+    "Estados Unidos",
+    "França",
+    "Italia",
+    "Índia",
+  ];
+
+  const locationLabel = (l) => {
+    if (l === "all") return "Todas localizações";
+    return l;
+  };
   const yearLabel = (y) => {
     if (y === "all") return "Todos os espaços";
     if (y === "2026") return "Mais recentes (2026)";
@@ -76,7 +94,6 @@ export const FiltersModal = ({ lenis }) => {
     if (y === "2024") return "2024";
     return y;
   };
-
   const statusLabel = (s) => {
     if (s === "all") return "Todos";
     if (s === "completed") return "Concluído";
@@ -84,7 +101,6 @@ export const FiltersModal = ({ lenis }) => {
     if (s === "concept") return "Conceitual";
     return s;
   };
-
   const styleLabel = (v) => {
     const map = {
       minimalist: "Minimalista",
@@ -126,6 +142,21 @@ export const FiltersModal = ({ lenis }) => {
     setActiveYear("all");
     setActiveStatus("all");
     resetStyles();
+    setActiveLocation("all");
+    setActiveArea("all");
+  };
+
+  const statusColor = (status) => {
+    switch (status) {
+      case "completed":
+        return "bg-green-400";
+      case "ongoing":
+        return "bg-yellow-400";
+      case "concept":
+        return "bg-blue-400";
+      default:
+        return "bg-p/50";
+    }
   };
 
   const Item = ({ label, active, onClick, color }) => (
@@ -165,7 +196,7 @@ export const FiltersModal = ({ lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[45vw] h-[calc(100%-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[50vw] h-[calc(100%-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -254,7 +285,7 @@ export const FiltersModal = ({ lenis }) => {
                     label={yearLabel(y)}
                     active={activeYear === y}
                     onClick={() => setActiveYear(y)}
-                    color="bg-blue-400"
+                    color="bg-p/50"
                   />
                 ))}
               </div>
@@ -278,7 +309,7 @@ export const FiltersModal = ({ lenis }) => {
                     label={statusLabel(s)}
                     active={activeStatus === s}
                     onClick={() => setActiveStatus(s)}
-                    color="bg-green-400"
+                    color={statusColor(s)}
                   />
                 ))}
               </div>
@@ -309,8 +340,87 @@ export const FiltersModal = ({ lenis }) => {
                 ))}
               </div>
             </div>
+            {/* LOCATION */}
+            <div className="w-full h-px bg-p/10 my-10" />
+
+            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
+              <div className="flex-1">
+                <div className="size-fit flex items-center gap-2">
+                  <span className="size-2 bg-p rounded-[1px]" />
+                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                    algumas localizações
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-4">
+                {locations.map((location) => (
+                  <Item
+                    key={location}
+                    label={locationLabel(location)}
+                    active={activeLocation === location}
+                    onClick={() => setActiveLocation(location)}
+                    color="bg-p/50"
+                  />
+                ))}
+              </div>
+            </div>
+            {/* AREA */}
+            <div className="w-full h-px bg-p/10 my-10" />
+
+            <div className="mb-10 mt-5 w-full flex items-start max-md:flex-col max-md:gap-5">
+              <div className="flex-1">
+                <div className="size-fit flex items-center gap-2">
+                  <span className="size-2 bg-p rounded-[1px]" />
+                  <p
+                    className="font-azeret font-medium text-p text-[14px] 
+        tracking-[0.05em] leading-none uppercase"
+                  >
+                    área
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1">
+                <div className="relative w-full h-5 flex items-center ">
+                  <div className="absolute w-full h-1.5 bg-p/10 rounded-sm" />
+
+                  <div
+                    className="absolute h-1.5 bg-p rounded-sm"
+                    style={{
+                      width: `${(areaValue / 200) * 100}%`,
+                    }}
+                  />
+
+                  <input
+                    type="range"
+                    min={0}
+                    max={200}
+                    step={1}
+                    value={areaValue}
+                    onChange={(e) => {
+                      const value = Number(e.target.value);
+
+                      setActiveArea(value);
+                    }}
+                    className="range-thumb w-full rounded-sm"
+                  />
+
+                  <div
+                    className="absolute -top-10"
+                    style={{
+                      left: `${(areaValue / 225) * 100}%`,
+                    }}
+                  >
+                    <p className="font-azeret font-semibold text-p text-[14px] tracking-[0.08em] uppercase whitespace-nowrap">
+                      {areaValue}m²
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mb-10 flex items-center justify-between gap-5">
+          <div className="my-10 flex items-center justify-between gap-5">
             <motion.button
               whileTap={{ scale: 1.1 }}
               whileHover={{

@@ -110,6 +110,8 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
     activeYear,
     activeStatus,
     activeStyles,
+    activeLocation,
+    activeArea,
   } = useWorkStore();
   const categories = ["all", "residential", "commercial", "store"];
   const categoryLabels = {
@@ -132,10 +134,24 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
 
     const matchStyle =
       activeStyles.length === 0 ||
-      item.styles.some((s) => activeStyles.includes(s.toLowerCase().trim()));
+      item.styles?.some((s) => activeStyles.includes(s.toLowerCase().trim()));
 
-    return matchCategory && matchYear && matchStatus && matchStyle;
+    const locationMatch =
+      activeLocation === "all" || item.location.country === activeLocation;
+
+    const areaMatch = activeArea === "all" || Number(item.area) <= activeArea;
+
+    return (
+      matchCategory &&
+      matchYear &&
+      matchStatus &&
+      matchStyle &&
+      locationMatch &&
+      areaMatch
+    );
   });
+
+  console.log(work);
 
   return (
     <>

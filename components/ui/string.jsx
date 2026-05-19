@@ -20,7 +20,7 @@ const Ring = ({ i, menuOpen }) => {
 
   return (
     <motion.figure
-      className="absolute left-[calc(100%-20px)]"
+      className="absolute left-[calc(100%-20px)] will-change-transform"
       style={{ top: 0 }}
       initial={{
         opacity: 0,

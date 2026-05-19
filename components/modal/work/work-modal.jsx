@@ -85,7 +85,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-10 w-[45vw] h-[calc(100vh-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000]
+        className="fixed left-0 top-0 m-4 p-10 w-[50vw] h-[calc(100vh-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000]
         max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
@@ -367,7 +367,7 @@ const WorkImageBlock = ({ block }) => {
   if (!block?.image?.asset?.url) return null;
 
   return (
-    <figure className="relative mt-15 w-full h-[40vh] overflow-hidden rounded-sm max-md:h-[30vh] max-md:mt-5">
+    <figure className="relative mt-15 w-full h-[50vh] overflow-hidden rounded-sm max-md:h-[30vh] max-md:mt-5">
       <ImageComponent
         image={block.image}
         className="object-cover brightness-75"

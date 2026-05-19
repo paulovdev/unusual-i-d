@@ -119,3 +119,31 @@ body {
   z-index: 1;
   animation: none !important;
 }
+
+.range-thumb {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  appearance: none;
+  background: none;
+ 
+}
+
+.range-thumb::-webkit-slider-thumb {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+}
+
+.range-thumb::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+}

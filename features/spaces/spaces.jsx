@@ -27,12 +27,16 @@ const SpacesHero = ({ work }) => {
     activeYear,
     activeStatus,
     activeStyles,
+    activeLocation,
+    activeArea,
   } = useWorkStore();
 
   const activeFiltersCount = [
     activeYear !== "all",
     activeStatus !== "all",
     activeStyles.length > 0,
+    activeLocation !== "all",
+    activeArea !== "all",
   ].filter(Boolean).length;
 
   useEffect(() => {

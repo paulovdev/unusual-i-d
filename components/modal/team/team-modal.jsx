@@ -87,7 +87,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-10 w-[45vw] h-[calc(100vh-32px)] 
+        className="fixed left-0 top-0 m-4 p-10 w-[50vw] h-[calc(100vh-32px)] 
        bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"

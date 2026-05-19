@@ -99,7 +99,7 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[45vw] h-[calc(100%-32px)]
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[50vw] h-[calc(100%-32px)]
          bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
@@ -232,7 +232,7 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-60 overflow-hidden rounded-sm 
+                      className="w-full h-65 overflow-hidden rounded-sm 
                       border border-transparent
                     group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
                     >

@@ -6,16 +6,18 @@ export const useWorkStore = create((set) => ({
   setActiveWork: (work) => set({ activeWork: work }),
   clearActiveWork: () => set({ activeWork: null }),
 
-  // filters
   activeCategory: "all",
   activeYear: "all",
   activeStatus: "all",
   activeStyles: [],
+  activeArea: "all",
+  activeLocation: "all",
 
   setActiveCategory: (v) => set({ activeCategory: v }),
   setActiveYear: (v) => set({ activeYear: v }),
   setActiveStatus: (v) => set({ activeStatus: v }),
-
+  setActiveArea: (v) => set({ activeArea: v }),
+  setActiveLocation: (v) => set({ activeLocation: v }),
   setActiveStyles: (value) =>
     set((state) => {
       const exists = state.activeStyles.includes(value);
