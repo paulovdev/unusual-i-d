@@ -126,7 +126,6 @@ body {
   pointer-events: none;
   appearance: none;
   background: none;
- 
 }
 
 .range-thumb::-webkit-slider-thumb {
