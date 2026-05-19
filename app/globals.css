@@ -74,12 +74,35 @@ body {
   padding: 0;
   margin: 0;
   width: 100dvw;
-
+  min-height: 100vh;
+  min-height: 100dvh;
   font-family: "Azeret Mono", sans-serif;
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: #121212;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* topo */
+body::before {
+  top: 0;
+  height: env(safe-area-inset-top);
+}
+
+/* bottom */
+body::after {
+  bottom: 0;
+  height: env(safe-area-inset-bottom);
 }
 
 #noise::before {
