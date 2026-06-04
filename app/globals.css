@@ -45,6 +45,8 @@
 @theme {
   --color-p: #000000;
   --color-s: #ffffff;
+  --color-bg-p: #141414;
+  --color-bg-s: #ffffff;
 
   --color-brd: #ededed;
 

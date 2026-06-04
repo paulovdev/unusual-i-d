@@ -34,12 +34,12 @@ export default function StudioHero({ work }) {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#fefcf5]">
+        <main className="relative bg-[#ffffff]">
           <StudioIntro />
           <StudioAbout />
           <StudioWhatWeDo />
-          <StudioTeam lenis={lenisRef} />
           <StudioAwards />
+          <StudioTeam lenis={lenisRef} />
           <StudioTestimonials />
           <div className=" h-screen w-screen flex items-center  justify-center">
             <String />

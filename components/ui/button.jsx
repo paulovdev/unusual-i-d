@@ -21,8 +21,8 @@ const Button = ({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 1.1 }}
-      className={`w-fit p-5 px-10 rounded-sm 
-        flex items-center justify-center select-none cursor-default
+      className={`w-fit h-15 px-8 rounded-sm border border-p/10
+        flex items-center justify-center select-none cursor-pointer
         transition-colors duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)] ${hovered ? hoverBg : bg}`}
     >
       <motion.div
@@ -40,13 +40,13 @@ const Button = ({
         <motion.span
           layout
           animate={{
-            x: hovered ? -2 : 0,
+            x: hovered ? 14 : 0,
           }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           className="flex"
         >
           <RiArrowRightLongLine
-            className={`text-[18px] transition-colors duration-500 ${
+            className={`relative right-2 text-[22px] transition-colors duration-500 ${
               hovered ? hoverIconColor : iconColor
             }`}
           />
@@ -55,7 +55,7 @@ const Button = ({
         <motion.p
           layout
           animate={{
-            x: hovered ? 2 : 0,
+            x: hovered ? 4 : 0,
           }}
           transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           className={`font-azeret font-semibold text-[14px] tracking-[0.05em] leading-none uppercase transition-colors duration-500 ${

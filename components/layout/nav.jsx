@@ -60,10 +60,10 @@ export const menuOverlay = {
 };
 
 const navData = [
-  { label: "início", href: "/" },
-  { label: "estúdio", href: "/studio" },
-  { label: "espaços (projetos)", href: "/spaces" },
-  { label: "entre em contato conosco", href: "/contact" },
+  { label: "Inicio", href: "/" },
+  { label: "Estúdio", href: "/studio" },
+  { label: "Projetos", href: "/projects" },
+  { label: "Fale com a gente", href: "/contact" },
 ];
 
 const Menu = ({ setMenu }) => {
@@ -78,7 +78,7 @@ const Menu = ({ setMenu }) => {
         animate="animate"
         exit="exit"
         className="fixed left-1/2 -translate-x-1/2 bottom-25
-         w-100 bg-p/50 backdrop-blur-2xl rounded-md z-90 pointer-events-none"
+         w-100 bg-p/50 backdrop-blur-2xl rounded-sm z-90 select-none pointer-events-none"
       >
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -98,7 +98,7 @@ const Menu = ({ setMenu }) => {
             <p className="mb-4 font-azeret font-medium text-s/50 text-[12px] tracking-[0.05em] uppercase">
               Navegue pelo site
             </p>
-            <span className="mb-10 w-full h-px bg-s/25" />
+            <span className="mb-5 w-full h-px bg-s/25" />
             {navData.map((nav, i) => {
               const active = pathname === nav.href;
 
@@ -107,11 +107,11 @@ const Menu = ({ setMenu }) => {
                   key={i}
                   href={nav.href}
                   onClick={() => setMenu(false)}
-                  className={`${active ? "mt-5 mb-7" : "mb-2"} size-fit flex items-center gap-2`}
+                  className={`cursor-pointer ${active ? "mt-3 mb-5" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  {active && <span className="size-2 bg-s rounded-[1px]" />}
                   <p
-                    className={`max-w-125 font-azeret font-medium ${active ? "text-s" : "text-s/50 hover:text-s"} text-[14px] tracking-[0.05em] leading-none uppercase transition-all duration-250`}
+                    className={`max-w-125 font-neue font-medium ${active ? "text-s" : "text-s/50 hover:text-s"} 
+                    text-[28px] tracking-[-.04em] leading-none transition-all duration-250`}
                   >
                     {nav.label}
                   </p>
@@ -121,9 +121,9 @@ const Menu = ({ setMenu }) => {
           </div>
 
           <div className="flex items-center gap-5 ">
-            <FaXTwitter className="text-s text-[24px]" />
-            <FaInstagram className="text-s text-[24px]" />
-            <FaBehance className="text-s text-[24px]" />
+            <FaXTwitter className="text-s text-[24px] cursor-pointer" />
+            <FaInstagram className="text-s text-[24px] cursor-pointer" />
+            <FaBehance className="text-s text-[24px] cursor-pointer" />
           </div>
         </motion.div>
       </motion.div>
@@ -145,7 +145,7 @@ const Nav = () => {
   return (
     <>
       <nav className="fixed inset-5 flex items-end justify-center z-100 pointer-events-none">
-        <button className="w-100 px-6 h-16 bg-p/50 backdrop-blur-2xl rounded-md flex items-center justify-between gap-8 pointer-events-auto">
+        <button className="w-100 px-6 h-16 bg-p/50 backdrop-blur-2xl rounded-sm flex items-center justify-between gap-8 pointer-events-auto">
           <p className="font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase">
             INCOMUM<span>®</span>
           </p>
@@ -164,7 +164,7 @@ const Nav = () => {
             <String menuOpen={menu} />
           </motion.figure>
           <div
-            className="min-w-20 flex items-center gap-5"
+            className="min-w-20 flex items-center gap-5 cursor-pointer"
             onClick={() => setMenu(!menu)}
           >
             <AnimatePresence mode="wait" initial={false}>

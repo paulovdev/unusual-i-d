@@ -9,10 +9,7 @@ import team08 from "@/public/assets/images/team/b.jpg";
 import team09 from "@/public/assets/images/team/c.jpg";
 import team10 from "@/public/assets/images/team/a.jpg";
 import team11 from "@/public/assets/images/team/b.jpg";
-import award1 from "@/public/assets/images/awards/img-1.jpg";
-import award2 from "@/public/assets/images/awards/img-2.jpg";
-import award3 from "@/public/assets/images/awards/img-3.jpg";
-import award4 from "@/public/assets/images/awards/img-4.jpg";
+
 export const team = [
   {
     src: team01,
@@ -151,23 +148,27 @@ export const team = [
 
 export const awards = [
   {
-    title: "Editorial de interiores residenciais",
-    year: "2026",
-    image: award1,
-  },
-  {
-    title: "Interiores comerciais em destaque",
-    year: "2026",
-    image: award2,
-  },
-  {
-    title: "Curadoria de ambientes residenciais",
+    title: "Awwwards Site of the Day",
     year: "2025",
-    image: award3,
   },
   {
-    title: "Reconhecimento em design minimalista",
+    title: "CSS Design Awards – Special Kudos",
     year: "2025",
-    image: award4,
+  },
+  {
+    title: "FWA – Site of the Day",
+    year: "2024",
+  },
+  {
+    title: "Webby Awards – Honoree",
+    year: "2024",
+  },
+  {
+    title: "Red Dot – Digital Design",
+    year: "2023",
+  },
+  {
+    title: "Behance Featured Project",
+    year: "2023",
   },
 ];

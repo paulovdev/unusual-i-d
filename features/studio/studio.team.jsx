@@ -42,7 +42,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
           alt={member.name}
           fill
           placeholder="blur"
-          className="object-cover rounded-md brightness-75"
+          className="object-cover rounded-sm brightness-75"
         />
         <div className="absolute bottom-0 left-0 p-5 w-full flex items-center justify-between z-10">
           <div className="w-full flex flex-col items-start">
@@ -101,9 +101,9 @@ const StudioTeam = ({ lenis }) => {
           ref={ref}
         >
           <div className=" size-fit flex items-center gap-2">
-            <span className="size-2 bg-p rounded-[1px]" />
+            <span className="size-2  bg-p rounded-[1px]" />
             <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-              nossa equipe
+              nosso timetes
             </p>
           </div>
           <div className="flex items-center gap-5">
@@ -182,8 +182,6 @@ const StudioTeam = ({ lenis }) => {
             ))}
           </motion.div>
         </div>
-
-        <div className="mt-15 mb-20 w-full h-px bg-p/10"></div>
       </section>
       <AnimatePresence mode="wait">
         {activeMember && (

@@ -30,9 +30,9 @@ const HomeHero = ({ work }) => {
   return (
     <>
       {isReady && (
-        <main className="relative bg-[#fefcf5]">
+        <main className="relative bg-[#ffffff]">
           <HomeIntro />
-          <HomeAbout />
+          <HomeAbout work={work} />
           <HomeWorks2 work={work} lenis={lenisRef} />
           {/*    <HomeWorks />   */}
 

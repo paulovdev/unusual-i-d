@@ -74,7 +74,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 pt-10 px-10 w-[50vw] h-[calc(100%-32px)]
-         bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+         bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -444,7 +444,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
       </motion.div>
 
       <motion.div
-        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-[900]"
+        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-900 cursor-pointer"
         variants={overlayAnim}
         initial="initial"
         animate="animate"

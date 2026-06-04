@@ -101,7 +101,7 @@ export default function TransitionLink({ href, children, className, onClick }) {
   };
 
   return (
-    <div onClick={handleClick} className={`${className} cursor-default`}>
+    <div onClick={handleClick} className={`${className} cursor-pointer`}>
       {children}
     </div>
   );

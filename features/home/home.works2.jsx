@@ -84,19 +84,22 @@ const Works = ({ work, setHover, setActiveWork, activeWork, i }) => {
 const HomeWorks2 = ({ work, lenis }) => {
   const [hover, setHover] = useState(null);
   const [activeWork, setActiveWork] = useState(null);
+  const workFeatureFilter = work.filter((item) => item.featured);
 
   return (
     <>
       <section id="works" className="relative h-fit pointer-events-none">
-        <div className="mb-10 p-15 max-md:px-5 size-fit flex items-center gap-2 z-10">
-          <span className="relative -top-px size-2 bg-p rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
-            Espaços selecionados
-          </p>
+        <div className="sticky top-0 px-10 mix-blend-exclusion z-120">
+          <div className="relative top-15 size-fit flex items-center gap-2 max-md:px-5">
+            <span className="relative -top-px size-2  bg-s" />
+            <p className="max-w-125 font-azeret font-normal text-s text-[14px] tracking-[0.05em] leading-[1.1] uppercase">
+              Projetos selecionados ({workFeatureFilter.length})
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col items-center justify-center select-none">
-          {work.slice(0, 3).map((item, i) => (
+          {workFeatureFilter.map((item, i) => (
             <Works
               key={i}
               i={i}

@@ -80,11 +80,9 @@ export const SearchModal = ({ lenis, work }) => {
   }, [lenis]);
 
   const suggestions = query
-    ? work
-        .filter((item) =>
-          item.title.toLowerCase().includes(query.toLowerCase()),
-        )
-        .slice(0, 3)
+    ? work.filter((item) =>
+        item.title.toLowerCase().includes(query.toLowerCase()),
+      )
     : randomSuggestions;
 
   const shuffleSuggestions = () => {
@@ -99,8 +97,8 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[50vw] h-[calc(100%-32px)]
-         bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[40vw] h-[calc(100%-32px)]
+         bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -135,7 +133,7 @@ export const SearchModal = ({ lenis, work }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -161,7 +159,7 @@ export const SearchModal = ({ lenis, work }) => {
         >
           <div className="flex flex-col items-start">
             <TextAnimated
-              phrases={["Navegueㅤ"]}
+              phrases={["Pesquisarㅤ"]}
               variants={textSlide}
               as="h2"
               className="flex flex-col"
@@ -176,7 +174,7 @@ export const SearchModal = ({ lenis, work }) => {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Pesquise por espaços..."
+                placeholder="pesquise por projetos..."
                 className="w-full p-5 border border-p/10 rounded-sm outline-none 
                 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase "
               />
@@ -232,7 +230,7 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-65 overflow-hidden rounded-sm 
+                      className="w-full h-50 overflow-hidden rounded-sm 
                       border border-transparent
                     group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
                     >
@@ -241,7 +239,7 @@ export const SearchModal = ({ lenis, work }) => {
                         width={1000}
                         height={1000}
                         alt=""
-                        className="size-full object-cover"
+                        className="size-full object-cover brightness-90"
                       />
 
                       <div className="absolute left-5 bottom-5">
@@ -291,7 +289,7 @@ export const SearchModal = ({ lenis, work }) => {
       </motion.div>
 
       <motion.div
-        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-[900]"
+        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-900 cursor-pointer"
         variants={overlayAnim}
         initial="initial"
         animate="animate"

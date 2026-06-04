@@ -10,7 +10,7 @@ const CLOSED_HEIGHT = 20;
 
 const WIDTH = 25;
 const BORDER_WIDTH = 1;
-const RINGS_COUNT = 5;
+const RINGS_COUNT = 3;
 const SIZE = 35;
 
 const Ring = ({ i, menuOpen }) => {
@@ -60,8 +60,8 @@ const Ring = ({ i, menuOpen }) => {
       }}
     >
       <motion.div
-        className="border-s rounded-xs"
-        animate={{
+        className="border-s rounded-sm"
+        animate={{ 
           width: WIDTH,
           height: menuOpen ? OPEN_HEIGHT : CLOSED_HEIGHT,
         }}

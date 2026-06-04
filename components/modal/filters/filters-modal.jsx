@@ -196,7 +196,7 @@ export const FiltersModal = ({ lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[50vw] h-[calc(100%-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[40vw] h-[calc(100%-32px)] bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -257,7 +257,7 @@ export const FiltersModal = ({ lenis }) => {
         >
           <div className="flex flex-col items-start">
             <TextAnimated
-              phrases={["Categoriasᅠ"]}
+              phrases={["Filtros"]}
               variants={textSlide}
               as="h2"
               className="flex flex-col"
@@ -272,9 +272,9 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p rounded-[1px]" />
+                  <span className="size-2  bg-p rounded-[1px]" />
                   <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                    year
+                    ano
                   </p>
                 </div>
               </div>
@@ -296,7 +296,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p rounded-[1px]" />
+                  <span className="size-2  bg-p rounded-[1px]" />
                   <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                     status
                   </p>
@@ -321,7 +321,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className=" w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="size-2 bg-p rounded-[1px]" />
+                  <span className="size-2  bg-p rounded-[1px]" />
                   <p className="text-p text-[14px] uppercase">style</p>
                 </div>
               </div>
@@ -341,42 +341,19 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
             {/* LOCATION */}
-            <div className="w-full h-px bg-p/10 my-10" />
 
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p rounded-[1px]" />
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                    algumas localizações
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex-1 flex flex-col gap-4">
-                {locations.map((location) => (
-                  <Item
-                    key={location}
-                    label={locationLabel(location)}
-                    active={activeLocation === location}
-                    onClick={() => setActiveLocation(location)}
-                    color="bg-p/50"
-                  />
-                ))}
-              </div>
-            </div>
             {/* AREA */}
             <div className="w-full h-px bg-p/10 my-10" />
 
             <div className="mb-10 mt-5 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p rounded-[1px]" />
+                  <span className="size-2  bg-p rounded-[1px]" />
                   <p
                     className="font-azeret font-medium text-p text-[14px] 
         tracking-[0.05em] leading-none uppercase"
                   >
-                    área
+                    time
                   </p>
                 </div>
               </div>
@@ -461,7 +438,7 @@ export const FiltersModal = ({ lenis }) => {
       </motion.div>
 
       <motion.div
-        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-[900]"
+        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-900 cursor-pointer"
         variants={overlayAnim}
         initial="initial"
         animate="animate"

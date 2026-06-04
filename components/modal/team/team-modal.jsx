@@ -88,7 +88,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
     <>
       <motion.div
         className="fixed left-0 top-0 m-4 p-10 w-[50vw] h-[calc(100vh-32px)] 
-       bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+       bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -123,7 +123,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -147,19 +147,12 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             }}
             className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
           >
-            <div className="w-full flex flex-col gap-15 max-md:mb-10">
-              <div className=" size-fit flex items-center gap-2">
-                <span className="size-2 bg-p rounded-[1px]" />
-                <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  {member.role}
-                </p>
-              </div>
-
+            <div className="w-full flex flex-col gap-15">
               <TextAnimated
                 phrases={[member.name]}
                 variants={textSlide}
                 as="h2"
-                className="flex flex-col"
+                className="mt-10 mb-5 flex flex-col"
                 lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.07em]
                leading-none max-md:text-[42px]"
                 wordClassName="mr-2"
@@ -170,38 +163,63 @@ export const TeamModal = ({ member, lenis, onClose }) => {
 
             {/*  */}
 
-            <div className="relative mt-10 w-full h-[50vh]">
+            <div className="relative w-full h-[50vh]">
               <Image
                 src={member.src}
                 alt={member.name}
                 fill
                 sizes=""
                 placeholder="blur"
-                className="object-cover rounded-md"
+                className="object-cover rounded-sm"
               />
             </div>
             <div className="w-full flex flex-col gap-3">
-              <div className="mt-10 w-full flex">
+              <div
+                className="mt-10 border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+              >
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <MdOutlineEmail className="text-p text-[14px]" />
+                    <span className="size-2 bg-p " />
+                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                      cargo
+                    </p>
+                  </div>
+                </div>
 
+                <div className="flex-2 flex items-center gap-2">
+                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+              <div
+                className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+              >
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="size-2 bg-p " />
                     <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                       e-mail
                     </p>
                   </div>
                 </div>
 
-                <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                <div className="flex-2 flex items-center gap-2">
+                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
                     {member.email}
                   </p>
                 </div>
               </div>
-              <div className="w-full flex">
+
+              <div
+                className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+              >
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <FaInstagram className="text-p text-[14px]" />
+                    <span className="size-2 bg-p " />
 
                     <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                       instagram
@@ -209,32 +227,38 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   </div>
                 </div>
 
-                <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                <div className="flex-2 flex items-center gap-2">
+                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
                     {member.instagram}
                   </p>
                 </div>
               </div>
-              <div className="w-full flex">
+
+              <div
+                className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+              >
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
-                    <FiMapPin className="text-p text-[14px]" />
-
+                    <span className="size-2 bg-p " />
                     <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      localização
+                      localidade
                     </p>
                   </div>
                 </div>
 
-                <div className="flex-1 flex flex-col gap-15">
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-[1.1] uppercase ">
+                <div className="flex-2 flex items-center gap-2">
+                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
                     {member.location}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="my-10 w-full h-px bg-p/10"></div>
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
+
+            <div
+              className="border-b border-p/10 py-10 w-full flex items-start
+       max-md:flex-col max-md:items-start max-md:gap-5 max-md:py-5"
+            >
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-2">
                   <span className="size-2 bg-p " />
@@ -251,7 +275,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   variants={textSlide}
                   as="span"
                   className="flex flex-col"
-                  lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
+                  lineClassName="max-w-150 mb-5 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-[1.2]"
                   wordClassName="mr-2"
                   wordDelay={0.015}
                   lineDelay={0.4}
@@ -263,7 +287,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
       </motion.div>
 
       <motion.div
-        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-[900]"
+        className="fixed left-0 top-0 w-screen h-dvh backdrop-blur-lg bg-p/75 z-900 cursor-pointer"
         variants={overlayAnim}
         initial="initial"
         animate="animate"

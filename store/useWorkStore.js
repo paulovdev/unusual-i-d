@@ -6,12 +6,12 @@ export const useWorkStore = create((set) => ({
   setActiveWork: (work) => set({ activeWork: work }),
   clearActiveWork: () => set({ activeWork: null }),
 
-  activeCategory: "all",
-  activeYear: "all",
-  activeStatus: "all",
+  activeCategory: "todos",
+  activeYear: "todos",
+  activeStatus: "todos",
   activeStyles: [],
-  activeArea: "all",
-  activeLocation: "all",
+  activeArea: "todos",
+  activeLocation: "todos",
 
   setActiveCategory: (v) => set({ activeCategory: v }),
   setActiveYear: (v) => set({ activeYear: v }),

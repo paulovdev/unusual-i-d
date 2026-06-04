@@ -1,10 +1,10 @@
 "use client";
 
 import Nav from "@/components/layout/nav";
-import SpacesIntro from "@/features/spaces/spaces.intro";
+import ProjectsIntro from "@/features/projects/projects.intro";
 import Lenis from "lenis";
 import { useEffect, useRef, useState } from "react";
-import SpacesWorks from "./spaces.works";
+import ProjectsWorks from "./projects.works";
 import { AnimatePresence } from "motion/react";
 
 import { useWorkStore } from "@/store/useWorkStore";
@@ -13,7 +13,7 @@ import { FiltersModal } from "@/components/modal/filters/filters-modal";
 import { SearchModal } from "@/components/modal/search/search-modal";
 import { usePageTransition } from "@/store/pageTransition";
 
-const SpacesHero = ({ work }) => {
+const ProjectsHero = ({ work }) => {
   const lenisRef = useRef(null);
   const { isReady } = usePageTransition();
 
@@ -56,9 +56,9 @@ const SpacesHero = ({ work }) => {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#fefcf5]">
-          <SpacesIntro work={work} lenis={lenisRef} />
-          <SpacesWorks
+        <main className="relative bg-[#ffffff]">
+          <ProjectsIntro work={work} lenis={lenisRef} />
+          <ProjectsWorks
             work={work}
             activeFiltersCount={activeFiltersCount}
             lenis={lenisRef}
@@ -95,4 +95,4 @@ const SpacesHero = ({ work }) => {
   );
 };
 
-export default SpacesHero;
+export default ProjectsHero;

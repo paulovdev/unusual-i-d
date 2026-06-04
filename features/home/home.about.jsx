@@ -10,6 +10,7 @@ import Link from "next/link";
 import { LuDoorClosed, LuDoorOpen } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import TransitionLink from "@/components/ui/link";
+import ImageComponent from "@/components/ui/image";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -23,7 +24,7 @@ const textSlide = {
   }),
 };
 
-const HomeAbout = () => {
+const HomeAbout = ({ work }) => {
   const router = useRouter();
   const [hover, setHover] = useState(null);
   const { ref, inView } = useInView({
@@ -34,16 +35,15 @@ const HomeAbout = () => {
   return (
     <section id="about" className="relative h-fit p-15 max-md:px-5" ref={ref}>
       <div className="mb-20 size-fit flex items-center gap-2">
-        <span className="size-2 bg-p rounded-[1px]" />
+        <span className="size-2  bg-p rounded-[1px]" />
         <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-          Conceito
+          Estúdio
         </p>
       </div>
 
       <TextAnimated
         phrases={[
-          `Projetamos interiores a partir da relação entre luz, matéria e silêncio espacial.`,
-          `Cada ambiente é pensado com precisão e calma — criando espaços contemporâneos, sensoriais e duradouros.`,
+          `Cada projeto nasce da combinação de conceito, movimento e narrativa — criando linguagens contemporâneas, expressivas e memoráveis.`,
         ]}
         variants={textSlide}
         animate={inView}
@@ -75,7 +75,7 @@ const HomeAbout = () => {
             hoverIconColor="text-p"
           />
         </TransitionLink>
-        <TransitionLink href="/spaces">
+        <TransitionLink href="/projects">
           <motion.figure
             initial={{ scale: 0 }}
             animate={{
@@ -86,22 +86,25 @@ const HomeAbout = () => {
                 ease: [0.76, 0, 0.24, 1],
               },
             }}
-            className="relative w-125 h-75 overflow-hidden rounded-md group
+            className="relative w-125 h-75 overflow-hidden rounded-sm group
           max-md:w-74 max-md:h-50"
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(null)}
-            onClick={() => router.push("/spaces")}
+            onClick={() => router.push("/projects")}
           >
-            <Image
-              src={reel}
-              width={2000}
-              height={2000}
-              alt="spaces preview"
-              className="object-cover size-full rounded-md brightness-75
+            {work.slice(11, 12).map((item, i) => (
+              <ImageComponent
+                key={i}
+                image={item.heroMedia.image}
+                width={2000}
+                height={2000}
+                alt="projects preview"
+                className="object-cover size-full rounded-sm brightness-75
             transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]
             group-hover:scale-110"
-              placeholder="blur"
-            />
+                placeholder="blur"
+              />
+            ))}
 
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex items-center gap-2">
@@ -136,7 +139,7 @@ const HomeAbout = () => {
                 </AnimatePresence>
 
                 <p className="font-azeret text-[12px] tracking-[0.2em] uppercase text-s">
-                  ver espaços
+                  ver projetos
                 </p>
               </div>
             </div>

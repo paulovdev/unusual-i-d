@@ -6,15 +6,7 @@ import Lenis from "lenis";
 import { IoClose } from "react-icons/io5";
 import TextAnimated from "@/components/ui/text-animated";
 import ImageComponent from "@/components/ui/image";
-import {
-  FiMapPin, // location
-  FiGrid, // area
-  FiCircle, // status
-  FiLayers, // style
-  FiUser, // client
-  FiUsers, // consultants
-  FiCamera, // photograph
-} from "react-icons/fi";
+
 const textSlide = {
   initial: { y: "100%" },
   animate: (custom) => ({
@@ -26,7 +18,6 @@ const textSlide = {
     },
   }),
 };
-
 const menuAnim = {
   initial: { clipPath: "inset(0% 100% 0% 0%)" },
   animate: {
@@ -38,7 +29,6 @@ const menuAnim = {
     transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
-
 const overlayAnim = {
   initial: { opacity: 0 },
   animate: {
@@ -85,8 +75,8 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-10 w-[50vw] h-[calc(100vh-32px)] bg-[#fefcf5] backdrop-blur-3xl rounded-sm z-[1000]
-        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed left-0 top-0 m-4 p-10 w-[60vw] h-[calc(100vh-32px)] bg-s backdrop-blur-3xl rounded-sm z-[1000]
+        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)] will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -112,7 +102,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30"
+          className="absolute top-5 right-5 z-30 will-change-auto"
         >
           <motion.button
             whileTap={{ scale: 1.1 }}
@@ -120,7 +110,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm group max-md:p-2 bg-p"
+            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -150,7 +140,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
 
       {/* OVERLAY */}
       <motion.div
-        className="fixed inset-0 bg-p/75 backdrop-blur-lg z-900"
+        className="fixed inset-0 bg-p/75 backdrop-blur-lg z-900 cursor-pointer"
         variants={overlayAnim}
         initial="initial"
         animate="animate"
@@ -164,180 +154,130 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
 export default WorkModal;
 
 const WorkModalContent = ({ work }) => {
-  let color = "";
-
-  switch (work.status) {
-    case "completed":
-      color = "bg-green-400";
-      break;
-
-    case "ongoing":
-      color = "bg-yellow-400";
-      break;
-
-    case "concept":
-      color = "bg-blue-400";
-      break;
-
-    default:
-      color = "bg-p/30";
-  }
+  const serviceLabels = {
+    "art-direction": "Direção de Arte",
+    "brand-strategy": "Estratégia de Marca",
+    "ui-ux": "Design UI/UX",
+    development: "Desenvolvimento",
+    "motion-design": "Motion Design",
+    "3d-design": "Design 3D",
+    photography: "Fotografia",
+    "content-creation": "Criação de Conteúdo",
+    "creative-coding": "Programação Criativa",
+    "visual-identity": "Identidade Visual",
+  };
 
   return (
-    <div className="size-full flex flex-col items-end justify-between max-md:gap-5">
+    <div className="size-full select-none flex flex-col items-end justify-between max-md:gap-5">
       <div className="w-full flex flex-col gap-15 max-md:mb-10">
-        <div className="w-full flex items-center gap-5">
-          <div className="flex-1 size-fit flex items-center gap-2">
-            <span className="size-2 bg-p rounded-[1px]" />
-            <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-              {work.mark}
-            </p>
-          </div>
-          <div className="flex-1 flex items-center gap-2">
-            <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
-              {work.category}
-            </span>
-            <span className="mx-5 text-p">/</span>
-            <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
-              {work.year}
-            </span>
-          </div>
-        </div>
         <TextAnimated
           phrases={[work.title + "ㅤ"]}
           variants={textSlide}
           as="h2"
-          className="flex flex-col"
+          className="mt-10 flex flex-col"
           lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.05em]
                leading-none max-md:text-[42px]"
           wordClassName="mr-2"
           wordDelay={0.015}
           lineDelay={0.1}
         />
+
         <div className="flex flex-col gap-3">
-          <div className="w-full flex ">
+          <div
+            className="border-b border-p/10 py-5 w-full flex items-center 
+          max-md:flex-col max-md:items-start max-md:gap-5"
+          >
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiMapPin className="text-p text-[14px]" />
+                <span className="relative size-2 bg-p " />
 
                 <p
-                  className="font-azeret font-medium
-                text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
                 >
-                  localização
+                  lançado em
                 </p>
               </div>
             </div>
 
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                {work.location.city}, {work.location.country}
+            <div className="flex-2">
+              <span className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+                {work.year}
+              </span>
+            </div>
+          </div>
+          <div
+            className="border-b border-p/10 py-5 w-full flex items-center  
+          max-md:flex-col max-md:items-start max-md:gap-5"
+          >
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <span className="size-2 bg-p " />
+
+                <p
+                  className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+                >
+                  categoria
+                </p>
+              </div>
+            </div>
+
+            <div className="flex-2">
+              <span className="capitalize font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+                {work.category}
+              </span>
+            </div>
+          </div>
+
+          {/* SERVIÇOS */}
+          <div
+            className="border-b border-p/10 py-5 w-full flex items-center 
+           max-md:flex-col max-md:items-start max-md:gap-5"
+          >
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <span className="size-2 bg-p " />
+
+                <p
+                  className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+                >
+                  serviços
+                </p>
+              </div>
+            </div>
+
+            <div className="flex-2">
+              <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+                {work.services
+                  ?.map((service) => serviceLabels[service] || service)
+                  .join(", ")}
               </p>
             </div>
           </div>
-          <div className="w-full flex ">
+
+          {/* CLIENTE */}
+          <div
+            className="border-b border-p/10 py-5 w-full flex items-center 
+           max-md:flex-col max-md:items-start max-md:gap-5"
+          >
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <FiGrid className="text-p text-[14px]" />
+                <span className="size-2 bg-p " />
 
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  área
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                {work.area}
-                <span className="lowercase!">m²</span>
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex ">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <FiCircle className="text-p text-[14px]" />
-
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  status
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-15">
-              <div className="size-fit flex items-center gap-2">
-                <span className={`size-2  ${color} `} />
-                <span className="font-azeret font-medium text-p text-[14px] tracking-[0.01em] leading-none uppercase truncate ">
-                  {work.status}
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="w-full flex ">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <FiLayers className="text-p text-[14px]" />
-
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  estilo
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                {work.styles.join(", ")}
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex ">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <FiUser className="text-p text-[14px]" />
-
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+                <p
+                  className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+                >
                   cliente
                 </p>
               </div>
             </div>
 
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+            <div className="flex-2">
+              <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
                 {work.client}
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex ">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <FiUsers className="text-p text-[14px]" />
-
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  consultores
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="max-w-90 max-md:max-w-50 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase truncate">
-                {work.consultants}
-              </p>
-            </div>
-          </div>
-          <div className="w-full flex ">
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <FiCamera className="text-p text-[14px]" />
-
-                <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                  fotografia
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-1 flex flex-col gap-15">
-              <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-                {work.photograph}
               </p>
             </div>
           </div>
@@ -359,6 +299,82 @@ const WorkModalContent = ({ work }) => {
           }
         })}
       </div>
+      <div className="mt-10 w-full border-px border-p/10 max-md:mt-0"></div>
+      <div
+        className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+      >
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="size-2 bg-p " />
+            <p
+              className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+            >
+              tag
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-2 flex items-center gap-2">
+          <span className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+            {work.mark}
+          </span>
+        </div>
+      </div>
+      <div
+        className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+      >
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="size-2 bg-p " />
+            <p
+              className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+            >
+              ver ao vivo
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-2">
+          <div className="relative w-fit overflow-hidden h-fit group">
+            <motion.a
+              href={work.website}
+              className="transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-2 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none"
+            >
+              Ver projeto
+            </motion.a>
+            <span className="absolute left-0 -bottom-[2px] h-[4px] w-0 bg-p transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
+          </div>
+        </div>
+      </div>
+      {/* CRÉDITOS */}
+      <div
+        className="border-b border-p/10 py-5 w-full flex items-center
+       max-md:flex-col max-md:items-start max-md:gap-5"
+      >
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="size-2 bg-p " />
+            <p
+              className="font-azeret font-medium text-p text-[14px]
+          tracking-[0.05em] leading-none uppercase"
+            >
+              creditos
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-2">
+          <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
+            {Array.isArray(work.credits)
+              ? work.credits.join(", ")
+              : work.credits}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
@@ -367,7 +383,7 @@ const WorkImageBlock = ({ block }) => {
   if (!block?.image?.asset?.url) return null;
 
   return (
-    <figure className="relative mt-15 w-full h-[50vh] overflow-hidden rounded-sm max-md:h-[30vh] max-md:mt-5">
+    <figure className="relative mt-15 w-full h-[75vh] overflow-hidden rounded-sm max-md:h-[40vh] max-md:mt-5">
       <ImageComponent
         image={block.image}
         className="object-cover brightness-75"
@@ -402,7 +418,7 @@ const WorkTextBlock = ({ block }) => {
           variants={textSlide}
           as="span"
           className="flex flex-col"
-          lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase "
+          lineClassName="max-w-150 mb-5 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-[1.2]"
           wordClassName="mr-1"
           wordDelay={0.015}
           lineDelay={0.4}

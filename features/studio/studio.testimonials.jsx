@@ -1,6 +1,6 @@
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
-import imgTest from "@/public/assets/images/home/bg.jpg";
+import imgTest from "@/public/assets/images/home/bgg.jpg";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import TextAnimated from "@/components/ui/text-animated";
@@ -23,28 +23,28 @@ const testimonials = [
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“O projeto ficou exatamente como imaginávamos — calmo, preciso e funcional.”`,
-      `Cada detalhe foi cuidadosamente pensado, sem excessos ou elementos desnecessários.”`,
+      `“O projeto alcançou exatamente o equilíbrio que buscávamos — discreto, preciso e funcional.”`,
+      `“Cada decisão foi tomada com intenção, eliminando qualquer elemento supérfluo.”`,
     ],
-    client: "Cliente privado",
+    client: "Cliente Privado",
     space: "residência contemporânea",
   },
   {
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“O processo de trabalho foi fluido do início ao fim.”`,
-      `As ideias foram traduzidas em um interior coerente, funcional e refinado.”`,
+      `“O processo foi extremamente fluido do início ao fim.”`,
+      `“As ideias foram traduzidas em um espaço coerente, funcional e visualmente refinado.”`,
     ],
-    client: "Diretor de arte",
+    client: "Diretor de Arte",
     space: "estúdio criativo",
   },
   {
     spaceImg: imgTest,
     clientImg: imgTest,
     text: [
-      `“Existe uma harmonia silenciosa em cada decisão do projeto.”`,
-      `Nada é excessivo — tudo tem função dentro do ambiente.”`,
+      `“Existe uma harmonia silenciosa que percorre todo o projeto.”`,
+      `“Nada é decorativo sem propósito — tudo desempenha um papel dentro do espaço.”`,
     ],
     client: "Arquiteto",
     space: "apartamento autoral",
@@ -153,7 +153,7 @@ const StudioTestimonials = () => {
         <div className=" size-fit flex items-center gap-2">
           <span className="size-2 bg-p " />
           <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-            Depoimentos
+            depoimentos
           </p>
         </div>
         <div className="flex items-center gap-5">
