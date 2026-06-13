@@ -51,9 +51,9 @@ const HomeStatement = () => {
             initial="initial"
             animate={inView && "animate"}
             className="font-neue font-bold
-          text-p text-[90px] text-center tracking-[-0.05em]
+          text-p text-[clamp(40px,6vw,90px)] text-center tracking-[-0.05em]
           leading-normal uppercase will-change-transform
-          max-md:text-[52px]"
+        "
           >
             FEITO PARA DURAR
           </motion.h2>
@@ -75,7 +75,7 @@ const HomeStatement = () => {
                     font-inter font-medium
                    text-center text-p text-[24px]
                     tracking-[-0.04em]
-                    leading-[1.1]
+                   leading-none
                   "
             />
           </div>

@@ -41,7 +41,7 @@ const StudioWhatWeDo = () => {
         </div>
 
         <div className="pt-10 flex flex-col items-center justify-center gap-10">
-          {[`SERVIÇOS`].map((phrases, i) => (
+          {[`NOSSOS SERVIÇOS`].map((phrases, i) => (
             <div className="mb-4 h-fit overflow-hidden">
               <motion.h2
                 variants={textSlide}
@@ -49,8 +49,8 @@ const StudioWhatWeDo = () => {
                 animate={inView && "animate"}
                 custom={0.5 + 0.15 * i}
                 className="font-neue font-bold
-                    text-s text-[90px] text-start tracking-[-0.05em]
-                    leading-normal uppercase will-change-transform"
+          text-s text-[clamp(40px,6vw,90px)] text-center tracking-[-0.05em]
+          leading-normal uppercase will-change-transform"
               >
                 {phrases}
               </motion.h2>

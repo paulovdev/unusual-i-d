@@ -97,9 +97,10 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 px-10 pt-10 w-[40vw] h-dvh
-        bg-s backdrop-blur-3xl z-9999
-        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-screen will-change-auto"
+        className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -134,7 +135,10 @@ export const SearchModal = ({ lenis, work }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
+            className="group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer bg-p"
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -159,17 +163,19 @@ export const SearchModal = ({ lenis, work }) => {
           ref={scrollRef}
         >
           <div className="flex flex-col items-start">
-            <TextAnimated
-              phrases={["Pesquisarㅤ"]}
-              variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="mb-5 font-neue font-normal text-p text-[72px] tracking-[-0.07em]
-               leading-none max-md:text-[42px]"
-              wordClassName="mr-2"
-              wordDelay={0.015}
-              lineDelay={0.1}
-            />
+            <div className="mt-20 mb-8 h-fit overflow-hidden">
+              <motion.h2
+                variants={textSlide}
+                initial="initial"
+                animate="animate"
+                className="font-neue font-bold
+                              text-p text-[74px] text-start tracking-[-0.05em]
+                              leading-none uppercase"
+              >
+                Pesquisar
+              </motion.h2>
+            </div>
+
             <div className="relative w-full">
               <input
                 type="text"
@@ -199,8 +205,9 @@ export const SearchModal = ({ lenis, work }) => {
 
             <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p " />
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+
                   {query === "" ? (
                     <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
                       sugestões
@@ -231,9 +238,10 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-50 overflow-hidden rounded-sm 
+                      className="w-full h-60 overflow-hidden rounded-sm 
                       border border-transparent
-                    group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                    group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]
+                    max-md:h-75"
                     >
                       <Image
                         src={item?.heroMedia?.image.asset.url}

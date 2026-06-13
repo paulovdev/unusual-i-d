@@ -168,7 +168,10 @@ const StudioTeam = ({ lenis }) => {
                   : {}
               }
               disabled={!canGoPrev}
-              className={`p-3 backdrop-blur-2xl rounded-sm group max-md:p-2
+              className={`group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer
     ${canGoPrev ? "bg-p cursor-pointer" : "bg-p/50 cursor-not-allowed opacity-50"}
   `}
               onClick={handlePrev}
@@ -190,7 +193,10 @@ const StudioTeam = ({ lenis }) => {
                   : {}
               }
               disabled={!canGoNext}
-              className={`p-3 backdrop-blur-2xl rounded-sm group max-md:p-2
+              className={`group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer
     ${canGoNext ? "bg-p cursor-pointer" : "bg-p/50 cursor-not-allowed opacity-50"}
   `}
               onClick={handleNext}

@@ -1,7 +1,4 @@
-import TextAnimated from "@/components/ui/text-animated";
-import { CiFolderOn } from "react-icons/ci";
-import { IoSunnyOutline } from "react-icons/io5";
-import { PiGps } from "react-icons/pi";
+import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 
 const textSlide = {
@@ -25,30 +22,39 @@ const ProjectsIntro = ({ work }) => {
   return (
     <section id="about" className="relative h-[65vh]" ref={ref}>
       <div
-        className="pb-20 h-screen w-full flex flex-col items-center justify-center 
-        max-lg:p-10 max-lg:py-30 max-md:py-30 max-md:p-5"
+        className="pb-20 px-15 h-screen w-full flex flex-col items-start justify-center 
+        max-md:px-5
+       "
       >
-        <div className="flex flex-col items-center justify-center mb-10 px-15 max-md:px-0">
-          <div className="mb-8 size-fit flex items-center gap-2">
-            <span className="size-2 bg-p rounded-[1px]" />
-            <p className="max-w-125 font-azeret font-semibold text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-              2023 - 2026
-            </p>
+        <div className="relative flex flex-col items-start">
+          <div className="mb-2 relative flex items-center">
+            <div className="overflow-hidden h-fit">
+              <motion.h2
+                initial="initial"
+                animate="animate"
+                variants={textSlide}
+                className="font-neue font-bold 
+                         text-p text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
+                          leading-none uppercase will-change-transform max-md:text-[72px]"
+              >
+                projetos
+                <span className="relative top-3.5 left-2 align-top text-[18px] tracking-[0.3em] max-md:top-1.5">
+                  ({work.length})
+                </span>
+              </motion.h2>
+            </div>
           </div>
-          <div className="w-full">
-            <TextAnimated
-              phrases={[`Todos os nossos projetos lançados`]}
+          <div className="w-[calc(100%-15px)] h-fit overflow-hidden">
+            <motion.p
+              initial="initial"
+              animate="animate"
               variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="font-neue font-bold 
-              text-center text-p text-[96px] tracking-[-0.05em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase
-        "
-              wordClassName="mr-2"
-              wordDelay={0.015}
-              lineDelay={0.1}
-            />
+              className="relative left-1 font-chivo font-semibold 
+                   text-p text-[14px] text-start tracking-widest
+                   leading-normal uppercase"
+            >
+              de 2023 a 2026
+            </motion.p>
           </div>
         </div>
       </div>

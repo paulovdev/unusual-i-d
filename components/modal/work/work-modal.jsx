@@ -121,7 +121,10 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
+            className="group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer bg-p"
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -189,25 +192,32 @@ const WorkModalContent = ({ work }) => {
   return (
     <div className="size-full select-none flex flex-col items-end justify-between max-md:gap-5">
       <div className="w-full flex flex-col max-md:mb-10">
-        <div className="h-fit overflow-hidden">
+        <div className="mt-20 h-fit overflow-hidden">
           <motion.h2
             variants={textSlide}
             initial="initial"
             animate="animate"
-            className="mt-25 font-neue font-bold
+            className="font-neue font-bold
                   text-p text-[74px] text-start tracking-[-0.05em]
                   leading-none uppercase"
           >
             {work.title}
           </motion.h2>
+          <p
+            className="mt-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform max-md:block hidden"
+          >
+            {work.year}
+          </p>
         </div>
 
         <div className="mt-15 w-full h-px bg-p/15"></div>
-        <div className="mt-4 w-full min-h-20 flex items-start justify-between">
+        <div className="mt-5 w-full min-h-20 flex items-start justify-between">
           <p
             className="flex-1 font-chivo font-semibold 
           text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
+          leading-none uppercase will-change-transform max-md:hidden"
           >
             {work.year}
           </p>
@@ -264,13 +274,6 @@ const WorkModalContent = ({ work }) => {
       </div>
 
       <div className="mt-4 w-full min-h-20 flex items-start justify-between">
-        <p
-          className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-        >
-          {work.mark}
-        </p>
         <a
           target="_blank"
           href={work.website}
@@ -281,10 +284,9 @@ const WorkModalContent = ({ work }) => {
           ver ao vivo
         </a>
 
-        <div className="flex-1 flex flex-col items-start justify-center gap-4">
+        <div className="flex-1 flex flex-col items-end justify-center gap-4">
           {work.credits.map((item, i) => (
             <div className="flex items-center gap-4" key={i}>
-              <span className="relative -top-px size-2.5 bg-p rotate-45" />
               <a
                 target="_blank"
                 href={`https://instagram.com/${item.replace("@", "")}`}
@@ -333,12 +335,13 @@ const WorkTextBlock = ({ block }) => {
   return (
     <div className="my-10 w-full flex max-md:flex-col max-md:gap-5">
       <div className="flex-1 max-md:mb-5">
-        <div className="flex items-center gap-2">
-          <span className="size-2 bg-p/75" />
+        <div className="flex items-center gap-5">
+          <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+
           {block.label && (
             <p
               className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
+          text-p text-[14px] text-end tracking-widest 
           leading-none uppercase will-change-transform"
             >
               {block.label}
@@ -354,25 +357,13 @@ const WorkTextBlock = ({ block }) => {
               <h2
                 className="font-inter font-medium 
                   text-p text-[24px] tracking-[-0.04em]
-                  leading-[1.1]"
+                  leading-none"
               >
                 {phrases}
               </h2>
             </div>
           ),
         )}
-        {/*   <TextAnimated
-          phrases={Array.isArray(block.text) ? block.text : [block.text]}
-          variants={textSlide}
-          as="span"
-          className="flex flex-col"
-          lineClassName="max-w-150 mb-5 font-inter font-medium 
-          text-p text-[24px] tracking-[-0.04em]
-          leading-[1.1]"
-          wordClassName="mr-1"
-          wordDelay={0.015}
-          lineDelay={0.4}
-        /> */}
       </div>
     </div>
   );

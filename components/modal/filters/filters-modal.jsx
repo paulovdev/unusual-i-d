@@ -1,11 +1,7 @@
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
-
 import { IoClose } from "react-icons/io5";
 import { motion } from "motion/react";
-import TextAnimated from "@/components/ui/text-animated";
 import { useWorkStore } from "@/store/useWorkStore";
 
 const textSlide = {
@@ -50,66 +46,97 @@ export const FiltersModal = ({ lenis }) => {
   const {
     activeYear,
     setActiveYear,
-    activeStatus,
-    setActiveStatus,
-    activeStyles,
-    setActiveStyles,
-    activeArea,
-    setActiveArea,
-    activeLocation,
-    setActiveLocation,
+
+    activeCategory,
+    setActiveCategory,
+
+    activeServices,
+    setActiveServices,
+
+    activeFeatured,
+    setActiveFeatured,
+
     closeFilters,
-    resetStyles,
+    resetFilters,
   } = useWorkStore();
-  /*  */
 
-  const areaValue = activeArea === "all" ? 0 : activeArea;
   const years = ["all", "2026", "2025", "2024"];
-  const status = ["all", "completed", "ongoing", "concept"];
-  const styles = [
-    { value: "minimalist", icon: "—" },
-    { value: "modern", icon: "▭" },
-    { value: "industrial", icon: "▦" },
-    { value: "luxury", icon: "✦" },
-    { value: "warm", icon: "☀" },
+  const categories = [
+    {
+      label: "Todos",
+      value: "all",
+    },
+    {
+      label: "Marca",
+      value: "marca",
+    },
+    {
+      label: "Web Design",
+      value: "web design",
+    },
+    {
+      label: "Direção Criativa",
+      value: "direção criativa",
+    },
+    {
+      label: "Motion",
+      value: "motion",
+    },
+    {
+      label: "3D",
+      value: "3D",
+    },
   ];
 
-  const locations = [
-    "all",
-    "Brasil",
-    "Estados Unidos",
-    "França",
-    "Italia",
-    "Índia",
+  const services = [
+    {
+      label: "Direção de Arte",
+      value: "art-direction",
+    },
+    {
+      label: "Estratégia de Marca",
+      value: "brand-strategy",
+    },
+    {
+      label: "UI/UX Design",
+      value: "ui-ux",
+    },
+    {
+      label: "Desenvolvimento",
+      value: "development",
+    },
+    {
+      label: "Motion Design",
+      value: "motion-design",
+    },
+    {
+      label: "Design 3D",
+      value: "3d-design",
+    },
+    {
+      label: "Fotografia",
+      value: "photography",
+    },
+    {
+      label: "Conteúdo",
+      value: "content-creation",
+    },
+    {
+      label: "Creative Coding",
+      value: "creative-coding",
+    },
+    {
+      label: "Identidade Visual",
+      value: "visual-identity",
+    },
   ];
 
-  const locationLabel = (l) => {
-    if (l === "all") return "Todas localizações";
-    return l;
-  };
   const yearLabel = (y) => {
     if (y === "all") return "Todos os espaços";
     if (y === "2026") return "Mais recentes (2026)";
     if (y === "2025") return "2025";
     if (y === "2024") return "2024";
     return y;
-  };
-  const statusLabel = (s) => {
-    if (s === "all") return "Todos";
-    if (s === "completed") return "Concluído";
-    if (s === "ongoing") return "Em andamento";
-    if (s === "concept") return "Conceitual";
-    return s;
-  };
-  const styleLabel = (v) => {
-    const map = {
-      minimalist: "Minimalista",
-      modern: "Moderno",
-      industrial: "Industrial",
-      luxury: "Luxo",
-      warm: "Aconchegante",
-    };
-    return map[v] || v;
   };
 
   useEffect(() => {
@@ -139,66 +166,30 @@ export const FiltersModal = ({ lenis }) => {
   /*  */
 
   const resetAll = () => {
-    setActiveYear("all");
-    setActiveStatus("all");
-    resetStyles();
-    setActiveLocation("all");
-    setActiveArea("all");
+    resetFilters();
   };
 
-  const statusColor = (status) => {
-    switch (status) {
-      case "completed":
-        return "bg-green-400";
-      case "ongoing":
-        return "bg-yellow-400";
-      case "concept":
-        return "bg-blue-400";
-      default:
-        return "bg-p/50";
-    }
-  };
-
-  const Item = ({ label, active, onClick, color }) => (
+  const Item = ({ label, active, onClick }) => (
     <button onClick={onClick} className="flex items-center gap-2 uppercase ">
-      {active && (
-        <span className={`size-2 rounded-[1px] ${color} animate-pulse`} />
-      )}
+      {active && <span className="size-2 rounded-full bg-p" />}
       <span
-        className={`font-azeret font-medium text-[14px] tracking-[0.05em] leading-none uppercase 
+        className={`font-chivo font-semibold 
+          text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform
            ${active ? "text-p" : "text-p/50 hover:text-p/75"}`}
       >
         {label}
       </span>
     </button>
   );
-  const StyleItem = ({ item, active, onClick }) => {
-    return (
-      <button
-        onClick={onClick}
-        className={`flex flex-col items-center gap-2 p-5 border rounded-sm transition-all
-        ${
-          active
-            ? "bg-p text-s border-s"
-            : "border-p/10 text-p/50 hover:text-p hover:border-p/50"
-        }`}
-      >
-        <span className="text-[22px]">{item.icon}</span>
-        <span
-          className="font-azeret font-medium 
-        text-[12px] tracking-[0.05em] leading-none uppercase "
-        >
-          {item.value}
-        </span>
-      </button>
-    );
-  };
+
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 px-10 pt-10 w-[40vw] h-dvh
-        bg-s backdrop-blur-3xl z-9999
-        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-screen will-change-auto"
+        className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -233,7 +224,10 @@ export const FiltersModal = ({ lenis }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-s/10 rounded-sm group  bg-p"
+            className="group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer bg-p"
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -258,24 +252,31 @@ export const FiltersModal = ({ lenis }) => {
           ref={scrollRef}
         >
           <div className="flex flex-col items-start">
-            <TextAnimated
-              phrases={["Filtros"]}
-              variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="mb-15 font-neue font-normal text-p text-[72px] tracking-[-0.07em] leading-none max-md:text-[42px]"
-              wordClassName="mr-2"
-              wordDelay={0.015}
-              lineDelay={0.1}
-            />
+            <div className="mt-20 mb-5 h-fit overflow-hidden">
+              <motion.h2
+                variants={textSlide}
+                initial="initial"
+                animate="animate"
+                className="font-neue font-bold
+                                        text-p text-[74px] text-start tracking-[-0.05em]
+                                        leading-none uppercase"
+              >
+                Filtros
+              </motion.h2>
+            </div>
+            <div className="my-5 w-full h-px bg-p/15"></div>
 
             {/* YEAR */}
 
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2  bg-p rounded-[1px]" />
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+              <div className="flex-1 max-md:mb-5">
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <p
+                    className="font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+                  >
                     ano
                   </p>
                 </div>
@@ -287,119 +288,99 @@ export const FiltersModal = ({ lenis }) => {
                     label={yearLabel(y)}
                     active={activeYear === y}
                     onClick={() => setActiveYear(y)}
-                    color="bg-p/50"
                   />
                 ))}
               </div>
             </div>
-            <div className="w-full h-px bg-p/10 my-10" />
+            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
 
-            {/* STATUS */}
+            {/* CATEGORY */}
+
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2  bg-p rounded-[1px]" />
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                    status
-                  </p>
-                </div>
-              </div>
-              <div className="flex-1 flex flex-col gap-4">
-                {status.map((s) => (
-                  <Item
-                    key={s}
-                    label={statusLabel(s)}
-                    active={activeStatus === s}
-                    onClick={() => setActiveStatus(s)}
-                    color={statusColor(s)}
-                  />
-                ))}
-              </div>
-            </div>
+              <div className="flex-1 max-md:mb-5">
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
-            <div className="w-full h-px bg-p/10 my-10" />
-
-            {/* STYLE */}
-            <div className=" w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="size-2  bg-p rounded-[1px]" />
-                  <p className="text-p text-[14px] uppercase">style</p>
-                </div>
-              </div>
-
-              <div className="flex-1 grid grid-cols-3 gap-3">
-                {styles.map((item) => (
-                  <StyleItem
-                    key={item.value}
-                    item={{
-                      ...item,
-                      value: styleLabel(item.value),
-                    }}
-                    active={activeStyles.includes(item.value)}
-                    onClick={() => setActiveStyles(item.value)}
-                  />
-                ))}
-              </div>
-            </div>
-            {/* LOCATION */}
-
-            {/* AREA */}
-            <div className="w-full h-px bg-p/10 my-10" />
-
-            <div className="mb-10 mt-5 w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2  bg-p rounded-[1px]" />
                   <p
-                    className="font-azeret font-medium text-p text-[14px] 
-        tracking-[0.05em] leading-none uppercase"
+                    className="font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
                   >
-                    time
+                    categoria
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-4">
+                {categories.map((item) => (
+                  <Item
+                    key={item.value}
+                    label={item.label}
+                    active={activeCategory === item.value}
+                    onClick={() => setActiveCategory(item.value)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
+
+            {/* SERVICES */}
+
+            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
+              <div className="flex-1 max-md:mb-5">
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+
+                  <p
+                    className="font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+                  >
+                    serviços
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-4">
+                {services.map((service) => (
+                  <Item
+                    key={service.value}
+                    label={service.label}
+                    active={activeServices.includes(service.value)}
+                    onClick={() => setActiveServices(service.value)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
+
+            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
+              <div className="flex-1 max-md:mb-5">
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+
+                  <p
+                    className="font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+                  >
+                    destaque
                   </p>
                 </div>
               </div>
 
               <div className="flex-1">
-                <div className="relative w-full h-5 flex items-center ">
-                  <div className="absolute w-full h-1.5 bg-p/10 rounded-sm" />
-
-                  <div
-                    className="absolute h-1.5 bg-p rounded-sm"
-                    style={{
-                      width: `${(areaValue / 200) * 100}%`,
-                    }}
-                  />
-
-                  <input
-                    type="range"
-                    min={0}
-                    max={200}
-                    step={1}
-                    value={areaValue}
-                    onChange={(e) => {
-                      const value = Number(e.target.value);
-
-                      setActiveArea(value);
-                    }}
-                    className="range-thumb w-full rounded-sm"
-                  />
-
-                  <div
-                    className="absolute -top-10"
-                    style={{
-                      left: `${(areaValue / 225) * 100}%`,
-                    }}
-                  >
-                    <p className="font-azeret font-semibold text-p text-[14px] tracking-[0.08em] uppercase whitespace-nowrap">
-                      {areaValue}m²
-                    </p>
-                  </div>
-                </div>
+                <Item
+                  label="Projetos em destaque"
+                  active={activeFeatured}
+                  onClick={() => setActiveFeatured(!activeFeatured)}
+                />
               </div>
             </div>
           </div>
-          <div className="my-10 flex items-center justify-between gap-5">
+          <div className="mt-15 mb-10 flex items-center justify-between gap-5">
             <motion.button
               whileTap={{ scale: 1.1 }}
               whileHover={{
@@ -432,7 +413,7 @@ export const FiltersModal = ({ lenis }) => {
               text-p text-[12px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-s transition-colors duration-500"
               >
-                aplicar filtros e fechar
+                aplicar filtros
               </p>
             </motion.button>
           </div>

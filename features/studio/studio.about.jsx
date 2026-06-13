@@ -49,19 +49,22 @@ const manifesto = [
 ];
 
 const StudioAbout = () => {
-  const { ref, inView } = useInView({
+  const { ref: aboutRef, inView: aboutInView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
 
-  console.log(inView);
+  const { ref: manifestoRef, inView: manifestoInView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
 
   return (
     <section id="about" className="relative mb-30 px-15 max-md:px-5">
       <div className="my-15 w-full h-px bg-p/15" />
 
       <div
-        ref={ref}
+        ref={aboutRef}
         className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
       >
         <div className="flex-2 flex items-center gap-4">
@@ -80,7 +83,7 @@ const StudioAbout = () => {
             <div key={i}>
               <ClipText
                 text={phrases}
-                animate={inView && "animate"}
+                animate={aboutInView && "animate"}
                 delay={0.5 + 0.15 * i}
                 tag="h2"
                 className="font-neue font-bold
@@ -102,7 +105,7 @@ const StudioAbout = () => {
                 >
                   <ClipText
                     text={phrases}
-                    animate={inView && "animate"}
+                    animate={aboutInView && "animate"}
                     delay={0.5 + 0.15 * i}
                     tag="p"
                     className="
@@ -123,7 +126,10 @@ const StudioAbout = () => {
 
       <div className="my-15 w-full h-px bg-p/15" />
 
-      <div className="mb-25 flex items-start gap-10 select-none max-md:flex-col">
+      <div
+        className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
+        ref={manifestoRef}
+      >
         <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
           <p
@@ -141,7 +147,7 @@ const StudioAbout = () => {
                 <div className="">
                   <ClipText
                     text={item.title}
-                    animate={inView && "animate"}
+                    animate={manifestoInView && "animate"}
                     delay={0.5 + 0.15 * index}
                     tag="h2"
                     className="font-neue font-bold
@@ -156,14 +162,14 @@ const StudioAbout = () => {
                       <motion.div
                         variants={textSlide}
                         initial="initial"
-                        animate={inView && "animate"}
+                        animate={manifestoInView && "animate"}
                         custom={1.25}
                         className="flex-2 flex items-center gap-4"
                       >
                         <span className="relative -top-px size-2.5 bg-p rounded-full" />
                         <p
                           className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
+          text-p text-[14px] text-start tracking-widest 
           leading-none uppercase will-change-transform"
                         >
                           {item.description1}
@@ -174,7 +180,7 @@ const StudioAbout = () => {
                       <div key={i}>
                         <ClipText
                           text={line}
-                          animate={inView && "animate"}
+                          animate={manifestoInView && "animate"}
                           delay={0.5 + 0.15 * i}
                           tag="h2"
                           className="

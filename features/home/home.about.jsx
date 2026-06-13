@@ -95,7 +95,7 @@ const HomeAbout = () => {
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
           <p
             className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
+          text-p text-[14px] tracking-widest 
           leading-none uppercase will-change-transform"
           >
             Design não é apenas estética.
@@ -123,7 +123,7 @@ const HomeAbout = () => {
             <span className="relative -top-px size-2.5 bg-p rounded-full" />
             <p
               className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
+          text-p text-[14px] tracking-widest 
           leading-none uppercase will-change-transform"
             >
               um pouco sobre nós
@@ -149,7 +149,7 @@ const HomeAbout = () => {
         text-p
         text-[24px]
         tracking-[-0.04em]
-        leading-[1.1]
+        leading-none
       "
               />
             </div>
@@ -168,7 +168,7 @@ const HomeAbout = () => {
             </TransitionLink>
             <p
               className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
+          text-p text-[14px] tracking-widest 
           leading-none uppercase"
             >
               2023 — 2026

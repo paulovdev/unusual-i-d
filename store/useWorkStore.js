@@ -3,45 +3,79 @@ import { create } from "zustand";
 export const useWorkStore = create((set) => ({
   // modal work
   activeWork: null,
-  setActiveWork: (work) => set({ activeWork: work }),
-  clearActiveWork: () => set({ activeWork: null }),
+  setActiveWork: (work) =>
+    set({
+      activeWork: work,
+    }),
 
-  activeCategory: "todos",
-  activeYear: "todos",
-  activeStatus: "todos",
-  activeStyles: [],
-  activeArea: "todos",
-  activeLocation: "todos",
+  clearActiveWork: () =>
+    set({
+      activeWork: null,
+    }),
 
-  setActiveCategory: (v) => set({ activeCategory: v }),
-  setActiveYear: (v) => set({ activeYear: v }),
-  setActiveStatus: (v) => set({ activeStatus: v }),
-  setActiveArea: (v) => set({ activeArea: v }),
-  setActiveLocation: (v) => set({ activeLocation: v }),
-  setActiveStyles: (value) =>
+  // FILTERS
+
+  activeYear: "all",
+  activeCategory: "all",
+  activeServices: [],
+  activeFeatured: false,
+  setActiveYear: (v) =>
+    set({
+      activeYear: v,
+    }),
+  setActiveCategory: (v) =>
+    set({
+      activeCategory: v,
+    }),
+  setActiveServices: (value) =>
     set((state) => {
-      const exists = state.activeStyles.includes(value);
+      const exists = state.activeServices.includes(value);
 
       return {
-        activeStyles: exists
-          ? state.activeStyles.filter((v) => v !== value)
-          : [...state.activeStyles, value],
+        activeServices: exists
+          ? state.activeServices.filter((v) => v !== value)
+          : [...state.activeServices, value],
       };
     }),
 
-  resetStyles: () => set({ activeStyles: [] }),
+  setActiveFeatured: (v) =>
+    set({
+      activeFeatured: v,
+    }),
+  resetFilters: () =>
+    set({
+      activeYear: "all",
+      activeCategory: "all",
+      activeServices: [],
+      activeFeatured: false,
+    }),
 
   // search
-  query: "",
-  setQuery: (q) => set({ query: q }),
 
-  // UI modals
+  query: "",
+  setQuery: (q) =>
+    set({
+      query: q,
+    }),
+
+  // modals
+
   isFiltersOpen: false,
   isSearchOpen: false,
-
-  openFilters: () => set({ isFiltersOpen: true }),
-  closeFilters: () => set({ isFiltersOpen: false }),
-
-  openSearch: () => set({ isSearchOpen: true }),
-  closeSearch: () => set({ isSearchOpen: false }),
+  openFilters: () =>
+    set({
+      isFiltersOpen: true,
+    }),
+  closeFilters: () =>
+    set({
+      isFiltersOpen: false,
+    }),
+  openSearch: () =>
+    set({
+      isSearchOpen: true,
+    }),
+  closeSearch: () =>
+    set({
+      isSearchOpen: false,
+    }),
 }));

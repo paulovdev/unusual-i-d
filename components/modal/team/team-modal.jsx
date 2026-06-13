@@ -125,7 +125,10 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               scale: 1.05,
               backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl border border-p/10 rounded-sm cursor-pointer group max-md:p-2 bg-p "
+            className="group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer bg-p"
           >
             <IoClose
               className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
@@ -243,7 +246,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                       <h2
                         className="font-inter font-medium 
                   text-p text-[24px] tracking-[-0.04em]
-                  leading-[1.1]"
+                  leading-none"
                       >
                         {phrases}
                       </h2>

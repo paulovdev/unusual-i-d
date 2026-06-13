@@ -2,13 +2,14 @@
 
 import ImageComponent from "@/components/ui/image";
 import TextAnimated from "@/components/ui/text-animated";
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { IoIosSearch } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
 import { FiGrid, FiList } from "react-icons/fi";
 import { useWorkStore } from "@/store/useWorkStore";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useCallback, useRef, useState } from "react";
+import { MdOutlineCategory } from "react-icons/md";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -183,18 +184,19 @@ const WorksList = ({
             scale: hovered === index ? 1.02 : 1,
           }}
         >
-          <TextAnimated
-            phrases={[work.title]}
-            variants={textSlide}
-            as="p"
-            className="flex flex-col"
-            lineClassName="font-neue font-bold 
-             text-start text-p text-[64px] tracking-[-0.05em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase"
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.1}
-          />
+          <div className="h-fit overflow-hidden">
+            <motion.h3
+              variants={textSlide}
+              initial="initial"
+              animate="animate"
+              custom={0.15}
+              className="font-neue font-bold
+      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
+           leading-none uppercase"
+            >
+              {work.title}
+            </motion.h3>
+          </div>
         </motion.div>
 
         <motion.div
@@ -203,18 +205,19 @@ const WorksList = ({
             opacity: hovered === index || hovered === null ? 1 : 0.4,
           }}
         >
-          <TextAnimated
-            phrases={[String(work.year)]}
-            variants={textSlide}
-            as="p"
-            className="flex flex-col"
-            lineClassName="font-neue font-bold 
-             text-end text-p text-[64px] tracking-[-0.05em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase"
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.1}
-          />
+          <div className="h-fit overflow-hidden">
+            <motion.h3
+              variants={textSlide}
+              initial="initial"
+              animate="animate"
+              custom={0.15}
+              className="font-neue font-bold
+      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
+           leading-none uppercase"
+            >
+              {work.year}
+            </motion.h3>
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
@@ -225,15 +228,16 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
   const {
     activeCategory,
     setActiveCategory,
+    activeYear,
+    activeServices,
+    activeFeatured,
     openFilters,
     openSearch,
-    activeYear,
-    activeStatus,
-    activeStyles,
   } = useWorkStore();
 
   const [layout, setLayout] = useState("grid");
 
+  const [openCat, setOpenCat] = useState(false);
   const [hovered, setHovered] = useState(null);
   const [preview, setPreview] = useState(null);
 
@@ -243,53 +247,201 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
   const bumpMedia = useCallback(() => {
     setMediaTick((t) => t + 1);
   }, []);
+
   const categories = [
-    "todos",
-    "3D",
+    "all",
     "marca",
-    "direção criativa",
     "web design",
+    "direção criativa",
     "motion",
+    "3D",
   ];
 
   const filteredWorks = work.filter((item) => {
-    const category = item.category || "";
-    const year = item.year || "";
-
     const matchCategory =
-      activeCategory === "todos" || category === activeCategory;
+      activeCategory === "all" || item.category === activeCategory;
 
     const matchYear =
-      activeYear === "todos" || String(year) === String(activeYear);
+      activeYear === "all" || String(item.year) === String(activeYear);
 
-    const matchStatus =
-      activeStatus === "todos" || item.status === activeStatus;
+    const matchServices =
+      activeServices.length === 0 ||
+      activeServices.every((service) => item.services?.includes(service));
 
-    const matchStyle =
-      activeStyles.length === 0 ||
-      item.styles?.some((s) => activeStyles.includes(s.toLowerCase().trim()));
+    const matchFeatured = !activeFeatured || item.featured === true;
 
-    return matchCategory && matchYear && matchStatus && matchStyle;
+    return matchCategory && matchYear && matchServices && matchFeatured;
   });
 
   return (
     <>
       <div
         className="
-          sticky top-0 z-10 mb-60 flex w-full
-          items-center justify-between
-           bg-[#ffffff] px-15 py-5 max-md:px-5 
-        "
+    sticky top-0 z-10 mb-60 flex w-full
+    items-center justify-between
+    bg-[#DEDEDE] px-15 py-5 max-md:px-5
+  "
       >
-        <div className="flex items-center gap-5">
+        {/* MOBILE CATEGORY BUTTON */}
+
+        <motion.button
+          whileTap={{ scale: 1.1 }}
+          whileHover={{
+            scale: 1.05,
+            backgroundColor: "rgba(255,255,255,0.8)",
+          }}
+          onClick={() => setOpenCat(!openCat)}
+          className="
+      shrink-0
+      group size-15 rounded-sm
+      border border-p/10 bg-p backdrop-blur-2xl
+      flex items-center justify-center
+      cursor-pointer
+      lg:hidden
+    "
+        >
+          <MdOutlineCategory
+            className="
+        text-[24px] text-s
+        transition-colors duration-500
+        group-hover:text-p
+      "
+          />
+        </motion.button>
+
+        <AnimatePresence mode="wait">
+          {openCat && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                width: 0,
+              }}
+              animate={{
+                opacity: 1,
+                width: "auto",
+                transition: {
+                  duration: 0.8,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }}
+              exit={{
+                opacity: 0,
+                width: 0,
+                transition: {
+                  delay: 0.15,
+                  duration: 0.8,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }}
+              className="
+          flex-1
+          ml-5
+          overflow-hidden
+          lg:hidden
+        "
+            >
+              <motion.div
+                initial={{
+                  x: -30,
+                }}
+                animate={{
+                  x: 0,
+                  transition: {
+                    delay: 0.15,
+                    duration: 0.8,
+                    ease: [0.76, 0, 0.24, 1],
+                  },
+                }}
+                exit={{
+                  x: -30,
+                  transition: {
+                    delay: 0.15,
+                    duration: 0.8,
+                    ease: [0.76, 0, 0.24, 1],
+                  },
+                }}
+                className="
+            flex
+            items-center
+            gap-3
+            overflow-x-auto
+            no-scrollbar
+          "
+              >
+                {categories.map((cat, i) => {
+                  const isActive = activeCategory === cat;
+
+                  return (
+                    <motion.button
+                      key={cat}
+                      initial={{
+                        opacity: 0,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          delay: 0.15 * i,
+                          duration: 0.8,
+                          ease: [0.76, 0, 0.24, 1],
+                        },
+                      }}
+                      exit={{
+                        opacity: 0,
+                        transition: {
+                          delay: 0.15 * i,
+                          duration: 0.8,
+                          ease: [0.76, 0, 0.24, 1],
+                        },
+                      }}
+                      whileTap={{
+                        scale: 1.05,
+                      }}
+                      onClick={() => setActiveCategory(cat)}
+                      className={`
+                  shrink-0
+                  h-15
+                  px-8
+                  rounded-sm
+                  border border-p/10
+                  cursor-pointer
+
+                  ${isActive ? "bg-p text-s" : "bg-white text-p"}
+                `}
+                    >
+                      <p
+                        className="
+                    text-[14px]
+                    font-medium
+                    uppercase
+                    tracking-[0.05em]
+                    whitespace-nowrap
+                  "
+                      >
+                        {cat === "all" ? "todos" : cat}
+                      </p>
+                    </motion.button>
+                  );
+                })}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div
+          className="
+      flex items-center gap-5
+      max-lg:hidden
+    "
+        >
           {categories.map((cat) => {
             const isActive = activeCategory === cat;
 
             return (
               <motion.button
                 key={cat}
-                initial={{ scale: 1.05 }}
-                whileTap={{ scale: 1.1 }}
+                whileTap={{
+                  scale: 1.1,
+                }}
                 whileHover={
                   !isActive
                     ? {
@@ -302,71 +454,169 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   backgroundColor: isActive ? "#000" : "#fff",
                 }}
                 onClick={() => setActiveCategory(cat)}
-                className="group w-full rounded-sm border border-p/10 p-5 px-10 cursor-pointer"
+                className="
+            group
+            px-10
+            h-15
+            rounded-sm
+            border border-p/10
+            cursor-pointer
+          "
               >
                 <p
                   className={`
-                    text-[14px] font-medium uppercase tracking-[0.05em]
-                    transition-colors duration-500 truncate
-                    ${isActive ? "text-s" : "text-p group-hover:text-s"}
-                  `}
+              text-[14px]
+              font-medium
+              uppercase
+              tracking-[0.05em]
+
+              ${isActive ? "text-s" : "text-p group-hover:text-s"}
+            `}
                 >
-                  {cat}
+                  {cat === "all" ? "todos" : cat}
                 </p>
               </motion.button>
             );
           })}
         </div>
 
-        <div className=" flex items-center gap-5">
-          <motion.button
-            whileTap={{ scale: 1.1 }}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: "rgba(255,255,255,0.8)",
-            }}
-            onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
-            className="group rounded-sm border border-p/10 bg-p p-5 backdrop-blur-2xl cursor-pointer max-md:p-2"
-          >
-            {layout === "grid" ? (
-              <FiGrid className="text-[24px] text-s transition-colors duration-500 group-hover:text-p" />
-            ) : (
-              <FiList className="text-[24px] text-s transition-colors duration-500 group-hover:text-p" />
-            )}
-          </motion.button>
+        <AnimatePresence mode="wait">
+          {!openCat && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                x: 30,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                  delay: 0.15,
+                  duration: 0.8,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }}
+              exit={{
+                opacity: 0,
+                x: 30,
+                transition: {
+                  delay: 0.15,
+                  duration: 0.8,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+              }}
+              className="
+          flex
+          items-center
+          gap-5
+        "
+            >
+              {/* LAYOUT */}
 
-          <motion.button
-            whileTap={{ scale: 1.1 }}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: "rgba(255,255,255,0.8)",
-            }}
-            className="group rounded-sm border border-p/10 bg-p p-5 backdrop-blur-2xl cursor-pointer max-md:p-2"
-            onClick={openSearch}
-          >
-            <IoIosSearch className="text-[24px] text-s transition-colors duration-500 group-hover:text-p" />
-          </motion.button>
+              <motion.button
+                whileTap={{
+                  scale: 1.1,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,.8)",
+                }}
+                onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
+                className="
+            group size-15 rounded-sm
+            border border-p/10 bg-p
+            flex items-center justify-center
+            cursor-pointer
+          "
+              >
+                {layout === "grid" ? (
+                  <FiGrid className="text-[24px] text-s group-hover:text-p" />
+                ) : (
+                  <FiList className="text-[24px] text-s group-hover:text-p" />
+                )}
+              </motion.button>
 
-          <motion.button
-            whileTap={{ scale: 1.1 }}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: "rgba(255,255,255,0.8)",
-            }}
-            className="group relative rounded-sm border border-p/10 bg-p p-5 backdrop-blur-2xl cursor-pointer max-md:p-2"
-            onClick={openFilters}
-          >
-            <IoFilter className="text-[24px] text-s transition-colors duration-500 group-hover:text-p" />
+              {/* SEARCH */}
 
-            {activeFiltersCount > 0 && (
-              <div className="absolute -right-2.5 -top-2.5 rounded-sm border border-p/10 bg-[#ffffff] p-2">
-                <p className="text-[14px] font-medium uppercase tracking-[0.05em] text-p">
-                  {activeFiltersCount}
-                </p>
-              </div>
-            )}
-          </motion.button>
-        </div>
+              <motion.button
+                whileTap={{
+                  scale: 1.1,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,.8)",
+                }}
+                onClick={openSearch}
+                className="
+            group size-15 rounded-sm
+            border border-p/10 bg-p
+            flex items-center justify-center
+            cursor-pointer
+          "
+              >
+                <IoIosSearch
+                  className="
+              text-[24px]
+              text-s
+              group-hover:text-p
+            "
+                />
+              </motion.button>
+
+              {/* FILTER */}
+
+              <motion.button
+                whileTap={{
+                  scale: 1.1,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,.8)",
+                }}
+                onClick={openFilters}
+                className="
+            relative
+            group size-15 rounded-sm
+            border border-p/10 bg-p
+            flex items-center justify-center
+            cursor-pointer
+          "
+              >
+                <IoFilter
+                  className="
+              text-[24px]
+              text-s
+              group-hover:text-p
+            "
+                />
+
+                {activeFiltersCount > 0 && (
+                  <div
+                    className="
+                absolute
+                -right-2.5
+                -top-2.5
+                rounded-sm
+                border border-p/10
+                bg-s
+                p-2
+              "
+                  >
+                    <p
+                      className="
+                  text-[14px]
+                  font-medium
+                  text-p
+                "
+                    >
+                      {activeFiltersCount}
+                    </p>
+                  </div>
+                )}
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {layout === "grid" ? (

@@ -20,23 +20,24 @@ const ProjectsHero = ({ work }) => {
   const {
     activeWork,
     clearActiveWork,
+
     isFiltersOpen,
     closeFilters,
+
     isSearchOpen,
     closeSearch,
+
     activeYear,
-    activeStatus,
-    activeStyles,
-    activeLocation,
-    activeArea,
+    activeCategory,
+    activeServices,
+    activeFeatured,
   } = useWorkStore();
 
   const activeFiltersCount = [
     activeYear !== "all",
-    activeStatus !== "all",
-    activeStyles.length > 0,
-    activeLocation !== "all",
-    activeArea !== "all",
+    activeCategory !== "all",
+    activeServices.length > 0,
+    activeFeatured,
   ].filter(Boolean).length;
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const ProjectsHero = ({ work }) => {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#ffffff]">
+        <main className="relative bg-[#DEDEDE]">
           <ProjectsIntro work={work} lenis={lenisRef} />
           <ProjectsWorks
             work={work}

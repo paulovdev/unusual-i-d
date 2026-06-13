@@ -4,7 +4,6 @@ import Lenis from "lenis";
 
 import { IoClose } from "react-icons/io5";
 import { motion } from "motion/react";
-import TextAnimated from "@/components/ui/text-animated";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -73,16 +72,17 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 px-10 pt-10 w-[60vw] h-dvh
-        bg-s backdrop-blur-3xl z-9999
-        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-screen will-change-auto"
+        className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
         exit="exit"
       >
-        <motion.button
-          type="button"
+        <motion.div
+          onClick={() => setStartProjectModal(false)}
           initial={{ scale: 0, rotate: -90 }}
           animate={{
             scale: 1,
@@ -101,22 +101,25 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 group"
+          className="absolute top-5 right-5 z-30 will-change-auto"
         >
-          <motion.div
+          <motion.button
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#000",
+              backgroundColor: "#fff",
             }}
-            className="p-3 backdrop-blur-2xl rounded-sm group max-md:p-2 bg-s"
+            className="group size-15 rounded-sm 
+            border border-p/10 backdrop-blur-2xl 
+            flex items-center justify-center
+            cursor-pointer bg-p"
           >
             <IoClose
-              className="text-p text-[24px] group-hover:text-p group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
-          </motion.div>
-        </motion.button>
+          </motion.button>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -133,25 +136,25 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
           className="size-full overflow-y-scroll"
           ref={scrollRef}
         >
-          <div className="flex flex-col items-start">
-            <TextAnimated
-              phrases={["Iniciar um projetoㅤ"]}
+          <div className="mt-25 h-fit overflow-hidden">
+            <motion.h2
               variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="mb-5 font-neue font-normal text-p text-[72px] tracking-[-0.07em]
-               leading-none max-md:text-[42px]"
-              wordClassName="mr-2"
-              wordDelay={0.015}
-              lineDelay={0.1}
-            />
-            <div className="relative w-full flex flex-col items-start">
+              initial="initial"
+              animate="animate"
+              className="font-neue font-bold
+                          text-p text-[74px] text-start tracking-[-0.05em]
+                          leading-none uppercase"
+            >
+              Iniciar um projeto
+            </motion.h2>
+            <div className="relative mt-8 w-full flex flex-col items-start">
               {/* NOME */}
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="name"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Nome Completo
                 </label>
@@ -182,8 +185,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                     id="email"
                     placeholder="Digite seu e-mail"
                     className="w-full p-5 border border-p/10 rounded-sm outline-none
-        font-azeret font-medium text-p text-[14px] tracking-[0.05em]
-        leading-none uppercase bg-transparent"
+        font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none group uppercase bg-transparent"
                   />
                 </div>
 
@@ -201,8 +205,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                     id="phone"
                     placeholder="(21) 99999-9999"
                     className="w-full p-5 border border-p/10 rounded-sm outline-none
-        font-azeret font-medium text-p text-[14px] tracking-[0.05em]
-        leading-none uppercase bg-transparent"
+        font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none group uppercase bg-transparent"
                   />
                 </div>
               </div>
@@ -211,8 +216,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="company"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Empresa / Estúdio
                 </label>
@@ -231,8 +237,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="projectType"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Tipo de Projeto
                 </label>
@@ -240,8 +247,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="projectType"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-azeret font-medium text-p text-[14px]
-      tracking-[0.05em] leading-none uppercase"
+      bg-transparent font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase"
                 >
                   <option value="" className="text-p">
                     Selecione uma categoria
@@ -274,8 +282,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="style"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Estilo Desejado
                 </label>
@@ -317,8 +326,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="area"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Área Aproximada
                 </label>
@@ -337,8 +347,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="budget"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Faixa de Investimento
                 </label>
@@ -374,8 +385,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="timeline"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Prazo Desejado
                 </label>
@@ -383,8 +395,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="timeline"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-azeret font-medium text-p text-[14px]
-      tracking-[0.05em] leading-none uppercase"
+      bg-transparent font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase"
                 >
                   <option value="" className="text-p">
                     Selecione um prazo
@@ -408,8 +421,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="w-full flex flex-col items-start">
                 <label
                   htmlFor="details"
-                  className="mb-4 font-azeret font-medium 
-      text-p text-[14px] tracking-[0.05em] leading-none uppercase"
+                  className="mb-4 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
                 >
                   Sobre o Projeto
                 </label>
@@ -419,8 +433,9 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                   rows={6}
                   placeholder="Conte um pouco sobre o espaço, referências, necessidades e objetivos do projeto..."
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      resize-none bg-transparent font-azeret font-medium text-p
-      text-[14px] tracking-[0.05em] leading-relaxed uppercase placeholder:text-p/50"
+      resize-none bg-transparent font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase placeholder:text-p/50"
                 />
               </div>
             </div>
@@ -434,7 +449,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
             className="my-20 p-5 px-10 w-full bg-p border border-p/10 backdrop-blur-2xl rounded-sm group"
           >
             <p
-              className="font-azeret font-semibold 
+              className="font-chivo font-semibold 
               text-s text-[12px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-p transition-colors duration-500"
             >
