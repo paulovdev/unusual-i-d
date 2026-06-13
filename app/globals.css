@@ -8,7 +8,10 @@
   font-family: "inter";
   src: url("/fonts/inter.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "chivo";
+  src: url("/fonts/chivo.ttf") format("truetype");
+}
 @font-face {
   font-family: "robert-medium";
   src: url("/fonts/robert-medium.woff2") format("woff2");
@@ -43,17 +46,17 @@
 }
 
 @theme {
-  --color-p: #000000;
+  --color-p: #080807;
   --color-s: #ffffff;
   --color-bg-p: #141414;
   --color-bg-s: #ffffff;
 
   --color-brd: #ededed;
 
-  --font-neue: var(--font-neue);
-  --font-azeret: var(--font-azeret);
   --font-neue: "Neue Montreal";
+  --font-inter: "inter";
   --font-general: "general";
+  --font-chivo: "chivo";
 
   --breakpoint-full-ds: 1900px;
   --breakpoint-xxs: 1600px;
@@ -106,7 +109,7 @@ body::after {
   bottom: 0;
   height: env(safe-area-inset-bottom);
 }
-
+/* 
 #noise::before {
   position: fixed;
   top: 0;
@@ -118,7 +121,7 @@ body::after {
   z-index: 99999;
   pointer-events: none;
   background: url("../public/noise.gif");
-}
+} */
 
 ::view-transition-old(root),
 ::view-transition-new(root) {

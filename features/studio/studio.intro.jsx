@@ -1,12 +1,15 @@
-import TextAnimated from "@/components/ui/text-animated";
+import { useRef } from "react";
+import bgCover from "@/public/assets/images/about/bg.jpg";
 import Image from "next/image";
 
-import { useInView } from "react-intersection-observer";
+import {
+  motion,
+  useMotionTemplate,
+  useScroll,
+  useTransform,
+} from "motion/react";
 
-import reel from "@/public/assets/images/home/bggg.jpg";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-
+import { MdOutlineArrowDownward } from "react-icons/md";
 const textSlide = {
   initial: { y: "100%" },
   animate: (custom) => ({
@@ -21,56 +24,90 @@ const textSlide = {
 
 const StudioIntro = () => {
   const container = useRef(null);
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const brightness = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
+  const filter = useMotionTemplate`brightness(${brightness})`;
 
   return (
-    <section id="about" className="relative max-md:px-5" ref={ref}>
-      <div
-        className="h-screen px-15 flex flex-col items-center justify-center 
-        max-lg:p-10 max-lg:py-30 max-md:py-30 max-md:p-5"
+    <section
+      id="intro"
+      className="relative w-full h-dvh overflow-hidden"
+      ref={container}
+    >
+      <motion.div
+        className="relative w-screen h-screen overflow-hidden transform-gpu"
+        style={{ y, filter }}
       >
-        <div className="mb-8 size-fit flex items-center gap-2">
-          <span className="size-2  bg-p rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-            Londres, Reino Unido
-          </p>
-        </div>
-        <TextAnimated
-          phrases={[`Tornando o incomum inevitável.`]}
-          variants={textSlide}
-          as="h2"
-          className="flex flex-col"
-          lineClassName="font-neue font-normal 
-              text-center text-p text-[96px]
-               tracking-[-0.07em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] 
-        "
-          wordClassName="mr-2"
-          wordDelay={0.015}
-          lineDelay={0.2}
-        />
-      </div>
-      <motion.div className="size-full h-screen" ref={container}>
-        <motion.figure style={{ scale }}>
+        <figure className="absolute inset-0 w-full overflow-hidden">
           <Image
-            src={reel}
+            src={bgCover}
             width={2000}
             height={2000}
-            alt="creative studio preview"
-            className="relative -top-40 brightness-75 object-cover size-full rounded-sm 
-                       "
+            alt="home-hero-image"
+            className="object-cover size-full brightness-75"
             placeholder="blur"
+            priority
           />
-        </motion.figure>
+        </figure>
+        <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
+          <div className="relative flex flex-col items-start">
+            <div className="mb-4 relative flex items-center">
+              <div className="h-fit overflow-hidden">
+                <motion.h2
+                  {...textSlide}
+                  custom={0}
+                  className="font-neue font-bold 
+                text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
+                 leading-none uppercase will-change-transform max-md:text-[68px]"
+                >
+                  sobre nós
+                  <span
+                    className="relative top-3.5 left-2 align-top
+                   text-[28px] tracking-[0.4em]"
+                  >
+                    .
+                  </span>
+                </motion.h2>
+              </div>
+            </div>
+            <div className="w-[calc(100%+15px)] h-fit overflow-hidden">
+              <motion.p
+                {...textSlide}
+                custom={0.25}
+                className="relative left-1 font-chivo font-semibold 
+          text-s text-[14px] text-start tracking-widest
+          leading-normal uppercase will-change-transform"
+              >
+                desde 2023
+              </motion.p>
+            </div>
+          </div>
+        </div>
+        <div
+          className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
+             max-md:items-end max-md:justify-center "
+        >
+          <div className="h-fit overflow-hidden">
+            <motion.p
+              initial="initial"
+              animate="animate"
+              variants={textSlide}
+              className="relative left-1 font-chivo font-semibold 
+               text-s text-[14px] text-start tracking-widest
+               leading-normal uppercase flex items-center gap-2"
+            >
+              role para baixo
+              <span>
+                <MdOutlineArrowDownward className="relative -top-px text-s text-[18px]" />
+              </span>
+            </motion.p>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

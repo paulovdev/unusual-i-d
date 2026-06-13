@@ -1,8 +1,7 @@
 "use client";
 
 import { useTransitionRouter } from "next-view-transitions";
-import { usePageTransition } from "@/store/pageTransition";
-import { useEffect } from "react";
+import { usePageTransition, usePreLoader } from "@/store/pageTransition";
 
 function slideInOut() {
   document.documentElement.animate(
@@ -92,6 +91,16 @@ export default function TransitionLink({ href, children, className, onClick }) {
 
   const handleClick = () => {
     onClick?.();
+
+    const { hasPlayedPreloader } = usePreLoader.getState();
+
+    if (href === "/" && !hasPlayedPreloader) {
+      router.push(href, {
+        onTransitionReady: slideInOut,
+      });
+
+      return;
+    }
 
     requestAnimationFrame(() => {
       router.push(href, {

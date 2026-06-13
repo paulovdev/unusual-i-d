@@ -1,6 +1,6 @@
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
-import imgTest from "@/public/assets/images/home/bgg.jpg";
+import imgTest from "@/public/assets/images/home/bg1.jpg";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import TextAnimated from "@/components/ui/text-animated";
@@ -150,12 +150,17 @@ const StudioTestimonials = () => {
         className="mb-10 flex items-center justify-between gap-10 select-none"
         ref={ref}
       >
-        <div className=" size-fit flex items-center gap-2">
-          <span className="size-2 bg-p " />
-          <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+        <div className="flex-1 size-fit flex items-center gap-4">
+          <span className="relative -top-px size-2.5 bg-p rotate-45" />
+          <p
+            className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
             depoimentos
           </p>
         </div>
+
         <div className="flex items-center gap-5">
           <motion.button
             whileTap={canGoPrev ? { scale: 0.95 } : {}}

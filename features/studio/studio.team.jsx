@@ -7,7 +7,17 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "motion/react";
 import { TeamModal } from "@/components/modal/team/team-modal";
-
+const textSlide = {
+  initial: { y: "100%" },
+  animate: (custom) => ({
+    y: "0%",
+    transition: {
+      duration: 0.8,
+      ease: [0.33, 1, 0.68, 1],
+      delay: custom,
+    },
+  }),
+};
 const Card = ({ member, activeMember, onClick, index, inView }) => {
   return (
     <motion.div
@@ -25,7 +35,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
       onClick={onClick}
     >
       <motion.figure
-        initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+        initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
         animate={{
           clipPath: inView ? "inset(0% 0% 0% 0%)" : "inset(0% 100% 0% 0%)",
         }}
@@ -35,32 +45,68 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
           delay: index * 0.05,
           ease: [0.76, 0, 0.24, 1],
         }}
-        className="relative w-full h-[60vh] max-ds:h-[35vh] overflow-hidden"
+        className="relative w-full h-[60vh] overflow-hidden max-ds:h-[50vh]"
       >
         <Image
           src={member.src}
           alt={member.name}
           fill
           placeholder="blur"
-          className="object-cover rounded-sm brightness-75"
+          className="object-cover rounded-sm brightness-75 
+          group-hover:scale-110
+           transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
         />
         <div className="absolute bottom-0 left-0 p-5 w-full flex items-center justify-between z-10">
           <div className="w-full flex flex-col items-start">
-            <p className="mb-4 font-azeret font-medium text-s/75 text-[12px] tracking-[0.05em] leading-none uppercase">
-              {member.role}
-            </p>
-            <div className="w-full flex items-center justify-between">
-              <p
-                className="font-neue font-normal 
-            text-s text-[32px] tracking-[-0.05em] leading-none
-            max-md:text-[34px]"
+            <div className="mb-4 w-[calc(100%+15px)] h-fit overflow-hidden">
+              <motion.p
+                initial="initial"
+                animate={inView && "animate"}
+                variants={textSlide}
+                custom={0.75}
+                className="relative left-1 font-chivo font-semibold 
+          text-s/75 text-[12px] text-start tracking-widest
+          leading-normal uppercase will-change-transform"
+              >
+                {member.role}
+              </motion.p>
+            </div>
+            <div className="mb-4 w-[calc(100%+15px)] h-fit overflow-hidden">
+              <motion.p
+                initial="initial"
+                animate={inView && "animate"}
+                variants={textSlide}
+                custom={0.5}
+                className="font-neue font-bold 
+             text-start text-s text-[42px] tracking-[-0.04em] leading-[1.1]
+              max-lg:text-[62px] max-md:text-[42px] uppercase"
               >
                 {member.name}
-              </p>
-              <div className="flex items-center gap-2">
-                <FaLinkedin className=" text-s text-[18px]" />
-                <FaXTwitter className=" text-s text-[18px]" />
-              </div>
+              </motion.p>
+            </div>
+            <div className="mt-12 w-[calc(100%+15px)] h-fit overflow-hidden ">
+              <motion.div
+                initial="initial"
+                animate={inView && "animate"}
+                variants={textSlide}
+                custom={0.25}
+                className="flex items-center gap-2"
+              >
+                <p
+                  className="font-chivo font-semibold 
+          text-s text-[14px] text-start tracking-widest
+          leading-normal uppercase will-change-transform
+          "
+                >
+                  ver mais
+                </p>
+                <span
+                  className="text-s group-hover:rotate-45 
+              transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                >
+                  +
+                </span>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -73,7 +119,7 @@ const StudioTeam = ({ lenis }) => {
   const [activeMember, setActiveMember] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
 
-  const itemsPerPage = 4;
+  const itemsPerPage = 2;
   const canGoPrev = startIndex > 0;
   const canGoNext = startIndex < team.length - itemsPerPage;
 
@@ -100,10 +146,14 @@ const StudioTeam = ({ lenis }) => {
           className="mb-10 flex items-center justify-between gap-10 select-none"
           ref={ref}
         >
-          <div className=" size-fit flex items-center gap-2">
-            <span className="size-2  bg-p rounded-[1px]" />
-            <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-              nosso timetes
+          <div className=" size-fit flex items-center gap-4">
+            <span className="relative -top-px size-2.5 bg-p rotate-45" />
+            <p
+              className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+            >
+              nosso time
             </p>
           </div>
           <div className="flex items-center gap-5">
@@ -161,8 +211,8 @@ const StudioTeam = ({ lenis }) => {
               x: `-${startIndex * 25}%`,
             }}
             transition={{
-              duration: 0.7,
-              ease: [0.76, 0, 0.24, 1],
+              duration: 0.8,
+              ease: [0.88, 0, 0.24, 1],
             }}
             className="flex gap-2"
           >

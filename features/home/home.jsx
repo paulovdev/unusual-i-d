@@ -1,21 +1,28 @@
 "use client";
 
 import String from "@/components/ui/string";
-import HomeAbout from "@/features/home/home.about";
-import HomeClients from "@/features/home/home.clients";
-import HomeCTA from "@/features/home/home.cta";
-import HomeIntro from "@/features/home/home.intro";
-import HomeStatement from "@/features/home/home.statement";
-import HomeWorks2 from "@/features/home/home.works2";
-import { usePageTransition } from "@/store/pageTransition";
-import Lenis from "lenis";
 
+import HomeIntro from "@/features/home/home.intro";
+import { usePageTransition, usePreLoader } from "@/store/pageTransition";
+import Lenis from "lenis";
+import { motion } from "motion/react";
 import { useEffect, useRef } from "react";
 
+import Nav from "@/components/layout/nav";
+import HomeAbout from "./home.about";
+import HomeWorks from "./home.works";
+import HomeStatement from "./home.statement";
+import HomeClients from "./home.clients";
+import HomeCTA from "./home.cta";
+
 const HomeHero = ({ work }) => {
-  const lenisRef = useRef(null);
   const { isReady } = usePageTransition();
+  const { isReadyPreLoader } = usePreLoader();
+  const lenisRef = useRef(null);
+
   useEffect(() => {
+    if (!isReady) return;
+
     const lenis = new Lenis({
       autoRaf: true,
       syncTouch: true,
@@ -26,25 +33,28 @@ const HomeHero = ({ work }) => {
     return () => {
       lenis.destroy();
     };
-  }, []);
+  }, [isReady]);
+
   return (
     <>
+      {isReadyPreLoader && <Nav />}
       {isReady && (
-        <main className="relative bg-[#ffffff]">
-          <HomeIntro />
-          <HomeAbout work={work} />
-          <HomeWorks2 work={work} lenis={lenisRef} />
-          {/*    <HomeWorks />   */}
+        <>
+          <motion.main className="relative bg-[#DEDEDE]">
+            <HomeIntro />
+            <HomeAbout work={work} />
 
-          <HomeStatement />
-          <HomeClients />
+            <HomeWorks work={work} lenis={lenisRef} />
+            <HomeStatement />
+            <HomeClients />
+            <HomeCTA lenis={lenisRef} />
+            <div className=" h-screen w-screen flex items-center  justify-center">
+              <String />
+            </div>
+          </motion.main>
 
-          <HomeCTA lenis={lenisRef} />
-          <div className=" h-screen w-screen flex items-center  justify-center">
-            <String />
-            {/*    <div className="w-40 h-40 border-2 border-neutral-800 rounded-full scale-x-[3]"></div> */}
-          </div>
-        </main>
+          
+        </>
       )}
     </>
   );

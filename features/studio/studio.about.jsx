@@ -3,6 +3,8 @@ import TextAnimated from "@/components/ui/text-animated";
 
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { motion } from "motion/react";
+import { ClipText } from "@/components/ui/clip-text";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -16,76 +18,185 @@ const textSlide = {
   }),
 };
 
+const manifesto = [
+  {
+    title: "(01) Questionar o comum.",
+    description1: "Tudo começa com a recusa do óbvio.",
+    description: [
+      "ㅤ",
+      "Procuramos novas perspectivas,",
+      "novas formas de pensar e construir significado.",
+    ],
+  },
+  {
+    title: "(02) Projetar com intenção.",
+    description1: "Cada detalhe tem uma função.",
+    description: [
+      "ㅤ",
+      "Nada é adicionado por acaso,",
+      "e nada permanece sem propósito.",
+    ],
+  },
+  {
+    title: "(03) Criar para permanecer.",
+    description1: "Tendências passam.",
+    description: [
+      "ㅤ",
+      "O que buscamos são identidades,",
+      "experiências e sistemas duradouros.",
+    ],
+  },
+];
+
 const StudioAbout = () => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
   });
 
+  console.log(inView);
+
   return (
-    <section id="about" className="relative mb-30 px-15 max-md:px-5" ref={ref}>
+    <section id="about" className="relative mb-30 px-15 max-md:px-5">
       <div className="my-15 w-full h-px bg-p/15" />
 
-      <div className="mb-25 flex items-start gap-10 select-none" ref={ref}>
-        <div className="flex-1 size-fit flex items-center gap-4">
-          <span className="size-2  bg-p rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+      <div
+        ref={ref}
+        className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
+      >
+        <div className="flex-2 flex items-center gap-4">
+          <span className="relative -top-px size-2.5 bg-p rotate-45" />
+          <p
+            className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
             sobre o estúdio
           </p>
         </div>
-        <div className="flex-3">
-          <TextAnimated
-            phrases={[
-              `Desenvolvemos identidades, experiências e sistemas visuais que combinam direção criativa, estratégia e linguagem contemporânea.`,
-            ]}
-            variants={textSlide}
-            animate={inView}
-            as="p"
-            className="flex flex-col"
-            lineClassName="mb-10 font-neue font-normal 
-        text-p text-[64px] tracking-[-0.07em] leading-none
-        max-md:text-[38px]
-        "
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.2}
-          />
+
+        <div className="flex-4">
+          {["INCOMUM® é um estúdio criativo focado em"].map((phrases, i) => (
+            <div key={i}>
+              <ClipText
+                text={phrases}
+                animate={inView && "animate"}
+                delay={0.5 + 0.15 * i}
+                tag="h2"
+                className="font-neue font-bold
+      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+           leading-none uppercase"
+              />
+            </div>
+          ))}
+          <div className="mt-20 w-full flex items-end justify-end">
+            <div className="w-150 min-w-150 max-md:w-full max-md:min-w-full!">
+              {[
+                "Branding, direção visual, motion design e experiências digitais com uma identidade forte linguagem autoral.",
+                " ",
+                "Criamos projetos que transitam entre cultura, estética e tecnologia — transformando conceitos em sistemas visuais vivos, expressivos e reconhecíveis.",
+              ].map((phrases, i, arr) => (
+                <div
+                  key={i}
+                  style={{ marginBottom: arr.length - 1 === i && "80px" }}
+                >
+                  <ClipText
+                    text={phrases}
+                    animate={inView && "animate"}
+                    delay={0.5 + 0.15 * i}
+                    tag="p"
+                    className="
+        font-inter
+        font-medium
+        text-p
+        text-[24px]
+        tracking-[-0.04em]
+        leading-[1.1]
+      "
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="flex items-start gap-10 select-none" ref={ref}>
-        <div className="flex-1 size-fit flex items-center gap-4">
-          <span className="size-2  bg-p rounded-[1px]" />
-          <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+
+      <div className="my-15 w-full h-px bg-p/15" />
+
+      <div className="mb-25 flex items-start gap-10 select-none max-md:flex-col">
+        <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative">
+          <span className="relative -top-px size-2.5 bg-p rotate-45" />
+          <p
+            className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
             manifesto
           </p>
         </div>
-        <div className="flex-3">
-          <TextAnimated
-            phrases={[
-              `INCOMUM® é um estúdio criativo focado em branding, direção visual, motion design e experiências digitais com uma identidade forte e linguagem autoral.`,
-              `Criamos projetos que transitam entre cultura, estética e tecnologia — transformando conceitos em sistemas visuais vivos, expressivos e reconhecíveis.`,
-            ]}
-            variants={textSlide}
-            animate={inView}
-            as="p"
-            className="flex flex-col"
-            lineClassName="mb-10 font-neue font-normal 
-        text-p text-[64px] tracking-[-0.07em] leading-none
-        max-md:text-[38px]
-        "
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.2}
-          />
-          <Button
-            text="quem somos?"
-            bg="bg-p"
-            textColor="text-s"
-            iconColor="text-s"
-            hoverBg="bg-s"
-            hoverTextColor="text-p"
-            hoverIconColor="text-p"
-          />
+        <div className="flex-4">
+          {manifesto.map((item, index) => (
+            <React.Fragment key={index}>
+              <div className="py-20">
+                <div className="">
+                  <ClipText
+                    text={item.title}
+                    animate={inView && "animate"}
+                    delay={0.5 + 0.15 * index}
+                    tag="h2"
+                    className="font-neue font-bold
+      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
+           leading-none uppercase"
+                  />
+                </div>
+
+                <div className="mt-12 flex justify-end">
+                  <div className="w-150 min-w-150 max-md:w-full max-md:min-w-full!">
+                    <div className="h-fit overflow-hidden">
+                      <motion.div
+                        variants={textSlide}
+                        initial="initial"
+                        animate={inView && "animate"}
+                        custom={1.25}
+                        className="flex-2 flex items-center gap-4"
+                      >
+                        <span className="relative -top-px size-2.5 bg-p rounded-full" />
+                        <p
+                          className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                        >
+                          {item.description1}
+                        </p>
+                      </motion.div>
+                    </div>
+                    {item.description.map((line, i) => (
+                      <div key={i}>
+                        <ClipText
+                          text={line}
+                          animate={inView && "animate"}
+                          delay={0.5 + 0.15 * i}
+                          tag="h2"
+                          className="
+        font-inter
+        font-medium
+        text-p
+        text-[24px]
+        tracking-[-0.04em]
+        leading-[1.1]
+      "
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {index !== manifesto.length - 1 && (
+                <div className="w-full h-px bg-p/15" />
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>

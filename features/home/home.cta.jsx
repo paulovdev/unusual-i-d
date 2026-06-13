@@ -18,23 +18,13 @@ const HomeCTA = ({ lenis }) => {
             </p>
           </div>
           <div className="pt-50 flex items-center justify-between max-md:flex-col max-md:pt-25">
-            <div className="relative flex-1 w-100 h-50 flex items-center justify-center">
-              <Image
-                src="/assets/images/rings/rings-1.svg"
-                fill
-                sizes=""
-                alt="ring-1"
-                className="relative w-100 h-screen"
-              />
-            </div>
             <div className="flex-1 flex flex-col items-start justify-end gap-10">
               <h2
-                className="max-w-225 font-neue font-normal 
-            text-s text-[48px] tracking-[-0.07em] leading-none
-            max-md:text-[38px]"
+                className="font-neue font-bold 
+             text-center text-s text-[72px] tracking-[-0.05em] leading-[1.1]
+              max-lg:text-[62px] max-md:text-[42px] uppercase"
               >
-                Transformamos ideias em identidades, experiências e sistemas
-                visuais com impacto cultural.
+                Fale com a gente
               </h2>
               <div className="flex items-center justify-between gap-5">
                 <div onClick={() => setStartProjectModal(true)}>

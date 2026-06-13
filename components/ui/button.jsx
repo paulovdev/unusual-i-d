@@ -21,9 +21,10 @@ const Button = ({
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       whileTap={{ scale: 1.1 }}
-      className={`w-fit h-15 px-8 rounded-sm border border-p/10
+      className={`w-fit h-12.5 px-8 rounded-sm border border-p/10
         flex items-center justify-center select-none cursor-pointer
-        transition-colors duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)] ${hovered ? hoverBg : bg}`}
+        transition-colors duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]  
+        will-change-transform ${hovered ? hoverBg : bg}`}
     >
       <motion.div
         layout
@@ -46,9 +47,10 @@ const Button = ({
           className="flex"
         >
           <RiArrowRightLongLine
-            className={`relative right-2 text-[22px] transition-colors duration-500 ${
-              hovered ? hoverIconColor : iconColor
-            }`}
+            className={`relative right-2 text-[22px] 
+              transition-colors duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]  ${
+                hovered ? hoverIconColor : iconColor
+              }`}
           />
         </motion.span>
 

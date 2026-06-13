@@ -27,34 +27,35 @@ const StudioWhatWeDo = () => {
   });
 
   return (
-    <section id="what-we-do" className="bg-bg-p" ref={ref}>
-      <div className="p-15 max-md:px-5">
-        <div className="mb-10 size-fit flex items-center gap-2">
-          <span className="size-2 bg-s rounded-[1px]" />
-
-          <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
+    <section id="what-we-do" className="bg-bg-p " ref={ref}>
+      <div className="p-15 flex flex-col items-center justify-center max-md:px-5">
+        <div className="mb-10 size-fit flex items-center gap-4">
+          <span className="relative -top-px size-2.5 bg-s rotate-45" />
+          <p
+            className="font-chivo font-semibold 
+          text-s text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
             o que fazemos?
           </p>
         </div>
 
-        <div className="pt-50 flex flex-col items-start gap-10">
-          <TextAnimated
-            phrases={[
-              `Criamos identidades, experiências e sistemas visuais para marcas contemporâneas.`,
-            ]}
-            variants={textSlide}
-            animate={inView}
-            as="h2"
-            className="flex flex-col"
-            lineClassName="font-neue font-normal 
-        text-s text-[64px] tracking-[-0.07em] leading-none
-        max-md:text-[38px]"
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.2}
-          />
-
-          <span className="w-full h-px bg-s/25" />
+        <div className="pt-10 flex flex-col items-center justify-center gap-10">
+          {[`SERVIÇOS`].map((phrases, i) => (
+            <div className="mb-4 h-fit overflow-hidden">
+              <motion.h2
+                variants={textSlide}
+                initial="initial"
+                animate={inView && "animate"}
+                custom={0.5 + 0.15 * i}
+                className="font-neue font-bold
+                    text-s text-[90px] text-start tracking-[-0.05em]
+                    leading-normal uppercase will-change-transform"
+              >
+                {phrases}
+              </motion.h2>
+            </div>
+          ))}
 
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -67,34 +68,43 @@ const StudioWhatWeDo = () => {
               ease: [0.76, 0, 0.24, 1],
               delay: 0.1,
             }}
-            className="w-full h-fit grid grid-cols-4 grid-rows-2 max-md:grid-cols-2"
+            className="w-full h-fit grid grid-cols-4 gap-5 max-md:grid-cols-1"
           >
             {/* 01 */}
             <div
-              className="min-h-75 flex flex-col items-start gap-5 
-              max-md:col-span-2 max-md:min-h-40 max-md:items-center"
+              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              "
             >
-              <div className="mb-2 p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+              <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <PiShapesBold className="text-p text-[24px]" />
               </div>
+              <div className="flex flex-col items-start">
+                <p
+                  className="mb-15 font-chivo font-semibold 
+          text-s text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                >
+                  identidade visual
+                </p>
 
-              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                identidade visual
-              </span>
-
-              <TextAnimated
-                phrases={[
+                {[
                   `Criamos sistemas visuais, tipografia, grids e direções criativas para marcas digitais e físicas.`,
-                ]}
-                variants={textSlide}
-                animate={inView}
-                as="span"
-                className="flex flex-col"
-                lineClassName="max-w-100 mb-5 font-neue font-medium text-s/50 text-[16px] tracking-[-.02em] leading-[1.4]"
-                wordClassName="mr-2"
-                wordDelay={0.015}
-                lineDelay={0.4}
-              />
+                ].map((phrases, i) => (
+                  <div className="mb-4 h-fit overflow-hidden">
+                    <motion.h2
+                      variants={textSlide}
+                      initial="initial"
+                      animate={inView && "animate"}
+                      custom={0.5 + 0.15 * i}
+                      className="font-inter font-normal 
+                       text-s/75 text-[20px] tracking-[-0.04em]
+                       leading-[1.1] will-change-transform"
+                    >
+                      {phrases}
+                    </motion.h2>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* 02 */}
@@ -109,38 +119,46 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.2,
               }}
-              className="row-start-2 col-start-2 min-h-75 flex flex-col items-start gap-5 
-              max-md:row-start-3 max-md:col-start-1 max-md:col-span-2 max-md:min-h-60 max-md:items-center"
+              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                   <TbBrandFigma className="text-[24px]" />
                 </div>
 
                 <span className="font-azeret text-[24px] text-s">+</span>
 
-                <div className="p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                   <RiSparkling2Line className="text-[24px]" />
                 </div>
               </div>
-
-              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                direção criativa
-              </span>
-
-              <TextAnimated
-                phrases={[
+              <div className="flex flex-col items-start">
+                <p
+                  className="mb-15 font-chivo font-semibold 
+          text-s text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                >
+                  direção criativa
+                </p>
+                {[
                   `Construímos narrativas visuais, campanhas, conceitos e linguagens para produtos e experiências.`,
-                ]}
-                variants={textSlide}
-                animate={inView}
-                as="span"
-                className="flex flex-col"
-                lineClassName="max-w-100 mb-5 font-neue font-medium text-s/50 text-[16px] tracking-[-.02em] leading-[1.4]"
-                wordClassName="mr-2"
-                wordDelay={0.015}
-                lineDelay={0.4}
-              />
+                ].map((phrases, i) => (
+                  <div className="mb-4 h-fit overflow-hidden">
+                    <motion.h2
+                      variants={textSlide}
+                      initial="initial"
+                      animate={inView && "animate"}
+                      custom={0.5 + 0.15 * i}
+                      className="font-inter font-normal 
+                       text-s/75 text-[20px] tracking-[-0.04em]
+                       leading-[1.1] will-change-transform"
+                    >
+                      {phrases}
+                    </motion.h2>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* 03 */}
@@ -155,38 +173,47 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.3,
               }}
-              className="col-start-3 min-h-75 flex flex-col items-start gap-5 
-              max-md:col-span-2 max-md:min-h-60 max-md:items-center"
+              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                   <MdOutlineAnimation className="text-[24px]" />
                 </div>
 
                 <span className="font-azeret text-[24px] text-s">+</span>
 
-                <div className="p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                   <PiShapesBold className="text-[24px]" />
                 </div>
               </div>
 
-              <span className="font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                motion & experiências
-              </span>
-
-              <TextAnimated
-                phrases={[
+              <div className="flex flex-col items-start">
+                <p
+                  className="mb-15 font-chivo font-semibold 
+          text-s text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                >
+                  motion & experiências
+                </p>
+                {[
                   `Exploramos movimento, ritmo e interação para transformar interfaces em experiências visuais imersivas.`,
-                ]}
-                variants={textSlide}
-                animate={inView}
-                as="span"
-                className="flex flex-col"
-                lineClassName="max-w-100 mb-5 font-neue font-medium text-s/50 text-[16px] tracking-[-.02em] leading-[1.4]"
-                wordClassName="mr-2"
-                wordDelay={0.015}
-                lineDelay={0.4}
-              />
+                ].map((phrases, i) => (
+                  <div className="mb-4 h-fit overflow-hidden">
+                    <motion.h2
+                      variants={textSlide}
+                      initial="initial"
+                      animate={inView && "animate"}
+                      custom={0.5 + 0.15 * i}
+                      className="font-inter font-normal 
+                       text-s/75 text-[20px] tracking-[-0.04em]
+                       leading-[1.1] will-change-transform"
+                    >
+                      {phrases}
+                    </motion.h2>
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* 04 */}
@@ -201,30 +228,40 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.4,
               }}
-              className="min-h-75 flex flex-col items-start gap-5 
-              max-md:col-span-2 max-md:min-h-40 max-md:items-center"
+              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              "
             >
-              <div className="mb-2 p-4 rounded-sm border-1 border-s bg-[#ffffff] backdrop-blur-md">
+              <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <HiOutlineCodeBracketSquare className="text-p text-[24px]" />
               </div>
 
-              <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-                experiências digitais
-              </p>
+              <div className="flex flex-col items-start">
+                <p
+                  className="mb-15 font-chivo font-semibold 
+          text-s text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                >
+                  experiências digitais
+                </p>
 
-              <TextAnimated
-                phrases={[
+                {[
                   `Desenvolvemos websites e experiências interativas com foco em performance, narrativa e presença visual.`,
-                ]}
-                variants={textSlide}
-                animate={inView}
-                as="span"
-                className="flex flex-col"
-                lineClassName="max-w-100 mb-5 font-neue font-medium text-s/50 text-[16px] tracking-[-.02em] leading-[1.4]"
-                wordClassName="mr-2"
-                wordDelay={0.015}
-                lineDelay={0.4}
-              />
+                ].map((phrases, i) => (
+                  <div className="mb-4 h-fit overflow-hidden">
+                    <motion.h2
+                      variants={textSlide}
+                      initial="initial"
+                      animate={inView && "animate"}
+                      custom={0.5 + 0.15 * i}
+                      className="font-inter font-normal 
+                       text-s/75 text-[20px] tracking-[-0.04em]
+                       leading-[1.1] will-change-transform"
+                    >
+                      {phrases}
+                    </motion.h2>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </div>

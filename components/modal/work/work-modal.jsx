@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useScroll, useSpring } from "motion/react";
 import Lenis from "lenis";
 import { IoClose } from "react-icons/io5";
 import TextAnimated from "@/components/ui/text-animated";
 import ImageComponent from "@/components/ui/image";
+import { FaStarOfLife } from "react-icons/fa";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -42,9 +43,16 @@ const overlayAnim = {
 };
 
 const WorkModal = ({ work, isOpen, onClose, lenis }) => {
+  const container = useRef(null);
   const scrollRef = useRef(null);
   const modalLenis = useRef(null);
 
+  const { scrollYProgress } = useScroll({ container: scrollRef });
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 500,
+    damping: 50,
+    restDelta: 0.001,
+  });
   useEffect(() => {
     if (!isOpen) return;
 
@@ -75,8 +83,11 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-10 w-[60vw] h-[calc(100vh-32px)] bg-s backdrop-blur-3xl rounded-sm z-[1000]
-        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)] will-change-auto"
+        className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        will-change-auto"
+        ref={container}
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -136,6 +147,14 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
         >
           <WorkModalContent work={work} />
         </motion.div>
+
+        <div className="fixed right-0 top-0 w-full h-2 rounded-t-sm z-30">
+          <motion.div
+            className="absolute left-0 top-0 origin-left w-full h-2 bg-p rounded-tl-sm z-20"
+            style={{ scaleX }}
+          />
+          <div className="absolute left-0 top-0 w-full h-2 bg-[#cdcdcd] rounded-t-sm z-10" />
+        </div>
       </motion.div>
 
       {/* OVERLAY */}
@@ -169,118 +188,62 @@ const WorkModalContent = ({ work }) => {
 
   return (
     <div className="size-full select-none flex flex-col items-end justify-between max-md:gap-5">
-      <div className="w-full flex flex-col gap-15 max-md:mb-10">
-        <TextAnimated
-          phrases={[work.title + "ㅤ"]}
-          variants={textSlide}
-          as="h2"
-          className="mt-10 flex flex-col"
-          lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.05em]
-               leading-none max-md:text-[42px]"
-          wordClassName="mr-2"
-          wordDelay={0.015}
-          lineDelay={0.1}
-        />
-
-        <div className="flex flex-col gap-3">
-          <div
-            className="border-b border-p/10 py-5 w-full flex items-center 
-          max-md:flex-col max-md:items-start max-md:gap-5"
+      <div className="w-full flex flex-col max-md:mb-10">
+        <div className="h-fit overflow-hidden">
+          <motion.h2
+            variants={textSlide}
+            initial="initial"
+            animate="animate"
+            className="mt-25 font-neue font-bold
+                  text-p text-[74px] text-start tracking-[-0.05em]
+                  leading-none uppercase"
           >
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="relative size-2 bg-p " />
+            {work.title}
+          </motion.h2>
+        </div>
 
+        <div className="mt-15 w-full h-px bg-p/15"></div>
+        <div className="mt-4 w-full min-h-20 flex items-start justify-between">
+          <p
+            className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
+            {work.year}
+          </p>
+          {/*  */}
+          <p
+            className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+          >
+            {work.category}
+          </p>
+          {/*  */}
+          <div className="flex-1 flex flex-col items-start justify-center gap-4">
+            {work.services.map((item, i) => (
+              <div className="flex items-center gap-4" key={i}>
+                <span className="relative -top-px size-2.5 bg-p rotate-45" />
                 <p
-                  className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
+                  className="font-chivo font-semibold 
+          text-p text-[14px] text-start tracking-widest 
+          leading-none uppercase truncate"
                 >
-                  lançado em
+                  {serviceLabels[item]}
                 </p>
               </div>
-            </div>
-
-            <div className="flex-2">
-              <span className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                {work.year}
-              </span>
-            </div>
+            ))}
           </div>
-          <div
-            className="border-b border-p/10 py-5 w-full flex items-center  
-          max-md:flex-col max-md:items-start max-md:gap-5"
+          {/*  */}
+          <a
+            href={"https://instagram.com/" + work.client}
+            className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest
+          leading-none uppercase"
           >
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="size-2 bg-p " />
-
-                <p
-                  className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-                >
-                  categoria
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-2">
-              <span className="capitalize font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                {work.category}
-              </span>
-            </div>
-          </div>
-
-          {/* SERVIÇOS */}
-          <div
-            className="border-b border-p/10 py-5 w-full flex items-center 
-           max-md:flex-col max-md:items-start max-md:gap-5"
-          >
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="size-2 bg-p " />
-
-                <p
-                  className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-                >
-                  serviços
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-2">
-              <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                {work.services
-                  ?.map((service) => serviceLabels[service] || service)
-                  .join(", ")}
-              </p>
-            </div>
-          </div>
-
-          {/* CLIENTE */}
-          <div
-            className="border-b border-p/10 py-5 w-full flex items-center 
-           max-md:flex-col max-md:items-start max-md:gap-5"
-          >
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="size-2 bg-p " />
-
-                <p
-                  className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-                >
-                  cliente
-                </p>
-              </div>
-            </div>
-
-            <div className="flex-2">
-              <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                {work.client}
-              </p>
-            </div>
-          </div>
+            {work.client}
+          </a>
+          {/*  */}
         </div>
       </div>
 
@@ -299,80 +262,44 @@ const WorkModalContent = ({ work }) => {
           }
         })}
       </div>
-      <div className="mt-10 w-full border-px border-p/10 max-md:mt-0"></div>
-      <div
-        className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-      >
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <span className="size-2 bg-p " />
-            <p
-              className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-            >
-              tag
-            </p>
-          </div>
+
+      <div className="mt-4 w-full min-h-20 flex items-start justify-between">
+        <p
+          className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+        >
+          {work.mark}
+        </p>
+        <a
+          target="_blank"
+          href={work.website}
+          className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] tracking-widest
+          leading-none uppercase group"
+        >
+          ver ao vivo
+        </a>
+
+        <div className="flex-1 flex flex-col items-start justify-center gap-4">
+          {work.credits.map((item, i) => (
+            <div className="flex items-center gap-4" key={i}>
+              <span className="relative -top-px size-2.5 bg-p rotate-45" />
+              <a
+                target="_blank"
+                href={`https://instagram.com/${item.replace("@", "")}`}
+                className="font-chivo font-semibold 
+          text-p text-end text-[14px] tracking-widest
+          leading-none uppercase"
+              >
+                {item}
+              </a>
+            </div>
+          ))}
         </div>
 
-        <div className="flex-2 flex items-center gap-2">
-          <span className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-            {work.mark}
-          </span>
-        </div>
-      </div>
-      <div
-        className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-      >
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <span className="size-2 bg-p " />
-            <p
-              className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-            >
-              ver ao vivo
-            </p>
-          </div>
-        </div>
-
-        <div className="flex-2">
-          <div className="relative w-fit overflow-hidden h-fit group">
-            <motion.a
-              href={work.website}
-              className="transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-2 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none"
-            >
-              Ver projeto
-            </motion.a>
-            <span className="absolute left-0 -bottom-[2px] h-[4px] w-0 bg-p transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
-          </div>
-        </div>
-      </div>
-      {/* CRÉDITOS */}
-      <div
-        className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-      >
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <span className="size-2 bg-p " />
-            <p
-              className="font-azeret font-medium text-p text-[14px]
-          tracking-[0.05em] leading-none uppercase"
-            >
-              creditos
-            </p>
-          </div>
-        </div>
-
-        <div className="flex-2">
-          <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-            {Array.isArray(work.credits)
-              ? work.credits.join(", ")
-              : work.credits}
-          </p>
+        <div className="flex-1 flex items-end justify-end">
+          <FaStarOfLife className="text-p text-[14px]" />
         </div>
       </div>
     </div>
@@ -390,7 +317,11 @@ const WorkImageBlock = ({ block }) => {
       />
 
       {block.overlayText && (
-        <p className="absolute bottom-5 right-5 font-azeret font-medium text-s text-[14px] uppercase">
+        <p
+          className="absolute bottom-5 right-5 font-chivo font-semibold 
+          text-s text-[14px] text-start tracking-widest
+          leading-none uppercase"
+        >
           {block.overlayText}
         </p>
       )}
@@ -403,26 +334,45 @@ const WorkTextBlock = ({ block }) => {
     <div className="my-10 w-full flex max-md:flex-col max-md:gap-5">
       <div className="flex-1 max-md:mb-5">
         <div className="flex items-center gap-2">
-          <span className="size-2 bg-p " />
+          <span className="size-2 bg-p/75" />
           {block.label && (
-            <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
+            <p
+              className="font-chivo font-semibold 
+          text-p text-[14px] tracking-widest 
+          leading-none uppercase will-change-transform"
+            >
               {block.label}
             </p>
           )}
         </div>
       </div>
 
-      <div className="flex-2 flex flex-col gap-15">
-        <TextAnimated
+      <div className="flex-2 flex flex-col">
+        {(Array.isArray(block.text) ? block.text : [block.text]).map(
+          (phrases, i) => (
+            <div className="max-w-150 mb-5 h-fit overflow-hidden">
+              <h2
+                className="font-inter font-medium 
+                  text-p text-[24px] tracking-[-0.04em]
+                  leading-[1.1]"
+              >
+                {phrases}
+              </h2>
+            </div>
+          ),
+        )}
+        {/*   <TextAnimated
           phrases={Array.isArray(block.text) ? block.text : [block.text]}
           variants={textSlide}
           as="span"
           className="flex flex-col"
-          lineClassName="max-w-150 mb-5 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-[1.2]"
+          lineClassName="max-w-150 mb-5 font-inter font-medium 
+          text-p text-[24px] tracking-[-0.04em]
+          leading-[1.1]"
           wordClassName="mr-1"
           wordDelay={0.015}
           lineDelay={0.4}
-        />
+        /> */}
       </div>
     </div>
   );

@@ -97,8 +97,9 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-10 px-10 w-[40vw] h-[calc(100%-32px)]
-         bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed right-0 top-0 px-10 pt-10 w-[40vw] h-dvh
+        bg-s backdrop-blur-3xl z-9999
+        max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-screen will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"

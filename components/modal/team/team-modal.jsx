@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 import { motion } from "motion/react";
 import TextAnimated from "@/components/ui/text-animated";
 import { FiMapPin } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaStarOfLife } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 
 const textSlide = {
@@ -87,8 +87,10 @@ export const TeamModal = ({ member, lenis, onClose }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 p-10 w-[50vw] h-[calc(100vh-32px)] 
-       bg-[#ffffff] backdrop-blur-3xl rounded-sm z-[1000] max-ds:w-[70vw] max-lg:w-full max-md:p-5 max-md:w-[calc(100vw-32px)]"
+        className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+         will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -147,112 +149,75 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             }}
             className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
           >
-            <div className="w-full flex flex-col gap-15">
-              <TextAnimated
-                phrases={[member.name]}
-                variants={textSlide}
-                as="h2"
-                className="mt-10 mb-5 flex flex-col"
-                lineClassName="font-neue font-normal text-p text-[72px] tracking-[-0.07em]
-               leading-none max-md:text-[42px]"
-                wordClassName="mr-2"
-                wordDelay={0.015}
-                lineDelay={0.1}
-              />
+            <div className="w-full flex flex-col max-md:mb-10">
+              <div className="h-fit overflow-hidden">
+                <motion.h2
+                  variants={textSlide}
+                  initial="initial"
+                  animate="animate"
+                  className="mt-25 font-neue font-bold
+                              text-p text-[74px] text-start tracking-[-0.05em]
+                              leading-none uppercase"
+                >
+                  {member.name}
+                </motion.h2>
+              </div>
             </div>
 
-            {/*  */}
+            <div className="mt-15 w-full h-px bg-p/15"></div>
+
+            <div className="mt-4 w-full min-h-20 flex items-start justify-between">
+              <a
+                target="_blank"
+                href={"https://instagram.com/" + member.email}
+                className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] text-start tracking-widest
+          leading-none uppercase"
+              >
+                e-mail
+              </a>
+
+              <a
+                target="_blank"
+                href={"https://instagram.com/" + member.instagram}
+                className="flex-1 font-chivo font-semibold 
+          text-p text-[14px] text-start tracking-widest
+          leading-none uppercase"
+              >
+                instagram
+              </a>
+
+              <p
+                className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest
+          leading-none uppercase"
+              >
+                {member.location}
+              </p>
+
+              <div className="flex-1 flex items-end justify-end">
+                <FaStarOfLife className="text-p text-[14px]" />
+              </div>
+            </div>
 
             <div className="relative w-full h-[50vh]">
-              <Image
-                src={member.src}
-                alt={member.name}
-                fill
-                sizes=""
-                placeholder="blur"
-                className="object-cover rounded-sm"
-              />
-            </div>
-            <div className="w-full flex flex-col gap-3">
-              <div
-                className="mt-10 border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-              >
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 bg-p " />
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      cargo
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex-2 flex items-center gap-2">
-                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                    {member.role}
-                  </p>
-                </div>
-              </div>
-              <div
-                className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-              >
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 bg-p " />
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      e-mail
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex-2 flex items-center gap-2">
-                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                    {member.email}
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-              >
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 bg-p " />
-
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      instagram
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex-2 flex items-center gap-2">
-                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                    {member.instagram}
-                  </p>
-                </div>
-              </div>
-
-              <div
-                className="border-b border-p/10 py-5 w-full flex items-center
-       max-md:flex-col max-md:items-start max-md:gap-5"
-              >
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="size-2 bg-p " />
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      localidade
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex-2 flex items-center gap-2">
-                  <p className="font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-none">
-                    {member.location}
-                  </p>
-                </div>
-              </div>
+              <figure className="size-full overflow-hidden">
+                <Image
+                  src={member.src}
+                  alt={member.name}
+                  fill
+                  sizes=""
+                  placeholder="blur"
+                  className="object-cover rounded-sm"
+                />
+                <p
+                  className="absolute right-5 bottom-5 font-chivo font-semibold 
+          text-s text-[14px] text-start tracking-widest
+          leading-none uppercase"
+                >
+                  {member.role}
+                </p>
+              </figure>
             </div>
 
             <div
@@ -260,26 +225,31 @@ export const TeamModal = ({ member, lenis, onClose }) => {
        max-md:flex-col max-md:items-start max-md:gap-5 max-md:py-5"
             >
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-2">
-                  <span className="size-2 bg-p " />
-                  <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                <div className="flex items-center gap-5">
+                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <p
+                    className="font-chivo font-semibold 
+          text-p text-[14px] text-end tracking-widest 
+          leading-none uppercase will-change-transform"
+                  >
                     biografia
                   </p>
                 </div>
               </div>
-              <div className="flex-2 flex flex-col gap-15">
-                <TextAnimated
-                  phrases={
-                    Array.isArray(member.bio) ? member.bio : [member.bio]
-                  }
-                  variants={textSlide}
-                  as="span"
-                  className="flex flex-col"
-                  lineClassName="max-w-150 mb-5 font-neue font-medium text-p text-[24px] tracking-[-.04em] leading-[1.2]"
-                  wordClassName="mr-2"
-                  wordDelay={0.015}
-                  lineDelay={0.4}
-                />
+              <div className="flex-2 flex flex-col">
+                {(Array.isArray(member.bio) ? member.bio : [member.bio]).map(
+                  (phrases, i) => (
+                    <div className="max-w-150 mb-5 h-fit overflow-hidden">
+                      <h2
+                        className="font-inter font-medium 
+                  text-p text-[24px] tracking-[-0.04em]
+                  leading-[1.1]"
+                      >
+                        {phrases}
+                      </h2>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </motion.div>

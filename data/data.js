@@ -150,25 +150,55 @@ export const awards = [
   {
     title: "Awwwards Site of the Day",
     year: "2025",
+    organization: "Awwwards",
+    category: "Site of the Day",
+    description:
+      "Reconhecimento internacional concedido a experiências digitais que combinam excelência visual, inovação e performance.",
+    result: "Winner",
   },
   {
-    title: "CSS Design Awards – Special Kudos",
+    title: "CSS Design Awards",
     year: "2025",
+    organization: "CSSDA",
+    category: "Special Kudos",
+    description:
+      "Premiação destinada a projetos que se destacam pela qualidade criativa, direção de arte e execução técnica.",
+    result: "Winner",
   },
   {
-    title: "FWA – Site of the Day",
+    title: "FWA",
     year: "2024",
+    organization: "The FWA",
+    category: "Site of the Day",
+    description:
+      "Uma das premiações digitais mais respeitadas do mundo, destacando experiências inovadoras e impactantes.",
+    result: "Winner",
   },
   {
-    title: "Webby Awards – Honoree",
+    title: "Webby Awards",
     year: "2024",
+    organization: "The Webby Awards",
+    category: "Honoree",
+    description:
+      "Reconhecimento concedido aos melhores trabalhos da internet em design, tecnologia e experiência digital.",
+    result: "Honoree",
   },
   {
-    title: "Red Dot – Digital Design",
+    title: "Red Dot Design Award",
     year: "2023",
+    organization: "Red Dot",
+    category: "Digital Design",
+    description:
+      "Prêmio internacional de design que reconhece projetos com excelência criativa e impacto global.",
+    result: "Winner",
   },
   {
     title: "Behance Featured Project",
     year: "2023",
+    organization: "Behance",
+    category: "Curated Selection",
+    description:
+      "Projeto selecionado pela equipe editorial do Behance como destaque global na plataforma.",
+    result: "Featured",
   },
 ];

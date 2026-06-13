@@ -108,12 +108,12 @@ const WorksGrid = ({ work, index }) => {
               <div className="flex items-center gap-2">
                 <span className="size-2 rounded-[1px] bg-s" />
 
-                <p className="font-azeret text-[14px] font-medium uppercase tracking-[0.05em] leading-none text-s">
+                <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] leading-none text-s">
                   {work.mark}
                 </p>
               </div>
 
-              <p className="font-azeret text-[14px] font-medium uppercase tracking-[0.05em] leading-none text-s">
+              <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] leading-none text-s">
                 {work.category} / {work.year}
               </p>
             </div>
@@ -123,11 +123,9 @@ const WorksGrid = ({ work, index }) => {
               variants={textSlide}
               as="h2"
               className="flex flex-col"
-              lineClassName="
-                font-neue font-normal text-s text-[72px]
-                tracking-[-0.05em] leading-none
-                max-md:text-[42px]
-              "
+              lineClassName="font-neue font-bold 
+             text-start text-s text-[64px] tracking-[-0.05em] leading-[1.1]
+              max-lg:text-[62px] max-md:text-[42px] uppercase"
               wordClassName="mr-2"
               wordDelay={0.015}
               lineDelay={0.1}
@@ -190,12 +188,9 @@ const WorksList = ({
             variants={textSlide}
             as="p"
             className="flex flex-col"
-            lineClassName="
-              font-neue font-normal
-              text-p text-[64px]
-              tracking-[-0.07em] leading-none
-              max-md:text-[38px]
-            "
+            lineClassName="font-neue font-bold 
+             text-start text-p text-[64px] tracking-[-0.05em] leading-[1.1]
+              max-lg:text-[62px] max-md:text-[42px] uppercase"
             wordClassName="mr-2"
             wordDelay={0.015}
             lineDelay={0.1}
@@ -213,12 +208,9 @@ const WorksList = ({
             variants={textSlide}
             as="p"
             className="flex flex-col"
-            lineClassName="
-              font-neue font-normal
-              text-p text-[64px]
-              tracking-[-0.07em] leading-none
-              max-md:text-[38px]
-            "
+            lineClassName="font-neue font-bold 
+             text-end text-p text-[64px] tracking-[-0.05em] leading-[1.1]
+              max-lg:text-[62px] max-md:text-[42px] uppercase"
             wordClassName="mr-2"
             wordDelay={0.015}
             lineDelay={0.1}
@@ -286,7 +278,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
         className="
           sticky top-0 z-10 mb-60 flex w-full
           items-center justify-between
-           bg-[#ffffff] px-15 py-5
+           bg-[#ffffff] px-15 py-5 max-md:px-5 
         "
       >
         <div className="flex items-center gap-5">
@@ -310,12 +302,12 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   backgroundColor: isActive ? "#000" : "#fff",
                 }}
                 onClick={() => setActiveCategory(cat)}
-                className="group rounded-sm border border-p/10 p-5 px-10 cursor-pointer"
+                className="group w-full rounded-sm border border-p/10 p-5 px-10 cursor-pointer"
               >
                 <p
                   className={`
                     text-[14px] font-medium uppercase tracking-[0.05em]
-                    transition-colors duration-500
+                    transition-colors duration-500 truncate
                     ${isActive ? "text-s" : "text-p group-hover:text-s"}
                   `}
                 >
@@ -326,7 +318,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
           })}
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className=" flex items-center gap-5">
           <motion.button
             whileTap={{ scale: 1.1 }}
             whileHover={{
@@ -388,11 +380,11 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
       ) : (
         <div className="relative -top-50 px-15 max-md:px-5">
           <div className="flex items-center justify-between">
-            <p className="font-azeret text-[14px] font-medium uppercase tracking-[0.05em] text-p">
+            <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] text-p">
               nome
             </p>
 
-            <p className="font-azeret text-[14px] font-medium uppercase tracking-[0.05em] text-p">
+            <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] text-p">
               ano
             </p>
           </div>

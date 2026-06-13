@@ -11,7 +11,6 @@ export default async function Page() {
   }
   return (
     <>
-      <Nav />
       <main className="relative min-h-screen">
         <Hero work={work} />
       </main>
