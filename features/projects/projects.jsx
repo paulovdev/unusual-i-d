@@ -12,6 +12,7 @@ import WorkModal from "@/components/modal/work/work-modal";
 import { FiltersModal } from "@/components/modal/filters/filters-modal";
 import { SearchModal } from "@/components/modal/search/search-modal";
 import { usePageTransition } from "@/store/pageTransition";
+import String from "@/components/ui/string";
 
 const ProjectsHero = ({ work }) => {
   const lenisRef = useRef(null);
@@ -57,7 +58,7 @@ const ProjectsHero = ({ work }) => {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#DEDEDE]">
+        <main className="relative bg-[#EBEBEB]">
           <ProjectsIntro work={work} lenis={lenisRef} />
           <ProjectsWorks
             work={work}
@@ -65,8 +66,9 @@ const ProjectsHero = ({ work }) => {
             lenis={lenisRef}
           />
 
-          <div className="h-screen w-screen flex items-center justify-center">
-            <div className="w-40 h-40 border-2 border-neutral-800 rounded-full scale-x-[3]" />
+          <div className="bg-bg-p h-screen w-screen flex items-center  justify-center">
+            <String />
+            {/*    <div className="w-40 h-40 border-2 border-neutral-800 rounded-full scale-x-[3]"></div> */}
           </div>
         </main>
       )}

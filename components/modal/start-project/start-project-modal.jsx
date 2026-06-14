@@ -73,7 +73,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         variants={menuAnim}

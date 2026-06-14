@@ -35,7 +35,7 @@ export default function StudioHero({ work }) {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#DEDEDE]">
+        <main className="relative bg-[#EBEBEB]">
           <StudioIntro />
           <StudioAbout />
           <StudioWhatWeDo />

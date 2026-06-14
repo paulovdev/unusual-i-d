@@ -50,12 +50,12 @@ const manifesto = [
 
 const StudioAbout = () => {
   const { ref: aboutRef, inView: aboutInView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
   const { ref: manifestoRef, inView: manifestoInView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -108,13 +108,7 @@ const StudioAbout = () => {
                     animate={aboutInView && "animate"}
                     delay={0.5 + 0.15 * i}
                     tag="p"
-                    className="
-        font-inter
-        font-medium
-        text-p
-        text-[24px]
-        tracking-[-0.04em]
-        leading-[1.1]
+                    className="font-inter font-medium text-p text-[24px] tracking-[-0.04em] leading-[1.1]
       "
                   />
                 </div>

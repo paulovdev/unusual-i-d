@@ -21,7 +21,7 @@ const textSlide = {
 
 const StudioAwards = () => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 

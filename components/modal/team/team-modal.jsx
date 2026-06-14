@@ -88,7 +88,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
     <>
       <motion.div
         className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
          max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
          will-change-auto"
         variants={menuAnim}
@@ -159,7 +159,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   initial="initial"
                   animate="animate"
                   className="mt-25 font-neue font-bold
-                              text-p text-[74px] text-start tracking-[-0.05em]
+                              text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                               leading-none uppercase"
                 >
                   {member.name}
@@ -184,19 +184,11 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 target="_blank"
                 href={"https://instagram.com/" + member.instagram}
                 className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] text-start tracking-widest
+          text-p text-[14px] text-center tracking-widest
           leading-none uppercase"
               >
                 instagram
               </a>
-
-              <p
-                className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest
-          leading-none uppercase"
-              >
-                {member.location}
-              </p>
 
               <div className="flex-1 flex items-end justify-end">
                 <FaStarOfLife className="text-p text-[14px]" />

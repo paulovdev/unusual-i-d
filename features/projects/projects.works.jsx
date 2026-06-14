@@ -80,7 +80,7 @@ const WorksGrid = ({ work, index }) => {
         ease: [0.76, 0, 0.24, 1],
         delay: 0.035 * index,
       }}
-      className={`${index === 0 && "col-span-2"}`}
+      className={`${index === 0 ? "col-span-2 max-md:col-span-2" : "max-md:col-span-2"}`}
     >
       <motion.div
         animate={{
@@ -279,7 +279,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
         className="
     sticky top-0 z-10 mb-60 flex w-full
     items-center justify-between
-    bg-[#DEDEDE] px-15 py-5 max-md:px-5
+    bg-[#EBEBEB] px-15 py-5 max-md:px-5
   "
       >
         {/* MOBILE CATEGORY BUTTON */}

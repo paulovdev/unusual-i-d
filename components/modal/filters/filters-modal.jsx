@@ -187,7 +187,7 @@ export const FiltersModal = ({ lenis }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         variants={menuAnim}
@@ -258,8 +258,8 @@ export const FiltersModal = ({ lenis }) => {
                 initial="initial"
                 animate="animate"
                 className="font-neue font-bold
-                                        text-p text-[74px] text-start tracking-[-0.05em]
-                                        leading-none uppercase"
+                 text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
+                 leading-none uppercase"
               >
                 Filtros
               </motion.h2>
@@ -388,11 +388,11 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#fff",
               }}
               onClick={resetAll}
-              className="p-5 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm group "
+              className="h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm group "
             >
               <p
-                className="font-azeret font-semibold 
-              text-s text-[12px] tracking-[0.05em] leading-none uppercase 
+                className="font-chivo font-semibold 
+              text-s text-[14px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-p transition-colors duration-500"
               >
                 limpar filtros
@@ -406,11 +406,11 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#000",
               }}
               onClick={closeFilters}
-              className="p-5 px-10 w-full bg-s border border-s/10 backdrop-blur-2xl rounded-sm group"
+              className="h-15 px-10 w-full bg-s border border-s/10 backdrop-blur-2xl rounded-sm group"
             >
               <p
-                className="font-azeret font-semibold 
-              text-p text-[12px] tracking-[0.05em] leading-none uppercase 
+                className="font-chivo font-semibold 
+              text-p text-[14px] tracking-[0.05em] leading-none uppercase 
               group-hover:text-s transition-colors duration-500"
               >
                 aplicar filtros

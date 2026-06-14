@@ -1,4 +1,5 @@
 import Nav from "@/components/layout/nav";
+import String from "@/components/ui/string";
 
 import ProjectsHero from "@/features/projects/projects";
 import { client } from "@/lib/sanity.client";

@@ -21,7 +21,7 @@ const HomeAbout = () => {
   const container = useRef(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -98,7 +98,7 @@ const HomeAbout = () => {
           text-p text-[14px] tracking-widest 
           leading-none uppercase will-change-transform"
           >
-            Design não é apenas estética.
+            introdução
           </p>
         </div>
         {[

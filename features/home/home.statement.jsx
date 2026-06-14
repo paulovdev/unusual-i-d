@@ -19,7 +19,7 @@ const textSlide = {
 
 const HomeStatement = () => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 

@@ -9,59 +9,6 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useTransitionRouter } from "next-view-transitions";
 import TransitionLink from "../ui/link";
 
-export const menuContainer = {
-  initial: {
-    height: "0px",
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-    },
-  },
-  animate: {
-    height: "500px",
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-      delay: 0.25,
-    },
-  },
-  exit: {
-    height: "0px",
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-      delay: 0.25,
-    },
-  },
-};
-
-export const navContainer = {
-  initial: {
-    width: "400px",
-
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-    },
-  },
-  animate: {
-    width: "600px",
-
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-    },
-  },
-  exit: {
-    width: "400px",
-    transition: {
-      duration: 0.5,
-      ease: [0.76, 0, 0.24, 1],
-      delay: 0.5,
-    },
-  },
-};
-
 export const menuOverlay = {
   initial: {
     opacity: 0,
@@ -91,12 +38,38 @@ const navData = [
   { label: "Início", href: "/" },
   { label: "Estúdio", href: "/studio" },
   { label: "Projetos", href: "/projects" },
-  { label: "contato", href: "/contact" },
+  { label: "Preços", href: "/pricing" },
+  { label: "Contato", href: "/contact" },
 ];
 
-const Menu = ({ setMenu }) => {
+const Menu = ({ setMenu, mobile }) => {
   const pathname = usePathname();
   const router = useTransitionRouter();
+  const menuContainer = {
+    initial: {
+      height: "0px",
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+    animate: {
+      height: "500px",
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+        delay: 0.25,
+      },
+    },
+    exit: {
+      height: "0px",
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+        delay: 0.25,
+      },
+    },
+  };
 
   return (
     <>
@@ -106,7 +79,8 @@ const Menu = ({ setMenu }) => {
         animate="animate"
         exit="exit"
         className="fixed left-1/2 -translate-x-1/2 bottom-25
-         w-150 bg-p/50 backdrop-blur-2xl rounded-sm z-90 select-none pointer-events-none"
+         w-150 bg-p/50 backdrop-blur-2xl rounded-sm z-90 select-none pointer-events-none
+         max-md:w-[calc(100vw-40px)]"
       >
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -144,8 +118,8 @@ const Menu = ({ setMenu }) => {
                   <p
                     className={`max-w-125 
                       ${active ? "text-s" : "text-s/50 hover:text-s"} 
-                  font-neue font-bold text-p text-[38px] tracking-[-0.03em] leading-none
-             uppercase  transition-all duration-250`}
+                  font-neue font-bold text-p text-[clamp(32px,6vw,38px)] tracking-[-0.03em] leading-none
+             uppercase transition-all duration-250`}
                   >
                     {nav.label}
                   </p>
@@ -175,7 +149,42 @@ const Menu = ({ setMenu }) => {
 
 const Nav = () => {
   const [menu, setMenu] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const navContainer = {
+    initial: {
+      width: mobile ? "100%" : "400px",
 
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+    animate: {
+      width: mobile ? "100%" : "600px",
+
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+    exit: {
+      width: mobile ? "100%" : "400px",
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+        delay: 0.5,
+      },
+    },
+  };
+
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth <= 768);
+
+    check();
+    window.addEventListener("resize", check);
+
+    return () => window.removeEventListener("resize", check);
+  }, []);
   return (
     <>
       <AnimatePresence mode="wait">
@@ -185,17 +194,21 @@ const Nav = () => {
             initial="initial"
             animate={menu ? "animate" : "exit"}
             exit="exit"
-            className="px-6 h-16 bg-p/50 backdrop-blur-2xl rounded-sm 
-        flex items-center justify-between gap-8 pointer-events-auto"
+            className="px-6 h-15 bg-p/50 backdrop-blur-2xl rounded-sm 
+        flex items-center justify-between gap-8 pointer-events-auto
+     "
           >
-            <p className="font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase">
+            <p
+              className="font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase 
+          "
+            >
               INCOMUM<span>®</span>
             </p>
             <motion.figure
               className="relative " /* w-8 h-8  */
               animate={{
                 y: menu ? -85 : 0,
-                x: menu ? 150 : 0,
+                x: menu ? (mobile ? 135 : 255) : 0,
                 scale: menu ? 1.5 : 1,
                 transition: {
                   duration: 0.8,
@@ -250,7 +263,7 @@ const Nav = () => {
         </nav>
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {menu && <Menu setMenu={setMenu} />}
+        {menu && <Menu setMenu={setMenu} mobile={mobile} />}
       </AnimatePresence>
     </>
   );

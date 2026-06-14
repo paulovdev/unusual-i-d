@@ -84,7 +84,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
     <>
       <motion.div
         className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         ref={container}
@@ -198,13 +198,13 @@ const WorkModalContent = ({ work }) => {
             initial="initial"
             animate="animate"
             className="font-neue font-bold
-                  text-p text-[74px] text-start tracking-[-0.05em]
+                  text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                   leading-none uppercase"
           >
             {work.title}
           </motion.h2>
           <p
-            className="mt-4 font-chivo font-semibold 
+            className="mt-2 font-chivo font-semibold 
           text-p text-[14px] tracking-widest 
           leading-none uppercase will-change-transform max-md:block hidden"
           >
@@ -246,6 +246,7 @@ const WorkModalContent = ({ work }) => {
           </div>
           {/*  */}
           <a
+            target="_blank"
             href={"https://instagram.com/" + work.client}
             className="flex-1 font-chivo font-semibold 
           text-p text-[14px] text-end tracking-widest
@@ -271,6 +272,7 @@ const WorkModalContent = ({ work }) => {
               return null;
           }
         })}
+        <div className="mt-15 w-full h-px bg-p/15"></div>
       </div>
 
       <div className="mt-4 w-full min-h-20 flex items-start justify-between">
@@ -289,7 +291,7 @@ const WorkModalContent = ({ work }) => {
             <div className="flex items-center gap-4" key={i}>
               <a
                 target="_blank"
-                href={`https://instagram.com/${item.replace("@", "")}`}
+                href={`https://unsplash.com/${item}`}
                 className="font-chivo font-semibold 
           text-p text-end text-[14px] tracking-widest
           leading-none uppercase"

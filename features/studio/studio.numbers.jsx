@@ -15,22 +15,26 @@ const textSlide = {
 
 const numbers = [
   {
-    number: "08+",
-    label: "anos criando experiências digitais",
+    number: "05+ ",
+    label: "projetos completos",
   },
   {
-    number: "50+",
-    label: "projetos entregues globalmente",
+    number: "156% ",
+    label: "CONVERSÕES ELEVADAS",
   },
   {
-    number: "12",
-    label: "prêmios e menções internacionais",
+    number: "10+ ",
+    label: "clientes ativos",
+  },
+  {
+    number: "1M+ ",
+    label: "de visitas todos os meses",
   },
 ];
 
 const StudioNumbers = () => {
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: 0,
     triggerOnce: true,
   });
 
@@ -45,7 +49,7 @@ const StudioNumbers = () => {
           text-s text-[14px] text-end tracking-widest 
           leading-none uppercase will-change-transform"
           >
-            nossos números
+            MÉTRICAS
           </p>
         </div>
         <div className="flex-1 flex flex-col ">
@@ -54,7 +58,7 @@ const StudioNumbers = () => {
               key={i}
               className="border-b border-s/15 flex flex-col items-start"
             >
-              <div className="mb-4 h-fit overflow-hidden">
+              <div className="my-4 h-fit overflow-hidden">
                 <motion.h2
                   variants={textSlide}
                   initial="initial"
@@ -62,7 +66,7 @@ const StudioNumbers = () => {
                   custom={0.15 + i * 0.15}
                   className="
         font-neue font-bold
-        text-s text-[142px]
+        text-s text-[clamp(68px,6vw,142px)]
         tracking-[-0.05em]
         leading-none uppercase
         will-change-transform"

@@ -98,7 +98,7 @@ export const SearchModal = ({ lenis, work }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#dedede] backdrop-blur-3xl rounded-sm z-9999
+        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         variants={menuAnim}
@@ -169,14 +169,14 @@ export const SearchModal = ({ lenis, work }) => {
                 initial="initial"
                 animate="animate"
                 className="font-neue font-bold
-                              text-p text-[74px] text-start tracking-[-0.05em]
+                              text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                               leading-none uppercase"
               >
                 Pesquisar
               </motion.h2>
             </div>
 
-            <div className="relative w-full">
+            <div className="relative w-full max-md:mb-10">
               <input
                 type="text"
                 value={query}
@@ -205,7 +205,7 @@ export const SearchModal = ({ lenis, work }) => {
 
             <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-5">
+                <div className="size-fit flex items-center gap-5 max-md:mb-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
                   {query === "" ? (
@@ -279,7 +279,7 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="mb-10 p-5 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
+            className="mb-10 h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate

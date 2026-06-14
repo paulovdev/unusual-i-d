@@ -40,7 +40,7 @@ const HomeHero = ({ work }) => {
       {isReadyPreLoader && <Nav />}
       {isReady && (
         <>
-          <motion.main className="relative bg-[#DEDEDE]">
+          <motion.main className="relative bg-[#EBEBEB]">
             <HomeIntro />
             <HomeAbout work={work} />
 
@@ -52,8 +52,6 @@ const HomeHero = ({ work }) => {
               <String />
             </div>
           </motion.main>
-
-          
         </>
       )}
     </>

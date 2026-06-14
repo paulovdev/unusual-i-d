@@ -155,7 +155,7 @@ const HomeIntro = () => {
       >
         <div
           ref={scope}
-          className="fixed inset-0 bg-[#DEDEDE] overflow-hidden pointer-events-none select-none
+          className="fixed inset-0 bg-[#EBEBEB] overflow-hidden pointer-events-none select-none
       "
           style={
             hasPlayedPreloader
