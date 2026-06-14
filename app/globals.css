@@ -72,6 +72,7 @@ html {
   -moz-osx-font-smoothing: grayscale !important;
   font-smooth: never !important;
   letter-spacing: 0;
+  background: #ebebeb;
 }
 
 body {
@@ -82,34 +83,13 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   font-family: "Azeret Mono", sans-serif;
+  background: #ebebeb;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  left: 0;
-  width: 100%;
-  background: #121212;
-  z-index: 9999;
-  pointer-events: none;
-}
 
-/* topo */
-body::before {
-  top: 0;
-  height: env(safe-area-inset-top);
-}
-
-/* bottom */
-body::after {
-  bottom: 0;
-  height: env(safe-area-inset-bottom);
-}
-/* 
 #noise::before {
   position: fixed;
   top: 0;
@@ -117,11 +97,11 @@ body::after {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.025;
+  opacity: 0.015;
   z-index: 99999;
   pointer-events: none;
   background: url("../public/noise.gif");
-} */
+}
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
@@ -146,31 +126,4 @@ body::after {
 ::view-transition-old(root) {
   z-index: 1;
   animation: none !important;
-}
-
-.range-thumb {
-  position: absolute;
-  width: 100%;
-  pointer-events: none;
-  appearance: none;
-  background: none;
-}
-
-.range-thumb::-webkit-slider-thumb {
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  background: #000;
-  cursor: pointer;
-  pointer-events: auto;
-  border: none;
-}
-
-.range-thumb::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  background: #000;
-  cursor: pointer;
-  pointer-events: auto;
-  border: none;
 }
