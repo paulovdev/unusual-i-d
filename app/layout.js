@@ -13,7 +13,7 @@ const azeret = Azeret_Mono({
 });
 
 export const viewport = {
-  themeColor: "#121212",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -34,9 +34,7 @@ export default function RootLayout({ children }) {
         id="noise"
         className={`${iSans.variable} ${azeret.variable} h-full antialiased`}
       >
-        <body className="min-h-full flex flex-col bg-[#ffffff]">
-          {children}
-        </body>
+        <body className="min-h-full flex flex-col ">{children}</body>
       </html>
     </ViewTransitions>
   );
