@@ -15,7 +15,12 @@ const azeret = Azeret_Mono({
 export const metadata = {
   title: "INCOMUM®",
   description: "Studio Incomum",
-  themeColor: "#111111",
+  themeColor: "#EBEBEB",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -26,6 +31,13 @@ export default function RootLayout({ children }) {
         id="noise"
         className={`${iSans.variable} ${azeret.variable} h-full antialiased`}
       >
+        <head>
+          <meta name="theme-color" content="#EBEBEB" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
+        </head>
         <body className="min-h-full flex flex-col ">{children}</body>
       </html>
     </ViewTransitions>
