@@ -64,9 +64,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                 animate={inView && "animate"}
                 variants={textSlide}
                 custom={0.75}
-                className="relative left-1 font-chivo font-semibold 
-          text-s/75 text-[12px] text-start tracking-widest
-          leading-normal uppercase will-change-transform"
+                className="relative left-1 text-chivo-n-14 text-start text-s/75"
               >
                 {member.role}
               </motion.p>
@@ -93,9 +91,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                 className="flex items-center gap-2"
               >
                 <p
-                  className="font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-normal uppercase will-change-transform
+                  className="text-chivo-s-14 text-start
           "
                 >
                   ver mais
@@ -148,13 +144,7 @@ const StudioTeam = ({ lenis }) => {
         >
           <div className=" size-fit flex items-center gap-4">
             <span className="relative -top-px size-2.5 bg-p rotate-45" />
-            <p
-              className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-            >
-              nosso time
-            </p>
+            <p className="text-chivo-p-14 text-end">nosso time</p>
           </div>
           <div className="flex items-center gap-5">
             <motion.button

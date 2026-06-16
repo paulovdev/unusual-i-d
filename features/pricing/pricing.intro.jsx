@@ -1,4 +1,3 @@
-import { ClipText } from "@/components/ui/clip-text";
 import { motion } from "motion/react";
 
 const textSlide = {
@@ -16,39 +15,44 @@ const textSlide = {
 const PricingIntro = () => {
   return (
     <section
-      id="about"
-      className="relative px-15 pt-40 h-[70vh] flex flex-col items-center justify-center max-md:px-5"
+      id="price"
+      className="
+    relative h-[60vh]
+    px-15 pt-40
+    flex flex-col items-center justify-center
+    max-md:px-5 max-md:items-start z-10
+  "
     >
-      <div className="relative flex flex-col items-start">
-        <div className="mb-4 relative flex items-center">
-          <div className="h-fit overflow-hidden">
-            <motion.h2
-              {...textSlide}
-              custom={0}
-              className="font-neue font-bold 
-                     text-p text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
-                      leading-none uppercase will-change-transform max-md:text-[68px]"
-            >
-              preços
-              <span
-                className="relative top-3.5 left-2 align-top
-                        text-[28px] tracking-[0.4em]"
+      <div className="relative flex items-center justify-center">
+        <div className="relative flex flex-col items-start">
+          <div className="mb-4 relative flex items-center ">
+            <div className="overflow-hidden h-[125px] max-md:h-fit">
+              <motion.h2
+                {...textSlide}
+                custom={0}
+                className="font-neue font-bold 
+                     text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
+                      leading-none uppercase will-change-transform "
               >
-                .
-              </span>
-            </motion.h2>
+                NOSSos
+                <span
+                  className="relative top-3.5 left-2 align-top
+                        text-[28px] tracking-[0.4em]"
+                >
+                  .
+                </span>
+              </motion.h2>
+            </div>
           </div>
-        </div>
-        <div className="w-[calc(100%+15px)] h-fit overflow-hidden">
-          <motion.p
-            {...textSlide}
-            custom={0.25}
-            className="relative left-1 font-chivo font-semibold 
-               text-p text-[14px] text-start tracking-widest
-               leading-normal uppercase will-change-transform"
-          >
-            VEJA A NOSSA TABELA
-          </motion.p>
+          <div className="relative w-[calc(100%+15px)] h-fit overflow-hidden">
+            <motion.p
+              {...textSlide}
+              custom={0.25}
+              className="relative left-1 text-chivo-s-14 text-start"
+            >
+              PREÇOS
+            </motion.p>
+          </div>
         </div>
       </div>
     </section>

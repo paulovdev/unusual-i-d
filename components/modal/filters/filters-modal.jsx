@@ -173,9 +173,7 @@ export const FiltersModal = ({ lenis }) => {
     <button onClick={onClick} className="flex items-center gap-2 uppercase ">
       {active && <span className="size-2 rounded-full bg-p" />}
       <span
-        className={`font-chivo font-semibold 
-          text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform
+        className={`text-chivo-n-14
            ${active ? "text-p" : "text-p/50 hover:text-p/75"}`}
       >
         {label}
@@ -272,13 +270,7 @@ export const FiltersModal = ({ lenis }) => {
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
-                  <p
-                    className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                  >
-                    ano
-                  </p>
+                  <p className="text-chivo-p-14">ano</p>
                 </div>
               </div>
               <div className="flex-1 flex flex-col gap-4">
@@ -301,13 +293,7 @@ export const FiltersModal = ({ lenis }) => {
                 <div className="size-fit flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
-                  <p
-                    className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                  >
-                    categoria
-                  </p>
+                  <p className="text-chivo-p-14">categoria</p>
                 </div>
               </div>
 
@@ -332,13 +318,7 @@ export const FiltersModal = ({ lenis }) => {
                 <div className="size-fit flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
-                  <p
-                    className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                  >
-                    serviços
-                  </p>
+                  <p className="text-chivo-p-14">serviços</p>
                 </div>
               </div>
 
@@ -361,13 +341,7 @@ export const FiltersModal = ({ lenis }) => {
                 <div className="size-fit flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
-                  <p
-                    className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                  >
-                    destaque
-                  </p>
+                  <p className="text-chivo-p-14">destaque</p>
                 </div>
               </div>
 
@@ -391,8 +365,7 @@ export const FiltersModal = ({ lenis }) => {
               className="h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm group "
             >
               <p
-                className="font-chivo font-semibold 
-              text-s text-[14px] tracking-[0.05em] leading-none uppercase 
+                className="text-chivo-n-14 text-s  
               group-hover:text-p transition-colors duration-500"
               >
                 limpar filtros
@@ -409,8 +382,7 @@ export const FiltersModal = ({ lenis }) => {
               className="h-15 px-10 w-full bg-s border border-s/10 backdrop-blur-2xl rounded-sm group"
             >
               <p
-                className="font-chivo font-semibold 
-              text-p text-[14px] tracking-[0.05em] leading-none uppercase 
+                className="text-chivo-p-14
               group-hover:text-s transition-colors duration-500"
               >
                 aplicar filtros

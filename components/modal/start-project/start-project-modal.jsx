@@ -152,9 +152,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="name"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Nome Completo
                 </label>
@@ -164,19 +162,14 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                   id="name"
                   placeholder="Digite seu nome completo"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      font-azeret font-medium text-p text-[14px] tracking-[0.05em]
-      leading-none uppercase bg-transparent"
+      text-chivo-p-14 bg-transparent"
                 />
               </div>
 
               {/* EMAIL + TELEFONE */}
               <div className="mb-12 w-full grid grid-cols-2 gap-5 max-md:grid-cols-1">
                 <div className="flex flex-col items-start">
-                  <label
-                    htmlFor="email"
-                    className="mb-4 font-azeret font-medium 
-        text-p text-[14px] tracking-[0.05em] leading-none uppercase"
-                  >
+                  <label htmlFor="email" className="mb-4 text-chivo-p-14">
                     E-mail
                   </label>
 
@@ -185,18 +178,12 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                     id="email"
                     placeholder="Digite seu e-mail"
                     className="w-full p-5 border border-p/10 rounded-sm outline-none
-        font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none group uppercase bg-transparent"
+        text-chivo-p-14 group uppercase bg-transparent"
                   />
                 </div>
 
                 <div className="flex flex-col items-start">
-                  <label
-                    htmlFor="phone"
-                    className="mb-4 font-azeret font-medium 
-        text-p text-[14px] tracking-[0.05em] leading-none uppercase"
-                  >
+                  <label htmlFor="phone" className="mb-4 text-chivo-p-14">
                     Telefone
                   </label>
 
@@ -205,9 +192,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                     id="phone"
                     placeholder="(21) 99999-9999"
                     className="w-full p-5 border border-p/10 rounded-sm outline-none
-        font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none group uppercase bg-transparent"
+        text-chivo-p-14 group uppercase bg-transparent"
                   />
                 </div>
               </div>
@@ -216,9 +201,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="company"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Empresa / Estúdio
                 </label>
@@ -228,8 +211,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                   id="company"
                   placeholder="Nome da empresa ou escritório"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      font-azeret font-medium text-p text-[14px] tracking-[0.05em]
-      leading-none uppercase bg-transparent"
+      text-chivo-p-14 bg-transparent"
                 />
               </div>
 
@@ -237,9 +219,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="projectType"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Tipo de Projeto
                 </label>
@@ -247,9 +227,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="projectType"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase"
+      bg-transparent text-chivo-p-14 uppercase"
                 >
                   <option value="" className="text-p">
                     Selecione uma categoria
@@ -282,9 +260,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="style"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Estilo Desejado
                 </label>
@@ -292,8 +268,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="style"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-azeret font-medium text-p text-[14px]
-      tracking-[0.05em] leading-none uppercase"
+      bg-transparent text-chivo-p-14"
                 >
                   <option value="" className="text-p">
                     Selecione um estilo
@@ -326,9 +301,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="area"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Área Aproximada
                 </label>
@@ -338,8 +311,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                   id="area"
                   placeholder="Ex: 120m²"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      font-azeret font-medium text-p text-[14px] tracking-[0.05em]
-      leading-none uppercase bg-transparent"
+      text-chivo-p-14 bg-transparent"
                 />
               </div>
 
@@ -347,9 +319,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="budget"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Faixa de Investimento
                 </label>
@@ -357,8 +327,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="budget"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-azeret font-medium text-p text-[14px]
-      tracking-[0.05em] leading-none uppercase"
+      bg-transparent text-chivo-p-14"
                 >
                   <option value="" className="text-p">
                     Selecione uma faixa
@@ -385,9 +354,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="mb-12 w-full flex flex-col items-start">
                 <label
                   htmlFor="timeline"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Prazo Desejado
                 </label>
@@ -395,9 +362,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                 <select
                   id="timeline"
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      bg-transparent font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase"
+      bg-transparent text-chivo-p-14 uppercase"
                 >
                   <option value="" className="text-p">
                     Selecione um prazo
@@ -421,9 +386,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               <div className="w-full flex flex-col items-start">
                 <label
                   htmlFor="details"
-                  className="mb-4 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+                  className="mb-4 text-chivo-p-14 uppercase group"
                 >
                   Sobre o Projeto
                 </label>
@@ -433,9 +396,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
                   rows={6}
                   placeholder="Conte um pouco sobre o espaço, referências, necessidades e objetivos do projeto..."
                   className="w-full p-5 border border-p/10 rounded-sm outline-none
-      resize-none bg-transparent font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase placeholder:text-p/50"
+      resize-none bg-transparent text-chivo-p-14 uppercase placeholder:text-p/50"
                 />
               </div>
             </div>
@@ -449,8 +410,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
             className="my-20 p-5 px-10 w-full bg-p border border-p/10 backdrop-blur-2xl rounded-sm group"
           >
             <p
-              className="font-chivo font-semibold 
-              text-s text-[12px] tracking-[0.05em] leading-none uppercase 
+              className="text-chivo-s-14
               group-hover:text-p transition-colors duration-500"
             >
               enviar

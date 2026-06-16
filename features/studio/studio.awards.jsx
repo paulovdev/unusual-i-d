@@ -41,13 +41,7 @@ const StudioAwards = () => {
 
       <div className="flex-1 size-fit flex items-center gap-4">
         <span className="relative -top-px size-2.5 bg-p rotate-45" />
-        <p
-          className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-        >
-          prêmios e reconhecimentos
-        </p>
+        <p className="text-chivo-p-14 text-end">prêmios e reconhecimentos</p>
       </div>
       <div className="relative mt-25 w-full">
         <div className="flex flex-col">
@@ -64,9 +58,7 @@ const StudioAwards = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.25 + 0.15 * i}
-                      className="font-chivo font-semibold 
-          text-start text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
+                      className="text-chivo-p-14 text-start"
                     >
                       {item.year}
                     </motion.p>
@@ -123,57 +115,27 @@ const StudioAwards = () => {
                 <div className="pt-5 pb-15 pl-20 max-w-[900px] max-md:pl-0">
                   <div className="grid grid-cols-3 gap-10 mb-15">
                     <div>
-                      <p
-                        className="font-chivo font-semibold 
-          text-p/50 text-[12px] tracking-widest 
-          leading-none uppercase will-change-transform mb-2"
-                      >
+                      <p className="text-chivo-n-14 text-p/50 mb-2">
                         Organização
                       </p>
 
-                      <p
-                        className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                      >
-                        {item.organization}
-                      </p>
+                      <p className="text-chivo-p-14">{item.organization}</p>
                     </div>
 
                     <div>
-                      <p
-                        className="font-chivo font-semibold 
-          text-p/50 text-[12px] tracking-widest 
-          leading-none uppercase will-change-transform mb-2"
-                      >
+                      <p className="text-chivo-n-14 text-p/50 mb-2">
                         Categoria
                       </p>
 
-                      <p
-                        className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                      >
-                        {item.category}
-                      </p>
+                      <p className="text-chivo-p-14">{item.category}</p>
                     </div>
 
                     <div>
-                      <p
-                        className="font-chivo font-semibold 
-          text-p/50 text-[12px] tracking-widest 
-          leading-none uppercase will-change-transform mb-2"
-                      >
+                      <p className="text-chivo-n-14 text-p/50 mb-2">
                         Resultado
                       </p>
 
-                      <p
-                        className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-                      >
-                        {item.result}
-                      </p>
+                      <p className="text-chivo-p-14">{item.result}</p>
                     </div>
                   </div>
                   <div className="my-10 w-full h-px bg-p/10"></div>

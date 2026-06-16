@@ -197,7 +197,8 @@ const HomeIntro = () => {
                   alt=""
                   fill
                   priority
-                  className="object-cover"
+                  className="object-cover size-full"
+                  placeholder="blur"
                 />
               </motion.div>
 
@@ -218,7 +219,8 @@ const HomeIntro = () => {
                   alt=""
                   fill
                   priority
-                  className="object-cover"
+                  className="object-cover size-full"
+                  placeholder="blur"
                 />
               </motion.div>
             </div>
@@ -228,9 +230,7 @@ const HomeIntro = () => {
             <div className="w-[calc(100%+15px)] h-fit overflow-hidden ">
               <motion.p
                 initial={{ y: 20 }}
-                className="loader-text font-chivo font-semibold 
-                 text-p text-[14px] text-start tracking-widest
-                 leading-normal uppercase will-change-transform flex items-center gap-6"
+                className="loader-text text-chivo-p-14 text-start flex items-center gap-6"
               >
                 <span className="relative left-2 -top-px size-2.5 bg-p rotate-45" />
                 carregando
@@ -242,14 +242,14 @@ const HomeIntro = () => {
         <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="mb-2 relative flex items-center">
-              <div className="overflow-hidden h-fit">
+              <div className="overflow-hidden h-[125px] max-md:h-fit">
                 <motion.h2
                   initial="initial"
                   animate={isReadyPreLoader && "animate"}
                   variants={textSlide}
                   className="font-neue font-bold 
                 text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
-                 leading-none uppercase will-change-transform max-md:text-[72px]"
+                 leading-none uppercase will-change-transform "
                 >
                   incomum
                   <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-md:top-1.5">
@@ -258,14 +258,12 @@ const HomeIntro = () => {
                 </motion.h2>
               </div>
             </div>
-            <div className="w-[calc(100%-15px)] h-fit overflow-hidden">
+            <div className="mt-2 w-[calc(100%-15px)] h-fit overflow-hidden">
               <motion.p
                 initial="initial"
                 animate={isReadyPreLoader && "animate"}
                 variants={textSlide}
-                className="relative left-1 font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-normal uppercase"
+                className="relative left-1 text-chivo-s-14 text-start"
               >
                 estúdio criativo
               </motion.p>
@@ -276,14 +274,13 @@ const HomeIntro = () => {
           className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
         max-md:items-end max-md:justify-center "
         >
-          <div className="h-fit overflow-hidden">
+          <div className="relative h-fit overflow-hidden max-md:-top-15">
             <motion.p
               initial="initial"
               animate={isReadyPreLoader && "animate"}
               variants={textSlide}
-              className="relative left-1 font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-normal uppercase flex items-center gap-2"
+              className="relative left-1 text-chivo-s-14 text-start
+          flex items-center gap-2"
             >
               role para baixo
               <span>

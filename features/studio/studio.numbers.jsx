@@ -44,13 +44,7 @@ const StudioNumbers = () => {
       <div className="w-full flex max-md:flex-col max-md:px-5">
         <div className="flex-1 size-fit flex items-center gap-4 max-md:mb-15">
           <span className="relative -top-px size-2.5 bg-s rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
-            MÉTRICAS
-          </p>
+          <p className="text-chivo-s-14 text-end">MÉTRICAS</p>
         </div>
         <div className="flex-1 flex flex-col ">
           {numbers.map((item, i) => (
@@ -77,10 +71,7 @@ const StudioNumbers = () => {
 
               <p
                 className="
-      mb-15 font-chivo font-semibold
-      text-s/75 text-[14px]
-      tracking-widest
-      leading-none uppercase"
+      mb-15 text-chivo-s-14 text-start"
               >
                 {item.label}
               </p>

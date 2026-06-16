@@ -127,7 +127,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
             cursor-pointer bg-p"
           >
             <IoClose
-              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
+              className="text-s text-[24px] group-hover: group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.button>
@@ -198,49 +198,31 @@ const WorkModalContent = ({ work }) => {
             initial="initial"
             animate="animate"
             className="font-neue font-bold
-                  text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
+                   text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                   leading-none uppercase"
           >
             {work.title}
           </motion.h2>
-          <p
-            className="mt-2 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform max-md:block hidden"
-          >
-            {work.year}
-          </p>
+          <div className="mt-2 items-center gap-4 max-md:flex hidden">
+            <p className="text-chivo-p-14">{work.year}</p>
+            <span className="text-chivo-p-14">/</span>
+            <p className="text-chivo-p-14">{work.category}</p>
+          </div>
         </div>
 
         <div className="mt-15 w-full h-px bg-p/15"></div>
         <div className="mt-5 w-full min-h-20 flex items-start justify-between">
-          <p
-            className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform max-md:hidden"
-          >
-            {work.year}
-          </p>
+          <p className="flex-1 text-chivo-p-14 max-md:hidden">{work.year}</p>
           {/*  */}
-          <p
-            className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
+          <p className="flex-1 text-chivo-p-14 max-md:hidden">
             {work.category}
           </p>
           {/*  */}
           <div className="flex-1 flex flex-col items-start justify-center gap-4">
             {work.services.map((item, i) => (
-              <div className="flex items-center gap-4" key={i}>
-                <span className="relative -top-px size-2.5 bg-p rotate-45" />
-                <p
-                  className="font-chivo font-semibold 
-          text-p text-[14px] text-start tracking-widest 
-          leading-none uppercase truncate"
-                >
-                  {serviceLabels[item]}
-                </p>
+              <div className="flex items-center gap-4 max-md:gap-5" key={i}>
+                <span className="relative -top-px size-2.5 bg-p rotate-45 max-md:left-1" />
+                <p className="text-chivo-p-14 ">{serviceLabels[item]}</p>
               </div>
             ))}
           </div>
@@ -248,9 +230,7 @@ const WorkModalContent = ({ work }) => {
           <a
             target="_blank"
             href={"https://instagram.com/" + work.client}
-            className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest
-          leading-none uppercase"
+            className="flex-1 text-chivo-p-14 text-end"
           >
             {work.client}
           </a>
@@ -279,9 +259,7 @@ const WorkModalContent = ({ work }) => {
         <a
           target="_blank"
           href={work.website}
-          className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest
-          leading-none uppercase group"
+          className="flex-1 text-chivo-p-14  group"
         >
           ver ao vivo
         </a>
@@ -292,9 +270,7 @@ const WorkModalContent = ({ work }) => {
               <a
                 target="_blank"
                 href={`https://unsplash.com/${item}`}
-                className="font-chivo font-semibold 
-          text-p text-end text-[14px] tracking-widest
-          leading-none uppercase"
+                className="text-chivo-p-14 text-end"
               >
                 {item}
               </a>
@@ -302,8 +278,8 @@ const WorkModalContent = ({ work }) => {
           ))}
         </div>
 
-        <div className="flex-1 flex items-end justify-end">
-          <FaStarOfLife className="text-p text-[14px]" />
+        <div className="flex-1 flex items-end justify-end max-md:hidden">
+          <FaStarOfLife className=" text-[14px]" />
         </div>
       </div>
     </div>
@@ -321,11 +297,7 @@ const WorkImageBlock = ({ block }) => {
       />
 
       {block.overlayText && (
-        <p
-          className="absolute bottom-5 right-5 font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-none uppercase"
-        >
+        <p className="absolute bottom-5 right-5 text-chivo-s-14">
           {block.overlayText}
         </p>
       )}
@@ -340,15 +312,7 @@ const WorkTextBlock = ({ block }) => {
         <div className="flex items-center gap-5">
           <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
-          {block.label && (
-            <p
-              className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-            >
-              {block.label}
-            </p>
-          )}
+          {block.label && <p className="text-chivo-p-14">{block.label}</p>}
         </div>
       </div>
 
@@ -358,7 +322,7 @@ const WorkTextBlock = ({ block }) => {
             <div className="max-w-150 mb-5 h-fit overflow-hidden">
               <h2
                 className="font-inter font-medium 
-                  text-p text-[24px] tracking-[-0.04em]
+                   text-[24px] tracking-[-0.04em]
                   leading-none"
               >
                 {phrases}

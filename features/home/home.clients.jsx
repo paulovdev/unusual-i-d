@@ -1,44 +1,64 @@
 "use client";
-
-import React from "react";
-import {
-  SiFramer,
-  SiDribbble,
-  SiAwwwards,
-  SiVercel,
-  SiSpotify,
-  SiGithub,
-} from "react-icons/si";
-
-const logos = [
-  <SiFramer />,
-  <SiDribbble />,
-  <SiAwwwards />,
-
-  <SiVercel />,
-  <SiSpotify />,
-  <SiGithub />,
-];
+import { motion } from "motion/react";
+import { useInView } from "react-intersection-observer";
+import { useRef, useState } from "react";
+import { clients } from "@/data/data";
 
 const HomeClients = () => {
-  return (
-    <section id="clients" className="relative mt-15 px-15 max-md:px-5 ">
-      <div className="mb-10 flex items-center gap-4">
-        <span className="size-2  bg-p rounded-[1px]" />
+  const container = useRef(null);
+  const [hover, setHover] = useState(null);
 
-        <p className="max-w-125 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase">
-          Estúdios e parceiros
-        </p>
+  const [ref, inView] = useInView({ threshold: 0.5, triggerOnce: true });
+  const clients2 = [...clients, ...clients];
+  return (
+    <section
+      id="clients"
+      className="relative mt-15 px-15 overflow-hidden max-md:px-5 "
+    >
+      <div className="mb-10 flex items-center gap-4">
+        <span className="relative -top-px size-2.5 bg-p rotate-45" />
+
+        <p className="text-chivo-p-14">Aprovado por visionários</p>
       </div>
 
-      <div className="relative py-30 w-full">
-        <div className="flex items-center justify-between">
-          {logos.map((icon, i) => (
-            <div key={i} className="text-p text-[82px]">
-              {icon}
-            </div>
-          ))}
-        </div>
+      <div className="relative pt-10 pb-20 w-full">
+        <motion.div
+          ref={container}
+          className="flex w-max items-center gap-25 max-lg:gap-15 max-md:gap-10"
+          animate={{
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            duration: clients.length * 2.5,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+        >
+          {clients2.map((client, i) => {
+            const Icon = client.icon;
+            const active = hover === i;
+
+            return (
+              <motion.div
+                key={i}
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
+                className="relative flex items-center justify-center h-50"
+              >
+                <div className="w-30 flex items-center justify-center">
+                  <div className="flex flex-row">
+                    <Icon
+                      className={`ml-30 text-[62px] text-p ${
+                        active ? "scale-90" : "scale-100"
+                      } transition-all duration-500`}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

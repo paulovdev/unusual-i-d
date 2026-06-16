@@ -63,9 +63,9 @@ const plans = [
 
 const PricingPrices = () => {
   return (
-    <section className="w-full px-15 pb-25 max-md:px-5">
+    <section className="w-full px-15 pb-25 max-md:px-5 z-10">
       <div
-        className="grid grid-cols-3 gap-4 max-lg:grid-cols-1
+        className="grid grid-cols-3 gap-5 max-lg:grid-cols-1
       "
       >
         {plans.map((plan, index) => (
@@ -88,27 +88,19 @@ const PricingPrices = () => {
             }}
             className={`
             min-h-[700px]
-            p-5 pt-10 rounded-sm flex flex-col justify-between
-            ${plan.dark ? "bg-[#181818] text-s" : "bg-s text-p"}
+            p-5 pt-10   rounded-sm flex flex-col justify-between backdrop-blur-2xl
+            ${plan.dark ? "bg-[#202020]/50 text-s" : "bg-s/15 text-p"}
+            ${index !== 1 && "mt-10"}
             `}
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <span
-                  className={`relative -top-px size-2.5 rotate-45  
-                    ${plan.dark ? "bg-s" : "bg-p"}
+                  className={`relative -top-px size-2.5 rotate-45 bg-s
+                  
                `}
                 />
-                <p
-                  className={`
-                font-chivo font-semibold 
-          text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform
-           ${plan.dark ? " text-s" : " text-p"}
-                `}
-                >
-                  {plan.label}
-                </p>
+                <p className="text-chivo-s-14 text-end">{plan.label}</p>
               </div>
 
               <div className="mb-4 h-fit overflow-hidden">
@@ -120,7 +112,7 @@ const PricingPrices = () => {
                   className={`font-neue font-bold
        text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
            leading-none uppercase
-           ${plan.dark ? " text-s" : " text-p"}`}
+          text-s`}
                 >
                   {plan.title}
                 </motion.h3>
@@ -129,10 +121,9 @@ const PricingPrices = () => {
               <div className="">
                 <p
                   className={`mb-8
-             font-chivo font-semibold 
-          text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform
-               ${plan.dark ? " text-s/50" : " text-p/50"}
+             font-inter font-normal 
+                       text-s/75 text-[20px] tracking-[-0.04em]
+                       leading-[1.1] will-change-transform
              
               `}
                 >
@@ -145,12 +136,9 @@ const PricingPrices = () => {
               {plan.items.map((item) => (
                 <div
                   key={item}
-                  className={`
-                  py-4 border-b border-current/20 font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform
-             ${plan.dark ? " text-s" : " text-p"}
-                  `}
+                  className="
+                  py-4 border-b border-current/20 text-chivo-s-14
+                  "
                 >
                   {item}
                 </div>
@@ -159,8 +147,8 @@ const PricingPrices = () => {
 
             <div>
               <p
-                className={`font-chivo text-[12px] tracking-widest uppercase mb-10
-              ${plan.dark ? " text-s/50" : " text-p/50"}
+                className={`text-chivo-n-14 mb-10
+             text-s/50
               `}
               >
                 {plan.footer}
@@ -180,8 +168,7 @@ const PricingPrices = () => {
                   `}
                 >
                   <span
-                    className="font-chivo font-semibold 
-               text-[14px] tracking-[0.05em] leading-none uppercase 
+                    className="text-chivo-n-14
               group-hover:text-s transition-colors duration-500"
                   >
                     iniciar projeto

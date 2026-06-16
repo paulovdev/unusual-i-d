@@ -72,20 +72,8 @@ const HomeAbout = () => {
             </motion.span>
           </div>
           <div className="absolute inset-8 flex items-end justify-between">
-            <p
-              className="font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase"
-            >
-              assistir reel
-            </p>
-            <p
-              className="font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase"
-            >
-              00:56
-            </p>
+            <p className="text-chivo-p-14 text-end">assistir reel</p>
+            <p className="text-chivo-s-14 text-end">00:56</p>
           </div>
         </figure>
       </div>
@@ -93,13 +81,7 @@ const HomeAbout = () => {
       <div className="mb-25 flex flex-col items-start ">
         <div className="mb-15 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
-            introdução
-          </p>
+          <p className="text-chivo-p-14">introdução</p>
         </div>
         {[
           "Design é a arte de organizar as coisas para comunicar com precisão e mudar tudo.",
@@ -121,13 +103,7 @@ const HomeAbout = () => {
         <div className="max-w-150">
           <div className="mb-10 flex items-center gap-4">
             <span className="relative -top-px size-2.5 bg-p rounded-full" />
-            <p
-              className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase will-change-transform"
-            >
-              um pouco sobre nós
-            </p>
+            <p className="text-chivo-p-14">um pouco sobre nós</p>
           </div>
           {[
             "Somos um estúdio criativo focado em branding, direção visual, motion design e experiências digitais com uma identidade forte e linguagem autoral.",
@@ -166,13 +142,7 @@ const HomeAbout = () => {
                 hoverIconColor="text-p"
               />
             </TransitionLink>
-            <p
-              className="font-chivo font-semibold 
-          text-p text-[14px] tracking-widest 
-          leading-none uppercase"
-            >
-              2023 — 2026
-            </p>
+            <p className="text-chivo-p-14">2023 — 2026</p>
           </div>
         </div>
       </div>

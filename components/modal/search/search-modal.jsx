@@ -183,7 +183,7 @@ export const SearchModal = ({ lenis, work }) => {
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="pesquise por projetos..."
                 className="w-full p-5 border border-p/10 rounded-sm outline-none 
-                font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase "
+                text-chivo-p-14"
               />
               {query ? (
                 <span
@@ -209,11 +209,9 @@ export const SearchModal = ({ lenis, work }) => {
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
                   {query === "" ? (
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
-                      sugestões
-                    </p>
+                    <p className="text-chivo-p-14">sugestões</p>
                   ) : (
-                    <p className="font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-none uppercase ">
+                    <p className="text-chivo-p-14">
                       {suggestions.length === 1 ? (
                         <span>{suggestions.length} resultado</span>
                       ) : (

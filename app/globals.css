@@ -1,26 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "general";
-  src: url("/fonts/general.woff2") format("woff2");
-}
-@font-face {
   font-family: "inter";
   src: url("/fonts/inter.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "chivo";
   src: url("/fonts/chivo.ttf") format("truetype");
-}
-@font-face {
-  font-family: "robert-medium";
-  src: url("/fonts/robert-medium.woff2") format("woff2");
+  font-weight: 100 900;
 }
 
-@font-face {
-  font-family: "robert-regular";
-  src: url("/fonts/robert-regular.woff2") format("woff2");
-}
 @font-face {
   font-family: "Neue Montreal";
   src: url("/fonts/NeueMontreal-Light.otf") format("opentype");
@@ -55,7 +45,6 @@
 
   --font-neue: "Neue Montreal";
   --font-inter: "inter";
-  --font-general: "general";
   --font-chivo: "chivo";
 
   --breakpoint-full-ds: 1900px;
@@ -65,6 +54,18 @@
   --breakpoint-md: 768px;
   --breakpoint-sm: 450px;
   --breakpoint-xsm: 380px;
+}
+
+@layer components {
+  .text-chivo-p-14 {
+    @apply font-chivo font-semibold text-p text-[14px] tracking-widest leading-none uppercase;
+  }
+  .text-chivo-s-14 {
+    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase;
+  }
+  .text-chivo-n-14 {
+    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase;
+  }
 }
 
 html {
@@ -90,15 +91,15 @@ body {
   display: none;
 }
 
-#noise::before {
+.noise::before {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.015;
-  z-index: 99999;
+  opacity: 0.025;
+  z-index: 1000;
   pointer-events: none;
   background: url("../public/noise.gif");
 }

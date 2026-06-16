@@ -42,8 +42,7 @@ const navData = [
   { label: "Contato", href: "/contact" },
 ];
 
-const Menu = ({ setMenu, mobile }) => {
-  const pathname = usePathname();
+const Menu = ({ pathname, setMenu, mobile }) => {
   const router = useTransitionRouter();
   const menuContainer = {
     initial: {
@@ -101,9 +100,7 @@ const Menu = ({ setMenu, mobile }) => {
           className="relative p-6 py-10 size-full flex flex-col items-start justify-between pointer-events-auto"
         >
           <div className="w-full flex flex-col items-start">
-            <p className="mb-4 font-azeret font-medium text-s/50 text-[12px] tracking-[0.05em] uppercase">
-              Navegue pelo site
-            </p>
+            <p className="mb-4 text-chivo-n-14 text-s/50">Navegue pelo site</p>
             <span className="mb-5 w-full h-px bg-s/25" />
             {navData.map((nav, i) => {
               const active = pathname === nav.href;
@@ -148,6 +145,7 @@ const Menu = ({ setMenu, mobile }) => {
 };
 
 const Nav = () => {
+  const pathname = usePathname();
   const [menu, setMenu] = useState(false);
   const [mobile, setMobile] = useState(false);
   const navContainer = {
@@ -199,10 +197,14 @@ const Nav = () => {
      "
           >
             <p
-              className="font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase 
+              className="font-chivo font-medium text-[14px] text-s tracking-[0.05em] leading-none uppercase 
           "
             >
-              INCOMUM<span>®</span>
+              {navData.map((item) => (
+                <span key={item.href}>
+                  {pathname === item.href ? item.label : ""}
+                </span>
+              ))}
             </p>
             <motion.figure
               className="relative " /* w-8 h-8  */
@@ -236,7 +238,7 @@ const Nav = () => {
                     y: -10,
                     transition: { duration: 0.45, ease: [0.76, 0, 0.24, 1] },
                   }}
-                  className="min-w-10 font-azeret font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase"
+                  className="min-w-10 font-chivo font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase"
                 >
                   {menu ? "fechar" : "MENU"}
                 </motion.p>
@@ -263,7 +265,7 @@ const Nav = () => {
         </nav>
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {menu && <Menu setMenu={setMenu} mobile={mobile} />}
+        {menu && <Menu pathname={pathname} setMenu={setMenu} mobile={mobile} />}
       </AnimatePresence>
     </>
   );

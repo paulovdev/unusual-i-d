@@ -10,6 +10,21 @@ import team09 from "@/public/assets/images/team/c.jpg";
 import team10 from "@/public/assets/images/team/a.jpg";
 import team11 from "@/public/assets/images/team/b.jpg";
 
+import {
+  SiNotion,
+  SiStripe,
+  SiVercel,
+  SiLinear,
+  SiRaycast,
+  SiFramer,
+  SiSupabase,
+  SiOpenai,
+  SiReplit,
+  SiFigma,
+  SiTesla,
+  SiThenorthface,
+} from "react-icons/si";
+
 export const team = [
   {
     src: team01,
@@ -201,4 +216,19 @@ export const awards = [
       "Projeto selecionado pela equipe editorial do Behance como destaque global na plataforma.",
     result: "Featured",
   },
+];
+
+export const clients = [
+  { title: "Notion", icon: SiNotion },
+  { title: "Stripe", icon: SiStripe },
+  { title: "Vercel", icon: SiVercel },
+  { title: "Audi", icon: SiLinear },
+  { title: "Dior", icon: SiRaycast },
+  { title: "Puma", icon: SiFramer },
+  { title: "The north face ", icon: SiThenorthface },
+  { title: "New Balance", icon: SiSupabase },
+  { title: "Under Armour", icon: SiOpenai },
+  { title: "BMW", icon: SiReplit },
+  { title: "Mercedes", icon: SiFigma },
+  { title: "Tesla", icon: SiTesla },
 ];

@@ -31,13 +31,7 @@ const StudioWhatWeDo = () => {
       <div className="p-15 flex flex-col items-center justify-center max-md:px-5">
         <div className="mb-10 size-fit flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-s rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
-            o que fazemos?
-          </p>
+          <p className="text-chivo-s-14 text-end">o que fazemos?</p>
         </div>
 
         <div className="pt-10 flex flex-col items-center justify-center gap-10">
@@ -72,18 +66,14 @@ const StudioWhatWeDo = () => {
           >
             {/* 01 */}
             <div
-              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
               "
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <PiShapesBold className="text-p text-[24px]" />
               </div>
               <div className="flex flex-col items-start">
-                <p
-                  className="mb-15 font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-                >
+                <p className="mb-15 text-chivo-s-14 text-end">
                   identidade visual
                 </p>
 
@@ -119,7 +109,7 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.2,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
               "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
@@ -134,11 +124,7 @@ const StudioWhatWeDo = () => {
                 </div>
               </div>
               <div className="flex flex-col items-start">
-                <p
-                  className="mb-15 font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-                >
+                <p className="mb-15 text-chivo-s-14 text-end">
                   direção criativa
                 </p>
                 {[
@@ -173,7 +159,7 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.3,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
               "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
@@ -189,11 +175,7 @@ const StudioWhatWeDo = () => {
               </div>
 
               <div className="flex flex-col items-start">
-                <p
-                  className="mb-15 font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-                >
+                <p className="mb-15 text-chivo-s-14 text-end">
                   motion & experiências
                 </p>
                 {[
@@ -228,7 +210,7 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.4,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#181818] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
               "
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
@@ -236,11 +218,7 @@ const StudioWhatWeDo = () => {
               </div>
 
               <div className="flex flex-col items-start">
-                <p
-                  className="mb-15 font-chivo font-semibold 
-          text-s text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-                >
+                <p className="mb-15 text-chivo-s-14 text-end">
                   experiências digitais
                 </p>
 

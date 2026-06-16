@@ -113,9 +113,7 @@ const Card = ({ testimonial, index }) => {
           lineDelay={0.1}
         />
 
-        <p className="self-end font-azeret text-p text-[14px] uppercase">
-          {testimonial.client}
-        </p>
+        <p className="self-end text-chivo-p-14">{testimonial.client}</p>
       </motion.div>
     </motion.div>
   );
@@ -152,13 +150,7 @@ const StudioTestimonials = () => {
       >
         <div className="flex-1 size-fit flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
-            depoimentos
-          </p>
+          <p className="text-chivo-p-14 text-end">depoimentos</p>
         </div>
 
         <div className="flex items-center gap-5">

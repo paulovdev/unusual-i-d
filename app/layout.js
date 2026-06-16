@@ -28,8 +28,7 @@ export default function RootLayout({ children }) {
     <ViewTransitions>
       <html
         lang="en"
-        id="noise"
-        className={`${iSans.variable} ${azeret.variable} h-full antialiased`}
+        className={`${iSans.variable} ${azeret.variable} h-full antialiased noise`}
       >
         <head>
           <meta name="theme-color" content="#EBEBEB" />

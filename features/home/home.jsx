@@ -14,6 +14,8 @@ import HomeWorks from "./home.works";
 import HomeStatement from "./home.statement";
 import HomeClients from "./home.clients";
 import HomeCTA from "./home.cta";
+import JoinUs from "@/components/join-us";
+import Footer from "@/components/layout/footer";
 
 const HomeHero = ({ work }) => {
   const { isReady } = usePageTransition();
@@ -47,11 +49,10 @@ const HomeHero = ({ work }) => {
             <HomeWorks work={work} lenis={lenisRef} />
             <HomeStatement />
             <HomeClients />
-            <HomeCTA lenis={lenisRef} />
-            <div className=" h-screen w-screen flex items-center  justify-center">
-              <String />
-            </div>
+            <JoinUs />
+            {/*   <HomeCTA lenis={lenisRef} /> */}
           </motion.main>
+          <Footer />
         </>
       )}
     </>

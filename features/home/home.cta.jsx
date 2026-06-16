@@ -11,11 +11,9 @@ const HomeCTA = ({ lenis }) => {
     <>
       <section id="cta" className="bg-[#121212] h-screen">
         <div className="p-15 max-md:px-5">
-          <div className="mb-10 size-fit flex items-center gap-2">
-            <span className="size-2 bg-s rounded-[1px] " />
-            <p className="max-w-125 font-azeret font-medium text-s text-[14px] tracking-[0.05em] leading-none uppercase">
-              Vamos criar algo juntos?
-            </p>
+          <div className="mb-10 size-fit flex items-center gap-4">
+            <span className="relative -top-px size-2.5 bg-s rotate-45" />
+            <p className="text-chivo-s-14 text-end">Vamos criar algo juntos?</p>
           </div>
           <div className="pt-50 flex items-center justify-between max-md:flex-col max-md:pt-25">
             <div className="flex-1 flex flex-col items-start justify-end gap-10">

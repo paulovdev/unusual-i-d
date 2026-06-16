@@ -19,7 +19,7 @@ const textSlide = {
 
 const HomeStatement = () => {
   const { ref, inView } = useInView({
-    threshold: 0,
+    threshold: 0.25,
     triggerOnce: true,
   });
 
@@ -37,13 +37,7 @@ const HomeStatement = () => {
             <span className="relative -top-px size-2.5 bg-p rotate-45" />
           </div>
 
-          <p
-            className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase"
-          >
-            Design com intenção.
-          </p>
+          <p className="text-chivo-p-14 text-end">Design com intenção.</p>
         </div>
         <div className="mb-10 h-fit overflow-hidden">
           <motion.h2
@@ -81,7 +75,7 @@ const HomeStatement = () => {
           </div>
         ))}
 
-        <div className="size-full flex items-center justify-between max-md:flex-col">
+        <div className="mt-10 size-full flex items-center justify-between max-md:flex-col">
           <motion.figure
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{
@@ -102,19 +96,7 @@ const HomeStatement = () => {
             />
           </motion.figure>
 
-          {/*    <TextAnimated
-            phrases={[
-              `Da identidade visual à animação, da direção criativa ao design digital — desenvolvemos linguagens visuais com impacto, presença e uma identidade distinta.`,
-            ]}
-            variants={textSlide}
-            animate={inView}
-            as="p"
-            className="flex flex-col"
-            lineClassName="max-w-150 mb-5 font-azeret font-medium text-p text-[14px] tracking-[0.05em] leading-[1.2] uppercase"
-            wordClassName="mr-2"
-            wordDelay={0.015}
-            lineDelay={0.4}
-          /> */}
+        
         </div>
 
         <span className="w-full h-px bg-s/10" />

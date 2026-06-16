@@ -57,13 +57,13 @@ const StudioIntro = () => {
         <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="mb-4 relative flex items-center">
-              <div className="h-fit overflow-hidden">
+              <div className="overflow-hidden h-[125px] max-md:h-fit">
                 <motion.h2
                   {...textSlide}
                   custom={0}
                   className="font-neue font-bold 
                 text-s text-[clamp(68px,6vw,142px)] text-center tracking-[-0.05em]
-                 leading-none uppercase will-change-transform max-md:text-[68px]"
+                 leading-[1.2] uppercase will-change-transform max-md:text-[68px]"
                 >
                   sobre nós
                   <span
@@ -75,13 +75,11 @@ const StudioIntro = () => {
                 </motion.h2>
               </div>
             </div>
-            <div className="w-[calc(100%+15px)] h-fit overflow-hidden">
+            <div className="relative -top-2 w-[calc(100%+15px)] h-fit overflow-hidden">
               <motion.p
                 {...textSlide}
                 custom={0.25}
-                className="relative left-1 font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-normal uppercase will-change-transform"
+                className="relative left-1 text-chivo-s-14 text-start"
               >
                 desde 2023
               </motion.p>
@@ -92,14 +90,13 @@ const StudioIntro = () => {
           className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
              max-md:items-end max-md:justify-center "
         >
-          <div className="h-fit overflow-hidden">
+          <div className="relative h-fit overflow-hidden max-md:-top-15">
             <motion.p
               initial="initial"
               animate="animate"
               variants={textSlide}
-              className="relative left-1 font-chivo font-semibold 
-               text-s text-[14px] text-start tracking-widest
-               leading-normal uppercase flex items-center gap-2"
+              className="relative left-1 text-chivo-s-14 text-start
+               flex items-center gap-2"
             >
               role para baixo
               <span>

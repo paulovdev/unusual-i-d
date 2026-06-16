@@ -194,14 +194,10 @@ const HomeWorks = ({ work, lenis }) => {
             />
             <p
               className="
-                font-chivo font-semibold
-                text-s text-[14px]
-                tracking-widest
-                leading-none uppercase
+               text-chivo-s-14
               "
             >
-              Projetos selecionados (0
-              {workFeatureFilter.length})
+              Projetos selecionados
             </p>
           </div>
         </div>

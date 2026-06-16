@@ -69,11 +69,7 @@ const StudioAbout = () => {
       >
         <div className="flex-2 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
+          <p className="text-chivo-p-14 text-end will-change-transform">
             sobre o estúdio
           </p>
         </div>
@@ -126,11 +122,7 @@ const StudioAbout = () => {
       >
         <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
-          <p
-            className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
-          >
+          <p className="text-chivo-p-14 text-end will-change-transform">
             manifesto
           </p>
         </div>
@@ -161,11 +153,7 @@ const StudioAbout = () => {
                         className="flex-2 flex items-center gap-4"
                       >
                         <span className="relative -top-px size-2.5 bg-p rounded-full" />
-                        <p
-                          className="font-chivo font-semibold 
-          text-p text-[14px] text-start tracking-widest 
-          leading-none uppercase will-change-transform"
-                        >
+                        <p className="text-chivo-p-14 text-start">
                           {item.description1}
                         </p>
                       </motion.div>

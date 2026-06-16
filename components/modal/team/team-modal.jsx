@@ -173,9 +173,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <a
                 target="_blank"
                 href={"https://instagram.com/" + member.email}
-                className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] text-start tracking-widest
-          leading-none uppercase"
+                className="flex-1 text-chivo-p-14 text-start"
               >
                 e-mail
               </a>
@@ -183,9 +181,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <a
                 target="_blank"
                 href={"https://instagram.com/" + member.instagram}
-                className="flex-1 font-chivo font-semibold 
-          text-p text-[14px] text-center tracking-widest
-          leading-none uppercase"
+                className="flex-1 text-chivo-p-14 text-center"
               >
                 instagram
               </a>
@@ -205,11 +201,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   placeholder="blur"
                   className="object-cover rounded-sm"
                 />
-                <p
-                  className="absolute right-5 bottom-5 font-chivo font-semibold 
-          text-s text-[14px] text-start tracking-widest
-          leading-none uppercase"
-                >
+                <p className="absolute right-5 bottom-5 text-chivo-s-14">
                   {member.role}
                 </p>
               </figure>
@@ -223,9 +215,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 <div className="flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
                   <p
-                    className="font-chivo font-semibold 
-          text-p text-[14px] text-end tracking-widest 
-          leading-none uppercase will-change-transform"
+                    className="text-chivo-p-14"
                   >
                     biografia
                   </p>
