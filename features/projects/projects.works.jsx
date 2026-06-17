@@ -95,10 +95,11 @@ const WorksGrid = ({ work, index }) => {
           max-md:h-[50vh]"
         onClick={() => setActiveWork(work)}
       >
-        <figure className="absolute inset-0 size-full overflow-hidden rounded-sm">
+        <figure className="absolute inset-0 size-full overflow-hidden rounded-sm group">
           <ImageComponent
             image={work.heroMedia.image}
-            className="size-full rounded-sm object-cover brightness-75"
+            className="size-full rounded-sm object-cover brightness-75 group-hover:scale-110
+           transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
           />
 
           <div
@@ -277,9 +278,9 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
     <>
       <div
         className="
-    sticky top-0 z-10 mb-60 flex w-full
+    sticky top-0 z-10 mb-50 flex w-full
     items-center justify-between
-    bg-[#EBEBEB] px-15 py-5 max-md:px-5
+    bg-[#EBEBEB] px-15 py-5 max-md:px-5 
   "
       >
         {/* MOBILE CATEGORY BUTTON */}
@@ -493,7 +494,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 transition: {
                   delay: 0.15,
                   duration: 0.8,
-                  ease: [0.76, 0, 0.24, 1],
+                  ease: [0.88, 0, 0.24, 1],
                 },
               }}
               exit={{
@@ -502,13 +503,13 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 transition: {
                   delay: 0.15,
                   duration: 0.8,
-                  ease: [0.76, 0, 0.24, 1],
+                  ease: [0.88, 0, 0.24, 1],
                 },
               }}
               className="
           flex
           items-center
-          gap-5
+          gap-2.5
         "
             >
               {/* LAYOUT */}

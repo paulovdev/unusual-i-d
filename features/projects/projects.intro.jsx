@@ -20,10 +20,10 @@ const ProjectsIntro = ({ work }) => {
   });
 
   return (
-    <section id="about" className="relative h-[65vh]" ref={ref}>
+    <section id="about" className="relative h-[65vh] max-md:h-75" ref={ref}>
       <div
         className="pb-20 px-15 h-screen w-full flex flex-col items-start justify-center 
-        max-md:px-5
+        max-md:px-5 max-md:justify-start max-md:pt-40
        "
       >
         <div className="relative flex flex-col items-start">
@@ -38,8 +38,8 @@ const ProjectsIntro = ({ work }) => {
                           leading-none uppercase will-change-transform "
               >
                 projetos
-                <span className="relative top-3.5 left-2 align-top text-[18px] tracking-[0.5em] max-md:top-1.5">
-                  .{work.length}
+                <span className="relative -top-0 text-[18px] tracking-[0.5em]">
+                  .
                 </span>
               </motion.h2>
             </div>

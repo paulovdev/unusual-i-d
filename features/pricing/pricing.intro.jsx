@@ -17,10 +17,10 @@ const PricingIntro = () => {
     <section
       id="price"
       className="
-    relative h-[60vh]
+    relative h-[65vh]
     px-15 pt-40
     flex flex-col items-center justify-center
-    max-md:px-5 max-md:items-start z-10
+    max-md:px-5 max-md:pt-30 max-md:items-start max-md:h-75 z-10
   "
     >
       <div className="relative flex items-center justify-center">

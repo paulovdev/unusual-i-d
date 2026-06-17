@@ -152,13 +152,13 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             }}
             className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
           >
-            <div className="w-full flex flex-col max-md:mb-10">
-              <div className="h-fit overflow-hidden">
+            <div className="w-full flex flex-col max-md:mb-0">
+              <div className="mt-25 h-fit overflow-hidden">
                 <motion.h2
                   variants={textSlide}
                   initial="initial"
                   animate="animate"
-                  className="mt-25 font-neue font-bold
+                  className=" font-neue font-bold
                               text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                               leading-none uppercase"
                 >
@@ -167,9 +167,9 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               </div>
             </div>
 
-            <div className="mt-15 w-full h-px bg-p/15"></div>
+            <div className="mt-10 w-full h-px bg-p/15 max-md:mt-0"></div>
 
-            <div className="mt-4 w-full min-h-20 flex items-start justify-between">
+            <div className="mt-5 w-full min-h-15 flex items-start justify-between max-md:mt-0 max-md:min-h-10">
               <a
                 target="_blank"
                 href={"https://instagram.com/" + member.email}
@@ -214,11 +214,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               <div className="flex-1">
                 <div className="flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
-                  <p
-                    className="text-chivo-p-14"
-                  >
-                    biografia
-                  </p>
+                  <p className="text-chivo-p-14">biografia</p>
                 </div>
               </div>
               <div className="flex-2 flex flex-col">

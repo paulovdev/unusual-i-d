@@ -127,7 +127,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
             cursor-pointer bg-p"
           >
             <IoClose
-              className="text-s text-[24px] group-hover: group-hover:rotate-90
+              className="text-s text-[24px] group-hover:text-p group-hover:rotate-90
                 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
           </motion.button>
@@ -190,9 +190,14 @@ const WorkModalContent = ({ work }) => {
   };
 
   return (
-    <div className="size-full select-none flex flex-col items-end justify-between max-md:gap-5">
-      <div className="w-full flex flex-col max-md:mb-10">
-        <div className="mt-20 h-fit overflow-hidden">
+    <div className="size-full  flex flex-col items-end justify-between max-md:gap-5">
+      <div className="w-full flex flex-col max-md:mb-5">
+        <div className="mt-25 h-fit overflow-hidden max-md:mb-5">
+          <div className="mb-2 items-center gap-4 max-md:flex hidden">
+            <p className="text-chivo-p-14">{work.category}</p>
+            <span className="relative -top-px text-chivo-p-14">/</span>
+            <p className="text-chivo-p-14">{work.year}</p>
+          </div>
           <motion.h2
             variants={textSlide}
             initial="initial"
@@ -203,15 +208,10 @@ const WorkModalContent = ({ work }) => {
           >
             {work.title}
           </motion.h2>
-          <div className="mt-2 items-center gap-4 max-md:flex hidden">
-            <p className="text-chivo-p-14">{work.year}</p>
-            <span className="text-chivo-p-14">/</span>
-            <p className="text-chivo-p-14">{work.category}</p>
-          </div>
         </div>
 
-        <div className="mt-15 w-full h-px bg-p/15"></div>
-        <div className="mt-5 w-full min-h-20 flex items-start justify-between">
+        <div className="mt-10 w-full h-px bg-p/15 max-md:mt-0"></div>
+        <div className="mt-5 w-full min-h-5 flex items-start justify-between max-md:mt-5 max-md:min-h-5">
           <p className="flex-1 text-chivo-p-14 max-md:hidden">{work.year}</p>
           {/*  */}
           <p className="flex-1 text-chivo-p-14 max-md:hidden">
@@ -222,7 +222,9 @@ const WorkModalContent = ({ work }) => {
             {work.services.map((item, i) => (
               <div className="flex items-center gap-4 max-md:gap-5" key={i}>
                 <span className="relative -top-px size-2.5 bg-p rotate-45 max-md:left-1" />
-                <p className="text-chivo-p-14 ">{serviceLabels[item]}</p>
+                <p className="text-chivo-p-14 truncate">
+                  {serviceLabels[item]}
+                </p>
               </div>
             ))}
           </div>

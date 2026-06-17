@@ -60,7 +60,7 @@ export const FiltersModal = ({ lenis }) => {
     resetFilters,
   } = useWorkStore();
 
-  const years = ["all", "2026", "2025", "2024"];
+  const years = ["all", "2026", "2025", "2024", "2023", "2022"];
   const categories = [
     {
       label: "Todos",
@@ -184,9 +184,9 @@ export const FiltersModal = ({ lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        max-md:h-dvh max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -246,11 +246,11 @@ export const FiltersModal = ({ lenis }) => {
             y: 15,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="relative size-full overflow-y-scroll flex flex-col justify-between"
+          className="relative px-5 size-full overflow-y-scroll flex flex-col justify-between"
           ref={scrollRef}
         >
-          <div className="flex flex-col items-start">
-            <div className="mt-20 mb-5 h-fit overflow-hidden">
+          <div className="mb-15 flex flex-col items-start">
+            <div className="mt-25 h-fit overflow-hidden max-md:mb-5">
               <motion.h2
                 variants={textSlide}
                 initial="initial"
@@ -284,7 +284,7 @@ export const FiltersModal = ({ lenis }) => {
                 ))}
               </div>
             </div>
-            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
+            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
 
             {/* CATEGORY */}
 
@@ -309,7 +309,7 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
+            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
 
             {/* SERVICES */}
 
@@ -334,9 +334,9 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-p/10 mt-10 mb-5" />
+            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
 
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
+            <div className="mb-15 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
@@ -354,7 +354,9 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
           </div>
-          <div className="mt-15 mb-10 flex items-center justify-between gap-5">
+        </motion.div>
+        <div className="fixed bottom-0 bg-[#EBEBEB] p-5 w-full">
+          <div className="flex items-center justify-between gap-5">
             <motion.button
               whileTap={{ scale: 1.1 }}
               whileHover={{
@@ -368,7 +370,7 @@ export const FiltersModal = ({ lenis }) => {
                 className="text-chivo-n-14 text-s  
               group-hover:text-p transition-colors duration-500"
               >
-                limpar filtros
+                limpar
               </p>
             </motion.button>
 
@@ -385,11 +387,11 @@ export const FiltersModal = ({ lenis }) => {
                 className="text-chivo-p-14
               group-hover:text-s transition-colors duration-500"
               >
-                aplicar filtros
+                aplicar
               </p>
             </motion.button>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div

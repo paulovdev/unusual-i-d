@@ -97,9 +97,9 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        max-md:h-dvh max-md:w-screen max-md:m-0 max-md:rounded-none 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -146,7 +146,6 @@ export const SearchModal = ({ lenis, work }) => {
             />
           </motion.div>
         </motion.button>
-
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{
@@ -159,11 +158,11 @@ export const SearchModal = ({ lenis, work }) => {
             y: 15,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="size-full overflow-y-scroll"
+          className="px-5 size-full overflow-y-scroll"
           ref={scrollRef}
         >
-          <div className="flex flex-col items-start">
-            <div className="mt-20 mb-8 h-fit overflow-hidden">
+          <div className="mb-15 flex flex-col items-start">
+            <div className="mt-25 mb-5 h-fit overflow-hidden">
               <motion.h2
                 variants={textSlide}
                 initial="initial"
@@ -194,7 +193,7 @@ export const SearchModal = ({ lenis, work }) => {
                     className="text-p text-[28px] 
                   hover:scale-110 hover:rotate-90 
                   transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                  />{" "}
+                  />
                 </span>
               ) : (
                 <span className="absolute right-4 top-3.5">
@@ -205,7 +204,7 @@ export const SearchModal = ({ lenis, work }) => {
 
             <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-5 max-md:mb-5">
+                <div className="size-fit flex items-center gap-5 max-md:mb-0">
                   <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
 
                   {query === "" ? (
@@ -236,17 +235,16 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-60 overflow-hidden rounded-sm 
-                      border border-transparent
-                    group-hover:border-p duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]
-                    max-md:h-75"
+                      className="w-full h-65 overflow-hidden rounded-sm 
+                     group max-md:h-75"
                     >
                       <Image
                         src={item?.heroMedia?.image.asset.url}
                         width={1000}
                         height={1000}
                         alt=""
-                        className="size-full object-cover brightness-90"
+                        className="size-full object-cover brightness-90 group-hover:scale-110
+           transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       />
 
                       <div className="absolute left-5 bottom-5">
@@ -264,6 +262,8 @@ export const SearchModal = ({ lenis, work }) => {
               </div>
             </div>
           </div>
+        </motion.div>
+        <div className="fixed bottom-0 bg-[#EBEBEB] p-5 w-full">
           <motion.button
             whileTap={{ scale: 1.1 }}
             whileHover={{
@@ -277,7 +277,7 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="mb-10 h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
+            className="h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate
@@ -292,7 +292,7 @@ export const SearchModal = ({ lenis, work }) => {
               atualizar sugestões
             </p>
           </motion.button>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div
