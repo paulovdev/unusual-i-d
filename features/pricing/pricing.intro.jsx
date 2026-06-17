@@ -34,7 +34,7 @@ const PricingIntro = () => {
                      text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
                       leading-none uppercase will-change-transform "
               >
-                NOSSos
+                nossos
                 <span
                   className="relative top-3.5 left-2 align-top
                         text-[28px] tracking-[0.4em]"

@@ -8,6 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import { useTransitionRouter } from "next-view-transitions";
 import TransitionLink from "../ui/link";
+import TextLink from "../ui/text-link";
 
 export const menuOverlay = {
   initial: {
@@ -110,16 +111,18 @@ const Menu = ({ pathname, setMenu, mobile }) => {
                   key={i}
                   href={nav.href}
                   onClick={() => setMenu(false)}
-                  className={`cursor-pointer ${active ? "mt-5 mb-8" : "mb-2"} size-fit flex items-center gap-2`}
+                  className={`cursor-pointer ${active ? "mt-2.5 mb-4" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  <p
-                    className={`max-w-125 
-                      ${active ? "text-s" : "text-s/50 hover:text-s"} 
+                  <TextLink bgColor="bg-s">
+                    <p
+                      className={`max-w-125 
+                      ${active ? "text-s hover:text-p" : "text-s/50 hover:text-p/50"} 
                   font-neue font-bold text-p text-[clamp(32px,6vw,38px)] tracking-[-0.03em] leading-none
-             uppercase transition-all duration-250`}
-                  >
-                    {nav.label}
-                  </p>
+             uppercase transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]`}
+                    >
+                      {nav.label}
+                    </p>
+                  </TextLink>
                 </TransitionLink>
               );
             })}

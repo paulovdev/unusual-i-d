@@ -58,13 +58,13 @@
 
 @layer components {
   .text-chivo-p-14 {
-    @apply font-chivo font-semibold text-p text-[14px] tracking-widest leading-none uppercase;
+    @apply font-chivo font-semibold text-p text-[14px] tracking-widest leading-none uppercase will-change-transform;
   }
   .text-chivo-s-14 {
-    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase;
+    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase will-change-transform;
   }
   .text-chivo-n-14 {
-    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase;
+    @apply font-chivo font-semibold text-[14px] tracking-widest leading-none uppercase will-change-transform;
   }
 }
 

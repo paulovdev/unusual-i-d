@@ -7,6 +7,7 @@ import { IoClose } from "react-icons/io5";
 import TextAnimated from "@/components/ui/text-animated";
 import ImageComponent from "@/components/ui/image";
 import { FaStarOfLife } from "react-icons/fa";
+import TextLink from "@/components/ui/text-link";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -229,13 +230,17 @@ const WorkModalContent = ({ work }) => {
             ))}
           </div>
           {/*  */}
-          <a
-            target="_blank"
-            href={"https://instagram.com/" + work.client}
-            className="flex-1 text-chivo-p-14 text-end"
-          >
-            {work.client}
-          </a>
+          <TextLink bgColor="bg-s">
+            <a
+              target="_blank"
+              href={"https://instagram.com/" + work.client}
+              className="text-chivo-n-14 text-p group-hover:text-s
+              transition-all duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            >
+              {work.client}
+            </a>
+          </TextLink>
+
           {/*  */}
         </div>
       </div>
@@ -258,24 +263,30 @@ const WorkModalContent = ({ work }) => {
       </div>
 
       <div className="mt-4 w-full min-h-20 flex items-start justify-between">
-        <a
-          target="_blank"
-          href={work.website}
-          className="flex-1 text-chivo-p-14  group"
-        >
-          ver ao vivo
-        </a>
+        <TextLink bgColor="bg-s">
+          <a
+            target="_blank"
+            href={work.website}
+            className="text-chivo-n-14 text-p group-hover:text-s
+              transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+          >
+            ver ao vivo
+          </a>
+        </TextLink>
 
         <div className="flex-1 flex flex-col items-end justify-center gap-4">
           {work.credits.map((item, i) => (
             <div className="flex items-center gap-4" key={i}>
-              <a
-                target="_blank"
-                href={`https://unsplash.com/${item}`}
-                className="text-chivo-p-14 text-end"
-              >
-                {item}
-              </a>
+              <TextLink bgColor="bg-s">
+                <a
+                  target="_blank"
+                  href={`https://unsplash.com/${item}`}
+                  className="text-chivo-n-14 text-p text-end group-hover:text-s
+              transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                >
+                  {item}
+                </a>
+              </TextLink>
             </div>
           ))}
         </div>

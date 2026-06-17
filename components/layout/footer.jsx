@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import Button from "../ui/button";
+import TextLink from "../ui/text-link";
+import TransitionLink from "../ui/link";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -15,11 +17,11 @@ const textSlide = {
 };
 
 const navLinks = [
-  { label: "Index", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Works", href: "/works" },
-  { label: "Contact", href: "/contact" },
-  /*  { label: "Credits for content", href: "/credits" }, */
+  { label: "Início", href: "/" },
+  { label: "Estúdio", href: "/studio" },
+  { label: "Projetos", href: "/projects" },
+  { label: "Preços", href: "/pricing" },
+  { label: "Contato", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -65,21 +67,24 @@ const Footer = () => {
                   Navigate
                 </motion.p>
                 {navLinks.map((link, i) => (
-                  <a
+                  <TransitionLink
                     key={link.label}
                     href={link.href}
                     className="mb-2 relative overflow-hidden size-fit group"
                   >
-                    <motion.p
-                      custom={i * 0.075}
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView ? "animate" : "initial"}
-                      className="text-chivo-s-14"
-                    >
-                      {link.label}
-                    </motion.p>
-                  </a>
+                    <TextLink bgColor="bg-s">
+                      <motion.p
+                        custom={i * 0.075}
+                        variants={textSlide}
+                        initial="initial"
+                        animate={inView ? "animate" : "initial"}
+                        className="text-chivo-n-14 text-s group-hover:text-p 
+                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      >
+                        {link.label}
+                      </motion.p>
+                    </TextLink>
+                  </TransitionLink>
                 ))}
               </div>
             </div>
@@ -106,15 +111,18 @@ const Footer = () => {
                   rel={link.external ? "noopener noreferrer" : undefined}
                   className="mb-2 relative overflow-hidden size-fit group"
                 >
-                  <motion.p
-                    custom={i * 0.075}
-                    variants={textSlide}
-                    initial="initial"
-                    animate={inView ? "animate" : "initial"}
-                    className="text-chivo-s-14"
-                  >
-                    {link.label}
-                  </motion.p>
+                  <TextLink bgColor="bg-s">
+                    <motion.p
+                      custom={i * 0.075}
+                      variants={textSlide}
+                      initial="initial"
+                      animate={inView ? "animate" : "initial"}
+                      className="text-chivo-n-14 text-s group-hover:text-p 
+                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                    >
+                      {link.label}
+                    </motion.p>
+                  </TextLink>
                 </a>
               ))}
             </div>
