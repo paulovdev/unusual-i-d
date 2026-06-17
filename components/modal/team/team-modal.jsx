@@ -9,6 +9,7 @@ import TextAnimated from "@/components/ui/text-animated";
 import { FiMapPin } from "react-icons/fi";
 import { FaInstagram, FaStarOfLife } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+import TextLink from "@/components/ui/text-link";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -170,21 +171,34 @@ export const TeamModal = ({ member, lenis, onClose }) => {
             <div className="mt-10 w-full h-px bg-p/15 max-md:mt-0"></div>
 
             <div className="mt-5 w-full min-h-15 flex items-start justify-between max-md:mt-0 max-md:min-h-10">
-              <a
-                target="_blank"
-                href={"https://instagram.com/" + member.email}
-                className="flex-1 text-chivo-p-14 text-start"
-              >
-                e-mail
-              </a>
+              <div className="w-fit flex justify-start">
+                <TextLink bgColor="bg-s" className="">
+                  <a
+                    target="_blank"
+                    href={"https://instagram.com/" + member.email}
+                    className="flex-1 text-chivo-n-14 text-p truncate group-hover:text-s 
+                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                  >
+                    e-mail
+                  </a>
+                </TextLink>
+              </div>
 
-              <a
-                target="_blank"
-                href={"https://instagram.com/" + member.instagram}
-                className="flex-1 text-chivo-p-14 text-center"
-              >
-                instagram
-              </a>
+              <div className="w-full flex items-center justify-center">
+                <TextLink
+                  bgColor="bg-s"
+                  className="flex items-center justify-center"
+                >
+                  <a
+                    target="_blank"
+                    href={"https://instagram.com/" + member.instagram}
+                    className="flex-1 text-chivo-n-14 text-p group-hover:text-s 
+                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                  >
+                    instagram
+                  </a>
+                </TextLink>
+              </div>
 
               <div className="flex-1 flex items-end justify-end">
                 <FaStarOfLife className="text-p text-[14px]" />

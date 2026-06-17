@@ -70,7 +70,7 @@ const StudioAbout = () => {
         <div className="flex-2 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
           <p className="text-chivo-p-14 text-end will-change-transform">
-            sobre o estúdio
+            sobre nós
           </p>
         </div>
 

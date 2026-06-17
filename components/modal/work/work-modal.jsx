@@ -274,7 +274,7 @@ const WorkModalContent = ({ work }) => {
           </a>
         </TextLink>
 
-        <div className="flex-1 flex flex-col items-end justify-center gap-4">
+        <div className="flex-1 pb-5 flex flex-col items-end justify-center gap-4">
           {work.credits.map((item, i) => (
             <div className="flex items-center gap-4" key={i}>
               <TextLink bgColor="bg-s">
