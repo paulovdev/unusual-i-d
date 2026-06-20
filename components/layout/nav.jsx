@@ -198,10 +198,7 @@ const Nav = () => {
         flex items-center justify-between gap-8 pointer-events-auto
      "
           >
-            <p
-              className="font-chivo font-medium text-[14px] text-s tracking-[0.05em] leading-none uppercase 
-          "
-            >
+            <p className="text-chivo-s-14 text-[12px]">
               {navData.map((item) => (
                 <span key={item.href}>
                   {pathname === item.href ? item.label : ""}
@@ -240,7 +237,7 @@ const Nav = () => {
                     y: -10,
                     transition: { duration: 0.45, ease: [0.76, 0, 0.24, 1] },
                   }}
-                  className="min-w-10 font-chivo font-medium text-[12px] text-s tracking-[0.05em] leading-none uppercase"
+                  className="min-w-10 text-chivo-s-14 text-[12px]"
                 >
                   {menu ? "fechar" : "MENU"}
                 </motion.p>
