@@ -117,7 +117,7 @@ const StudioAbout = () => {
         className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
         ref={manifestoRef}
       >
-        <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative">
+        <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative max-md:mb-25">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
           <p className="text-chivo-p-14 text-end will-change-transform">
             manifesto
