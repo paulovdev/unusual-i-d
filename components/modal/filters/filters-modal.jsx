@@ -269,7 +269,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <span className="triangle-p" />
                   <p className="text-chivo-p-14">ano</p>
                 </div>
               </div>
@@ -291,7 +291,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <span className="triangle-p" />
 
                   <p className="text-chivo-p-14">categoria</p>
                 </div>
@@ -316,7 +316,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <span className="triangle-p" />
 
                   <p className="text-chivo-p-14">serviços</p>
                 </div>
@@ -339,7 +339,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="mb-15 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1 max-md:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <span className="triangle-p" />
 
                   <p className="text-chivo-p-14">destaque</p>
                 </div>

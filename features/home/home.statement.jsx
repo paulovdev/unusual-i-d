@@ -32,9 +32,7 @@ const HomeStatement = () => {
       <div className="relative w-full flex flex-col items-center">
         <div className="mb-15 flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <span className="relative -top-px size-2.5 bg-p rotate-45" />
-            <span className="relative -top-px size-2.5 bg-p rotate-45" />
-            <span className="relative -top-px size-2.5 bg-p rotate-45" />
+            <span className="triangle-p" />
           </div>
 
           <p className="text-chivo-p-14 text-end">Design com intenção.</p>
@@ -65,7 +63,7 @@ const HomeStatement = () => {
               animate={inView && "animate"}
               delay={0.5 + 0.15 * i}
               tag="h2"
-              className="paragraph-p"
+              className="max-w-125 paragraph-p text-center"
             />
           </div>
         ))}

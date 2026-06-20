@@ -323,7 +323,7 @@ const WorkTextBlock = ({ block }) => {
     <div className="my-10 w-full flex max-md:flex-col max-md:gap-5">
       <div className="flex-1 max-md:mb-5">
         <div className="flex items-center gap-5">
-          <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+          <span className="triangle-p left-1" />
 
           {block.label && <p className="text-chivo-p-14">{block.label}</p>}
         </div>

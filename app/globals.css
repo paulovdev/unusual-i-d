@@ -101,6 +101,14 @@
     text-[24px] tracking-[-0.04em] leading-[1.1] max-md:text-[22px]
     will-change-transform;
   }
+
+  .triangle-s {
+    @apply relative -top-px size-2.5 bg-s rotate-45 max-md:size-2 max-md:top-0;
+  }
+
+  .triangle-p {
+    @apply relative -top-px size-2.5 bg-p rotate-45 max-md:size-2 max-md:top-0;
+  }
 }
 
 html {

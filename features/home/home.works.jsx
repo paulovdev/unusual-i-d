@@ -181,31 +181,18 @@ const HomeWorks = ({ work, lenis }) => {
 
   return (
     <>
-      <section id="works" className=" relative pointer-events-none">
+      <section id="works" className="relative pointer-events-none">
         <div
           className=" relative top-0  px-10  flex items-center justify-start  mix-blend-exclusion  z-50
         max-md:px-0"
         >
           <div className="relative top-15 size-fit flex items-center gap-4 max-md:px-5 ">
-            <span
-              className="relative -top-px size-2.5 bg-s 
-                rotate-45
-              "
-            />
-            <p
-              className="
-               text-chivo-s-14
-              "
-            >
-              Projetos selecionados
-            </p>
+            <span className="triangle-s" />
+            <p className="text-chivo-s-14">Projetos selecionados</p>
           </div>
         </div>
 
-        <div
-          className=" absolute inset-0 pointer-events-none z-70
-  "
-        >
+        <div className=" absolute inset-0 pointer-events-none z-70">
           <div
             className="
       sticky top-0 h-screen flex items-center justify-end pr-15 pointer-events-none

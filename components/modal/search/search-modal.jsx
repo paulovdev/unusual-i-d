@@ -205,7 +205,7 @@ export const SearchModal = ({ lenis, work }) => {
             <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
               <div className="flex-1">
                 <div className="size-fit flex items-center gap-5 max-md:mb-0">
-                  <span className="relative left-1 -top-px size-2.5 bg-p rotate-45" />
+                  <span className="triangle-p" />
 
                   {query === "" ? (
                     <p className="text-chivo-p-14">sugestões</p>

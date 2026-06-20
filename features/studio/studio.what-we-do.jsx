@@ -30,7 +30,7 @@ const StudioWhatWeDo = () => {
     <section id="what-we-do" className="bg-bg-p " ref={ref}>
       <div className="p-15 flex flex-col items-center justify-center max-md:px-5">
         <div className="mb-10 size-fit flex items-center gap-4">
-          <span className="relative -top-px size-2.5 bg-s rotate-45" />
+          <span className="triangle-s" />
           <p className="text-chivo-s-14 text-end">o que fazemos?</p>
         </div>
 
