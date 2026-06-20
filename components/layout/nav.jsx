@@ -44,7 +44,6 @@ const navData = [
 ];
 
 const Menu = ({ pathname, setMenu, mobile }) => {
-  const router = useTransitionRouter();
   const menuContainer = {
     initial: {
       height: "0px",
@@ -113,10 +112,10 @@ const Menu = ({ pathname, setMenu, mobile }) => {
                   onClick={() => setMenu(false)}
                   className={`cursor-pointer ${active ? "mt-2.5 mb-4" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  <TextLink bgColor="bg-s">
+                  <TextLink bgColor={active ? "bg-s" : "bg-[#353535]"}>
                     <p
                       className={`max-w-125 
-                      ${active ? "text-s hover:text-p" : "text-s/50 hover:text-p/50"} 
+                      ${active ? "text-s hover:text-p" : "text-s/50 hover:text-s/75"} 
                   font-neue font-bold text-p text-[clamp(32px,6vw,38px)] tracking-[-0.03em] leading-none
              uppercase transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]`}
                     >

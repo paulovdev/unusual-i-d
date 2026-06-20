@@ -82,14 +82,12 @@ const StudioAbout = () => {
                 animate={aboutInView && "animate"}
                 delay={0.5 + 0.15 * i}
                 tag="h2"
-                className="font-neue font-bold
-      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
+                className="big-text-1-n text-p"
               />
             </div>
           ))}
           <div className="mt-20 w-full flex items-end justify-end">
-            <div className="w-150 min-w-150 max-md:w-full max-md:min-w-full!">
+            <div className="w-full max-w-150 max-md:w-full max-md:max-w-full">
               {[
                 "Branding, direção visual, motion design e experiências digitais com uma identidade forte linguagem autoral.",
                 " ",
@@ -104,8 +102,7 @@ const StudioAbout = () => {
                     animate={aboutInView && "animate"}
                     delay={0.5 + 0.15 * i}
                     tag="p"
-                    className="font-inter font-medium text-p text-[24px] tracking-[-0.04em] leading-[1.1]
-      "
+                    className="paragraph-p"
                   />
                 </div>
               ))}
@@ -129,21 +126,19 @@ const StudioAbout = () => {
         <div className="flex-4">
           {manifesto.map((item, index) => (
             <React.Fragment key={index}>
-              <div className="py-20">
+              <div className="py-20 first:pt-0">
                 <div className="">
                   <ClipText
                     text={item.title}
                     animate={manifestoInView && "animate"}
                     delay={0.5 + 0.15 * index}
                     tag="h2"
-                    className="font-neue font-bold
-      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
+                    className="big-text-2-n text-p"
                   />
                 </div>
 
                 <div className="mt-12 flex justify-end">
-                  <div className="w-150 min-w-150 max-md:w-full max-md:min-w-full!">
+                  <div className="w-full max-w-150 max-md:w-full max-md:min-w-full!">
                     <div className="h-fit overflow-hidden">
                       <motion.div
                         variants={textSlide}
@@ -165,14 +160,7 @@ const StudioAbout = () => {
                           animate={manifestoInView && "animate"}
                           delay={0.5 + 0.15 * i}
                           tag="h2"
-                          className="
-        font-inter
-        font-medium
-        text-p
-        text-[24px]
-        tracking-[-0.04em]
-        leading-[1.1]
-      "
+                          className="paragraph-p"
                         />
                       </div>
                     ))}

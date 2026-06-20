@@ -66,8 +66,8 @@ const StudioWhatWeDo = () => {
           >
             {/* 01 */}
             <div
-              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              "
+              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              max-md:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <PiShapesBold className="text-p text-[24px]" />
@@ -86,9 +86,7 @@ const StudioWhatWeDo = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
-                      className="font-inter font-normal 
-                       text-s/75 text-[20px] tracking-[-0.04em]
-                       leading-[1.1] will-change-transform"
+                      className="paragraph-n text-s/75 font-normal"
                     >
                       {phrases}
                     </motion.h2>
@@ -109,8 +107,8 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.2,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              "
+              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              max-md:min-h-100"
             >
               <div className="mb-2 flex items-center gap-5 text-p">
                 <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
@@ -136,9 +134,7 @@ const StudioWhatWeDo = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
-                      className="font-inter font-normal 
-                       text-s/75 text-[20px] tracking-[-0.04em]
-                       leading-[1.1] will-change-transform"
+                      className="paragraph-n text-s/75 font-normal"
                     >
                       {phrases}
                     </motion.h2>
@@ -159,7 +155,8 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.3,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm 
+              flex flex-col itemsmax-md:min-h-100-start justify-between gap-5 max-md:min-h-100
               "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
@@ -187,9 +184,7 @@ const StudioWhatWeDo = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
-                      className="font-inter font-normal 
-                       text-s/75 text-[20px] tracking-[-0.04em]
-                       leading-[1.1] will-change-transform"
+                      className="paragraph-n text-s/75 font-normal"
                     >
                       {phrases}
                     </motion.h2>
@@ -210,8 +205,8 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.4,
               }}
-              className="min-h-[60vh] p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              "
+              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              max-md:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <HiOutlineCodeBracketSquare className="text-p text-[24px]" />
@@ -231,9 +226,7 @@ const StudioWhatWeDo = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
-                      className="font-inter font-normal 
-                       text-s/75 text-[20px] tracking-[-0.04em]
-                       leading-[1.1] will-change-transform"
+                      className="paragraph-n text-s/75 font-normal"
                     >
                       {phrases}
                     </motion.h2>

@@ -61,9 +61,7 @@ const StudioIntro = () => {
                 <motion.h2
                   {...textSlide}
                   custom={0}
-                  className="font-neue font-bold 
-                text-s text-[clamp(68px,6vw,142px)] text-center tracking-[-0.05em]
-                 leading-[1.2] uppercase will-change-transform max-md:text-[68px]"
+                  className="big-text-intro-p text-s"
                 >
                   estúdio
                   <span

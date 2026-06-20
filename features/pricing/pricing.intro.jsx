@@ -30,9 +30,7 @@ const PricingIntro = () => {
               <motion.h2
                 {...textSlide}
                 custom={0}
-                className="font-neue font-bold 
-                     text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
-                      leading-none uppercase will-change-transform "
+                className="big-text-intro-p text-s"
               >
                 nossos
                 <span

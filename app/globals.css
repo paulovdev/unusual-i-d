@@ -58,13 +58,48 @@
 
 @layer components {
   .text-chivo-p-14 {
-    @apply font-chivo font-semibold text-p text-[14px] tracking-widest leading-none uppercase will-change-transform;
+    @apply font-chivo font-semibold 
+    text-p text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+    will-change-transform;
   }
   .text-chivo-s-14 {
-    @apply font-chivo font-semibold text-s text-[14px] tracking-widest leading-none uppercase will-change-transform;
+    @apply font-chivo font-semibold 
+    text-s text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+    will-change-transform;
   }
   .text-chivo-n-14 {
-    @apply font-chivo font-semibold text-[14px] tracking-widest leading-none uppercase will-change-transform;
+    @apply font-chivo font-semibold 
+    text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+     will-change-transform;
+  }
+
+  .big-text-intro-p {
+    @apply font-neue font-bold 
+    text-[clamp(68px,8vw,142px)] tracking-[-0.05em]
+    leading-none uppercase will-change-transform;
+  }
+
+  .big-text-1-n {
+    @apply font-neue font-bold
+    text-[clamp(36px,6vw,90px)] text-start tracking-[-0.05em]
+    leading-none uppercase;
+  }
+
+  .big-text-2-n {
+    @apply font-neue font-bold
+     text-[clamp(30px,6vw,72px)] text-start tracking-[-0.05em]
+    leading-none uppercase;
+  }
+
+  .paragraph-p {
+    @apply font-inter font-medium 
+    text-p text-[24px] tracking-[-0.04em] leading-[1.1] max-md:text-[22px]
+    will-change-transform;
+  }
+  .paragraph-n {
+    @apply font-inter font-medium 
+    text-[24px] tracking-[-0.04em] leading-[1.1] max-md:text-[22px]
+    will-change-transform;
   }
 }
 

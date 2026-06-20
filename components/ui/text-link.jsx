@@ -9,10 +9,8 @@ const TextLink = ({ children, className = "", bgColor = "bg-white" }) => {
       whileHover="hover"
       className={`relative w-fit overflow-hidden cursor-pointer group ${className}`}
     >
-      {/* texto */}
-      <div className="relative px-1 z-20">{children}</div>
+      <div className="relative p-1 z-20">{children}</div>
 
-      {/* faixa */}
       <motion.span
         className={`absolute inset-0 z-10 ${bgColor} mix-blend-difference`}
         variants={{

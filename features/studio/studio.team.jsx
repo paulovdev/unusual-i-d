@@ -35,14 +35,14 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
       onClick={onClick}
     >
       <motion.figure
-        initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
+        initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
         animate={{
           clipPath: inView ? "inset(0% 0% 0% 0%)" : "inset(0% 100% 0% 0%)",
         }}
         exit={{ clipPath: "inset(0% 100% 0% 0%)" }}
         transition={{
           duration: 0.8,
-          delay: index * 0.05,
+          delay: index * 0.035,
           ease: [0.76, 0, 0.24, 1],
         }}
         className="relative w-full h-[60vh] overflow-hidden max-ds:h-[50vh]"

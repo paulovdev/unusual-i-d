@@ -65,12 +65,7 @@ const HomeStatement = () => {
               animate={inView && "animate"}
               delay={0.5 + 0.15 * i}
               tag="h2"
-              className="
-                    font-inter font-medium
-                   text-center text-p text-[24px]
-                    tracking-[-0.04em]
-                   leading-none
-                  "
+              className="paragraph-p"
             />
           </div>
         ))}
@@ -95,8 +90,6 @@ const HomeStatement = () => {
               className="object-cover w-275 h-150 rounded-sm max-md:w-full"
             />
           </motion.figure>
-
-        
         </div>
 
         <span className="w-full h-px bg-s/10" />

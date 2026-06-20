@@ -234,6 +234,25 @@ const HomeIntro = () => {
               >
                 <span className="relative left-2 -top-px size-2.5 bg-p rotate-45" />
                 carregando
+                <div className="relative -left-4 -top-1 flex items-center">
+                  {[0, 1, 2].map((item) => (
+                    <motion.span
+                      key={item}
+                      animate={{
+                        opacity: [0.2, 1, 0.2],
+                      }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        delay: item * 0.2,
+                        ease: "easeInOut",
+                      }}
+                      className="text-[24px]"
+                    >
+                      .
+                    </motion.span>
+                  ))}
+                </div>
               </motion.p>
             </div>
           </div>
@@ -247,9 +266,7 @@ const HomeIntro = () => {
                   initial="initial"
                   animate={isReadyPreLoader && "animate"}
                   variants={textSlide}
-                  className="font-neue font-bold 
-                text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
-                 leading-none uppercase will-change-transform "
+                  className="big-text-intro-p text-s"
                 >
                   incomum
                   <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-md:top-1.5">

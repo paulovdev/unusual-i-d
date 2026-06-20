@@ -72,7 +72,7 @@ const HomeAbout = () => {
             </motion.span>
           </div>
           <div className="absolute inset-8 flex items-end justify-between">
-            <p className="text-chivo-p-14 text-end">assistir reel</p>
+            <p className="text-chivo-s-14 text-end">assistir reel</p>
             <p className="text-chivo-s-14 text-end">00:56</p>
           </div>
         </figure>

@@ -139,11 +139,7 @@ const StudioAwards = () => {
                     </div>
                   </div>
                   <div className="my-10 w-full h-px bg-p/10"></div>
-                  <p
-                    className="font-inter font-medium 
-          text-p text-[24px] tracking-[-0.04em]
-          leading-[1.1] will-change-transform max-w-125"
-                  >
+                  <p className="max-w-125 paragraph-p max-md:max-w-full">
                     {item.description}
                   </p>
                 </div>

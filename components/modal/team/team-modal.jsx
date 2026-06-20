@@ -235,13 +235,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                 {(Array.isArray(member.bio) ? member.bio : [member.bio]).map(
                   (phrases, i) => (
                     <div className="max-w-150 mb-5 h-fit overflow-hidden">
-                      <h2
-                        className="font-inter font-medium 
-                  text-p text-[24px] tracking-[-0.04em]
-                  leading-none"
-                      >
-                        {phrases}
-                      </h2>
+                      <h2 className="paragraph-p">{phrases}</h2>
                     </div>
                   ),
                 )}

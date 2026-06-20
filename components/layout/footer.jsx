@@ -70,7 +70,7 @@ const Footer = () => {
                   <TransitionLink
                     key={link.label}
                     href={link.href}
-                    className="mb-2 relative overflow-hidden size-fit group"
+                    className=" relative overflow-hidden size-fit group"
                   >
                     <TextLink bgColor="bg-s">
                       <motion.p
@@ -109,7 +109,7 @@ const Footer = () => {
                   href={link.href}
                   target={link.external ? "_blank" : "_self"}
                   rel={link.external ? "noopener noreferrer" : undefined}
-                  className="mb-2 relative overflow-hidden size-fit group"
+                  className="relative overflow-hidden size-fit group"
                 >
                   <TextLink bgColor="bg-s">
                     <motion.p
