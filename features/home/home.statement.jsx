@@ -26,15 +26,12 @@ const HomeStatement = () => {
   return (
     <section
       id="statement"
-      className="h-fit px-15 pt-50 flex items-center justify-center max-md:px-5"
+      className="h-fit px-15 pt-50 flex items-center justify-center max-lg:px-5"
       ref={ref}
     >
       <div className="relative w-full flex flex-col items-center">
         <div className="mb-15 flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="triangle-p" />
-          </div>
-
+          <span className="triangle-p" />
           <p className="text-chivo-p-14 text-end">Design com intenção.</p>
         </div>
         <div className="mb-10 h-fit overflow-hidden">
@@ -42,9 +39,7 @@ const HomeStatement = () => {
             variants={textSlide}
             initial="initial"
             animate={inView && "animate"}
-            className="font-neue font-bold
-          text-p text-[clamp(40px,6vw,90px)] text-center tracking-[-0.05em]
-          leading-normal uppercase will-change-transform
+            className="big-text-1-n text-p
         "
           >
             FEITO PARA DURAR
@@ -68,7 +63,7 @@ const HomeStatement = () => {
           </div>
         ))}
 
-        <div className="mt-10 size-full flex items-center justify-between max-md:flex-col">
+        <div className="mt-10 size-full flex items-center justify-between max-lg:flex-col">
           <motion.figure
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{
@@ -79,18 +74,19 @@ const HomeStatement = () => {
                 ease: [0.76, 0, 0.24, 1],
               },
             }}
-            className="relative w-full h-screen rounded-sm max-md:w-full max-md:mb-5 will-change-auto"
+            className="relative w-full h-screen rounded-sm 
+            max-lg:w-full max-md:h-[60vh] max-lg:mb-5 will-change-auto"
           >
             <Image
               src={element}
               fill
               alt="creative element"
-              className="object-cover w-275 h-150 rounded-sm max-md:w-full"
+              className="object-cover w-275 h-150 rounded-sm max-lg:w-full"
             />
           </motion.figure>
         </div>
 
-        <span className="w-full h-px bg-s/10" />
+        <span className="my-15 w-full h-px bg-p/10 max-md:my-10" />
       </div>
     </section>
   );

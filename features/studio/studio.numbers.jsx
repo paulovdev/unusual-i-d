@@ -39,10 +39,10 @@ const StudioNumbers = () => {
   });
 
   return (
-    <section id="what-we-do" className="p-15 bg-bg-p max-md:px-5" ref={ref}>
+    <section id="what-we-do" className="p-15 bg-bg-p max-lg:px-5" ref={ref}>
       <div className="mb-15 w-full h-px bg-s/15"></div>
-      <div className="w-full flex max-md:flex-col max-md:px-5">
-        <div className="flex-1 size-fit flex items-center gap-4 max-md:mb-15">
+      <div className="w-full flex max-lg:flex-col max-lg:px-5">
+        <div className="flex-1 size-fit flex items-center gap-4 max-lg:mb-15">
           <span className="triangle-s" />
           <p className="text-chivo-s-14 text-end">MÉTRICAS</p>
         </div>

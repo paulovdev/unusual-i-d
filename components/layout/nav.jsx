@@ -79,7 +79,7 @@ const Menu = ({ pathname, setMenu, mobile }) => {
         exit="exit"
         className="fixed left-1/2 -translate-x-1/2 bottom-25
          w-150 bg-p/50 backdrop-blur-2xl rounded-sm z-90 select-none pointer-events-none
-         max-md:w-[calc(100vw-40px)]"
+         max-lg:w-[calc(100vw-40px)]"
       >
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -112,12 +112,12 @@ const Menu = ({ pathname, setMenu, mobile }) => {
                   onClick={() => setMenu(false)}
                   className={`cursor-pointer ${active ? "mt-2.5 mb-4" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  <TextLink bgColor={active ? "bg-s" : "bg-[#353535]"}>
+                  <TextLink bgColor={active ? "bg-s" : "bg-[#202020]"}>
                     <p
                       className={`max-w-125 
                       ${active ? "text-s hover:text-p" : "text-s/50 hover:text-s/75"} 
                   font-neue font-bold text-p text-[clamp(32px,6vw,38px)] tracking-[-0.03em] leading-none
-             uppercase transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]`}
+             uppercase transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]`}
                     >
                       {nav.label}
                     </p>

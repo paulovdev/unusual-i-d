@@ -34,7 +34,7 @@ const StudioAwards = () => {
   return (
     <section
       id="about"
-      className="relative my-20 px-15 flex flex-col items-start justify-between max-md:px-5"
+      className="relative my-20 px-15 flex flex-col items-start justify-between max-lg:px-5"
       ref={ref}
     >
       <div className="my-15 w-full h-px bg-p/15" />
@@ -49,9 +49,9 @@ const StudioAwards = () => {
             <motion.div key={i} className="border-b border-p/5">
               <button
                 onClick={() => handleToggle(i)}
-                className="w-full flex items-center justify-between py-5 cursor-pointer max-md:items-start"
+                className="w-full flex items-center justify-between py-5 cursor-pointer max-lg:items-start"
               >
-                <div className="flex items-center gap-10 max-md:flex-col max-md:items-start">
+                <div className="flex items-center gap-10 max-lg:flex-col max-lg:items-start">
                   <div className="min-w-10 h-fit overflow-hidden">
                     <motion.p
                       variants={textSlide}
@@ -87,14 +87,14 @@ const StudioAwards = () => {
                     ease: [0.76, 0, 0.24, 1],
                   }}
                 >
-                  <div className="relative h-fit overflow-hidden max-md:-top-2">
+                  <div className="relative h-fit overflow-hidden max-lg:-top-2">
                     <motion.div
                       variants={textSlide}
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
                     >
-                      <AiOutlinePlus className="text-[42px] text-p max-md:text-[32px]" />
+                      <AiOutlinePlus className="text-[42px] text-p max-lg:text-[32px]" />
                     </motion.div>
                   </div>
                 </motion.div>
@@ -112,7 +112,7 @@ const StudioAwards = () => {
                 }}
                 className="overflow-hidden"
               >
-                <div className="pt-5 pb-15 pl-20 max-w-[900px] max-md:pl-0">
+                <div className="pt-5 pb-15 pl-20 max-w-[900px] max-lg:pl-0">
                   <div className="grid grid-cols-3 gap-10 mb-15">
                     <div>
                       <p className="text-chivo-n-14 text-p/50 mb-2">
@@ -139,7 +139,7 @@ const StudioAwards = () => {
                     </div>
                   </div>
                   <div className="my-10 w-full h-px bg-p/10"></div>
-                  <p className="max-w-125 paragraph-p max-md:max-w-full">
+                  <p className="max-w-125 paragraph-p max-lg:max-w-full">
                     {item.description}
                   </p>
                 </div>

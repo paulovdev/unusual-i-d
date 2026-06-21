@@ -92,6 +92,16 @@ const HomeIntro = () => {
 
       await Promise.all([
         animate(
+          ".loader-container",
+          {
+            padding: "0px",
+          },
+          {
+            duration: 1.5,
+            ease: [0.87, 0, 0.13, 1],
+          },
+        ),
+        animate(
           ".loader-image",
           {
             filter: "brightness(75%)",
@@ -150,7 +160,7 @@ const HomeIntro = () => {
       ref={container}
     >
       <motion.div
-        className="relative w-screen h-screen overflow-hidden transform-gpu"
+        className="relative p-10 w-screen h-screen overflow-hidden transform-gpu"
         style={{ y, filter }}
       >
         <div
@@ -165,13 +175,15 @@ const HomeIntro = () => {
               : undefined
           }
         >
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="loader-container absolute p-5 inset-0 flex items-center justify-center">
             <div
               className="loader-image relative w-100 h-100 rounded-sm overflow-hidden
+              max-md:h-75
           "
               style={
                 hasPlayedPreloader
                   ? {
+                      padding: "0rem",
                       width: "100vw",
                       height: "100vh",
                       borderRadius: 0,
@@ -226,7 +238,7 @@ const HomeIntro = () => {
             </div>
           </div>
 
-          <div className="absolute left-1/2 bottom-24 -translate-x-1/2">
+          <div className="absolute left-1/2 bottom-24 -translate-x-1/2 max-md:bottom-5">
             <div className="w-[calc(100%+15px)] h-fit overflow-hidden ">
               <motion.p
                 initial={{ y: 20 }}
@@ -261,7 +273,7 @@ const HomeIntro = () => {
         <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="mb-2 relative flex items-center">
-              <div className="overflow-hidden h-[125px] max-md:h-fit">
+              <div className="overflow-hidden h-[125px] max-lg:h-fit">
                 <motion.h2
                   initial="initial"
                   animate={isReadyPreLoader && "animate"}
@@ -269,7 +281,7 @@ const HomeIntro = () => {
                   className="big-text-intro-p text-s"
                 >
                   incomum
-                  <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-md:top-1.5">
+                  <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                     ®
                   </span>
                 </motion.h2>
@@ -289,9 +301,9 @@ const HomeIntro = () => {
         </div>
         <div
           className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
-        max-md:items-end max-md:justify-center "
+        max-lg:items-end max-lg:justify-center "
         >
-          <div className="relative h-fit overflow-hidden max-md:-top-15">
+          <div className="relative h-fit overflow-hidden max-lg:-top-15">
             <motion.p
               initial="initial"
               animate={isReadyPreLoader && "animate"}

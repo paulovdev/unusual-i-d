@@ -163,7 +163,7 @@ export const team = [
 
 export const awards = [
   {
-    title: "Awwwards Site of the Day",
+    title: "Awwwards",
     year: "2025",
     organization: "Awwwards",
     category: "Site of the Day",
@@ -172,7 +172,7 @@ export const awards = [
     result: "Winner",
   },
   {
-    title: "CSS Design Awards",
+    title: "CSSDA",
     year: "2025",
     organization: "CSSDA",
     category: "Special Kudos",
@@ -190,7 +190,7 @@ export const awards = [
     result: "Winner",
   },
   {
-    title: "Webby Awards",
+    title: "Webby",
     year: "2024",
     organization: "The Webby Awards",
     category: "Honoree",
@@ -199,7 +199,7 @@ export const awards = [
     result: "Honoree",
   },
   {
-    title: "Red Dot Design Award",
+    title: "RDDA",
     year: "2023",
     organization: "Red Dot",
     category: "Digital Design",
@@ -208,7 +208,7 @@ export const awards = [
     result: "Winner",
   },
   {
-    title: "Behance Featured Project",
+    title: "Behance",
     year: "2023",
     organization: "Behance",
     category: "Curated Selection",

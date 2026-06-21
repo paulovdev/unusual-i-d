@@ -186,7 +186,7 @@ export const FiltersModal = ({ lenis }) => {
       <motion.div
         className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-        max-md:h-dvh max-md:w-screen max-md:m-0 max-md:rounded-none 
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -250,7 +250,7 @@ export const FiltersModal = ({ lenis }) => {
           ref={scrollRef}
         >
           <div className="mb-15 flex flex-col items-start">
-            <div className="mt-25 h-fit overflow-hidden max-md:mb-5">
+            <div className="mt-25 h-fit overflow-hidden max-lg:mb-5">
               <motion.h2
                 variants={textSlide}
                 initial="initial"
@@ -266,8 +266,8 @@ export const FiltersModal = ({ lenis }) => {
 
             {/* YEAR */}
 
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1 max-md:mb-5">
+            <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
+              <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="triangle-p" />
                   <p className="text-chivo-p-14">ano</p>
@@ -284,12 +284,12 @@ export const FiltersModal = ({ lenis }) => {
                 ))}
               </div>
             </div>
-            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
+            <div className="w-full h-px bg-p/10 my-5 max-lg:mb-15" />
 
             {/* CATEGORY */}
 
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1 max-md:mb-5">
+            <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
+              <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="triangle-p" />
 
@@ -309,12 +309,12 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
+            <div className="w-full h-px bg-p/10 my-5 max-lg:mb-15" />
 
             {/* SERVICES */}
 
-            <div className="w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1 max-md:mb-5">
+            <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
+              <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="triangle-p" />
 
@@ -334,10 +334,10 @@ export const FiltersModal = ({ lenis }) => {
               </div>
             </div>
 
-            <div className="w-full h-px bg-p/10 my-5 max-md:mb-15" />
+            <div className="w-full h-px bg-p/10 my-5 max-lg:mb-15" />
 
-            <div className="mb-15 w-full flex items-start max-md:flex-col max-md:gap-5">
-              <div className="flex-1 max-md:mb-5">
+            <div className="mb-15 w-full flex items-start max-lg:flex-col max-lg:gap-5">
+              <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
                   <span className="triangle-p" />
 

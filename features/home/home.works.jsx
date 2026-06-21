@@ -99,7 +99,7 @@ const Works = ({
               text-s text-[82px]
               text-center tracking-[-0.05em]
               leading-none uppercase 
-              max-md:text-[52px]
+              max-lg:text-[52px]
             "
           >
             {work.title}
@@ -108,7 +108,7 @@ const Works = ({
               className="
                 relative top-2 left-2 align-top text-[28px]
                 tracking-[0.3em]
-                max-md:top-1
+                max-lg:top-1
               "
             >
               {work.titleMark}
@@ -183,20 +183,20 @@ const HomeWorks = ({ work, lenis }) => {
     <>
       <section id="works" className="relative pointer-events-none">
         <div
-          className=" relative top-0  px-10  flex items-center justify-start  mix-blend-exclusion  z-50
-        max-md:px-0"
+          className="relative top-0 px-10 flex items-center justify-center 
+          mix-blend-exclusion z-50 max-md:px-0"
         >
-          <div className="relative top-15 size-fit flex items-center gap-4 max-md:px-5 ">
+          <div className="relative top-15 size-fit flex items-center gap-4 max-md:px-5">
             <span className="triangle-s" />
             <p className="text-chivo-s-14">Projetos selecionados</p>
           </div>
         </div>
 
-        <div className=" absolute inset-0 pointer-events-none z-70">
+        <div className="absolute inset-0 pointer-events-none z-70">
           <div
             className="
       sticky top-0 h-screen flex items-center justify-end pr-15 pointer-events-none
-      max-md:top-1/3 max-md:justify-center max-md:pr-0
+    max-md:top-[calc(100vh-140px)] max-md:items-start max-md:justify-center max-md:pr-0
     "
           >
             <div
@@ -208,8 +208,9 @@ const HomeWorks = ({ work, lenis }) => {
                 <button
                   key={item._id}
                   onClick={() => handleAnchor(index, item)}
-                  className="relative  w-2.5 h-2.5 flex items-center justify-center 
+                  className="relative w-2.5 h-2.5 flex items-center justify-center 
                   pointer-events-auto cursor-pointer group
+                  max-md:w-4 max-md:h-4
     "
                 >
                   <motion.span
@@ -221,7 +222,8 @@ const HomeWorks = ({ work, lenis }) => {
                       duration: 0.7,
                       ease: [0.76, 0, 0.24, 1],
                     }}
-                    className=" absolute w-2.5 h-2.5 bg-s
+                    className="absolute w-2.5 h-2.5 bg-[#EBEBEB]
+                    max-md:w-4 max-md:h-4
   "
                   />
 
@@ -242,7 +244,9 @@ const HomeWorks = ({ work, lenis }) => {
                         duration: 0.5,
                         ease: [0.76, 0, 0.24, 1],
                       }}
-                      className="absolute -top-0.75 -left-0.75 w-4 h-4 border border-s
+                      className="absolute -top-0.75 -left-0.75 
+                      w-4 h-4 border border-[#EBEBEB]
+                       max-md:w-6 max-md:h-6 max-md:-left-1 max-md:-top-1
         "
                     />
                   )}
@@ -266,7 +270,9 @@ const HomeWorks = ({ work, lenis }) => {
                           duration: 0.6,
                           ease: [0.76, 0, 0.24, 1],
                         }}
-                        className=" absolute -top-0.75 -left-0.75 w-4 h-4 border border-s
+                        className=" absolute -top-0.75 -left-0.75 
+                        w-4 h-4 border border-[#EBEBEB]
+                        max-md:w-6 max-md:h-6 max-md:-left-1 max-md:-top-1
           "
                       />
                     )}
@@ -277,7 +283,7 @@ const HomeWorks = ({ work, lenis }) => {
           </div>
         </div>
         <div
-          className=" h-full flex flex-col items-center justify-center select-none
+          className="h-full flex flex-col items-center justify-center select-none
         "
         >
           {workFeatureFilter.map((item, index) => (

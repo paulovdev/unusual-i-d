@@ -20,15 +20,15 @@ const ProjectsIntro = ({ work }) => {
   });
 
   return (
-    <section id="about" className="relative h-[65vh] max-md:h-75" ref={ref}>
+    <section id="about" className="relative h-[65vh] max-lg:h-75" ref={ref}>
       <div
         className="pb-20 px-15 h-screen w-full flex flex-col items-start justify-center 
-        max-md:px-5 max-md:justify-start max-md:pt-40
+        max-lg:px-5 max-lg:justify-start max-lg:pt-40
        "
       >
         <div className="relative flex flex-col items-start">
           <div className="mb-4 relative flex items-center">
-            <div className="overflow-hidden h-[125px] max-md:h-fit">
+            <div className="overflow-hidden h-[125px] max-lg:h-fit">
               <motion.h2
                 initial="initial"
                 animate="animate"
@@ -38,7 +38,7 @@ const ProjectsIntro = ({ work }) => {
                           leading-none uppercase will-change-transform "
               >
                 projetos
-                <span className="relative -top-0 text-[18px] tracking-[0.5em]">
+                <span className="relative top-0 text-[18px] tracking-[0.5em]">
                   .
                 </span>
               </motion.h2>

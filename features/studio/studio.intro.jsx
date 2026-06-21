@@ -57,7 +57,7 @@ const StudioIntro = () => {
         <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="mb-4 relative flex items-center">
-              <div className="overflow-hidden h-[125px] max-md:h-fit">
+              <div className="overflow-hidden h-[125px] max-lg:h-fit">
                 <motion.h2
                   {...textSlide}
                   custom={0}
@@ -86,9 +86,9 @@ const StudioIntro = () => {
         </div>
         <div
           className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
-             max-md:items-end max-md:justify-center "
+             max-lg:items-end max-lg:justify-center "
         >
-          <div className="relative h-fit overflow-hidden max-md:-top-15">
+          <div className="relative h-fit overflow-hidden max-lg:-top-15">
             <motion.p
               initial="initial"
               animate="animate"

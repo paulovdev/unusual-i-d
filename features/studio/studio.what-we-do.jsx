@@ -28,7 +28,7 @@ const StudioWhatWeDo = () => {
 
   return (
     <section id="what-we-do" className="bg-bg-p " ref={ref}>
-      <div className="p-15 flex flex-col items-center justify-center max-md:px-5">
+      <div className="p-15 flex flex-col items-center justify-center max-lg:px-5">
         <div className="mb-10 size-fit flex items-center gap-4">
           <span className="triangle-s" />
           <p className="text-chivo-s-14 text-end">o que fazemos?</p>
@@ -42,9 +42,7 @@ const StudioWhatWeDo = () => {
                 initial="initial"
                 animate={inView && "animate"}
                 custom={0.5 + 0.15 * i}
-                className="font-neue font-bold
-          text-s text-[clamp(40px,6vw,90px)] text-center tracking-[-0.05em]
-          leading-normal uppercase will-change-transform"
+                className="big-text-1-n text-s"
               >
                 {phrases}
               </motion.h2>
@@ -62,12 +60,12 @@ const StudioWhatWeDo = () => {
               ease: [0.76, 0, 0.24, 1],
               delay: 0.1,
             }}
-            className="w-full h-fit grid grid-cols-4 gap-5 max-md:grid-cols-1"
+            className="w-full h-fit grid grid-cols-4 gap-5 max-lg:grid-cols-1"
           >
             {/* 01 */}
             <div
               className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              max-md:min-h-100"
+              max-lg:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <PiShapesBold className="text-p text-[24px]" />
@@ -108,7 +106,7 @@ const StudioWhatWeDo = () => {
                 delay: 0.2,
               }}
               className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              max-md:min-h-100"
+              max-lg:min-h-100"
             >
               <div className="mb-2 flex items-center gap-5 text-p">
                 <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
@@ -156,7 +154,7 @@ const StudioWhatWeDo = () => {
                 delay: 0.3,
               }}
               className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm 
-              flex flex-col itemsmax-md:min-h-100-start justify-between gap-5 max-md:min-h-100
+              flex flex-col itemsmax-lg:min-h-100-start justify-between gap-5 max-lg:min-h-100
               "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
@@ -206,7 +204,7 @@ const StudioWhatWeDo = () => {
                 delay: 0.4,
               }}
               className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
-              max-md:min-h-100"
+              max-lg:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
                 <HiOutlineCodeBracketSquare className="text-p text-[24px]" />

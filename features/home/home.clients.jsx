@@ -13,18 +13,17 @@ const HomeClients = () => {
   return (
     <section
       id="clients"
-      className="relative mt-15 px-15 overflow-hidden max-md:px-5 "
+      className="relative mt-15 px-15 overflow-hidden max-lg:px-5 max-md:mt-0"
     >
-      <div className="mb-10 flex items-center gap-4">
-        <span className="relative -top-px size-2.5 bg-p rotate-45" />
-
+      <div className="mb-10 h-4 flex items-center gap-4">
+        <span className="triangle-p" />
         <p className="text-chivo-p-14">Aprovado por visionários</p>
       </div>
 
       <div className="relative pt-10 pb-20 w-full">
         <motion.div
           ref={container}
-          className="flex w-max items-center gap-25 max-lg:gap-15 max-md:gap-10"
+          className="flex w-max items-center gap-25 max-lg:gap-15 max-lg:gap-10"
           animate={{
             x: ["0%", "-50%"],
           }}

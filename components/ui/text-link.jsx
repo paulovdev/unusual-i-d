@@ -12,7 +12,7 @@ const TextLink = ({ children, className = "", bgColor = "bg-white" }) => {
       <div className="relative p-1 z-20">{children}</div>
 
       <motion.span
-        className={`absolute inset-0 z-10 ${bgColor} mix-blend-difference`}
+        className={`absolute inset-0 rounded-sm z-10 ${bgColor}`}
         variants={{
           initial: {
             clipPath: "inset(0 100% 0 0)",
@@ -22,7 +22,7 @@ const TextLink = ({ children, className = "", bgColor = "bg-white" }) => {
           },
         }}
         transition={{
-          duration: 0.8,
+          duration: 0.6,
           delay: 0.01,
           ease: [0.33, 1, 0.68, 1],
         }}

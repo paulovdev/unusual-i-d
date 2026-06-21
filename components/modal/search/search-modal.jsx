@@ -99,7 +99,7 @@ export const SearchModal = ({ lenis, work }) => {
       <motion.div
         className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-        max-md:h-dvh max-md:w-screen max-md:m-0 max-md:rounded-none 
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -175,7 +175,7 @@ export const SearchModal = ({ lenis, work }) => {
               </motion.h2>
             </div>
 
-            <div className="relative w-full max-md:mb-10">
+            <div className="relative w-full max-lg:mb-10">
               <input
                 type="text"
                 value={query}
@@ -202,9 +202,9 @@ export const SearchModal = ({ lenis, work }) => {
               )}
             </div>
 
-            <div className="my-10 w-full flex items-start max-md:flex-col max-md:gap-5">
+            <div className="my-10 w-full flex items-start max-lg:flex-col max-lg:gap-5">
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-5 max-md:mb-0">
+                <div className="size-fit flex items-center gap-5 max-lg:mb-0">
                   <span className="triangle-p" />
 
                   {query === "" ? (
@@ -236,7 +236,7 @@ export const SearchModal = ({ lenis, work }) => {
                   >
                     <figure
                       className="w-full h-65 overflow-hidden rounded-sm 
-                     group max-md:h-75"
+                     group max-lg:h-75"
                     >
                       <Image
                         src={item?.heroMedia?.image.asset.url}
@@ -282,7 +282,7 @@ export const SearchModal = ({ lenis, work }) => {
           >
             <RxUpdate
               className="text-[22px] text-s group-hover:rotate-155 group-hover:text-p
-            transition-all duration-500 delay-25 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
             <p
               className="font-azeret font-medium 

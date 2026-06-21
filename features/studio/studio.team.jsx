@@ -75,9 +75,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                 animate={inView && "animate"}
                 variants={textSlide}
                 custom={0.5}
-                className="font-neue font-bold 
-             text-start text-s text-[42px] tracking-[-0.04em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase"
+                className="big-text-3-n text-start text-s"
               >
                 {member.name}
               </motion.p>
@@ -136,14 +134,14 @@ const StudioTeam = ({ lenis }) => {
 
   return (
     <>
-      <section id="about" className="relative px-15 max-md:px-5" ref={ref}>
+      <section id="about" className="relative px-15 max-lg:px-5" ref={ref}>
         <div className="my-15 w-full h-px bg-p/15" />
         <div
           className="mb-10 flex items-center justify-between gap-10 select-none"
           ref={ref}
         >
-          <div className=" size-fit flex items-center gap-4">
-            <span className="relative -top-px size-2.5 bg-p rotate-45" />
+          <div className="size-fit flex items-center gap-4">
+            <span className="triangle-p" />
             <p className="text-chivo-p-14 text-end">nosso time</p>
           </div>
           <div className="flex items-center gap-5">
@@ -215,7 +213,7 @@ const StudioTeam = ({ lenis }) => {
             {team.map((member, i) => (
               <div
                 key={member.name}
-                className="min-w-[calc(25%-6px)] max-md:min-w-full"
+                className="min-w-[calc(25%-6px)] max-lg:min-w-full"
               >
                 <Card
                   index={i}

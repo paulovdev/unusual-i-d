@@ -74,7 +74,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
       <motion.div
         className="fixed right-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-        max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+        max-lg:h-dvh max-lg:p-5 max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -167,7 +167,7 @@ export const StartProjectModal = ({ lenis, setStartProjectModal }) => {
               </div>
 
               {/* EMAIL + TELEFONE */}
-              <div className="mb-12 w-full grid grid-cols-2 gap-5 max-md:grid-cols-1">
+              <div className="mb-12 w-full grid grid-cols-2 gap-5 max-lg:grid-cols-1">
                 <div className="flex flex-col items-start">
                   <label htmlFor="email" className="mb-4 text-chivo-p-14">
                     E-mail

@@ -59,17 +59,17 @@
 @layer components {
   .text-chivo-p-14 {
     @apply font-chivo font-semibold 
-    text-p text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+    text-p text-[14px] tracking-widest leading-none uppercase max-lg:text-[12px]
     will-change-transform;
   }
   .text-chivo-s-14 {
     @apply font-chivo font-semibold 
-    text-s text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+    text-s text-[14px] tracking-widest leading-none uppercase max-lg:text-[12px]
     will-change-transform;
   }
   .text-chivo-n-14 {
     @apply font-chivo font-semibold 
-    text-[14px] tracking-widest leading-none uppercase max-md:text-[12px]
+    text-[14px] tracking-widest leading-none uppercase max-lg:text-[12px]
      will-change-transform;
   }
 
@@ -91,23 +91,29 @@
     leading-none uppercase;
   }
 
+  .big-text-3-n {
+    @apply font-neue font-bold
+     text-[clamp(30px,6vw,52px)] text-start tracking-[-0.05em]
+    leading-none uppercase;
+  }
+
   .paragraph-p {
     @apply font-inter font-medium 
-    text-p text-[24px] tracking-[-0.04em] leading-[1.1] max-md:text-[22px]
+    text-p text-[clamp(20px,6vw,24px)] tracking-[-0.04em] leading-[1.1]
     will-change-transform;
   }
   .paragraph-n {
     @apply font-inter font-medium 
-    text-[24px] tracking-[-0.04em] leading-[1.1] max-md:text-[22px]
+    text-[clamp(20px,6vw,24px)] tracking-[-0.04em] leading-[1.1]
     will-change-transform;
   }
 
   .triangle-s {
-    @apply relative -top-px size-2.5 bg-s rotate-45 max-md:size-2 max-md:top-0;
+    @apply relative -top-px size-2.5 bg-s rotate-45 max-lg:size-2 max-lg:top-0;
   }
 
   .triangle-p {
-    @apply relative -top-px size-2.5 bg-p rotate-45 max-md:size-2 max-md:top-0;
+    @apply relative -top-px size-2.5 bg-p rotate-45 max-lg:size-2 max-lg:top-0;
   }
 }
 

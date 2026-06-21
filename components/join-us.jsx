@@ -38,9 +38,9 @@ const JoinUs = () => {
         <div
           className="sticky top-0 p-10 w-full h-screen 
         flex flex-col items-center justify-center gap-5 overflow-hidden z-30 
-        max-md:p-5"
+        max-lg:p-5"
         >
-          <div className="overflow-hidden h-[125px] max-md:h-fit">
+          <div className="overflow-hidden h-[125px] max-lg:h-fit">
             <motion.h1
               style={{ y: titleY }}
               className="font-neue font-bold 
@@ -62,7 +62,7 @@ const JoinUs = () => {
           >
             <motion.div
               className="absolute inset-0 size-full 
-            flex items-center justify-center z-10 max-md:p-5"
+            flex items-center justify-center z-10 max-lg:p-5"
             >
               <motion.div
                 style={{
@@ -81,7 +81,7 @@ const JoinUs = () => {
                 className="absolute p-10 size-full
                text-chivo-p-14 text-start
                 flex flex-col items-start justify-center 
-                 max-md:p-5
+                 max-lg:p-5
            "
               >
                 <div className="overflow-hidden h-fit">
@@ -102,7 +102,7 @@ const JoinUs = () => {
                 style={{ opacity: itemOpacity }}
                 className="absolute p-10 size-full 
                  text-chivo-p-14 text-start 
-                flex flex-col items-end justify-center  max-md:p-5"
+                flex flex-col items-end justify-center  max-lg:p-5"
               >
                 <div className="h-fit overflow-hidden">
                   <motion.h2 style={{ y: manifest }}>TOKYO</motion.h2>
@@ -123,12 +123,12 @@ const JoinUs = () => {
                 className="absolute p-10 size-full flex flex-col items-start justify-start
                   font-neue font-bold
       text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
-           leading-none uppercase max-md:p-5"
+           leading-none uppercase max-lg:p-5"
               >
                 <div className="overflow-hidden h-fit">
                   <motion.h2 style={{ y: manifest }}>
                     incomum{" "}
-                    <span className="relative top-2 align-top text-[28px] tracking-[0.4em] max-md:top-1.5">
+                    <span className="relative top-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                       ®
                     </span>
                   </motion.h2>
@@ -140,12 +140,12 @@ const JoinUs = () => {
                 className="absolute p-10 size-full flex flex-col items-end justify-start
                   font-neue font-bold
       text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
-           leading-none uppercase max-md:p-5"
+           leading-none uppercase max-lg:p-5"
               >
                 <div className="overflow-hidden h-fit">
                   <motion.h2 style={{ y: manifest }}>
                     56
-                    <span className="relative top-2 left-3 align-top text-[28px] tracking-[0.4em] max-md:top-1.5">
+                    <span className="relative top-2 left-3 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                       ®
                     </span>
                   </motion.h2>

@@ -60,15 +60,15 @@ const StudioAbout = () => {
   });
 
   return (
-    <section id="about" className="relative mb-30 px-15 max-md:px-5">
+    <section id="about" className="relative mb-30 px-15 max-lg:px-5">
       <div className="my-15 w-full h-px bg-p/15" />
 
       <div
         ref={aboutRef}
-        className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
+        className="mb-25 flex items-start gap-10 select-none max-lg:flex-col"
       >
         <div className="flex-2 flex items-center gap-4">
-          <span className="relative -top-px size-2.5 bg-p rotate-45" />
+          <span className="triangle-p" />
           <p className="text-chivo-p-14 text-end will-change-transform">
             sobre nós
           </p>
@@ -87,7 +87,7 @@ const StudioAbout = () => {
             </div>
           ))}
           <div className="mt-20 w-full flex items-end justify-end">
-            <div className="w-full max-w-150 max-md:w-full max-md:max-w-full">
+            <div className="w-full max-w-150 max-lg:w-full max-lg:max-w-full">
               {[
                 "Branding, direção visual, motion design e experiências digitais com uma identidade forte linguagem autoral.",
                 " ",
@@ -114,11 +114,11 @@ const StudioAbout = () => {
       <div className="my-15 w-full h-px bg-p/15" />
 
       <div
-        className="mb-25 flex items-start gap-10 select-none max-md:flex-col"
+        className="mb-25 flex items-start gap-10 select-none max-lg:flex-col"
         ref={manifestoRef}
       >
-        <div className="sticky top-15 flex-2 flex items-center gap-4 max-md:relative max-md:mb-25">
-          <span className="relative -top-px size-2.5 bg-p rotate-45" />
+        <div className="sticky top-15 flex-2 flex items-center gap-4 max-lg:relative max-lg:mb-25">
+          <span className="triangle-p" />
           <p className="text-chivo-p-14 text-end will-change-transform">
             manifesto
           </p>
@@ -138,7 +138,7 @@ const StudioAbout = () => {
                 </div>
 
                 <div className="mt-12 flex justify-end">
-                  <div className="w-full max-w-150 max-md:w-full max-md:min-w-full!">
+                  <div className="w-full max-w-150 max-lg:w-full max-lg:min-w-full!">
                     <div className="h-fit overflow-hidden">
                       <motion.div
                         variants={textSlide}

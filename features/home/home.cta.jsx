@@ -10,17 +10,17 @@ const HomeCTA = ({ lenis }) => {
   return (
     <>
       <section id="cta" className="bg-[#121212] h-screen">
-        <div className="p-15 max-md:px-5">
+        <div className="p-15 max-lg:px-5">
           <div className="mb-10 size-fit flex items-center gap-4">
             <span className="triangle-s" />
             <p className="text-chivo-s-14 text-end">Vamos criar algo juntos?</p>
           </div>
-          <div className="pt-50 flex items-center justify-between max-md:flex-col max-md:pt-25">
+          <div className="pt-50 flex items-center justify-between max-lg:flex-col max-lg:pt-25">
             <div className="flex-1 flex flex-col items-start justify-end gap-10">
               <h2
                 className="font-neue font-bold 
              text-center text-s text-[72px] tracking-[-0.05em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase"
+              max-lg:text-[62px] max-lg:text-[42px] uppercase"
               >
                 Fale com a gente
               </h2>

@@ -28,12 +28,13 @@ const HomeAbout = () => {
   return (
     <section
       id="about"
-      className="w-full h-fit flex flex-col items-start px-15 py-15 max-md:px-5"
+      className="w-full h-fit flex flex-col items-start px-15 py-15 max-lg:px-5"
       ref={container}
     >
-      <div className="relative w-full h-[40vh] flex items-end justify-end">
+      <div className="relative w-full max-h-100 flex items-end justify-end">
         <figure
-          className="relative w-175 h-[40vh] overflow-hidden rounded-sm"
+          className="relative w-175 h-100 overflow-hidden rounded-sm 
+          max-md:h-75 max-xsm:h-65"
           onMouseMove={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
 
@@ -66,12 +67,13 @@ const HomeAbout = () => {
                 stiffness: 50,
                 damping: 15,
               }}
-              className="size-25 bg-p/25 border border-s/25 rounded-full flex items-center justify-center backdrop-blur-md"
+              className="size-25 bg-p/25 border border-s/25 
+              rounded-full flex items-center justify-center backdrop-blur-md"
             >
               <IoMdPlay className="relative left-1 text-s text-[42px]" />
             </motion.span>
           </div>
-          <div className="absolute inset-8 flex items-end justify-between">
+          <div className="absolute inset-8 flex items-end justify-between max-md:inset-5">
             <p className="text-chivo-s-14 text-end">assistir reel</p>
             <p className="text-chivo-s-14 text-end">00:56</p>
           </div>

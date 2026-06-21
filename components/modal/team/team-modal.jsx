@@ -90,7 +90,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
       <motion.div
         className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
-         max-md:h-dvh max-md:p-5 max-md:w-screen max-md:m-0 max-md:rounded-none 
+         max-lg:h-dvh max-lg:p-5 max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
          will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -151,9 +151,9 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               y: 15,
               transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
             }}
-            className="flex flex-col items-end justify-between max-md:justify-start max-md:gap-5"
+            className="flex flex-col items-end justify-between max-lg:justify-start max-lg:gap-5"
           >
-            <div className="w-full flex flex-col max-md:mb-0">
+            <div className="w-full flex flex-col max-lg:mb-0">
               <div className="mt-25 h-fit overflow-hidden">
                 <motion.h2
                   variants={textSlide}
@@ -168,16 +168,16 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               </div>
             </div>
 
-            <div className="mt-10 w-full h-px bg-p/15 max-md:mt-0"></div>
+            <div className="mt-10 w-full h-px bg-p/15 max-lg:mt-0"></div>
 
-            <div className="mt-5 w-full min-h-15 flex items-start justify-between max-md:mt-0 max-md:min-h-10">
+            <div className="mt-5 w-full min-h-15 flex items-start justify-between max-lg:mt-0 max-lg:min-h-10">
               <div className="w-fit flex justify-start">
-                <TextLink bgColor="bg-s" className="">
+                <TextLink bgColor="bg-p" className="">
                   <a
                     target="_blank"
                     href={"https://instagram.com/" + member.email}
                     className="flex-1 text-chivo-n-14 text-p truncate group-hover:text-s 
-                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                   >
                     e-mail
                   </a>
@@ -186,21 +186,21 @@ export const TeamModal = ({ member, lenis, onClose }) => {
 
               <div className="w-full flex items-center justify-center">
                 <TextLink
-                  bgColor="bg-s"
+                  bgColor="bg-p"
                   className="flex items-center justify-center"
                 >
                   <a
                     target="_blank"
                     href={"https://instagram.com/" + member.instagram}
                     className="flex-1 text-chivo-n-14 text-p group-hover:text-s 
-                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                   >
                     instagram
                   </a>
                 </TextLink>
               </div>
 
-              <div className="flex-1 flex items-end justify-end">
+              <div className="flex-1 mt-2 flex items-end justify-end">
                 <FaStarOfLife className="text-p text-[14px]" />
               </div>
             </div>
@@ -223,11 +223,11 @@ export const TeamModal = ({ member, lenis, onClose }) => {
 
             <div
               className="border-b border-p/10 py-10 w-full flex items-start
-       max-md:flex-col max-md:items-start max-md:gap-5 max-md:py-5"
+       max-lg:flex-col max-lg:items-start max-lg:gap-5 max-lg:py-5"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-5">
-                  <span className="triangle-p" />
+                  <span className="triangle-p left-1" />
                   <p className="text-chivo-p-14">biografia</p>
                 </div>
               </div>

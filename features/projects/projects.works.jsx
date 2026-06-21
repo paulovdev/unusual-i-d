@@ -72,15 +72,14 @@ const WorksGrid = ({ work, index }) => {
   return (
     <motion.div
       ref={container}
-      initial={{ opacity: 0, y: 75 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
       transition={{
         duration: 0.5,
         ease: [0.76, 0, 0.24, 1],
         delay: 0.035 * index,
       }}
-      className={`${index === 0 ? "col-span-2 max-md:col-span-2" : "max-md:col-span-2"}`}
+      className={`${index === 0 ? "col-span-2 max-lg:col-span-2" : "max-lg:col-span-2"}`}
     >
       <motion.div
         animate={{
@@ -91,8 +90,8 @@ const WorksGrid = ({ work, index }) => {
         }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
         className="
-          relative h-[90vh] w-full cursor-pointer 
-          max-md:h-[50vh]"
+          relative h-[calc(100vh-100px)] w-full cursor-pointer 
+          max-lg:max-h-150 max-md:max-h-100"
         onClick={() => setActiveWork(work)}
       >
         <figure className="absolute inset-0 size-full overflow-hidden rounded-sm group">
@@ -104,34 +103,37 @@ const WorksGrid = ({ work, index }) => {
 
           <div
             className="absolute inset-0 z-10 size-full 
-          p-10 max-md:p-5"
+          p-10 max-lg:p-5"
           >
-            <div className="mb-10 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="size-2 rounded-[1px] bg-s" />
+            <div className="mb-10 h-[16px] overflow-hidden">
+              <motion.div
+                initial="initial"
+                animate="animate"
+                custom={0.25}
+                variants={textSlide}
+                className="mb-10 flex items-center justify-between"
+              >
+                <div className="flex items-center gap-5">
+                  <span className="triangle-s left-1" />
 
-                <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] leading-none text-s">
-                  {work.mark}
+                  <p className="text-chivo-s-14">{work.mark}</p>
+                </div>
+
+                <p className="text-chivo-s-14">
+                  {work.category} / {work.year}
                 </p>
-              </div>
-
-              <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] leading-none text-s">
-                {work.category} / {work.year}
-              </p>
+              </motion.div>
             </div>
-
-            <TextAnimated
-              phrases={[work.title + "ㅤ"]}
-              variants={textSlide}
-              as="h2"
-              className="flex flex-col"
-              lineClassName="font-neue font-bold 
-             text-start text-s text-[64px] tracking-[-0.05em] leading-[1.1]
-              max-lg:text-[62px] max-md:text-[42px] uppercase"
-              wordClassName="mr-2"
-              wordDelay={0.015}
-              lineDelay={0.1}
-            />
+            <div className="overflow-hidden h-[125px] max-lg:h-fit">
+              <motion.h2
+                initial="initial"
+                animate="animate"
+                variants={textSlide}
+                className="big-text-1-n text-s"
+              >
+                {work.title + "ㅤ"}
+              </motion.h2>
+            </div>
           </div>
         </figure>
       </motion.div>
@@ -153,7 +155,6 @@ const WorksList = ({
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
       transition={{
         duration: 0.5,
         ease: [0.76, 0, 0.24, 1],
@@ -191,9 +192,7 @@ const WorksList = ({
               initial="initial"
               animate="animate"
               custom={0.15}
-              className="font-neue font-bold
-      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
+              className="big-text-2-n text-p"
             >
               {work.title}
             </motion.h3>
@@ -212,9 +211,7 @@ const WorksList = ({
               initial="initial"
               animate="animate"
               custom={0.15}
-              className="font-neue font-bold
-      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
+              className="big-text-2-n text-p"
             >
               {work.year}
             </motion.h3>
@@ -280,7 +277,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
         className="
     sticky top-0 z-10 mb-50 flex w-full
     items-center justify-between
-    bg-[#EBEBEB] px-15 py-5 max-md:px-5 
+    bg-[#EBEBEB] px-15 py-5 max-lg:px-5 
   "
       >
         {/* MOBILE CATEGORY BUTTON */}
@@ -621,7 +618,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
       </div>
 
       {layout === "grid" ? (
-        <div className="relative -top-50 grid grid-cols-2 gap-5 px-15 max-md:grid-cols-1 max-md:px-5">
+        <div className="relative -top-50 grid grid-cols-2 gap-5 px-15 max-lg:grid-cols-1 max-lg:px-5">
           <AnimatePresence mode="wait">
             {filteredWorks.map((item, i) => (
               <WorksGrid key={item.title} work={item} index={i} />
@@ -629,17 +626,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
           </AnimatePresence>
         </div>
       ) : (
-        <div className="relative -top-50 px-15 max-md:px-5">
-          <div className="flex items-center justify-between">
-            <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] text-p">
-              nome
-            </p>
-
-            <p className="font-azeret text-[14px] font-semibold uppercase tracking-[0.05em] text-p">
-              ano
-            </p>
-          </div>
-
+        <div className="relative -top-50 px-15 max-lg:px-5">
           <div className="mb-10 mt-5 h-px w-full bg-p/10" />
 
           <div className="flex flex-col">
@@ -681,9 +668,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   </motion.div>
 
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="font-azeret text-s text-[14px] font-medium uppercase tracking-[0.05em] ">
-                      ver
-                    </p>
+                    <p className="text-chivo-s-14">ver</p>
                   </div>
                 </AnimatePresence>
               </motion.div>

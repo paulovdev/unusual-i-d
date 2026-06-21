@@ -47,7 +47,7 @@ const Footer = () => {
       <div className="fixed bottom-0 w-full h-[60vh] flex flex-col justify-between ">
         <div
           className="w-full p-10 flex justify-between items-start gap-25 z-10 
-       max-md:p-5"
+       max-lg:p-5"
         >
           <div className="flex-1 size-full flex items-start justify-start gap-25 max-ds:gap-15">
             <div className="flex flex-col items-start gap-10">
@@ -79,7 +79,7 @@ const Footer = () => {
                         initial="initial"
                         animate={inView ? "animate" : "initial"}
                         className="text-chivo-n-14 text-s group-hover:text-p 
-                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       >
                         {link.label}
                       </motion.p>
@@ -118,7 +118,7 @@ const Footer = () => {
                       initial="initial"
                       animate={inView ? "animate" : "initial"}
                       className="text-chivo-n-14 text-s group-hover:text-p 
-                      transition-colors duration-250 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                     >
                       {link.label}
                     </motion.p>
@@ -157,7 +157,7 @@ const Footer = () => {
               <input
                 type="text"
                 name="email"
-                className="my-4 px-2 py-2 w-100 inline-block border-2 border-s text-s outline-none group max-md:w-full"
+                className="my-4 px-2 py-2 w-100 inline-block border-2 border-s text-s outline-none group max-lg:w-full"
               />
             </motion.div>
             <motion.div className="w-full flex" custom={0.1}>

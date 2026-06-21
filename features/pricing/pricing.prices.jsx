@@ -63,7 +63,7 @@ const plans = [
 
 const PricingPrices = () => {
   return (
-    <section className="w-full px-15 pb-25 max-md:px-5 z-10">
+    <section className="w-full px-15 pb-25 max-lg:px-5 z-10">
       <div
         className="grid grid-cols-3 gap-5 max-lg:grid-cols-1
       "

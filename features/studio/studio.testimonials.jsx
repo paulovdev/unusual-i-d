@@ -107,7 +107,7 @@ const Card = ({ testimonial, index }) => {
           className="flex flex-col"
           lineClassName="mb-10 font-neue font-normal 
             text-p text-[48px] tracking-[-0.07em] leading-none
-            max-md:text-[38px]"
+            max-lg:text-[38px]"
           wordClassName="mr-2"
           wordDelay={0.015}
           lineDelay={0.1}
@@ -142,7 +142,7 @@ const StudioTestimonials = () => {
     triggerOnce: true,
   });
   return (
-    <section id="about" className="relative mb-30 px-15 max-md:px-5" ref={ref}>
+    <section id="about" className="relative mb-30 px-15 max-lg:px-5" ref={ref}>
       <div className="my-15 w-full h-px bg-p/15" />
       <div
         className="mb-10 flex items-center justify-between gap-10 select-none"
