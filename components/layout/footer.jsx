@@ -1,20 +1,8 @@
-import { motion } from "motion/react";
-import { useInView } from "react-intersection-observer";
-import Button from "../ui/button";
-import TextLink from "../ui/text-link";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import TransitionLink from "../ui/link";
-
-const textSlide = {
-  initial: { y: "100%" },
-  animate: (custom) => ({
-    y: "0%",
-    transition: {
-      duration: 0.8,
-      ease: [0.33, 1, 0.68, 1],
-      delay: custom,
-    },
-  }),
-};
+import TextLink from "../ui/text-link";
+import { FaStarOfLife } from "react-icons/fa";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -33,145 +21,181 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.5,
-    triggerOnce: false,
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start center", "end start"],
   });
 
+  const titleY = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.3],
+    ["100%", "0%", "-150%"],
+  );
+
+  const imageOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const imageClip = useTransform(
+    scrollYProgress,
+    [0.35, 0.68],
+    ["circle(0% at 50% 50%)", "circle(100.0% at 50% 50%)"],
+  );
+
+  const globe = useTransform(scrollYProgress, [0.4, 0.6], [0, 4]);
+  const globeRotate = useTransform(scrollYProgress, [0, 1], [360, -360]);
+  const manifest = useTransform(scrollYProgress, [0.5, 0.6], ["150%", "0%"]);
+  const itemOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+
   return (
-    <footer
-      ref={ref}
-      className="relative h-[60vh] bg-bg-p z-50 will-change-[clip-path]"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="fixed bottom-0 w-full h-[60vh] flex flex-col justify-between ">
+    <section ref={container} className="relative h-[400vh]  select-none">
+      <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div
-          className="w-full p-10 flex justify-between items-start gap-25 z-10 
-       max-lg:p-5"
+          className="sticky top-0 p-10 w-full h-screen 
+        flex flex-col items-center justify-center gap-5 overflow-hidden z-30 
+        max-lg:p-5"
         >
-          <div className="flex-1 size-full flex items-start justify-start gap-25 max-ds:gap-15">
-            <div className="flex flex-col items-start gap-10">
-              <div className="flex flex-col items-start max-ds:truncate">
+          <div className="overflow-hidden h-[125px] max-lg:h-fit">
+            <motion.h1
+              style={{ y: titleY }}
+              className="font-neue font-bold 
+                text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
+                 leading-none uppercase will-change-transform "
+            >
+              |
+            </motion.h1>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
+          <motion.div
+            style={{
+              opacity: imageOpacity,
+              clipPath: imageClip,
+            }}
+            className="relative size-full bg-[#EBEBEB]"
+          >
+            <motion.div
+              className="absolute inset-0 size-full 
+            flex items-center justify-center z-10 max-lg:p-5 "
+            >
+              <motion.div
+                style={{
+                  scale: globe,
+                  opacity: itemOpacity,
+                  rotateY: globeRotate,
+                }}
+              >
+                <p className="font-chivo text-p text-[100px] max-md:text-[16px] max-lg:text-[32px]">
+                  <FaStarOfLife />
+                </p>
+              </motion.div>
+
+              <motion.div
+                style={{ opacity: itemOpacity }}
+                className="absolute p-10 size-full
+                flex flex-col items-start justify-center 
+                 max-lg:p-5 pointer-events-auto
+           "
+              >
                 <motion.p
-                  initial={{ y: 120, opacity: 0, filter: "blur(12px)" }}
-                  animate={
-                    inView
-                      ? { y: 0, opacity: 1, filter: "blur(0px)" }
-                      : { y: 120, opacity: 0, filter: "blur(12px)" }
-                  }
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="mb-8 font-neue font-bold
-      text-s text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
+                  style={{ y: manifest }}
+                  className="mb-4 text-chivo-n-14 text-p/75"
                 >
-                  Navigate
+                  navegue pelo site
                 </motion.p>
                 {navLinks.map((link, i) => (
                   <TransitionLink
                     key={link.label}
                     href={link.href}
-                    className=" relative overflow-hidden size-fit group"
+                    className="relative overflow-hidden size-fit group"
                   >
-                    <TextLink bgColor="bg-s">
+                    <TextLink bgColor="bg-p">
                       <motion.p
-                        custom={i * 0.075}
-                        variants={textSlide}
-                        initial="initial"
-                        animate={inView ? "animate" : "initial"}
-                        className="text-chivo-n-14 text-s group-hover:text-p 
-                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                        style={{ y: manifest }}
+                        className="text-chivo-n-14 text-p 
+                        group-hover:text-s 
+                       transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       >
                         {link.label}
                       </motion.p>
                     </TextLink>
                   </TransitionLink>
                 ))}
-              </div>
-            </div>
-            <div className="flex flex-col items-start max-ds:truncate">
-              <motion.p
-                initial={{ y: 120, opacity: 0, filter: "blur(12px)" }}
-                animate={
-                  inView
-                    ? { y: 0, opacity: 1, filter: "blur(0px)" }
-                    : { y: 120, opacity: 0, filter: "blur(12px)" }
-                }
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-8 font-neue font-bold
-      text-s text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
-           leading-none uppercase"
-              >
-                Socials
-              </motion.p>
-              {socialLinks.map((link, i) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.external ? "_blank" : "_self"}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  className="relative overflow-hidden size-fit group"
-                >
-                  <TextLink bgColor="bg-s">
-                    <motion.p
-                      custom={i * 0.075}
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView ? "animate" : "initial"}
-                      className="text-chivo-n-14 text-s group-hover:text-p 
-                      transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                    >
-                      {link.label}
-                    </motion.p>
-                  </TextLink>
-                </a>
-              ))}
-            </div>
-          </div>
+              </motion.div>
 
-          <div className="w-full flex-1 flex flex-col items-start">
-            <motion.p
-              initial={{ y: 120, opacity: 0, filter: "blur(12px)" }}
-              animate={
-                inView
-                  ? { y: 0, opacity: 1, filter: "blur(0px)" }
-                  : { y: 120, opacity: 0, filter: "blur(12px)" }
-              }
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-8 font-inter font-normal text-s text-[28px] tracking-[-0.03em] max-lg:text-[22px] leading-[1.11]"
-            >
-              Newsletter — no spam, only good stuff.
-            </motion.p>
-            <div className="overflow-hidden h-fit">
-              <motion.p
-                htmlFor="email"
-                variants={textSlide}
-                initial="initial"
-                animate={inView ? "animate" : "initial"}
-                custom={0.2}
-                className="text-chivo-s-14"
+              <motion.div
+                style={{ opacity: itemOpacity }}
+                className="absolute p-10 size-full 
+                flex flex-col items-end justify-center max-lg:p-5
+                 pointer-events-auto"
               >
-                Your email address
-              </motion.p>
-            </div>
-            <motion.div className="w-full flex">
-              <input
-                type="text"
-                name="email"
-                className="my-4 px-2 py-2 w-100 inline-block border-2 border-s text-s outline-none group max-lg:w-full"
-              />
+                <motion.p
+                  style={{ y: manifest }}
+                  className="mb-4 text-chivo-n-14 text-p/75"
+                >
+                  nossas redes sociais
+                </motion.p>
+                {socialLinks.map((link, i) => (
+                  <TransitionLink
+                    key={link.label}
+                    href={link.href}
+                    className="relative overflow-hidden size-fit group"
+                  >
+                    <TextLink bgColor="bg-p">
+                      <motion.p
+                        style={{ y: manifest }}
+                        className="text-chivo-n-14 text-p 
+                        group-hover:text-s 
+                       transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      >
+                        {link.label}
+                      </motion.p>
+                    </TextLink>
+                  </TransitionLink>
+                ))}
+              </motion.div>
+
+              <motion.div
+                style={{ opacity: itemOpacity }}
+                className="absolute p-10 size-full flex flex-col items-start justify-start
+                  font-neue font-bold
+      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+           leading-none uppercase max-lg:p-5"
+              >
+                <div className="overflow-hidden h-fit">
+                  <motion.h2 style={{ y: manifest }}>
+                    incomum{" "}
+                    <span className="relative top-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
+                      ®
+                    </span>
+                  </motion.h2>
+                </div>
+              </motion.div>
+
+              <motion.div
+                style={{ opacity: itemOpacity }}
+                className="absolute p-10 size-full flex flex-col items-end justify-start
+                  font-neue font-bold
+      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+           leading-none uppercase max-lg:p-5"
+              >
+                <div className="overflow-hidden h-fit">
+                  <motion.h2 style={{ y: manifest }}>
+                    56
+                    <span className="relative top-2 left-3 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
+                      ®
+                    </span>
+                  </motion.h2>
+                </div>
+              </motion.div>
             </motion.div>
-            <motion.div className="w-full flex" custom={0.1}>
-              <Button
-                buttonHref="/newsletter"
-                buttonLabel="subscribe"
-                buttonBgColor="#ffffff"
-                buttonTextColor="#000000"
-              />
-            </motion.div>
-          </div>
+          </motion.div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+          <div className="relative size-full bg-bg-p will-change-transform" />
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 

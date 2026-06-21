@@ -175,7 +175,17 @@ const HomeIntro = () => {
               : undefined
           }
         >
-          <div className="loader-container absolute p-5 inset-0 flex items-center justify-center">
+          <div
+            className="loader-container absolute p-5 inset-0 
+          flex items-center justify-center"
+            style={
+              hasPlayedPreloader
+                ? {
+                    padding: "0rem",
+                  }
+                : undefined
+            }
+          >
             <div
               className="loader-image relative w-100 h-100 rounded-sm overflow-hidden
               max-md:h-75
@@ -183,7 +193,6 @@ const HomeIntro = () => {
               style={
                 hasPlayedPreloader
                   ? {
-                      padding: "0rem",
                       width: "100vw",
                       height: "100vh",
                       borderRadius: 0,

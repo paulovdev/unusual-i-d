@@ -1,7 +1,5 @@
 "use client";
 
-import String from "@/components/ui/string";
-
 import HomeIntro from "@/features/home/home.intro";
 import { usePageTransition, usePreLoader } from "@/store/pageTransition";
 import Lenis from "lenis";
@@ -13,8 +11,7 @@ import HomeAbout from "./home.about";
 import HomeWorks from "./home.works";
 import HomeStatement from "./home.statement";
 import HomeClients from "./home.clients";
-import HomeCTA from "./home.cta";
-import JoinUs from "@/components/join-us";
+
 import Footer from "@/components/layout/footer";
 
 const HomeHero = ({ work }) => {
@@ -49,7 +46,7 @@ const HomeHero = ({ work }) => {
             <HomeWorks work={work} lenis={lenisRef} />
             <HomeStatement />
             <HomeClients />
-            <JoinUs />
+
             {/*   <HomeCTA lenis={lenisRef} /> */}
           </motion.main>
           <Footer />
