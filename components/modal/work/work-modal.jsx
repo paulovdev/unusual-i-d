@@ -85,7 +85,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
     <>
       <motion.div
         className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
+        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
         max-lg:h-dvh max-lg:p-5 max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         ref={container}
@@ -120,10 +120,10 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#fff",
+              backgroundColor: "#f5f5f5",
             }}
             className="group size-15 rounded-sm 
-            border border-p/10 backdrop-blur-2xl 
+            backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
           >

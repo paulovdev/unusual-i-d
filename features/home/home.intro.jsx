@@ -165,7 +165,7 @@ const HomeIntro = () => {
       >
         <div
           ref={scope}
-          className="fixed inset-0 bg-[#EBEBEB] overflow-hidden pointer-events-none select-none
+          className="fixed inset-0 bg-bg-s overflow-hidden pointer-events-none select-none
       "
           style={
             hasPlayedPreloader
@@ -176,7 +176,7 @@ const HomeIntro = () => {
           }
         >
           <div
-            className="loader-container absolute p-5 inset-0 
+            className="loader-container absolute max-md:p-5 inset-0 
           flex items-center justify-center"
             style={
               hasPlayedPreloader
@@ -249,7 +249,7 @@ const HomeIntro = () => {
 
           <div className="absolute left-1/2 bottom-24 -translate-x-1/2 max-md:bottom-5">
             <div className="w-[calc(100%+15px)] h-fit overflow-hidden ">
-              <motion.p
+              <motion.div
                 initial={{ y: 20 }}
                 className="loader-text text-chivo-p-14 text-start flex items-center gap-6"
               >
@@ -274,7 +274,7 @@ const HomeIntro = () => {
                     </motion.span>
                   ))}
                 </div>
-              </motion.p>
+              </motion.div>
             </div>
           </div>
         </div>

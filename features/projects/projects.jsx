@@ -58,7 +58,7 @@ const ProjectsHero = ({ work }) => {
     <>
       <Nav />
       {isReady && (
-        <main className="relative bg-[#EBEBEB]">
+        <main className="relative bg-bg-s">
           <ProjectsIntro work={work} lenis={lenisRef} />
           <ProjectsWorks
             work={work}

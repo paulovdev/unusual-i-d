@@ -47,19 +47,18 @@ const Footer = () => {
   const itemOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
 
   return (
-    <section ref={container} className="relative h-[400vh]  select-none">
+    <section ref={container} className="relative h-[400vh] select-none">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div
           className="sticky top-0 p-10 w-full h-screen 
         flex flex-col items-center justify-center gap-5 overflow-hidden z-30 
         max-lg:p-5"
         >
-          <div className="overflow-hidden h-[125px] max-lg:h-fit">
+          <div className="overflow-hidden max-lg:h-fit">
             <motion.h1
               style={{ y: titleY }}
-              className="font-neue font-bold 
-                text-s text-[clamp(68px,8vw,142px)] text-center tracking-[-0.05em]
-                 leading-none uppercase will-change-transform "
+              className="font-neue font-light
+                text-s text-[252px] will-change-transform"
             >
               |
             </motion.h1>
@@ -72,7 +71,7 @@ const Footer = () => {
               opacity: imageOpacity,
               clipPath: imageClip,
             }}
-            className="relative size-full bg-[#EBEBEB]"
+            className="relative size-full bg-bg-t"
           >
             <motion.div
               className="absolute inset-0 size-full 
@@ -85,7 +84,7 @@ const Footer = () => {
                   rotateY: globeRotate,
                 }}
               >
-                <p className="font-chivo text-p text-[100px] max-md:text-[16px] max-lg:text-[32px]">
+                <p className="font-chivo text-s text-[100px] max-md:text-[16px] max-lg:text-[32px]">
                   <FaStarOfLife />
                 </p>
               </motion.div>
@@ -99,7 +98,7 @@ const Footer = () => {
               >
                 <motion.p
                   style={{ y: manifest }}
-                  className="mb-4 text-chivo-n-14 text-p/75"
+                  className="mb-4 text-chivo-n-14 text-s/75"
                 >
                   navegue pelo site
                 </motion.p>
@@ -109,11 +108,11 @@ const Footer = () => {
                     href={link.href}
                     className="relative overflow-hidden size-fit group"
                   >
-                    <TextLink bgColor="bg-p">
+                    <TextLink bgColor="bg-s">
                       <motion.p
                         style={{ y: manifest }}
-                        className="text-chivo-n-14 text-p 
-                        group-hover:text-s 
+                        className="text-chivo-n-14 text-s 
+                        group-hover:text-p 
                        transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       >
                         {link.label}
@@ -131,7 +130,7 @@ const Footer = () => {
               >
                 <motion.p
                   style={{ y: manifest }}
-                  className="mb-4 text-chivo-n-14 text-p/75"
+                  className="mb-4 text-chivo-n-14 text-s/75"
                 >
                   nossas redes sociais
                 </motion.p>
@@ -141,11 +140,11 @@ const Footer = () => {
                     href={link.href}
                     className="relative overflow-hidden size-fit group"
                   >
-                    <TextLink bgColor="bg-p">
+                    <TextLink bgColor="bg-s">
                       <motion.p
                         style={{ y: manifest }}
-                        className="text-chivo-n-14 text-p 
-                        group-hover:text-s 
+                        className="text-chivo-n-14 text-s 
+                        group-hover:text-p 
                        transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
                       >
                         {link.label}
@@ -159,7 +158,7 @@ const Footer = () => {
                 style={{ opacity: itemOpacity }}
                 className="absolute p-10 size-full flex flex-col items-start justify-start
                   font-neue font-bold
-      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+      text-s text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
            leading-none uppercase max-lg:p-5"
               >
                 <div className="overflow-hidden h-fit">
@@ -176,7 +175,7 @@ const Footer = () => {
                 style={{ opacity: itemOpacity }}
                 className="absolute p-10 size-full flex flex-col items-end justify-start
                   font-neue font-bold
-      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+      text-s text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
            leading-none uppercase max-lg:p-5"
               >
                 <div className="overflow-hidden h-fit">

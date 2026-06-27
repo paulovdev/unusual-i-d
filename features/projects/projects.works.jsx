@@ -277,7 +277,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
         className="
     sticky top-0 z-10 mb-50 flex w-full
     items-center justify-between
-    bg-[#EBEBEB] px-15 py-5 max-lg:px-5 
+    bg-bg-s px-15 py-5 max-lg:px-5 
   "
       >
         {/* MOBILE CATEGORY BUTTON */}
@@ -403,7 +403,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   border border-p/10
                   cursor-pointer
 
-                  ${isActive ? "bg-p text-s" : "bg-white text-p"}
+                  ${isActive ? "bg-p text-s" : "bg-bg-s-2 text-p"}
                 `}
                     >
                       <p
@@ -449,7 +449,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                     : {}
                 }
                 animate={{
-                  backgroundColor: isActive ? "#000" : "#fff",
+                  backgroundColor: isActive ? "#000" : "#f5f5f5",
                 }}
                 onClick={() => setActiveCategory(cat)}
                 className="
@@ -457,7 +457,6 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
             px-10
             h-15
             rounded-sm
-            border border-p/10
             cursor-pointer
           "
               >
@@ -517,12 +516,12 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "rgba(255,255,255,.8)",
+                  backgroundColor: "#f5f5f5",
                 }}
                 onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
                 className="
             group size-15 rounded-sm
-            border border-p/10 bg-p
+             bg-p
             flex items-center justify-center
             cursor-pointer
           "
@@ -542,12 +541,12 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "rgba(255,255,255,.8)",
+                  backgroundColor: "#f5f5f5",
                 }}
                 onClick={openSearch}
                 className="
             group size-15 rounded-sm
-            border border-p/10 bg-p
+              bg-p
             flex items-center justify-center
             cursor-pointer
           "
@@ -569,13 +568,13 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "rgba(255,255,255,.8)",
+                  backgroundColor: "#f5f5f5",
                 }}
                 onClick={openFilters}
                 className="
             relative
             group size-15 rounded-sm
-            border border-p/10 bg-p
+             bg-p
             flex items-center justify-center
             cursor-pointer
           "
@@ -595,8 +594,8 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 -right-2.5
                 -top-2.5
                 rounded-sm
-                border border-p/10
-                bg-s
+               
+                bg-bg-s-2
                 p-2
               "
                   >

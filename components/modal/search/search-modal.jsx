@@ -98,7 +98,7 @@ export const SearchModal = ({ lenis, work }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
+        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
         max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         variants={menuAnim}
@@ -133,10 +133,10 @@ export const SearchModal = ({ lenis, work }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#fff",
+              backgroundColor: "#f5f5f5",
             }}
             className="group size-15 rounded-sm 
-            border border-p/10 backdrop-blur-2xl 
+           backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
           >
@@ -263,12 +263,12 @@ export const SearchModal = ({ lenis, work }) => {
             </div>
           </div>
         </motion.div>
-        <div className="fixed bottom-0 bg-[#EBEBEB] p-5 w-full">
+        <div className="fixed bottom-0 bg-bg-s p-5 w-full">
           <motion.button
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#fff",
+              backgroundColor: "#f5f5f5",
             }}
             onClick={() => {
               if (query) {
@@ -277,7 +277,7 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm 
+            className="h-15 px-10 w-full bg-p  backdrop-blur-2xl rounded-sm 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate

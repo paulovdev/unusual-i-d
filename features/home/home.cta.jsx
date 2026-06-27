@@ -28,7 +28,7 @@ const HomeCTA = ({ lenis }) => {
                 <div onClick={() => setStartProjectModal(true)}>
                   <Button
                     text="Iniciar um projeto"
-                    bg="bg-s"
+                    bg="bg-bg-s-2"
                     textColor="text-p"
                     iconColor="text-p"
                   />{" "}
@@ -39,7 +39,7 @@ const HomeCTA = ({ lenis }) => {
                     bg="bg-p"
                     textColor="text-s"
                     iconColor="text-s"
-                    hoverBg="bg-s"
+                    hoverBg="bg-bg-s-2"
                     hoverTextColor="text-p"
                     hoverIconColor="text-p"
                   />

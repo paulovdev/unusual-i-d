@@ -15,7 +15,7 @@ const azeret = Azeret_Mono({
 export const metadata = {
   title: "INCOMUM®",
   description: "Studio Incomum",
-  themeColor: "#EBEBEB",
+  themeColor: "#FFFFFF",
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -31,10 +31,10 @@ export default function RootLayout({ children }) {
         className={`${iSans.variable} ${azeret.variable} h-full antialiased noise`}
       >
         <head>
-          <meta name="theme-color" content="#EBEBEB" />
+          <meta name="theme-color" content="#FFFFFF" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
-            content="#EBEBEB"
+            content="#FFFFFF"
           />
         </head>
         <body className="min-h-full flex flex-col ">{children}</body>

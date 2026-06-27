@@ -222,7 +222,7 @@ const HomeWorks = ({ work, lenis }) => {
                       duration: 0.7,
                       ease: [0.76, 0, 0.24, 1],
                     }}
-                    className="absolute w-2.5 h-2.5 bg-[#EBEBEB]
+                    className="absolute w-2.5 h-2.5 bg-bg-s-2
                     max-md:w-4 max-md:h-4
   "
                   />
@@ -245,7 +245,7 @@ const HomeWorks = ({ work, lenis }) => {
                         ease: [0.76, 0, 0.24, 1],
                       }}
                       className="absolute -top-0.75 -left-0.75 
-                      w-4 h-4 border border-[#EBEBEB]
+                      w-4 h-4 border border-[#FFFFFF]
                        max-md:w-6 max-md:h-6 max-md:-left-1 max-md:-top-1
         "
                     />
@@ -271,7 +271,7 @@ const HomeWorks = ({ work, lenis }) => {
                           ease: [0.76, 0, 0.24, 1],
                         }}
                         className=" absolute -top-0.75 -left-0.75 
-                        w-4 h-4 border border-[#EBEBEB]
+                        w-4 h-4 border border-[#FFFFFF]
                         max-md:w-6 max-md:h-6 max-md:-left-1 max-md:-top-1
           "
                       />

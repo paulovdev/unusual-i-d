@@ -1,3 +1,4 @@
+import { ClipText } from "@/components/ui/clip-text";
 import { motion } from "motion/react";
 
 const textSlide = {
@@ -24,32 +25,48 @@ const PricingIntro = () => {
   "
     >
       <div className="relative flex items-center justify-center">
-        <div className="relative flex flex-col items-start">
-          <div className="mb-4 relative flex items-center ">
-            <div className="overflow-hidden h-[125px] max-lg:h-fit">
+        <div className="relative flex flex-col items-center">
+          <div className="mb-15 relative flex flex-col items-center ">
+            <div className="overflow-hidden max-lg:h-fit">
               <motion.h2
                 {...textSlide}
-                custom={0}
+                custom={0.25}
                 className="big-text-intro-p text-s"
               >
-                nossos
-                <span
-                  className="relative top-3.5 left-2 align-top
-                        text-[28px] tracking-[0.4em]"
-                >
-                  .
-                </span>
+                Como definimos o escopo
+              </motion.h2>
+            </div>
+            <div className="overflow-hidden max-lg:h-fit">
+              <motion.h2
+                {...textSlide}
+                custom={0.5}
+                className="big-text-intro-p text-s"
+              >
+                de um projeto
               </motion.h2>
             </div>
           </div>
-          <div className="relative w-[calc(100%+15px)] h-fit overflow-hidden">
-            <motion.p
-              {...textSlide}
-              custom={0.25}
-              className="relative left-1 text-chivo-s-14 text-start"
-            >
-              PREÇOS
-            </motion.p>
+          <div className="max-w-150">
+            {[
+              "Três formatos de interação, todos com código personalizado e baseados em movimento.",
+            ].map((phrases, i, arr) => (
+              <div
+                key={i}
+                style={{
+                  marginBottom: arr.length - 1 === i ? "80px" : undefined,
+                }}
+              >
+                <ClipText
+                  text={phrases}
+                  animate={"animate"}
+                  delay={0.5 + 0.15 * i}
+                  tag="h2"
+                  className="
+                 text-chivo-s-14 text-center
+                "
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

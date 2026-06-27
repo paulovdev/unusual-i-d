@@ -27,7 +27,7 @@ const StudioWhatWeDo = () => {
   });
 
   return (
-    <section id="what-we-do" className="bg-bg-p " ref={ref}>
+    <section id="what-we-do" className="bg-bg-p" ref={ref}>
       <div className="p-15 flex flex-col items-center justify-center max-lg:px-5">
         <div className="mb-10 size-fit flex items-center gap-4">
           <span className="triangle-s" />
@@ -36,7 +36,7 @@ const StudioWhatWeDo = () => {
 
         <div className="pt-10 flex flex-col items-center justify-center gap-10">
           {[`NOSSOS SERVIÇOS`].map((phrases, i) => (
-            <div className="mb-4 h-fit overflow-hidden">
+            <div className="mb-4 h-fit overflow-hidden" key={i}>
               <motion.h2
                 variants={textSlide}
                 initial="initial"
@@ -64,10 +64,10 @@ const StudioWhatWeDo = () => {
           >
             {/* 01 */}
             <div
-              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
               max-lg:min-h-100"
             >
-              <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+              <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                 <PiShapesBold className="text-p text-[24px]" />
               </div>
               <div className="flex flex-col items-start">
@@ -105,17 +105,17 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.2,
               }}
-              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
               max-lg:min-h-100"
             >
               <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                   <TbBrandFigma className="text-[24px]" />
                 </div>
 
                 <span className="font-azeret text-[24px] text-s">+</span>
 
-                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                   <RiSparkling2Line className="text-[24px]" />
                 </div>
               </div>
@@ -153,18 +153,18 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.3,
               }}
-              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm 
+              className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm 
               flex flex-col itemsmax-lg:min-h-100-start justify-between gap-5 max-lg:min-h-100
               "
             >
               <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                   <MdOutlineAnimation className="text-[24px]" />
                 </div>
 
                 <span className="font-azeret text-[24px] text-s">+</span>
 
-                <div className="p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                   <PiShapesBold className="text-[24px]" />
                 </div>
               </div>
@@ -203,10 +203,10 @@ const StudioWhatWeDo = () => {
                 ease: [0.76, 0, 0.24, 1],
                 delay: 0.4,
               }}
-              className="min-h-125 p-5 pt-10 bg-[#202020] rounded-sm flex flex-col items-start justify-between gap-5 
+              className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
               max-lg:min-h-100"
             >
-              <div className="mb-2 p-4 rounded-sm border border-s bg-[#ffffff] backdrop-blur-md">
+              <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
                 <HiOutlineCodeBracketSquare className="text-p text-[24px]" />
               </div>
 

@@ -38,8 +38,11 @@
 @theme {
   --color-p: #080807;
   --color-s: #ffffff;
-  --color-bg-p: #141414;
+  --color-bg-p: #1a1c1c;
+  --color-bg-p-2: #000000;
   --color-bg-s: #ffffff;
+  --color-bg-s-2: #f5f5f5;
+  --color-bg-t: #0358e2;
 
   --color-brd: #ededed;
 
@@ -72,10 +75,15 @@
     text-[14px] tracking-widest leading-none uppercase max-lg:text-[12px]
      will-change-transform;
   }
+  .text-chivo-sn-14 {
+    @apply font-chivo font-semibold 
+    text-[14px] leading-none uppercase max-lg:text-[12px]
+     will-change-transform;
+  }
 
   .big-text-intro-p {
     @apply font-neue font-bold 
-    text-[clamp(68px,8vw,142px)] tracking-[-0.05em]
+    text-[clamp(68px,8vw,112px)] tracking-[-0.05em]
     leading-none uppercase will-change-transform;
   }
 
@@ -122,7 +130,7 @@ html {
   -moz-osx-font-smoothing: grayscale !important;
   font-smooth: never !important;
   letter-spacing: 0;
-  background: #ebebeb;
+  background: #ffffff;
 }
 
 body {
@@ -133,7 +141,7 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   font-family: "Azeret Mono", sans-serif;
-  background: #ebebeb;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -147,7 +155,7 @@ body {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.025;
+  opacity: 0.01;
   z-index: 1000;
   pointer-events: none;
   background: url("../public/noise.gif");

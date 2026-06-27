@@ -185,7 +185,7 @@ export const FiltersModal = ({ lenis }) => {
     <>
       <motion.div
         className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-[#EBEBEB] backdrop-blur-3xl rounded-sm z-9999
+        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
         max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         variants={menuAnim}
@@ -220,10 +220,10 @@ export const FiltersModal = ({ lenis }) => {
             whileTap={{ scale: 1.1 }}
             whileHover={{
               scale: 1.05,
-              backgroundColor: "#fff",
+              backgroundColor: "#f5f5f5",
             }}
             className="group size-15 rounded-sm 
-            border border-p/10 backdrop-blur-2xl 
+            backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
           >
@@ -355,16 +355,16 @@ export const FiltersModal = ({ lenis }) => {
             </div>
           </div>
         </motion.div>
-        <div className="fixed bottom-0 bg-[#EBEBEB] p-5 w-full">
+        <div className="fixed bottom-0 bg-bg-s p-5 w-full">
           <div className="flex items-center justify-between gap-5">
             <motion.button
               whileTap={{ scale: 1.1 }}
               whileHover={{
                 scale: 1.05,
-                backgroundColor: "#fff",
+                backgroundColor: "#f5f5f5",
               }}
               onClick={resetAll}
-              className="h-15 px-10 w-full bg-p border border-s/10 backdrop-blur-2xl rounded-sm group "
+              className="h-15 px-10 w-full bg-p  backdrop-blur-2xl rounded-sm group "
             >
               <p
                 className="text-chivo-n-14 text-s  
@@ -381,7 +381,7 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#000",
               }}
               onClick={closeFilters}
-              className="h-15 px-10 w-full bg-s border border-s/10 backdrop-blur-2xl rounded-sm group"
+              className="h-15 px-10 w-full bg-bg-s-2  backdrop-blur-2xl rounded-sm group"
             >
               <p
                 className="text-chivo-p-14

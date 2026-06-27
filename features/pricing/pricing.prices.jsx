@@ -88,7 +88,7 @@ const PricingPrices = () => {
             }}
             className={`
             min-h-[700px]
-            p-5 pt-10   rounded-sm flex flex-col justify-between backdrop-blur-2xl
+            p-5 pt-10    flex flex-col justify-between backdrop-blur-2xl
             ${plan.dark ? "bg-[#202020]/50 text-s" : "bg-s/15 text-p"}
             ${index !== 1 && "mt-10"}
             `}
@@ -163,7 +163,7 @@ const PricingPrices = () => {
                     scale: 1.05,
                   }}
                   className={`
-                 h-15 px-10 w-full  border border-s/10 backdrop-blur-2xl rounded-sm group
+                 h-15 px-10 w-full  border border-s/10 backdrop-blur-2xl  group
                   ${plan.dark ? "bg-s text-p" : "bg-p text-s"}
                   `}
                 >

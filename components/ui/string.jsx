@@ -61,7 +61,7 @@ const Ring = ({ i, menuOpen }) => {
     >
       <motion.div
         className="border-s rounded-sm"
-        animate={{ 
+        animate={{
           width: WIDTH,
           height: menuOpen ? OPEN_HEIGHT : CLOSED_HEIGHT,
         }}

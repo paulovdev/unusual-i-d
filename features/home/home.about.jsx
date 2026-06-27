@@ -121,14 +121,7 @@ const HomeAbout = () => {
                 animate={inView && "animate"}
                 delay={0.5 + 0.15 * i}
                 tag="h2"
-                className="
-        font-inter
-        font-medium
-        text-p
-        text-[24px]
-        tracking-[-0.04em]
-        leading-none
-      "
+                className="paragraph-p"
               />
             </div>
           ))}
@@ -139,7 +132,7 @@ const HomeAbout = () => {
                 bg="bg-p"
                 textColor="text-s"
                 iconColor="text-s"
-                hoverBg="bg-s"
+                hoverBg="bg-bg-s-2"
                 hoverTextColor="text-p"
                 hoverIconColor="text-p"
               />
