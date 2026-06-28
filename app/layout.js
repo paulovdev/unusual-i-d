@@ -15,6 +15,9 @@ const azeret = Azeret_Mono({
 export const metadata = {
   title: "INCOMUM®",
   description: "Studio Incomum",
+};
+
+export const viewport = {
   themeColor: "#FFFFFF",
   viewport: {
     width: "device-width",
