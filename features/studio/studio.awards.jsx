@@ -1,9 +1,9 @@
-import TextAnimated from "@/components/ui/text-animated";
+ 
 import { useInView } from "react-intersection-observer";
 
 import { motion } from "motion/react";
-import { useCallback, useState } from "react";
-import { useMousePosition } from "@/hooks/useMousePosition";
+import {  useState } from "react";
+ 
 import { awards } from "@/data/data";
 import { AiOutlinePlus } from "react-icons/ai";
 

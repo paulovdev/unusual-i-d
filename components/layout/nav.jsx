@@ -112,10 +112,10 @@ const Menu = ({ pathname, setMenu, mobile }) => {
                   onClick={() => setMenu(false)}
                   className={`cursor-pointer ${active ? "mt-2.5 mb-4" : "mb-2"} size-fit flex items-center gap-2`}
                 >
-                  <TextLink bgColor={active ? "bg-s" : "bg-[#202020]"}>
+                  <TextLink bgColor={active ? "bg-[#202020]" : "bg-s"}>
                     <p
                       className={`max-w-125 
-                      ${active ? "text-s hover:text-p" : "text-s/50 hover:text-s/75"} 
+                      ${active ? "text-s/50 hover:text-s/75" : "text-s hover:text-p"} 
                   font-neue font-bold text-p text-[clamp(32px,6vw,38px)] tracking-[-0.03em] leading-none
              uppercase transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]`}
                     >
@@ -150,6 +150,7 @@ const Nav = () => {
   const pathname = usePathname();
   const [menu, setMenu] = useState(false);
   const [mobile, setMobile] = useState(false);
+
   const navContainer = {
     initial: {
       width: mobile ? "100%" : "400px",
@@ -185,6 +186,7 @@ const Nav = () => {
 
     return () => window.removeEventListener("resize", check);
   }, []);
+
   return (
     <>
       <AnimatePresence mode="wait">

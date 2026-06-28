@@ -235,13 +235,21 @@ const HomeIntro = () => {
                     : "inset(100% 0% 0% 0%)",
                 }}
               >
-                <Image
+                {/*  <Image
                   src={bgCover}
                   alt=""
                   fill
                   priority
                   className="object-cover size-full"
                   placeholder="blur"
+                /> */}
+                <video
+                  src="/assets/videos/bg.mp4"
+                  playsInline
+                  autoPlay
+                  loop
+                  muted
+                  className="object-cover size-full"
                 />
               </motion.div>
             </div>
@@ -303,7 +311,7 @@ const HomeIntro = () => {
                 variants={textSlide}
                 className="relative left-1 text-chivo-s-14 text-start"
               >
-                estúdio criativo
+                INTERIORES PERSONALIZADOS
               </motion.p>
             </div>
           </div>

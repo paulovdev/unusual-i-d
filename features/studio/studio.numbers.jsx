@@ -15,20 +15,20 @@ const textSlide = {
 
 const numbers = [
   {
-    number: "05+ ",
-    label: "projetos completos",
+    number: "75+ ",
+    label: "planejamentos espaciais desenvolvidos para residências",
   },
   {
-    number: "156% ",
-    label: "CONVERSÕES ELEVADAS",
+    number: "£180M+ ",
+    label: "em projetos residenciais realizados",
   },
   {
-    number: "10+ ",
-    label: "clientes ativos",
+    number: "300+ ",
+    label: "móveis, objetos e obras selecionados",
   },
   {
-    number: "1M+ ",
-    label: "de visitas todos os meses",
+    number: "25+ ",
+    label: "ambientes residenciais transformados",
   },
 ];
 
@@ -44,7 +44,7 @@ const StudioNumbers = () => {
       <div className="w-full flex max-lg:flex-col max-lg:px-5">
         <div className="flex-1 size-fit flex items-center gap-4 max-lg:mb-15">
           <span className="triangle-s" />
-          <p className="text-chivo-s-14 text-end">MÉTRICAS</p>
+          <p className="text-chivo-s-14 text-end">RECONHECIMENTO</p>
         </div>
         <div className="flex-1 flex flex-col ">
           {numbers.map((item, i) => (

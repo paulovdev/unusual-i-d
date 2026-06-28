@@ -134,15 +134,18 @@ const StudioTeam = ({ lenis }) => {
 
   return (
     <>
-      <section id="about" className="relative px-15 max-lg:px-5" ref={ref}>
-        <div className="my-15 w-full h-px bg-p/15" />
+      <section
+        id="about"
+        className="relative mt-15 px-15 max-lg:px-5"
+        ref={ref}
+      >
         <div
           className="mb-10 flex items-center justify-between gap-10 select-none"
           ref={ref}
         >
           <div className="size-fit flex items-center gap-4">
             <span className="triangle-p" />
-            <p className="text-chivo-p-14 text-end">nosso time</p>
+            <p className="text-chivo-p-14 text-end">Nossos gênios</p>
           </div>
           <div className="flex items-center gap-5">
             <motion.button

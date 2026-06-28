@@ -1,4 +1,3 @@
-import TextAnimated from "@/components/ui/text-animated";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 
@@ -7,6 +6,8 @@ import { HiOutlineCodeBracketSquare } from "react-icons/hi2";
 import { PiShapesBold } from "react-icons/pi";
 import { RiSparkling2Line } from "react-icons/ri";
 import { MdOutlineAnimation } from "react-icons/md";
+
+import { LuLampCeiling, LuRuler, LuSofa, LuPanelTop } from "react-icons/lu";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -35,7 +36,7 @@ const StudioWhatWeDo = () => {
         </div>
 
         <div className="pt-10 flex flex-col items-center justify-center gap-10">
-          {[`NOSSOS SERVIÇOS`].map((phrases, i) => (
+          {[`NOSSAS ESPECIALIDADES`].map((phrases, i) => (
             <div className="mb-4 h-fit overflow-hidden" key={i}>
               <motion.h2
                 variants={textSlide}
@@ -65,31 +66,30 @@ const StudioWhatWeDo = () => {
             {/* 01 */}
             <div
               className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
-              max-lg:min-h-100"
+  max-lg:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                <PiShapesBold className="text-p text-[24px]" />
+                <LuRuler className="text-p text-[24px]" />
               </div>
+
               <div className="flex flex-col items-start">
                 <p className="mb-15 text-chivo-s-14 text-end">
-                  identidade visual
+                  arquitetura de interiores
                 </p>
 
-                {[
-                  `Criamos sistemas visuais, tipografia, grids e direções criativas para marcas digitais e físicas.`,
-                ].map((phrases, i) => (
-                  <div className="mb-4 h-fit overflow-hidden">
-                    <motion.h2
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView && "animate"}
-                      custom={0.5 + 0.15 * i}
-                      className="paragraph-n text-s/75 font-normal"
-                    >
-                      {phrases}
-                    </motion.h2>
-                  </div>
-                ))}
+                <div className="mb-4 h-fit overflow-hidden">
+                  <motion.h2
+                    variants={textSlide}
+                    initial="initial"
+                    animate={inView && "animate"}
+                    custom={0.5}
+                    className="paragraph-n text-s/75 font-normal"
+                  >
+                    Desenvolvemos layouts, fluxos espaciais e detalhes
+                    arquitetônicos que definem como cada ambiente funciona e é
+                    vivido.
+                  </motion.h2>
+                </div>
               </div>
             </div>
 
@@ -106,38 +106,29 @@ const StudioWhatWeDo = () => {
                 delay: 0.2,
               }}
               className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
-              max-lg:min-h-100"
+  max-lg:min-h-100"
             >
-              <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                  <TbBrandFigma className="text-[24px]" />
-                </div>
-
-                <span className="font-azeret text-[24px] text-s">+</span>
-
-                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                  <RiSparkling2Line className="text-[24px]" />
-                </div>
+              <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
+                <LuPanelTop className="text-p text-[24px]" />
               </div>
+
               <div className="flex flex-col items-start">
                 <p className="mb-15 text-chivo-s-14 text-end">
-                  direção criativa
+                  design de interiores
                 </p>
-                {[
-                  `Construímos narrativas visuais, campanhas, conceitos e linguagens para produtos e experiências.`,
-                ].map((phrases, i) => (
-                  <div className="mb-4 h-fit overflow-hidden">
-                    <motion.h2
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView && "animate"}
-                      custom={0.5 + 0.15 * i}
-                      className="paragraph-n text-s/75 font-normal"
-                    >
-                      {phrases}
-                    </motion.h2>
-                  </div>
-                ))}
+
+                <div className="mb-4 h-fit overflow-hidden">
+                  <motion.h2
+                    variants={textSlide}
+                    initial="initial"
+                    animate={inView && "animate"}
+                    custom={0.6}
+                    className="paragraph-n text-s/75 font-normal"
+                  >
+                    Criamos interiores completos com equilíbrio entre materiais,
+                    iluminação, proporção e uma linguagem estética atemporal.
+                  </motion.h2>
+                </div>
               </div>
             </motion.div>
 
@@ -154,40 +145,29 @@ const StudioWhatWeDo = () => {
                 delay: 0.3,
               }}
               className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm 
-              flex flex-col itemsmax-lg:min-h-100-start justify-between gap-5 max-lg:min-h-100
-              "
+  flex flex-col items-start justify-between gap-5 max-lg:min-h-100"
             >
-              <div className="mb-2 flex items-center gap-5 text-p">
-                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                  <MdOutlineAnimation className="text-[24px]" />
-                </div>
-
-                <span className="font-azeret text-[24px] text-s">+</span>
-
-                <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                  <PiShapesBold className="text-[24px]" />
-                </div>
+              <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
+                <LuSofa className="text-p text-[24px]" />
               </div>
 
               <div className="flex flex-col items-start">
                 <p className="mb-15 text-chivo-s-14 text-end">
-                  motion & experiências
+                  mobiliário & curadoria
                 </p>
-                {[
-                  `Exploramos movimento, ritmo e interação para transformar interfaces em experiências visuais imersivas.`,
-                ].map((phrases, i) => (
-                  <div className="mb-4 h-fit overflow-hidden">
-                    <motion.h2
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView && "animate"}
-                      custom={0.5 + 0.15 * i}
-                      className="paragraph-n text-s/75 font-normal"
-                    >
-                      {phrases}
-                    </motion.h2>
-                  </div>
-                ))}
+
+                <div className="mb-4 h-fit overflow-hidden">
+                  <motion.h2
+                    variants={textSlide}
+                    initial="initial"
+                    animate={inView && "animate"}
+                    custom={0.7}
+                    className="paragraph-n text-s/75 font-normal"
+                  >
+                    Selecionamos móveis, obras de arte, objetos e materiais que
+                    reforçam a identidade e atmosfera de cada residência.
+                  </motion.h2>
+                </div>
               </div>
             </motion.div>
 
@@ -204,32 +184,29 @@ const StudioWhatWeDo = () => {
                 delay: 0.4,
               }}
               className="min-h-125 p-5 pt-10 bg-bg-p-2 rounded-sm flex flex-col items-start justify-between gap-5 
-              max-lg:min-h-100"
+  max-lg:min-h-100"
             >
               <div className="mb-2 p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
-                <HiOutlineCodeBracketSquare className="text-p text-[24px]" />
+                <LuLampCeiling className="text-p text-[24px]" />
               </div>
 
               <div className="flex flex-col items-start">
                 <p className="mb-15 text-chivo-s-14 text-end">
-                  experiências digitais
+                  iluminação & atmosfera
                 </p>
 
-                {[
-                  `Desenvolvemos websites e experiências interativas com foco em performance, narrativa e presença visual.`,
-                ].map((phrases, i) => (
-                  <div className="mb-4 h-fit overflow-hidden">
-                    <motion.h2
-                      variants={textSlide}
-                      initial="initial"
-                      animate={inView && "animate"}
-                      custom={0.5 + 0.15 * i}
-                      className="paragraph-n text-s/75 font-normal"
-                    >
-                      {phrases}
-                    </motion.h2>
-                  </div>
-                ))}
+                <div className="mb-4 h-fit overflow-hidden">
+                  <motion.h2
+                    variants={textSlide}
+                    initial="initial"
+                    animate={inView && "animate"}
+                    custom={0.8}
+                    className="paragraph-n text-s/75 font-normal"
+                  >
+                    Criamos ambientes onde luz, textura e materiais trabalham
+                    juntos para construir experiências sensoriais e acolhedoras.
+                  </motion.h2>
+                </div>
               </div>
             </motion.div>
           </motion.div>

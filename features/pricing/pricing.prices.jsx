@@ -18,45 +18,50 @@ const textSlide = {
 
 const plans = [
   {
-    label: "THE STARTER",
-    title: "Site",
-    price: "R$ 8K",
-    description: "Para marcas que precisam de uma presença digital sólida.",
+    label: "INTERIOR CONSULTATION",
+    title: "Consultoria",
+    price: "Sob consulta",
+    description:
+      "Para clientes que buscam orientação especializada em materiais, layout e decisões de design.",
     items: [
-      "Design personalizado",
-      "Desenvolvimento frontend",
-      "Animações e micro interações",
-      "Performance otimizada",
+      "Análise do espaço existente",
+      "Direção de materiais e acabamentos",
+      "Recomendações de mobiliário",
+      "Orientação estética do projeto",
     ],
-    footer: "Projetos institucionais e landing pages",
+    footer: "Ideal para ambientes pontuais e refinamentos",
     dark: false,
   },
+
   {
-    label: "THE COMPLETE",
-    title: "Brand + Site",
-    price: "R$ 15K",
-    description: "Uma experiência completa de marca no digital.",
+    label: "FULL INTERIOR DESIGN",
+    title: "Completo",
+    price: "Sob consulta",
+    description:
+      "Uma abordagem completa para transformar uma residência através de arquitetura interior, materiais e curadoria.",
     items: [
-      "Identidade visual",
-      "Design system",
-      "Motion language",
-      "Website completo",
+      "Planejamento espacial",
+      "Conceito e direção de interiores",
+      "Seleção de materiais e mobiliário",
+      "Acompanhamento de execução",
     ],
-    footer: "Marcas buscando uma presença memorável",
+    footer: "Projetos residenciais completos",
     dark: true,
   },
+
   {
-    label: "THE CUSTOM",
-    title: "Sob medida",
-    price: "Consultar",
-    description: "Projetos maiores e experiências personalizadas.",
+    label: "BESPOKE PROJECT",
+    title: "Personalizado",
+    price: "Sob consulta",
+    description:
+      "Projetos exclusivos desenvolvidos para residências com necessidades específicas e alto nível de personalização.",
     items: [
-      "Plataformas digitais",
-      "Campanhas especiais",
-      "Experiências 3D",
-      "Direção criativa",
+      "Arquitetura de interiores",
+      "Marcenaria personalizada",
+      "Curadoria de arte e objetos",
+      "Coordenação completa",
     ],
-    footer: "Projetos especiais e colaborações",
+    footer: "Residências privadas e projetos especiais",
     dark: false,
   },
 ];
@@ -171,7 +176,7 @@ const PricingPrices = () => {
                     className="text-chivo-n-14
               group-hover:text-s transition-colors duration-500"
                   >
-                    iniciar projeto
+                    solicitar proposta
                   </span>
                 </motion.button>
               </div>

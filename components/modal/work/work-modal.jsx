@@ -86,7 +86,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
       <motion.div
         className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
         bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-        max-lg:h-dvh max-lg:p-5 max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
         will-change-auto"
         ref={container}
         variants={menuAnim}
@@ -191,14 +191,10 @@ const WorkModalContent = ({ work }) => {
   };
 
   return (
-    <div className="size-full  flex flex-col items-end justify-between max-lg:gap-5">
+    <div className="size-full flex flex-col items-end justify-between max-lg:gap-5">
       <div className="w-full flex flex-col max-lg:mb-5">
-        <div className="mt-25 h-fit overflow-hidden max-lg:mb-5">
-          <div className="mb-4 items-center gap-4 max-lg:flex hidden">
-            <p className="text-chivo-p-14">{work.category}</p>
-            <span className="relative -top-px text-chivo-p-14">/</span>
-            <p className="text-chivo-p-14">{work.year}</p>
-          </div>
+        <div className="mt-25 h-fit overflow-hidden max-lg:mt-20 max-lg:mb-5">
+          <p className="mb-4 text-chivo-p-14">{work.year}</p>
           <motion.h2
             variants={textSlide}
             initial="initial"
@@ -212,37 +208,39 @@ const WorkModalContent = ({ work }) => {
         </div>
 
         <div className="mt-10 w-full h-px bg-p/15 max-lg:mt-0"></div>
-        <div className="mt-5 w-full min-h-5 flex items-start justify-between max-lg:mt-5 max-lg:min-h-5">
-          <p className="flex-1 text-chivo-p-14 max-lg:hidden">{work.year}</p>
-          {/*  */}
-          <p className="flex-1 text-chivo-p-14 max-lg:hidden">
-            {work.category}
-          </p>
-          {/*  */}
-          <div className="flex-1 flex flex-col items-start justify-center gap-4">
-            {work.services.map((item, i) => (
-              <div className="flex items-center gap-4 max-lg:gap-5" key={i}>
-                <span className="relative -top-px size-2.5 bg-p rotate-45 max-lg:left-1" />
-                <p className="text-chivo-p-14 truncate">
-                  {serviceLabels[item]}
-                </p>
-              </div>
-            ))}
+        <div className="mt-10 max-w-200 w-full flex items-start gap-10">
+          <div className="flex-1 flex flex-col items-start gap-3">
+            <p className="text-chivo-n-14 text-p/75">Área</p>
+            <p className="text-chivo-p-14">{work.size}</p>
           </div>
-          {/*  */}
-          <TextLink bgColor="bg-p" className="relative -top-2.5 ">
-            <a
-              target="_blank"
-              href={"https://instagram.com/" + work.client}
-              className="text-end text-chivo-n-14 text-p group-hover:text-s
-              transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
-            >
-              {work.client}
-            </a>
-          </TextLink>
-
-          {/*  */}
+          <div className="flex-1 flex flex-col gap-3 justify-self-end">
+            <p className="text-chivo-n-14 text-p/75">Duração</p>
+            <p className="text-chivo-p-14">{work.duration}</p>
+          </div>
+          <div className="flex-1 flex flex-col items-start gap-3">
+            <p className="text-chivo-n-14 text-p/75">Conclusão</p>
+            <p className="text-chivo-p-14">{work.conclusion}</p>
+          </div>
         </div>
+
+        {/*  */}
+
+        <div className="mt-10 max-w-200 w-full flex items-start gap-10">
+          <div className="flex-2 flex flex-col gap-3">
+            <p className="text-chivo-n-14 text-p/75">Escopo</p>
+            <p className="text-chivo-p-14">{work.scope}</p>
+          </div>
+          <div className="flex-2 flex flex-col gap-3">
+            <p className="text-chivo-n-14 text-p/75">Localização</p>
+            <p className="text-chivo-p-14">{work.location}</p>
+          </div>
+          <div className="flex-2 flex flex-col gap-3 justify-self-end">
+            <p className="text-chivo-n-14 text-p/75">Escopo</p>
+            <p className="text-chivo-p-14">{work.scope}</p>
+          </div>
+        </div>
+
+        <div className="mt-10 max-w-200 w-full flex items-start gap-10"></div>
       </div>
 
       {/* BLOCKS */}
@@ -263,32 +261,37 @@ const WorkModalContent = ({ work }) => {
       </div>
 
       <div className="mt-4 w-full min-h-20 flex items-start justify-between">
-        <TextLink bgColor="bg-p">
-          <a
-            target="_blank"
-            href={work.website}
-            className="text-chivo-n-14 text-p group-hover:text-s
+        <div className="flex-2 flex flex-col gap-3">
+          <p className="text-chivo-n-14 text-p/75">Cliente</p>
+          <TextLink bgColor="bg-p" className="relative -left-1">
+            <a
+              target="_blank"
+              href={"https://instagram.com/" + work.client}
+              className="text-end text-chivo-n-14 text-p group-hover:text-s
               transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
-          >
-            ver ao vivo
-          </a>
-        </TextLink>
-
-        <div className="flex-1 pb-5 flex flex-col items-end justify-center">
-          {work.credits.map((item, i) => (
-            <div className="flex items-center" key={i}>
-              <TextLink bgColor="bg-p">
-                <a
-                  target="_blank"
-                  href={`https://unsplash.com/${item}`}
-                  className="text-chivo-n-14 text-p text-end group-hover:text-s
+            >
+              {work.client}
+            </a>
+          </TextLink>
+        </div>
+        <div className="flex-1 pb-5 flex flex-col gap-3">
+          <p className="text-chivo-n-14 text-p/75">Colaboradores</p>
+          <div className="fflex flex-col items-end justify-center">
+            {work.credits.map((item, i) => (
+              <div className="flex items-center" key={i}>
+                <TextLink bgColor="bg-p">
+                  <a
+                    target="_blank"
+                    href={`https://unsplash.com/${item}`}
+                    className="text-chivo-n-14 text-p text-end group-hover:text-s
               transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                >
-                  {item}
-                </a>
-              </TextLink>
-            </div>
-          ))}
+                  >
+                    {item}
+                  </a>
+                </TextLink>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex-1 mt-2 flex items-end justify-end max-md:hidden">
@@ -329,7 +332,7 @@ const WorkTextBlock = ({ block }) => {
         </div>
       </div>
 
-      <div className="flex-2 flex flex-col">
+      <div className="relative -top-1 flex-2 flex flex-col">
         {(Array.isArray(block.text) ? block.text : [block.text]).map(
           (phrases, i) => (
             <div className="max-w-150 mb-5 h-fit overflow-hidden">

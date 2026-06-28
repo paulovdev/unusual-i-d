@@ -42,7 +42,7 @@ export default function Pricing({ work }) {
               alt=""
               fill
               priority
-              className="object-cover size-full brightness-75 blur-xl"
+              className="object-cover size-full brightness-75 blur-md"
               placeholder="blur"
             />
           </motion.div>

@@ -184,7 +184,7 @@ const HomeWorks = ({ work, lenis }) => {
       <section id="works" className="relative pointer-events-none">
         <div
           className="relative top-0 px-10 flex items-center justify-center 
-          mix-blend-exclusion z-50 max-md:px-0"
+          z-50 max-md:px-0"
         >
           <div className="relative top-15 size-fit flex items-center gap-4 max-md:px-5">
             <span className="triangle-s" />

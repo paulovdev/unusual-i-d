@@ -33,7 +33,7 @@ const PricingIntro = () => {
                 custom={0.25}
                 className="big-text-intro-p text-s"
               >
-                Como definimos o escopo
+                Como estruturamos
               </motion.h2>
             </div>
             <div className="overflow-hidden max-lg:h-fit">
@@ -42,13 +42,13 @@ const PricingIntro = () => {
                 custom={0.5}
                 className="big-text-intro-p text-s"
               >
-                de um projeto
+                cada projeto
               </motion.h2>
             </div>
           </div>
           <div className="max-w-150">
             {[
-              "Três formatos de interação, todos com código personalizado e baseados em movimento.",
+              "Cada residência possui necessidades únicas. O investimento é definido a partir do escopo, escala, materiais e nível de personalização desejado.",
             ].map((phrases, i, arr) => (
               <div
                 key={i}

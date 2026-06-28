@@ -1,5 +1,5 @@
 import Button from "@/components/ui/button";
-
+import reelCover from "@/public/assets/images/reel.jpg";
 import { useInView } from "react-intersection-observer";
 
 import TransitionLink from "@/components/ui/link";
@@ -8,6 +8,7 @@ import { IoMdPlay } from "react-icons/io";
 import { useRef, useState } from "react";
 
 import { ClipText } from "@/components/ui/clip-text";
+import Image from "next/image";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -31,9 +32,9 @@ const HomeAbout = () => {
       className="w-full h-fit flex flex-col items-start px-15 py-15 max-lg:px-5"
       ref={container}
     >
-      <div className="relative w-full max-h-100 flex items-end justify-end">
+      <div className="relative w-full max-h-125 flex items-end justify-end">
         <figure
-          className="relative w-175 h-100 overflow-hidden rounded-sm 
+          className="relative w-200 h-125 overflow-hidden rounded-sm 
           max-md:h-75 max-xsm:h-65"
           onMouseMove={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
@@ -47,13 +48,13 @@ const HomeAbout = () => {
             setMouse({ x: 0, y: 0 });
           }}
         >
-          <video
-            src="/assets/videos/reel.mp4"
-            autoPlay
-            playsInline
-            muted
-            loop
+          <Image
+            src={reelCover}
+            alt=""
+            fill
+            priority
             className="object-cover size-full brightness-75 rounded-sm"
+            placeholder="blur"
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.span
@@ -67,10 +68,10 @@ const HomeAbout = () => {
                 stiffness: 50,
                 damping: 15,
               }}
-              className="size-25 bg-p/25 border border-s/25 
+              className="size-15 bg-p/25 border border-s/25 
               rounded-full flex items-center justify-center backdrop-blur-md"
             >
-              <IoMdPlay className="relative left-1 text-s text-[42px]" />
+              <IoMdPlay className="relative left-0.5 text-s text-[24px]" />
             </motion.span>
           </div>
           <div className="absolute inset-8 flex items-end justify-between max-md:inset-5">
@@ -83,10 +84,10 @@ const HomeAbout = () => {
       <div className="mb-25 flex flex-col items-start ">
         <div className="mb-15 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
-          <p className="text-chivo-p-14">introdução</p>
+          <p className="text-chivo-p-14">NOSSA FILOSOFIA</p>
         </div>
         {[
-          "Design é a arte de organizar as coisas para comunicar com precisão e mudar tudo.",
+          "Atuamos na intersecção entre arquitetura e design de interiores, com foco na longevidade em vez de tendências.",
         ].map((phrases, i) => (
           <ClipText
             key={i}
@@ -105,10 +106,12 @@ const HomeAbout = () => {
         <div className="max-w-150">
           <div className="mb-10 flex items-center gap-4">
             <span className="relative -top-px size-2.5 bg-p rounded-full" />
-            <p className="text-chivo-p-14">um pouco sobre nós</p>
+            <p className="text-chivo-p-14">
+              design atemporal e o artesanato de qualidade.
+            </p>
           </div>
           {[
-            "Somos um estúdio criativo focado em branding, direção visual, motion design e experiências digitais com uma identidade forte e linguagem autoral.",
+            "Cada decisão é baseada no contexto, na integridade dos materiais e em como um espaço é efetivamente vivido, e não apenas em como ele é visto.",
           ].map((phrases, i, arr) => (
             <div
               key={i}
@@ -137,7 +140,7 @@ const HomeAbout = () => {
                 hoverIconColor="text-p"
               />
             </TransitionLink>
-            <p className="text-chivo-p-14">2023 — 2026</p>
+            <p className="text-chivo-p-14">incomum</p>
           </div>
         </div>
       </div>

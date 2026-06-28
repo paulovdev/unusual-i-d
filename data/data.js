@@ -163,58 +163,58 @@ export const team = [
 
 export const awards = [
   {
-    title: "Awwwards",
+    title: "Dezeen Awards",
+    year: "2026",
+    organization: "Dezeen Awards",
+    category: "Residential Interior of the Year",
+    description:
+      "Reconhecimento internacional para projetos residenciais que demonstram excelência em arquitetura interior, materiais e experiência espacial.",
+    result: "Winner",
+  },
+  {
+    title: "Andrew Martin Awards",
     year: "2025",
-    organization: "Awwwards",
-    category: "Site of the Day",
+    organization: "Andrew Martin International Interior Design Awards",
+    category: "Best Residential Furniture & Artwork",
     description:
-      "Reconhecimento internacional concedido a experiências digitais que combinam excelência visual, inovação e performance.",
+      "Premiação global que celebra designers de interiores com abordagem única em mobiliário, arte, composição e identidade visual dos espaços.",
     result: "Winner",
   },
   {
-    title: "CSSDA",
+    title: "European Design Awards",
     year: "2025",
-    organization: "CSSDA",
-    category: "Special Kudos",
+    organization: "European Design Awards",
+    category: "Best Use of Material — Residential",
     description:
-      "Premiação destinada a projetos que se destacam pela qualidade criativa, direção de arte e execução técnica.",
+      "Reconhecimento pela utilização excepcional de materiais, texturas e soluções construtivas aplicadas a interiores residenciais.",
     result: "Winner",
   },
   {
-    title: "FWA",
+    title: "SBID International Design Awards",
     year: "2024",
-    organization: "The FWA",
-    category: "Site of the Day",
+    organization: "Society of British Interior Design",
+    category: "Private Residential",
     description:
-      "Uma das premiações digitais mais respeitadas do mundo, destacando experiências inovadoras e impactantes.",
+      "Premiação dedicada aos melhores projetos de interiores residenciais, destacando criatividade, funcionalidade e execução.",
+    result: "Highly Commended",
+  },
+  {
+    title: "Wallpaper* Design Awards",
+    year: "2023",
+    organization: "Wallpaper*",
+    category: "Interior Design Studio of the Year",
+    description:
+      "Reconhecimento internacional por uma abordagem sofisticada em arquitetura interior, design contemporâneo e criação de espaços atemporais.",
     result: "Winner",
   },
   {
-    title: "Webby",
-    year: "2024",
-    organization: "The Webby Awards",
-    category: "Honoree",
+    title: "House & Garden Top 100",
+    year: "2022",
+    organization: "House & Garden",
+    category: "Heritage Residential Design",
     description:
-      "Reconhecimento concedido aos melhores trabalhos da internet em design, tecnologia e experiência digital.",
-    result: "Honoree",
-  },
-  {
-    title: "RDDA",
-    year: "2023",
-    organization: "Red Dot",
-    category: "Digital Design",
-    description:
-      "Prêmio internacional de design que reconhece projetos com excelência criativa e impacto global.",
+      "Seleção dos principais profissionais de interiores reconhecendo projetos residenciais com atenção à história, proporção e detalhes artesanais.",
     result: "Winner",
-  },
-  {
-    title: "Behance",
-    year: "2023",
-    organization: "Behance",
-    category: "Curated Selection",
-    description:
-      "Projeto selecionado pela equipe editorial do Behance como destaque global na plataforma.",
-    result: "Featured",
   },
 ];
 

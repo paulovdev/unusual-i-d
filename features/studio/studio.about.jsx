@@ -20,30 +20,35 @@ const textSlide = {
 
 const manifesto = [
   {
-    title: "(01) Questionar o comum.",
+    title: "(01) Contexto antes da estética",
     description1: "Tudo começa com a recusa do óbvio.",
     description: [
       "ㅤ",
-      "Procuramos novas perspectivas,",
-      "novas formas de pensar e construir significado.",
+      "Cada interior responde primeiramente à sua arquitetura, ao seu entorno e à forma como será vivido.",
     ],
   },
   {
-    title: "(02) Projetar com intenção.",
+    title: "(02) Restrição em relação ao excesso",
     description1: "Cada detalhe tem uma função.",
     description: [
       "ㅤ",
-      "Nada é adicionado por acaso,",
-      "e nada permanece sem propósito.",
+      "O estúdio valoriza o equilíbrio, a proporção e a clareza dos materiais em detrimento de gestos decorativos ou designs ditados por tendências.",
     ],
   },
   {
-    title: "(03) Criar para permanecer.",
+    title: "(03) Espaços projetados para evoluir",
     description1: "Tendências passam.",
     description: [
       "ㅤ",
-      "O que buscamos são identidades,",
-      "experiências e sistemas duradouros.",
+      "Os interiores são criados pensando na longevidade, permitindo que os materiais, a luz e o uso diário moldem a atmosfera ao longo do tempo.",
+    ],
+  },
+  {
+    title: "(04) Colaboração em todas as etapas",
+    description1: "Tendências passam.",
+    description: [
+      "ㅤ",
+      "Os projetos mais impactantes surgem do diálogo próximo entre clientes, designers, arquitetos e artesãos.",
     ],
   },
 ];
@@ -75,7 +80,7 @@ const StudioAbout = () => {
         </div>
 
         <div className="flex-4">
-          {["INCOMUM® é um estúdio criativo focado em"].map((phrases, i) => (
+          {["Fundado em Londres em 2023, "].map((phrases, i) => (
             <div key={i}>
               <ClipText
                 text={phrases}
@@ -89,9 +94,9 @@ const StudioAbout = () => {
           <div className="mt-20 w-full flex items-end justify-end">
             <div className="w-full max-w-150 max-lg:w-full max-lg:max-w-full">
               {[
-                "Branding, direção visual, motion design e experiências digitais com uma identidade forte linguagem autoral.",
+                "INCOMUM® é um estúdio de arquitetura e design de interiores que cria ambientes residenciais sofisticados no Reino Unido, na Europa e na América do Norte.",
                 " ",
-                "Criamos projetos que transitam entre cultura, estética e tecnologia — transformando conceitos em sistemas visuais vivos, expressivos e reconhecíveis.",
+                "",
               ].map((phrases, i, arr) => (
                 <div
                   key={i}
@@ -120,7 +125,7 @@ const StudioAbout = () => {
         <div className="sticky top-15 flex-2 flex items-center gap-4 max-lg:relative max-lg:mb-25">
           <span className="triangle-p" />
           <p className="text-chivo-p-14 text-end will-change-transform">
-            manifesto
+            Nossos Princípios
           </p>
         </div>
         <div className="flex-4">
