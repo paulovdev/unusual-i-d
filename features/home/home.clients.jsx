@@ -59,6 +59,7 @@ const HomeClients = () => {
           })}
         </motion.div>
       </div>
+      <div className="my-10 w-full h-px bg-p/10"></div>
     </section>
   );
 };

@@ -10,6 +10,7 @@ import { useWorkStore } from "@/store/useWorkStore";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useCallback, useRef, useState } from "react";
 import { MdOutlineCategory } from "react-icons/md";
+import { ClipText } from "@/components/ui/clip-text";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -124,16 +125,18 @@ const WorksGrid = ({ work, index }) => {
                 </p>
               </motion.div>
             </div>
-            <div className="overflow-hidden h-[125px] max-lg:h-fit">
-              <motion.h2
-                initial="initial"
-                animate="animate"
-                variants={textSlide}
-                className="big-text-1-n text-s"
-              >
-                {work.title + "ㅤ"}
-              </motion.h2>
-            </div>
+
+            {[work.title].map((phrases, i) => (
+              <div key={i}>
+                <ClipText
+                  text={phrases}
+                  animate={"animate"}
+                  delay={0.15 * i}
+                  tag="h2"
+                  className="big-text-1-n text-s"
+                />
+              </div>
+            ))}
           </div>
         </figure>
       </motion.div>

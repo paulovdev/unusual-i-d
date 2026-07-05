@@ -80,7 +80,7 @@ const HomeAbout = () => {
           </div>
         </figure>
       </div>
-      <div className="my-15 w-full h-px bg-p/10"></div>
+      <div className="my-15 w-full h-px bg-p/10" ref={ref}></div>
       <div className="mb-25 flex flex-col items-start ">
         <div className="mb-15 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
@@ -95,14 +95,14 @@ const HomeAbout = () => {
             animate={inView && "animate"}
             delay={0.15 * i}
             className="
-      font-neue font-bold
-      text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
-           leading-none uppercase
+            font-neue font-bold
+          text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+            leading-none uppercase will-change-transform
     "
           />
         ))}
       </div>
-      <div className="relative w-full flex flex-col items-end" ref={ref}>
+      <div className="relative w-full flex flex-col items-end">
         <div className="max-w-150">
           <div className="mb-10 flex items-center gap-4">
             <span className="relative -top-px size-2.5 bg-p rounded-full" />

@@ -13,8 +13,9 @@ import HomeStatement from "./home.statement";
 import HomeClients from "./home.clients";
 
 import Footer from "@/components/layout/footer";
+import HomeArticles from "./home.articles";
 
-const HomeHero = ({ work }) => {
+const HomeHero = ({ work, article }) => {
   const { isReady } = usePageTransition();
   const { isReadyPreLoader } = usePreLoader();
   const lenisRef = useRef(null);
@@ -46,7 +47,7 @@ const HomeHero = ({ work }) => {
             <HomeWorks work={work} lenis={lenisRef} />
             <HomeStatement />
             <HomeClients />
-
+            <HomeArticles article={article} lenis={lenisRef} />
             {/*   <HomeCTA lenis={lenisRef} /> */}
           </motion.main>
           <Footer />

@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 
 import ImageComponent from "@/components/ui/image";
 import WorkModal from "@/components/modal/work/work-modal";
+import { useInView } from "react-intersection-observer";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -31,6 +32,10 @@ const Works = ({
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"],
+  });
+  const { ref, inView } = useInView({
+    threshold: 0.25,
+    triggerOnce: false,
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
@@ -79,6 +84,7 @@ const Works = ({
       }}
     >
       <div
+        ref={ref}
         className="
         absolute inset-0 
         flex items-center justify-center 
@@ -92,7 +98,14 @@ const Works = ({
           }}
         >
           <motion.h2
-            {...textSlide}
+            initial={{ y: "100%" }}
+            animate={{
+              y: inView ? 0 : "100%",
+              transition: {
+                duration: 0.8,
+                ease: [0.33, 1, 0.68, 1],
+              },
+            }}
             custom={0}
             className="
               font-neue font-bold
@@ -134,10 +147,22 @@ const Works = ({
               y,
               scale,
             }}
+            initial={{
+              filter: "brightness(0.5)",
+              filter: "blur(10px)",
+            }}
+            animate={{
+              filter: inView ? "brightness(1)" : "brightness(0.5)",
+              filter: inView ? "blur(0px)" : "blur(10px)",
+            }}
+            transition={{
+              duration: 0.8,
+              ease: [0.33, 1, 0.68, 1],
+            }}
             className="
-              absolute inset-0 
-              h-[130%]
-            "
+    absolute inset-0 
+    h-[130%]
+  "
           >
             <ImageComponent
               image={work.heroMedia.image}

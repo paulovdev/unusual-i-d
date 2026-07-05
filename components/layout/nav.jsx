@@ -190,7 +190,13 @@ const Nav = () => {
   return (
     <>
       <AnimatePresence mode="wait">
-        <nav className="fixed inset-5 flex items-end justify-center z-100 pointer-events-none">
+        <motion.nav
+          className="fixed inset-5 flex items-end justify-center z-100 pointer-events-none"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 25 }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+        >
           <motion.button
             variants={navContainer}
             initial="initial"
@@ -263,7 +269,7 @@ const Nav = () => {
               </div>
             </div>
           </motion.button>
-        </nav>
+        </motion.nav>
       </AnimatePresence>
       <AnimatePresence mode="wait">
         {menu && <Menu pathname={pathname} setMenu={setMenu} mobile={mobile} />}

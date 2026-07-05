@@ -39,7 +39,7 @@
   --color-p: #080807;
   --color-s: #ffffff;
   --color-bg-p: #1a1c1c;
-  --color-bg-p-2: #000000;
+  --color-bg-p-2: #262626;
   --color-bg-s: #f3f0eb;
   --color-bg-s-2: #f5f5f5;
   --color-bg-t: #3d2209;
@@ -89,19 +89,19 @@
 
   .big-text-1-n {
     @apply font-neue font-bold
-    text-[clamp(36px,6vw,90px)] text-start tracking-[-0.05em]
+    text-[clamp(36px,6vw,90px)] text-start tracking-[-0.06em]
     leading-none uppercase;
   }
 
   .big-text-2-n {
     @apply font-neue font-bold
-     text-[clamp(30px,6vw,72px)] text-start tracking-[-0.05em]
+     text-[clamp(30px,6vw,72px)] text-start tracking-[-0.06em]
     leading-none uppercase;
   }
 
   .big-text-3-n {
     @apply font-neue font-bold
-     text-[clamp(30px,6vw,52px)] text-start tracking-[-0.05em]
+     text-[clamp(30px,6vw,52px)] text-start tracking-[-0.06em]
     leading-none uppercase;
   }
 
@@ -155,7 +155,7 @@ body {
   width: 100vw;
   height: 100vh;
   content: "";
-  opacity: 0.01;
+  opacity: 0.025;
   z-index: 1000;
   pointer-events: none;
   background: url("../public/noise.gif");

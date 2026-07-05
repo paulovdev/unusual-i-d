@@ -1,6 +1,7 @@
-import { useRef, useEffect, useState } from "react";
-import bgCover from "@/public/assets/images/home/bg.jpg";
-import bgCover2 from "@/public/assets/images/home/bg1.jpg";
+import { useRef, useEffect } from "react";
+import bgCover1 from "@/public/assets/images/home/bg1.jpg";
+import bgCover2 from "@/public/assets/images/home/bg2.jpg";
+import bgCover3 from "@/public/assets/images/home/bg3.jpg";
 import Image from "next/image";
 
 import {
@@ -13,7 +14,6 @@ import {
 
 import { MdOutlineArrowDownward } from "react-icons/md";
 import { usePreLoader } from "@/store/pageTransition";
-import { ClipText } from "@/components/ui/clip-text";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -41,6 +41,8 @@ const HomeIntro = () => {
     offset: ["start start", "end start"],
   });
 
+  const videoRef = useRef(null);
+
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -56,12 +58,12 @@ const HomeIntro = () => {
       await wait(600);
       await Promise.all([
         animate(
-          ".loader-reveal-2",
+          ".loader-reveal-1",
           {
             clipPath: "inset(0% 0% 0% 0%)",
           },
           {
-            duration: 1.5,
+            duration: 1,
             ease: [0.87, 0, 0.13, 1],
           },
         ),
@@ -79,16 +81,36 @@ const HomeIntro = () => {
       ]);
 
       (await animate(
-        ".loader-reveal",
+        ".loader-reveal-2",
         {
           clipPath: "inset(0% 0% 0% 0%)",
         },
         {
-          duration: 1.5,
+          duration: 1.1,
           ease: [0.87, 0, 0.13, 1],
         },
       ),
-        await wait(600));
+        await animate(
+          ".loader-reveal-3",
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+          },
+          {
+            duration: 1.2,
+            ease: [0.87, 0, 0.13, 1],
+          },
+        ),
+        (await animate(
+          ".loader-reveal",
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+          },
+          {
+            duration: 1.3,
+            ease: [0.87, 0, 0.13, 1],
+          },
+        ),
+        await wait(300)));
 
       await Promise.all([
         animate(
@@ -136,6 +158,7 @@ const HomeIntro = () => {
           },
         ),
         await wait(600),
+        videoRef.current?.play(),
         setReadyPreLoader(true),
       ]);
 
@@ -201,6 +224,30 @@ const HomeIntro = () => {
                   : undefined
               }
             >
+              {/* BG1 */}
+              <motion.div
+                className="
+              loader-reveal-1
+              absolute
+              inset-0 transform-gpu
+            "
+                initial={{
+                  clipPath: hasPlayedPreloader
+                    ? undefined
+                    : "inset(100% 0% 0% 0%)",
+                }}
+              >
+                <Image
+                  src={bgCover1}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover size-full"
+                  placeholder="blur"
+                />
+              </motion.div>
+
+              {/* BG2 */}
               <motion.div
                 className="
               loader-reveal-2
@@ -210,7 +257,7 @@ const HomeIntro = () => {
                 initial={{
                   clipPath: hasPlayedPreloader
                     ? undefined
-                    : "inset(100% 0% 0% 0%)",
+                    : "inset(0% 100% 0% 0%)",
                 }}
               >
                 <Image
@@ -223,6 +270,30 @@ const HomeIntro = () => {
                 />
               </motion.div>
 
+              {/* BG3 */}
+              <motion.div
+                className="
+              loader-reveal-3
+              absolute
+              inset-0 transform-gpu
+            "
+                initial={{
+                  clipPath: hasPlayedPreloader
+                    ? undefined
+                    : "inset(0% 0% 100% 0%)",
+                }}
+              >
+                <Image
+                  src={bgCover3}
+                  alt=""
+                  fill
+                  priority
+                  className="object-cover size-full"
+                  placeholder="blur"
+                />
+              </motion.div>
+
+              {/* VIDEO */}
               <motion.div
                 className="
               loader-reveal
@@ -232,21 +303,13 @@ const HomeIntro = () => {
                 initial={{
                   clipPath: hasPlayedPreloader
                     ? undefined
-                    : "inset(100% 0% 0% 0%)",
+                    : "inset(0% 0% 0% 100%)",
                 }}
               >
-                {/*  <Image
-                  src={bgCover}
-                  alt=""
-                  fill
-                  priority
-                  className="object-cover size-full"
-                  placeholder="blur"
-                /> */}
                 <video
+                  ref={videoRef}
                   src="/assets/videos/bg.mp4"
                   playsInline
-                  autoPlay
                   loop
                   muted
                   className="object-cover size-full"
@@ -289,7 +352,7 @@ const HomeIntro = () => {
 
         <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
-            <div className="mb-2 relative flex items-center">
+            <div className="relative flex items-center">
               <div className="overflow-hidden h-[125px] max-lg:h-fit">
                 <motion.h2
                   initial="initial"
@@ -297,21 +360,22 @@ const HomeIntro = () => {
                   variants={textSlide}
                   className="big-text-intro-p text-s"
                 >
-                  incomum
+                  Maison
                   <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                     ®
                   </span>
                 </motion.h2>
               </div>
             </div>
-            <div className="mt-2 w-[calc(100%-15px)] h-fit overflow-hidden">
+            <div className="w-[calc(100%-15px)] h-fit overflow-hidden">
               <motion.p
                 initial="initial"
                 animate={isReadyPreLoader && "animate"}
                 variants={textSlide}
-                className="relative left-1 text-chivo-s-14 text-start"
+                custom={0.5}
+                className="relative left-1 text-chivo-n-14 text-s/75 text-start"
               >
-                INTERIORES PERSONALIZADOS
+                INTERIORES BESPOKE.
               </motion.p>
             </div>
           </div>
