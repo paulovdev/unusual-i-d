@@ -189,17 +189,17 @@ const WorksList = ({
             scale: hovered === index ? 1.02 : 1,
           }}
         >
-          <div className="h-fit overflow-hidden">
-            <motion.h3
-              variants={textSlide}
-              initial="initial"
-              animate="animate"
-              custom={0.15}
-              className="big-text-2-n text-p"
-            >
-              {work.title}
-            </motion.h3>
-          </div>
+          {[work.title].map((phrases, i) => (
+            <div key={i}>
+              <ClipText
+                text={phrases}
+                animate={"animate"}
+                delay={0.15 * i}
+                tag="h2"
+                className="big-text-2-n text-p"
+              />
+            </div>
+          ))}
         </motion.div>
 
         <motion.div
