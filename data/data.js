@@ -1,14 +1,9 @@
-import team01 from "@/public/assets/images/team/a.jpg";
-import team02 from "@/public/assets/images/team/b.jpg";
-import team03 from "@/public/assets/images/team/c.jpg";
-import team04 from "@/public/assets/images/team/a.jpg";
-import team05 from "@/public/assets/images/team/b.jpg";
-import team06 from "@/public/assets/images/team/c.jpg";
-import team07 from "@/public/assets/images/team/a.jpg";
-import team08 from "@/public/assets/images/team/b.jpg";
-import team09 from "@/public/assets/images/team/c.jpg";
-import team10 from "@/public/assets/images/team/a.jpg";
-import team11 from "@/public/assets/images/team/b.jpg";
+import team01 from "@/public/assets/images/team/img-1.png";
+import team02 from "@/public/assets/images/team/img-2.png";
+import team03 from "@/public/assets/images/team/img-3.png";
+import team04 from "@/public/assets/images/team/img-4.png";
+import team05 from "@/public/assets/images/team/img-5.png";
+import team06 from "@/public/assets/images/team/img-6.png";
 
 import {
   SiNotion,
@@ -41,18 +36,6 @@ export const team = [
   },
   {
     src: team02,
-    name: "Sofia Almeida",
-    role: "Arquiteta de Interiores",
-    bio: [
-      `Desenvolve projetos de interiores residenciais e comerciais com foco em funcionalidade, circulação e conforto espacial.`,
-      `Trabalha na definição de layouts, ergonomia e organização dos ambientes.`,
-    ],
-    email: "sofia@studio.com",
-    instagram: "@sofiainteriores",
-    location: "Lisboa, Portugal",
-  },
-  {
-    src: team03,
     name: "Mateo Ribeiro",
     role: "Designer de Materiais e Acabamentos",
     bio: [
@@ -64,7 +47,7 @@ export const team = [
     location: "Rio de Janeiro, Brasil",
   },
   {
-    src: team04,
+    src: team03,
     name: "Enzo Martins",
     role: "Projetista de Iluminação",
     bio: [
@@ -74,6 +57,18 @@ export const team = [
     email: "enzo@studio.com",
     instagram: "@enzolight",
     location: "São Paulo, Brasil",
+  },
+  {
+    src: team04,
+    name: "Daniel Torres",
+    role: "Visualizador Arquitetônico",
+    bio: [
+      `Cria renders e visualizações de interiores com foco em materiais, luz e atmosfera.`,
+      `Auxilia na validação estética e técnica dos projetos antes da execução.`,
+    ],
+    email: "daniel@studio.com",
+    instagram: "@danielviz",
+    location: "Barcelona, Espanha",
   },
   {
     src: team05,
@@ -89,6 +84,19 @@ export const team = [
   },
   {
     src: team06,
+    name: "Sofia Almeida",
+    role: "Arquiteta de Interiores",
+    bio: [
+      `Desenvolve projetos de interiores residenciais e comerciais com foco em funcionalidade, circulação e conforto espacial.`,
+      `Trabalha na definição de layouts, ergonomia e organização dos ambientes.`,
+    ],
+    email: "sofia@studio.com",
+    instagram: "@sofiainteriores",
+    location: "Lisboa, Portugal",
+  },
+
+  /*   {
+    src: team06,
     name: "Lucas Fernandes",
     role: "Projetista 3D de Interiores",
     bio: [
@@ -99,6 +107,7 @@ export const team = [
     instagram: "@lucas3dinteriores",
     location: "Porto, Portugal",
   },
+
   {
     src: team07,
     name: "Isabella Rocha",
@@ -111,18 +120,7 @@ export const team = [
     instagram: "@isacoord",
     location: "São Paulo, Brasil",
   },
-  {
-    src: team08,
-    name: "Daniel Torres",
-    role: "Visualizador Arquitetônico",
-    bio: [
-      `Cria renders e visualizações de interiores com foco em materiais, luz e atmosfera.`,
-      `Auxilia na validação estética e técnica dos projetos antes da execução.`,
-    ],
-    email: "daniel@studio.com",
-    instagram: "@danielviz",
-    location: "Barcelona, Espanha",
-  },
+
   {
     src: team09,
     name: "Camila Duarte",
@@ -158,7 +156,7 @@ export const team = [
     email: "julia@studio.com",
     instagram: "@juliaconceito",
     location: "Londres, Reino Unido",
-  },
+  }, */
 ];
 
 export const awards = [

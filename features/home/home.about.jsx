@@ -48,14 +48,15 @@ const HomeAbout = () => {
             setMouse({ x: 0, y: 0 });
           }}
         >
-          <Image
-            src={reelCover}
-            alt=""
-            fill
-            priority
+          <video
+            src={"/assets/videos/reel.mp4"}
+            autoPlay
+            playsInline
+            muted
+            loop
             className="object-cover size-full brightness-75 rounded-sm"
-            placeholder="blur"
           />
+
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.span
               animate={{
@@ -68,7 +69,7 @@ const HomeAbout = () => {
                 stiffness: 50,
                 damping: 15,
               }}
-              className="size-15 bg-p/25 border border-s/25 
+              className="size-25 bg-p/10 border border-s/10 
               rounded-full flex items-center justify-center backdrop-blur-md"
             >
               <IoMdPlay className="relative left-0.5 text-s text-[24px]" />

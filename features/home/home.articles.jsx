@@ -18,9 +18,22 @@ const textSlide = {
   }),
 };
 
-const ArticleCard = ({ item, index, inView, onClick }) => {
+const ArticleCard = ({ item, index, inView, onClick, activeArticle }) => {
   return (
-    <motion.div className="cursor-pointer group" onClick={onClick}>
+    <motion.div
+      animate={{
+        clipPath:
+          activeArticle?.item === item.title
+            ? "inset(0% 100% 0% 0%)"
+            : "inset(0% 0% 0% 0%)",
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+      }}
+      onClick={onClick}
+      className="cursor-pointer group"
+    >
       <motion.figure
         initial={{
           clipPath: "inset(0% 100% 0% 0%)",
@@ -33,7 +46,7 @@ const ArticleCard = ({ item, index, inView, onClick }) => {
           delay: index * 0.1,
           ease: [0.76, 0, 0.24, 1],
         }}
-        className="relative w-full h-[50vh] overflow-hidden rounded-sm"
+        className="relative w-full h-[65vh] overflow-hidden rounded-sm"
       >
         <ImageComponent
           image={item.heroMedia.image}
@@ -46,7 +59,7 @@ const ArticleCard = ({ item, index, inView, onClick }) => {
         />
       </motion.figure>
       <p className="mt-5 mb-5 text-chivo-p-14">{item.publishedAt}</p>
-      <div className="max-w-100 overflow-hidden">
+      <div className="max-w-125 overflow-hidden">
         <motion.p
           initial="initial"
           animate={inView && "animate"}
@@ -205,6 +218,7 @@ max-md:min-w-full
                   item={item}
                   index={i}
                   inView={inView}
+                  activeArticle={activeArticle}
                   onClick={() => {
                     setActiveArticle(item);
                   }}

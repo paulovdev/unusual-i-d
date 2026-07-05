@@ -1,8 +1,7 @@
 import { team } from "@/data/data";
 import Image from "next/image";
 import { useState } from "react";
-import { FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "motion/react";
@@ -18,6 +17,66 @@ const textSlide = {
     },
   }),
 };
+
+const TeamCard = ({ item, activeMember, onClick, index, inView }) => {
+  return (
+    <motion.div
+      animate={{
+        clipPath:
+          activeMember?.name === item.name
+            ? "inset(0% 100% 0% 0%)"
+            : "inset(0% 0% 0% 0%)",
+      }}
+      transition={{
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+      }}
+      onClick={onClick}
+      className="cursor-pointer group"
+    >
+      <motion.figure
+        initial={{
+          clipPath: "inset(0% 100% 0% 0%)",
+        }}
+        animate={{
+          clipPath: inView ? "inset(0% 0% 0% 0%)" : "inset(0% 100% 0% 0%)",
+        }}
+        transition={{
+          duration: 0.8,
+          delay: index * 0.1,
+          ease: [0.76, 0, 0.24, 1],
+        }}
+        className="relative w-full h-[65vh] overflow-hidden rounded-sm"
+      >
+        <Image
+          src={item.src}
+          alt={item.name}
+          fill
+          placeholder="blur"
+          className="
+          absolute size-full object-cover brightness-75
+          group-hover:scale-110
+          transition-all duration-500
+          ease-[cubic-bezier(0.76,0,0.24,1)]
+          "
+        />
+      </motion.figure>
+      <p className="mt-5 mb-5 text-chivo-p-14"> {item.role}</p>
+      <div className="max-w-100 overflow-hidden">
+        <motion.p
+          initial="initial"
+          animate={inView && "animate"}
+          variants={textSlide}
+          custom={0.3 + index * 0.1}
+          className="paragraph-p"
+        >
+          {item.name}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+};
+
 const Card = ({ member, activeMember, onClick, index, inView }) => {
   return (
     <motion.div
@@ -64,7 +123,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                 animate={inView && "animate"}
                 variants={textSlide}
                 custom={0.75}
-                className="relative left-1 text-chivo-n-14 text-start text-s/75"
+                className="relative left-1 text-chivo-n-14 text-[12px] text-start text-s/75"
               >
                 {member.role}
               </motion.p>
@@ -75,12 +134,12 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                 animate={inView && "animate"}
                 variants={textSlide}
                 custom={0.5}
-                className="big-text-3-n text-start text-s"
+                className="big-text-3-n text-[42px] text-start text-s"
               >
                 {member.name}
               </motion.p>
             </div>
-            <div className="mt-12 w-[calc(100%+15px)] h-fit overflow-hidden ">
+            {/*  <div className="mt-12 w-[calc(100%+15px)] h-fit overflow-hidden ">
               <motion.div
                 initial="initial"
                 animate={inView && "animate"}
@@ -101,7 +160,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
                   +
                 </span>
               </motion.div>
-            </div>
+            </div> */}
           </div>
         </div>
       </motion.figure>
@@ -113,8 +172,10 @@ const StudioTeam = ({ lenis }) => {
   const [activeMember, setActiveMember] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
 
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
+
   const canGoPrev = startIndex > 0;
+
   const canGoNext = startIndex < team.length - itemsPerPage;
 
   const handleNext = () => {
@@ -145,7 +206,9 @@ const StudioTeam = ({ lenis }) => {
         >
           <div className="size-fit flex items-center gap-4">
             <span className="triangle-p" />
-            <p className="text-chivo-p-14 text-end">Nossos gênios</p>
+            <p className="text-chivo-p-14 text-end">
+              Pessoas por trás da prática
+            </p>
           </div>
           <div className="flex items-center gap-5">
             <motion.button
@@ -205,24 +268,28 @@ const StudioTeam = ({ lenis }) => {
         <div className="overflow-hidden w-full">
           <motion.div
             animate={{
-              x: `-${startIndex * 25}%`,
+              x: `-${startIndex * 33.333}%`,
             }}
             transition={{
               duration: 0.8,
               ease: [0.88, 0, 0.24, 1],
             }}
-            className="flex gap-2"
+            className="
+            flex gap-5
+            "
           >
-            {team.map((member, i) => (
+            {team.map((item, i) => (
               <div
-                key={member.name}
-                className="min-w-[calc(25%-6px)] max-lg:min-w-full"
+                key={item.name}
+                className="min-w-[calc(33.333%-14px)]
+max-lg:min-w-[calc(50%-10px)]
+max-md:min-w-full"
               >
-                <Card
+                <TeamCard
                   index={i}
-                  member={member}
+                  item={item}
                   activeMember={activeMember}
-                  onClick={() => setActiveMember(member)}
+                  onClick={() => setActiveMember(item)}
                   inView={inView}
                 />
               </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import element from "@/public/assets/images/circle.jpg";
+import element from "@/public/assets/images/circle.png";
 import { useInView } from "react-intersection-observer";
-import TextAnimated from "@/components/ui/text-animated";
+
 import { motion } from "motion/react";
 import { ClipText } from "@/components/ui/clip-text";
 
@@ -32,7 +32,7 @@ const HomeStatement = () => {
       <div className="relative w-full flex flex-col items-center">
         <div className="mb-15 flex items-center gap-4">
           <span className="triangle-p" />
-          <p className="text-chivo-p-14 text-end">Design com intenção.</p>
+          <p className="text-chivo-p-14 text-end">NOSSOS PRINCIPAIS SERVIÇOS</p>
         </div>
         <div className="mb-10 h-fit overflow-hidden">
           <motion.h2
@@ -42,11 +42,12 @@ const HomeStatement = () => {
             className="big-text-1-n text-p
         "
           >
-            FEITO PARA DURAR
+            O que oferecemos
           </motion.h2>
         </div>
         {[
-          "Cada projeto nasce da combinação de conceito, narrativa e execução — transformando ideias em sistemas visuais vivos e reconhecíveis.",
+          "O estúdio aborda cada projeto com clareza, sobriedade e atenção aos detalhes.",
+          "Explore abaixo uma seleção de nossos principais serviços.",
         ].map((phrases, i, arr) => (
           <div
             className="max-w-125 h-fit overflow-hidden"
@@ -58,7 +59,7 @@ const HomeStatement = () => {
               animate={inView && "animate"}
               delay={0.5 + 0.15 * i}
               tag="h2"
-              className="max-w-125 paragraph-p text-center"
+              className="max-w-125 paragraph-p leading-[1.05] text-center"
             />
           </div>
         ))}
