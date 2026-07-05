@@ -107,12 +107,12 @@
 
   .paragraph-p {
     @apply font-inter font-medium 
-    text-p text-[clamp(20px,6vw,24px)] tracking-[-0.04em] leading-[1.1]
+    text-p text-[clamp(18px,6vw,24px)] tracking-[-0.04em] leading-[1.2]
     will-change-transform;
   }
   .paragraph-n {
     @apply font-inter font-medium 
-    text-[clamp(20px,6vw,24px)] tracking-[-0.04em] leading-[1.1]
+    text-[clamp(18px,6vw,24px)] tracking-[-0.04em] leading-[1.2]
     will-change-transform;
   }
 
