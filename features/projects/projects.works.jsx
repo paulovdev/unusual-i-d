@@ -620,7 +620,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
       </div>
 
       {layout === "grid" ? (
-        <div className="relative -top-50 grid grid-cols-2 gap-5 px-15 max-lg:grid-cols-1 max-lg:px-5">
+        <div className="relative -top-50 grid grid-cols-2 gap-2.5 px-15 max-lg:grid-cols-1 max-lg:px-5">
           <AnimatePresence mode="wait">
             {filteredWorks.map((item, i) => (
               <WorksGrid key={item.title} work={item} index={i} />

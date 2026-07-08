@@ -8,6 +8,7 @@ import TextAnimated from "@/components/ui/text-animated";
 import ImageComponent from "@/components/ui/image";
 import { FaStarOfLife } from "react-icons/fa";
 import TextLink from "@/components/ui/text-link";
+import { MdOutlineFileDownload } from "react-icons/md";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -206,25 +207,9 @@ const WorkModalContent = ({ work }) => {
             {work.title}
           </motion.h2>
         </div>
-
         <div className="mt-10 w-full h-px bg-p/15 max-lg:mt-0"></div>
-        <div className="mt-10 max-w-200 w-full flex items-start gap-10">
-          <div className="flex-1 flex flex-col items-start gap-3">
-            <p className="text-chivo-n-14 text-p/75">Área</p>
-            <p className="text-chivo-p-14">{work.size}</p>
-          </div>
-          <div className="flex-1 flex flex-col gap-3 justify-self-end">
-            <p className="text-chivo-n-14 text-p/75">Duração</p>
-            <p className="text-chivo-p-14">{work.duration}</p>
-          </div>
-          <div className="flex-1 flex flex-col items-start gap-3">
-            <p className="text-chivo-n-14 text-p/75">Conclusão</p>
-            <p className="text-chivo-p-14">{work.conclusion}</p>
-          </div>
-        </div>
 
         {/*  */}
-
         <div className="mt-10 max-w-200 w-full flex items-start gap-10">
           <div className="flex-2 flex flex-col gap-3">
             <p className="text-chivo-n-14 text-p/75">Escopo</p>
@@ -235,12 +220,52 @@ const WorkModalContent = ({ work }) => {
             <p className="text-chivo-p-14">{work.location}</p>
           </div>
           <div className="flex-2 flex flex-col gap-3 justify-self-end">
-            <p className="text-chivo-n-14 text-p/75">Escopo</p>
-            <p className="text-chivo-p-14">{work.scope}</p>
+            <p className="text-chivo-n-14 text-p/75">Serviços</p>
+            <p className="text-chivo-p-14">{work.services}</p>
+          </div>
+        </div>
+        <figure className="relative mt-15 w-full h-[75vh] overflow-hidden rounded-sm max-lg:h-[60vh] max-lg:mt-5">
+          <ImageComponent
+            image={work.heroMedia.image}
+            className="object-cover brightness-75"
+          />
+        </figure>
+        <div className="mt-10 w-full grid grid-cols-2 gap-5">
+          <div className="w-full flex flex-col items-start gap-5">
+            <div
+              className="w-full h-80 border border-p/25 rounded-md 
+            flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
+            >
+              <span className="mb-2 big-text-intro-p">{work.duration}</span>
+              <span className="text-chivo-n-14 text-p/75">
+                semanas de construção
+              </span>
+            </div>
+          </div>
+          <div className="w-full flex flex-col items-start gap-5">
+            <div
+              className="w-full h-80 border border-p/25 rounded-md 
+            flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
+            >
+              <span className="mb-2 big-text-intro-p">{work.size}</span>
+              <span className="text-chivo-n-14 text-p/75">
+                metros quadrados
+              </span>
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 max-w-200 w-full flex items-start gap-10"></div>
+        <div className="mt-10 w-full flex flex-col items-center gap-5">
+          <div
+            className="w-full h-75 border border-p/25 rounded-md 
+          flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
+          >
+            <span className="mb-2 big-text-intro-p text-p">
+              {work.conclusion}
+            </span>
+            <span className="text-chivo-n-14 text-p/75">Conclusão</span>
+          </div>
+        </div>
       </div>
 
       {/* BLOCKS */}
@@ -257,45 +282,134 @@ const WorkModalContent = ({ work }) => {
               return null;
           }
         })}
-        <div className="mt-15 w-full h-px bg-p/15"></div>
-      </div>
+        <div className="my-15 w-full h-px bg-p/15"></div>
+        <div className="w-full flex items-start max-lg:flex-col">
+          <div className="w-full flex-1 max-lg:mb-10">
+            <div className="flex items-center gap-5">
+              <span className="triangle-p left-1" />
 
-      <div className="mt-4 w-full min-h-20 flex items-start justify-between">
-        <div className="flex-2 flex flex-col gap-3">
-          <p className="text-chivo-n-14 text-p/75">Cliente</p>
-          <TextLink bgColor="bg-p" className="relative -left-1">
-            <a
-              target="_blank"
-              href={"https://instagram.com/" + work.client}
-              className="text-end text-chivo-n-14 text-p group-hover:text-s
-              transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
+              <p className="text-chivo-p-14">download da planta</p>
+            </div>
+          </div>
+
+          <div className="relative -top-1 flex-2 w-full flex flex-col items-start gap-2.5">
+            <motion.button
+              whileTap={{ scale: 1.1 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#f5f5f5",
+              }}
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+            flex items-center justify-between group"
             >
-              {work.client}
-            </a>
-          </TextLink>
-        </div>
-        <div className="flex-1 pb-5 flex flex-col gap-3">
-          <p className="text-chivo-n-14 text-p/75">Colaboradores</p>
-          <div className="fflex flex-col items-end justify-center">
-            {work.credits.map((item, i) => (
-              <div className="flex items-center" key={i}>
-                <TextLink bgColor="bg-p">
-                  <a
-                    target="_blank"
-                    href={`https://unsplash.com/${item}`}
-                    className="text-chivo-n-14 text-p text-end group-hover:text-s
-              transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
-                  >
-                    {item}
-                  </a>
-                </TextLink>
+              <p
+                className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+              >
+                planta interior
+              </p>
+              <div className="flex items-center gap-2 underline underline-offset-2 text-s group-hover:text-p transition-colors duration-500">
+                <MdOutlineFileDownload className="text-s text-[20px] group-hover:text-p transition-colors duration-500" />
+                <p
+                  className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+                >
+                  baixar pdf
+                </p>
               </div>
-            ))}
+            </motion.button>
+
+            <motion.button
+              whileTap={{ scale: 1.1 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#f5f5f5",
+              }}
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+            flex items-center justify-between group"
+            >
+              <p
+                className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+              >
+                planta exterior
+              </p>
+              <div className="flex items-center gap-2 underline underline-offset-2 text-s group-hover:text-p transition-colors duration-500">
+                <MdOutlineFileDownload className="text-s text-[20px] group-hover:text-p transition-colors duration-500" />
+                <p
+                  className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+                >
+                  baixar pdf
+                </p>
+              </div>
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 1.1 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#f5f5f5",
+              }}
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+            flex items-center justify-between group"
+            >
+              <p
+                className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+              >
+                planta iluminação
+              </p>
+              <div className="flex items-center gap-2 underline underline-offset-2 text-s group-hover:text-p transition-colors duration-500">
+                <MdOutlineFileDownload className="text-s text-[20px] group-hover:text-p transition-colors duration-500" />
+                <p
+                  className="text-chivo-n-14 text-s 
+              group-hover:text-p transition-colors duration-500"
+                >
+                  baixar pdf
+                </p>
+              </div>
+            </motion.button>
           </div>
         </div>
 
-        <div className="flex-1 mt-2 flex items-end justify-end max-md:hidden">
-          <FaStarOfLife className=" text-[14px]" />
+        <div className="my-10 w-full h-px bg-p/15"></div>
+        <div className="w-full min-h-20 flex items-start justify-between">
+          <div className="flex-2 flex flex-col gap-3">
+            <p className="text-chivo-n-14 text-p/75">Cliente</p>
+            <TextLink bgColor="bg-p" className="relative -left-1">
+              <a
+                target="_blank"
+                href={"https://instagram.com/" + work.client}
+                className="text-end text-chivo-n-14 text-p group-hover:text-s
+              transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
+              >
+                {work.client}
+              </a>
+            </TextLink>
+          </div>
+          <div className="flex-1 pb-5 flex flex-col gap-3">
+            <p className="text-chivo-n-14 text-p/75">Colaboradores</p>
+            <div className="fflex flex-col items-end justify-center">
+              {work.credits.map((item, i) => (
+                <div className="flex items-center" key={i}>
+                  <TextLink bgColor="bg-p">
+                    <a
+                      target="_blank"
+                      href={`https://unsplash.com/${item}`}
+                      className="text-chivo-n-14 text-p text-end group-hover:text-s
+              transition-colors duration-150 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                    >
+                      {item}
+                    </a>
+                  </TextLink>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex-1 mt-2 flex items-end justify-end max-md:hidden">
+            <FaStarOfLife className=" text-[14px]" />
+          </div>
         </div>
       </div>
     </div>

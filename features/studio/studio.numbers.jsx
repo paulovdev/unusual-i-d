@@ -74,18 +74,18 @@ function CounterNumber({ value, prefix = "", suffix = "", start }) {
 
 const StudioNumbers = () => {
   const { ref, inView } = useInView({
-    threshold: 0,
+    threshold: 0.5,
     triggerOnce: true,
   });
 
   return (
-    <section id="what-we-do" className="px-15 max-lg:px-5" ref={ref}>
-      <div className="mb-5 w-full h-px bg-s/15" />
+    <section id="what-we-do" className="px-15 bg-bg-p max-lg:px-5" ref={ref}>
+      <div className=" my-15 w-full h-px bg-s/15" />
 
       <div className="w-full flex max-lg:flex-col max-lg:px-5">
         <div className="flex-1 size-fit flex items-center gap-4 max-lg:mb-15">
-          <span className="triangle-p" />
-          <p className="text-chivo-p-14 text-end">MÉTRICAS</p>
+          <span className="triangle-s" />
+          <p className="text-chivo-s-14 text-end">MÉTRICAS</p>
         </div>
 
         <div className="flex-1 flex flex-col">
@@ -105,7 +105,7 @@ const StudioNumbers = () => {
                   }}
                   className="
                     font-neue font-bold
-                    text-p text-[clamp(68px,6vw,142px)]
+                    text-s text-[clamp(68px,6vw,142px)]
                     tracking-[-0.05em]
                     leading-none uppercase
                     will-change-transform
@@ -120,7 +120,7 @@ const StudioNumbers = () => {
                 </motion.h2>
               </div>
 
-              <p className="mb-15 text-chivo-p-14 text-start">{item.label}</p>
+              <p className="mb-15 text-chivo-s-14 text-start">{item.label}</p>
             </div>
           ))}
         </div>

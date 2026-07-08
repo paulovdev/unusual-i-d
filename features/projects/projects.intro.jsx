@@ -20,9 +20,9 @@ const ProjectsIntro = ({ work }) => {
   });
 
   return (
-    <section id="about" className="relative h-[65vh] max-lg:h-75" ref={ref}>
+    <section id="about" className="relative h-fit max-lg:h-75" ref={ref}>
       <div
-        className="pb-20 px-15 h-screen w-full flex flex-col items-start justify-center 
+        className="px-15 h-110 w-full flex flex-col items-start justify-center 
         max-lg:px-5 max-lg:justify-start max-lg:pt-40
        "
       >
@@ -51,7 +51,7 @@ const ProjectsIntro = ({ work }) => {
               variants={textSlide}
               className="relative left-1 text-chivo-p-14 text-start"
             >
-              de 2023 a 2026
+              Todo projeto é uma prova de conceito.
             </motion.p>
           </div>
         </div>

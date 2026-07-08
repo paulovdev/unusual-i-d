@@ -61,8 +61,7 @@ const TeamCard = ({ item, activeMember, onClick, index, inView }) => {
           "
         />
       </motion.figure>
-      <p className="mt-5 mb-5 text-chivo-p-14"> {item.role}</p>
-      <div className="max-w-100 overflow-hidden">
+      <div className="mt-5 mb-5 max-w-100 overflow-hidden">
         <motion.p
           initial="initial"
           animate={inView && "animate"}
@@ -73,6 +72,7 @@ const TeamCard = ({ item, activeMember, onClick, index, inView }) => {
           {item.name}
         </motion.p>
       </div>
+      <p className=" text-chivo-n-14 text-p/75">{item.role}</p>
     </motion.div>
   );
 };

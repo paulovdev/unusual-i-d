@@ -40,7 +40,7 @@
   --color-s: #ffffff;
   --color-bg-p: #1a1c1c;
   --color-bg-p-2: #262626;
-  --color-bg-s: #f3f0eb;
+  --color-bg-s: #f4f4ed;
   --color-bg-s-2: #f5f5f5;
   --color-bg-t: #3d2209;
 
@@ -107,12 +107,12 @@
 
   .paragraph-p {
     @apply font-inter font-medium 
-    text-p text-[clamp(18px,6vw,24px)] tracking-[-0.04em] leading-[1.2]
+    text-p text-[clamp(16px,4vw,24px)] tracking-[-0.04em] leading-[1.2]
     will-change-transform;
   }
   .paragraph-n {
     @apply font-inter font-medium 
-    text-[clamp(18px,6vw,24px)] tracking-[-0.04em] leading-[1.2]
+    text-[clamp(16px,4vw,24px)] tracking-[-0.04em] leading-[1.2]
     will-change-transform;
   }
 

@@ -5,6 +5,7 @@ import String from "@/components/ui/string";
 import StudioAbout from "@/features/studio/studio.about";
 import StudioAwards from "@/features/studio/studio.awards";
 import StudioIntro from "@/features/studio/studio.intro";
+import StudioManifesto from "@/features/studio/studio.manifesto";
 import StudioNumbers from "@/features/studio/studio.numbers";
 import StudioTeam from "@/features/studio/studio.team";
 import StudioTestimonials from "@/features/studio/studio.testimonials";
@@ -39,9 +40,8 @@ export default function StudioHero({ work }) {
           <StudioIntro />
           <StudioAbout />
           <StudioWhatWeDo />
-          <StudioNumbers />
+          <StudioManifesto /> <StudioNumbers /> <StudioAwards />
           <StudioTeam lenis={lenisRef} />
-          <StudioAwards />
           <StudioTestimonials />
           <div className="bg-bg-p h-screen w-screen flex items-center  justify-center">
             <String />

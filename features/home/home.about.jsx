@@ -96,7 +96,7 @@ const HomeAbout = () => {
             animate={inView && "animate"}
             delay={0.15 * i}
             className="
-            font-neue font-bold
+            font-neue font-bold 
           text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
             leading-none uppercase will-change-transform
     "

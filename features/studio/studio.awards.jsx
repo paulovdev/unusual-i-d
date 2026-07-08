@@ -1,9 +1,8 @@
- 
 import { useInView } from "react-intersection-observer";
 
 import { motion } from "motion/react";
-import {  useState } from "react";
- 
+import { useState } from "react";
+
 import { awards } from "@/data/data";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -12,7 +11,7 @@ const textSlide = {
   animate: (custom) => ({
     y: "0%",
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: [0.33, 1, 0.68, 1],
       delay: custom,
     },
@@ -25,7 +24,7 @@ const StudioAwards = () => {
     triggerOnce: true,
   });
 
-  const [opened, setOpened] = useState(null);
+  const [opened, setOpened] = useState(0);
 
   const handleToggle = (index) => {
     setOpened(opened === index ? null : index);
@@ -34,14 +33,14 @@ const StudioAwards = () => {
   return (
     <section
       id="about"
-      className="relative my-20 px-15 flex flex-col items-start justify-between max-lg:px-5"
+      className="relative  p-15 bg-bg-p flex flex-col items-start justify-between max-lg:px-5"
       ref={ref}
     >
-      <div className="my-15 w-full h-px bg-p/15" />
+      <div className="my-15 w-full h-px bg-s/10" />
 
       <div className="flex-1 size-fit flex items-center gap-4">
-        <span className="relative -top-px size-2.5 bg-p rotate-45" />
-        <p className="text-chivo-p-14 text-end">prêmios e reconhecimentos</p>
+        <span className="relative -top-px size-2.5 bg-s rotate-45" />
+        <p className="text-chivo-s-14 text-end">prêmios e reconhecimentos</p>
       </div>
       <div className="relative mt-25 w-full">
         <div className="flex flex-col">
@@ -58,7 +57,7 @@ const StudioAwards = () => {
                       initial="initial"
                       animate={inView && "animate"}
                       custom={0.25 + 0.15 * i}
-                      className="text-chivo-p-14 text-start"
+                      className="text-chivo-s-14 text-start"
                     >
                       {item.year}
                     </motion.p>
@@ -70,7 +69,7 @@ const StudioAwards = () => {
                       animate={inView && "animate"}
                       custom={0.5 + 0.15 * i}
                       className="font-neue font-bold
-      text-p text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
+      text-s text-[clamp(40px,6vw,72px)] text-start tracking-[-0.05em]
            leading-none uppercase"
                     >
                       {item.title}
@@ -83,7 +82,7 @@ const StudioAwards = () => {
                     rotate: opened === i ? 45 : 0,
                   }}
                   transition={{
-                    duration: 0.5,
+                    duration: 0.6,
                     ease: [0.76, 0, 0.24, 1],
                   }}
                 >
@@ -92,9 +91,9 @@ const StudioAwards = () => {
                       variants={textSlide}
                       initial="initial"
                       animate={inView && "animate"}
-                      custom={0.5 + 0.15 * i}
+                      custom={0.15 * i}
                     >
-                      <AiOutlinePlus className="text-[42px] text-p max-lg:text-[32px]" />
+                      <AiOutlinePlus className="text-[42px] text-s max-lg:text-[32px]" />
                     </motion.div>
                   </div>
                 </motion.div>
@@ -107,7 +106,7 @@ const StudioAwards = () => {
                   opacity: opened === i ? 1 : 0,
                 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0.6,
                   ease: [0.76, 0, 0.24, 1],
                 }}
                 className="overflow-hidden"
@@ -115,31 +114,31 @@ const StudioAwards = () => {
                 <div className="pt-5 pb-15 pl-20 max-w-[900px] max-lg:pl-0">
                   <div className="grid grid-cols-3 gap-10 mb-15">
                     <div>
-                      <p className="text-chivo-n-14 text-p/50 mb-2">
+                      <p className="text-chivo-n-14 text-s/50 mb-2">
                         Organização
                       </p>
 
-                      <p className="text-chivo-p-14">{item.organization}</p>
+                      <p className="text-chivo-s-14">{item.organization}</p>
                     </div>
 
                     <div>
-                      <p className="text-chivo-n-14 text-p/50 mb-2">
+                      <p className="text-chivo-n-14 text-s/50 mb-2">
                         Categoria
                       </p>
 
-                      <p className="text-chivo-p-14">{item.category}</p>
+                      <p className="text-chivo-s-14">{item.category}</p>
                     </div>
 
                     <div>
-                      <p className="text-chivo-n-14 text-p/50 mb-2">
+                      <p className="text-chivo-n-14 text-s/50 mb-2">
                         Resultado
                       </p>
 
-                      <p className="text-chivo-p-14">{item.result}</p>
+                      <p className="text-chivo-s-14">{item.result}</p>
                     </div>
                   </div>
                   <div className="my-10 w-full h-px bg-p/10"></div>
-                  <p className="max-w-125 paragraph-p max-lg:max-w-full">
+                  <p className="max-w-125 paragraph-n text-s/75 max-lg:max-w-full">
                     {item.description}
                   </p>
                 </div>
