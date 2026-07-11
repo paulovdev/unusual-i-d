@@ -8,7 +8,6 @@ import { IoMdPlay } from "react-icons/io";
 import { useRef, useState } from "react";
 
 import { ClipText } from "@/components/ui/clip-text";
-import Image from "next/image";
 
 const textSlide = {
   initial: { y: "100%" },
@@ -29,12 +28,25 @@ const HomeAbout = () => {
   return (
     <section
       id="about"
-      className="w-full h-fit flex flex-col items-start px-15 py-15 max-lg:px-5"
+      className="pb-55 w-full h-fit flex flex-col items-start p-5"
       ref={container}
     >
       <div className="relative w-full max-h-125 flex items-end justify-end">
-        <figure
-          className="relative w-200 h-125 overflow-hidden rounded-sm 
+        <motion.figure
+          initial={{
+            clipPath: "inset(100% 100% 100% 100%)",
+          }}
+          animate={{
+            clipPath: inView
+              ? "inset(0% 0% 0% 0%)"
+              : "inset(100% 100% 100% 100%)",
+
+            transition: {
+              duration: 1,
+              ease: [0.76, 0, 0.24, 1],
+            },
+          }}
+          className="relative w-200 h-125 overflow-hidden  
           max-md:h-75 max-xsm:h-65"
           onMouseMove={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
@@ -54,7 +66,7 @@ const HomeAbout = () => {
             playsInline
             muted
             loop
-            className="object-cover size-full brightness-75 rounded-sm"
+            className="object-cover size-full brightness-75 "
           />
 
           <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +91,7 @@ const HomeAbout = () => {
             <p className="text-chivo-s-14 text-end">assistir reel</p>
             <p className="text-chivo-s-14 text-end">00:56</p>
           </div>
-        </figure>
+        </motion.figure>
       </div>
       <div className="my-15 w-full h-px bg-p/10" ref={ref}></div>
       <div className="mb-25 flex flex-col items-start ">
@@ -95,9 +107,10 @@ const HomeAbout = () => {
             text={phrases}
             animate={inView && "animate"}
             delay={0.15 * i}
+            indent="175px"
             className="
             font-neue font-bold 
-          text-p text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
+          text-p text-[72px] text-start tracking-[-0.05em]
             leading-none uppercase will-change-transform
     "
           />
@@ -125,7 +138,7 @@ const HomeAbout = () => {
                 animate={inView && "animate"}
                 delay={0.5 + 0.15 * i}
                 tag="h2"
-                className="paragraph-p"
+                className="paragraph-p leading-[1.05]"
               />
             </div>
           ))}

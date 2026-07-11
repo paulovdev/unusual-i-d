@@ -85,9 +85,9 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
+        className="fixed left-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-bg-s backdrop-blur-3xl z-9999
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
         ref={container}
         variants={menuAnim}
@@ -115,7 +115,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 will-change-auto"
+          className="absolute top-5 right-2.5 z-30 will-change-auto"
         >
           <motion.button
             whileTap={{ scale: 1.1 }}
@@ -123,7 +123,7 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
               scale: 1.05,
               backgroundColor: "#f5f5f5",
             }}
-            className="group size-15 rounded-sm 
+            className="group size-15 
             backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
@@ -153,12 +153,12 @@ const WorkModal = ({ work, isOpen, onClose, lenis }) => {
           <WorkModalContent work={work} />
         </motion.div>
 
-        <div className="fixed right-0 top-0 w-full h-2 rounded-t-sm z-30">
+        <div className="fixed right-0 top-0 w-full h-2.5 z-30">
           <motion.div
-            className="absolute left-0 top-0 origin-left w-full h-2 bg-p rounded-tl-sm z-20"
+            className="absolute left-0 top-0 origin-left w-full h-2.5 bg-p  z-20"
             style={{ scaleX }}
           />
-          <div className="absolute left-0 top-0 w-full h-2 bg-[#cdcdcd] rounded-t-sm z-10" />
+          <div className="absolute left-0 top-0 w-full h-2.5 bg-[#cdcdcd]  z-10" />
         </div>
       </motion.div>
 
@@ -212,31 +212,39 @@ const WorkModalContent = ({ work }) => {
         {/*  */}
         <div className="mt-10 max-w-200 w-full flex items-start gap-10">
           <div className="flex-2 flex flex-col gap-3">
-            <p className="text-chivo-n-14 text-p/75">Escopo</p>
+            <p className="text-chivo-n-14 text-p/50">Escopo</p>
             <p className="text-chivo-p-14">{work.scope}</p>
           </div>
           <div className="flex-2 flex flex-col gap-3">
-            <p className="text-chivo-n-14 text-p/75">Localização</p>
+            <p className="text-chivo-n-14 text-p/50">Localização</p>
             <p className="text-chivo-p-14">{work.location}</p>
           </div>
           <div className="flex-2 flex flex-col gap-3 justify-self-end">
-            <p className="text-chivo-n-14 text-p/75">Serviços</p>
-            <p className="text-chivo-p-14">{work.services}</p>
+            <p className="text-chivo-n-14 text-p/50">Serviços</p>
+            {work.services.map((ser, i) => (
+              <p className="text-chivo-p-14">{ser}</p>
+            ))}
           </div>
         </div>
-        <figure className="relative mt-15 w-full h-[75vh] overflow-hidden rounded-sm max-lg:h-[60vh] max-lg:mt-5">
+        <figure className="relative mt-15 w-full h-[75vh] overflow-hidden max-lg:h-[60vh] max-lg:mt-5">
           <ImageComponent
             image={work.heroMedia.image}
             className="object-cover brightness-75"
           />
         </figure>
-        <div className="mt-10 w-full grid grid-cols-2 gap-5">
+        <div className="mt-2.5 w-full grid grid-cols-2 gap-2.5">
           <div className="w-full flex flex-col items-start gap-5">
             <div
-              className="w-full h-80 border border-p/25 rounded-md 
+              className="w-full h-80 border border-p/25 
             flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
             >
-              <span className="mb-2 big-text-intro-p">{work.duration}</span>
+              <span
+                className="mb-10 font-inter font-bold
+                              text-p text-[72px] tracking-[-0.05em]
+                              leading-none uppercase"
+              >
+                {work.duration}
+              </span>
               <span className="text-chivo-n-14 text-p/75">
                 semanas de construção
               </span>
@@ -244,10 +252,16 @@ const WorkModalContent = ({ work }) => {
           </div>
           <div className="w-full flex flex-col items-start gap-5">
             <div
-              className="w-full h-80 border border-p/25 rounded-md 
+              className="w-full h-80 border border-p/25 
             flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
             >
-              <span className="mb-2 big-text-intro-p">{work.size}</span>
+              <span
+                className="mb-10 font-inter font-bold
+                              text-p text-[72px] tracking-[-0.05em]
+                              leading-none uppercase"
+              >
+                {work.size}
+              </span>
               <span className="text-chivo-n-14 text-p/75">
                 metros quadrados
               </span>
@@ -255,12 +269,16 @@ const WorkModalContent = ({ work }) => {
           </div>
         </div>
 
-        <div className="mt-10 w-full flex flex-col items-center gap-5">
+        <div className="mt-2.5 w-full flex flex-col items-center gap-5">
           <div
-            className="w-full h-75 border border-p/25 rounded-md 
+            className="w-full h-75 border border-p/25 
           flex flex-col items-center justify-center max-lg:h-60 max-md:h-50"
           >
-            <span className="mb-2 big-text-intro-p text-p">
+            <span
+              className="mb-10 font-inter font-bold
+                              text-p text-[72px] tracking-[-0.05em]
+                              leading-none uppercase"
+            >
               {work.conclusion}
             </span>
             <span className="text-chivo-n-14 text-p/75">Conclusão</span>
@@ -299,7 +317,7 @@ const WorkModalContent = ({ work }) => {
                 scale: 1.05,
                 backgroundColor: "#f5f5f5",
               }}
-              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl 
             flex items-center justify-between group"
             >
               <p
@@ -325,7 +343,7 @@ const WorkModalContent = ({ work }) => {
                 scale: 1.05,
                 backgroundColor: "#f5f5f5",
               }}
-              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl 
             flex items-center justify-between group"
             >
               <p
@@ -350,7 +368,7 @@ const WorkModalContent = ({ work }) => {
                 scale: 1.05,
                 backgroundColor: "#f5f5f5",
               }}
-              className="h-15 px-5 w-full bg-p backdrop-blur-2xl rounded-sm 
+              className="h-15 px-5 w-full bg-p backdrop-blur-2xl 
             flex items-center justify-between group"
             >
               <p
@@ -420,7 +438,7 @@ const WorkImageBlock = ({ block }) => {
   if (!block?.image?.asset?.url) return null;
 
   return (
-    <figure className="relative mt-15 w-full h-[75vh] overflow-hidden rounded-sm max-lg:h-[40vh] max-lg:mt-5">
+    <figure className="relative mt-2.5 w-full h-[75vh] overflow-hidden max-lg:h-[40vh] max-lg:mt-5">
       <ImageComponent
         image={block.image}
         className="object-cover brightness-75"

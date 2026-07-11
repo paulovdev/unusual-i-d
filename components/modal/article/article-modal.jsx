@@ -72,9 +72,9 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
+        className="fixed left-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-bg-s backdrop-blur-3xl z-9999
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
         ref={container}
         variants={menuAnim}
@@ -102,7 +102,7 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 will-change-auto"
+          className="absolute top-5 right-2.5 z-30 will-change-auto"
         >
           <motion.button
             whileTap={{ scale: 1.1 }}
@@ -110,7 +110,7 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
               scale: 1.05,
               backgroundColor: "#f5f5f5",
             }}
-            className="group size-15 rounded-sm 
+            className="group size-15 
             backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
@@ -196,13 +196,13 @@ const ArticleModalContent = ({ article }) => {
             <p className="text-chivo-p-14">{article.credits}</p>
           </div>
         </div>
-        <figure className="relative mt-15 w-full h-[75vh] overflow-hidden rounded-sm max-lg:h-[40vh] max-lg:mt-5">
+        <figure className="relative mt-15 w-full h-[75vh] overflow-hidden max-lg:h-[40vh] max-lg:mt-5">
           <ImageComponent
             image={article.heroMedia.image}
             className="object-cover brightness-75"
           />
         </figure>
-        <div className="mt-10 max-w-200 w-full flex items-start gap-10"></div>
+        <div className="mt-5 max-w-200 w-full flex items-start gap-10"></div>
       </div>
 
       {/* BLOCKS */}

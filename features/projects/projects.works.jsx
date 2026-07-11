@@ -80,7 +80,7 @@ const WorksGrid = ({ work, index }) => {
         ease: [0.76, 0, 0.24, 1],
         delay: 0.035 * index,
       }}
-      className={`${index === 0 ? "col-span-2 max-lg:col-span-2" : "max-lg:col-span-2"}`}
+      className={`${index === 0 ? "col-span-1" : "max-lg:col-span-2"}`}
     >
       <motion.div
         animate={{
@@ -91,52 +91,49 @@ const WorksGrid = ({ work, index }) => {
         }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
         className="
-          relative h-[calc(100vh-100px)] w-full cursor-pointer 
+          relative h-screen w-full cursor-pointer 
           max-lg:max-h-150 max-md:max-h-100"
         onClick={() => setActiveWork(work)}
       >
-        <figure className="absolute inset-0 size-full overflow-hidden rounded-sm group">
+        <figure className="absolute inset-0 size-full overflow-hidden  group">
           <ImageComponent
             image={work.heroMedia.image}
-            className="size-full rounded-sm object-cover brightness-75 group-hover:scale-110
+            className="size-full  object-cover brightness-75 group-hover:scale-110
            transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
           />
 
-          <div
-            className="absolute inset-0 z-10 size-full 
-          p-10 max-lg:p-5"
-          >
-            <div className="mb-10 h-[16px] overflow-hidden">
-              <motion.div
-                initial="initial"
-                animate="animate"
-                custom={0.25}
-                variants={textSlide}
-                className="mb-10 flex items-center justify-between"
-              >
-                <div className="flex items-center gap-5">
-                  <span className="triangle-s left-1" />
-
-                  <p className="text-chivo-s-14">{work.mark}</p>
+          <div className="absolute  inset-5 flex items-center justify-start z-10">
+            <div className="w-full flex items-center justify-between">
+              {[work.title].map((phrases, i) => (
+                <div key={i}>
+                  <ClipText
+                    text={phrases}
+                    animate={"animate"}
+                    delay={0.15 * i}
+                    tag="h2"
+                    className="font-neue text-[42px] text-s font-bold tracking-[-0.05em] leading-none uppercase"
+                  />
                 </div>
+              ))}
 
-                <p className="text-chivo-s-14">
-                  {work.category} / {work.year}
-                </p>
-              </motion.div>
-            </div>
+              <div className="h-[16px] overflow-hidden">
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  custom={0.25}
+                  variants={textSlide}
+                  className="mb-10 flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-5">
+                    <span className="triangle-s left-1" />
 
-            {[work.title].map((phrases, i) => (
-              <div key={i}>
-                <ClipText
-                  text={phrases}
-                  animate={"animate"}
-                  delay={0.15 * i}
-                  tag="h2"
-                  className="big-text-1-n text-s"
-                />
+                    <p className="text-chivo-s-14">{work.mark}</p>
+                  </div>
+
+                  <p className="text-chivo-s-14">{work.category}</p>
+                </motion.div>
               </div>
-            ))}
+            </div>
           </div>
         </figure>
       </motion.div>
@@ -196,7 +193,7 @@ const WorksList = ({
                 animate={"animate"}
                 delay={0.15 * i}
                 tag="h2"
-                className="big-text-2-n text-p"
+                className="font-neue text-[42px] text-p font-bold tracking-[-0.05em] leading-none uppercase"
               />
             </div>
           ))}
@@ -208,16 +205,20 @@ const WorksList = ({
             opacity: hovered === index || hovered === null ? 1 : 0.4,
           }}
         >
-          <div className="h-fit overflow-hidden">
-            <motion.h3
-              variants={textSlide}
+          <div className="h-[16px] overflow-hidden">
+            <motion.div
               initial="initial"
               animate="animate"
-              custom={0.15}
-              className="big-text-2-n text-p"
+              custom={0.25}
+              variants={textSlide}
+              className="mb-10 flex items-center justify-between"
             >
-              {work.year}
-            </motion.h3>
+              <div className="flex items-center gap-5">
+                <span className="triangle-p left-1" />
+
+                <p className="text-chivo-p-14">{work.mark}</p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>
@@ -278,208 +279,11 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
     <>
       <div
         className="
-    sticky top-0 z-10 mb-50 flex w-full
+    relative top-0 z-10 mb-50 flex w-full
     items-center justify-between
-    bg-bg-s px-15 py-5 max-lg:px-5 
+    bg-bg-s px-5 py-5 max-lg:px-5 
   "
       >
-        {/* MOBILE CATEGORY BUTTON */}
-
-        <motion.button
-          whileTap={{ scale: 1.1 }}
-          whileHover={{
-            scale: 1.05,
-            backgroundColor: "rgba(255,255,255,0.8)",
-          }}
-          onClick={() => setOpenCat(!openCat)}
-          className="
-      shrink-0
-      group size-15 rounded-sm
-      border border-p/10 bg-p backdrop-blur-2xl
-      flex items-center justify-center
-      cursor-pointer
-      lg:hidden
-    "
-        >
-          <MdOutlineCategory
-            className="
-        text-[24px] text-s
-        transition-colors duration-500
-        group-hover:text-p
-      "
-          />
-        </motion.button>
-
-        <AnimatePresence mode="wait">
-          {openCat && (
-            <motion.div
-              initial={{
-                opacity: 0,
-                width: 0,
-              }}
-              animate={{
-                opacity: 1,
-                width: "auto",
-                transition: {
-                  duration: 0.8,
-                  ease: [0.76, 0, 0.24, 1],
-                },
-              }}
-              exit={{
-                opacity: 0,
-                width: 0,
-                transition: {
-                  delay: 0.15,
-                  duration: 0.8,
-                  ease: [0.76, 0, 0.24, 1],
-                },
-              }}
-              className="
-          flex-1
-          ml-5
-          overflow-hidden
-          lg:hidden
-        "
-            >
-              <motion.div
-                initial={{
-                  x: -30,
-                }}
-                animate={{
-                  x: 0,
-                  transition: {
-                    delay: 0.15,
-                    duration: 0.8,
-                    ease: [0.76, 0, 0.24, 1],
-                  },
-                }}
-                exit={{
-                  x: -30,
-                  transition: {
-                    delay: 0.15,
-                    duration: 0.8,
-                    ease: [0.76, 0, 0.24, 1],
-                  },
-                }}
-                className="
-            flex
-            items-center
-            gap-3
-            overflow-x-auto
-            no-scrollbar
-          "
-              >
-                {categories.map((cat, i) => {
-                  const isActive = activeCategory === cat;
-
-                  return (
-                    <motion.button
-                      key={cat}
-                      initial={{
-                        opacity: 0,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        transition: {
-                          delay: 0.15 * i,
-                          duration: 0.8,
-                          ease: [0.76, 0, 0.24, 1],
-                        },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        transition: {
-                          delay: 0.15 * i,
-                          duration: 0.8,
-                          ease: [0.76, 0, 0.24, 1],
-                        },
-                      }}
-                      whileTap={{
-                        scale: 1.05,
-                      }}
-                      onClick={() => setActiveCategory(cat)}
-                      className={`
-                  shrink-0
-                  h-15
-                  px-8
-                  rounded-sm
-                  border border-p/10
-                  cursor-pointer
-
-                  ${isActive ? "bg-p text-s" : "bg-bg-s-2 text-p"}
-                `}
-                    >
-                      <p
-                        className="
-                    text-[14px]
-                    font-medium
-                    uppercase
-                    tracking-[0.05em]
-                    whitespace-nowrap
-                  "
-                      >
-                        {cat === "all" ? "todos" : cat}
-                      </p>
-                    </motion.button>
-                  );
-                })}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div
-          className="
-      flex items-center gap-5
-      max-lg:hidden
-    "
-        >
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat;
-
-            return (
-              <motion.button
-                key={cat}
-                whileTap={{
-                  scale: 1.1,
-                }}
-                whileHover={
-                  !isActive
-                    ? {
-                        scale: 1.05,
-                        backgroundColor: "#000",
-                      }
-                    : {}
-                }
-                animate={{
-                  backgroundColor: isActive ? "#000" : "#f5f5f5",
-                }}
-                onClick={() => setActiveCategory(cat)}
-                className="
-            group
-            px-10
-            h-15
-            rounded-sm
-            cursor-pointer
-          "
-              >
-                <p
-                  className={`
-              text-[14px]
-              font-medium
-              uppercase
-              tracking-[0.05em]
-
-              ${isActive ? "text-s" : "text-p group-hover:text-s"}
-            `}
-                >
-                  {cat === "all" ? "todos" : cat}
-                </p>
-              </motion.button>
-            );
-          })}
-        </div>
-
         <AnimatePresence mode="wait">
           {!openCat && (
             <motion.div
@@ -505,64 +309,12 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   ease: [0.88, 0, 0.24, 1],
                 },
               }}
-              className="
+              className="w-full
           flex
-          items-center
+          items-center justify-between
           gap-2.5
         "
             >
-              {/* LAYOUT */}
-
-              <motion.button
-                whileTap={{
-                  scale: 1.1,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "#f5f5f5",
-                }}
-                onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
-                className="
-            group size-15 rounded-sm
-             bg-p
-            flex items-center justify-center
-            cursor-pointer
-          "
-              >
-                {layout === "grid" ? (
-                  <FiGrid className="text-[24px] text-s group-hover:text-p" />
-                ) : (
-                  <FiList className="text-[24px] text-s group-hover:text-p" />
-                )}
-              </motion.button>
-
-              {/* SEARCH */}
-
-              <motion.button
-                whileTap={{
-                  scale: 1.1,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "#f5f5f5",
-                }}
-                onClick={openSearch}
-                className="
-            group size-15 rounded-sm
-              bg-p
-            flex items-center justify-center
-            cursor-pointer
-          "
-              >
-                <IoIosSearch
-                  className="
-              text-[24px]
-              text-s
-              group-hover:text-p
-            "
-                />
-              </motion.button>
-
               {/* FILTER */}
 
               <motion.button
@@ -576,10 +328,10 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 onClick={openFilters}
                 className="
             relative
-            group size-15 rounded-sm
+            group size-15 
              bg-p
             flex items-center justify-center
-            cursor-pointer
+            cursor-pointer 
           "
               >
                 <IoFilter
@@ -596,7 +348,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 absolute
                 -right-2.5
                 -top-2.5
-                rounded-sm
+                
                
                 bg-bg-s-2
                 p-2
@@ -614,13 +366,67 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                   </div>
                 )}
               </motion.button>
+
+              <div className="flex items-center gap-5">
+                {/* SEARCH */}
+
+                <motion.button
+                  whileTap={{
+                    scale: 1.1,
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#f5f5f5",
+                  }}
+                  onClick={openSearch}
+                  className="
+            group size-15 
+              bg-p
+            flex items-center justify-center
+            cursor-pointer
+          "
+                >
+                  <IoIosSearch
+                    className="
+              text-[24px]
+              text-s
+              group-hover:text-p
+            "
+                  />
+                </motion.button>
+
+                {/* LAYOUT */}
+
+                <motion.button
+                  whileTap={{
+                    scale: 1.1,
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "#f5f5f5",
+                  }}
+                  onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
+                  className="
+            group size-15 
+             bg-p
+            flex items-center justify-center
+            cursor-pointer
+          "
+                >
+                  {layout === "grid" ? (
+                    <FiGrid className="text-[24px] text-s group-hover:text-p" />
+                  ) : (
+                    <FiList className="text-[24px] text-s group-hover:text-p" />
+                  )}
+                </motion.button>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
       {layout === "grid" ? (
-        <div className="relative -top-50 grid grid-cols-2 gap-2.5 px-15 max-lg:grid-cols-1 max-lg:px-5">
+        <div className="relative -top-50 grid grid-cols-2 gap-2.5 px-5 max-lg:grid-cols-1 max-lg:px-5">
           <AnimatePresence mode="wait">
             {filteredWorks.map((item, i) => (
               <WorksGrid key={item.title} work={item} index={i} />
@@ -628,8 +434,8 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
           </AnimatePresence>
         </div>
       ) : (
-        <div className="relative -top-50 px-15 max-lg:px-5">
-          <div className="mb-10 mt-5 h-px w-full bg-p/10" />
+        <div className="relative -top-50 px-5 max-lg:px-5">
+           
 
           <div className="flex flex-col">
             <AnimatePresence mode="wait">
@@ -651,7 +457,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
             {preview && (
               <motion.div
                 style={{ x, y }}
-                className="pointer-events-none rounded-sm fixed top-0 left-0 w-100 h-60 z-30 overflow-hidden will-change-transform -translate-x-1/2 -translate-y-1/2"
+                className="pointer-events-none  fixed top-0 left-0 w-100 h-60 z-30 overflow-hidden will-change-transform -translate-x-1/2 -translate-y-1/2"
                 {...scale}
               >
                 <AnimatePresence mode="sync" initial={false}>
@@ -661,7 +467,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                     initial="initial"
                     animate="animate"
                     exit="exit"
-                    className="absolute inset-0 rounded-sm will-change-transform"
+                    className="absolute inset-0  will-change-transform"
                   >
                     <ImageComponent
                       image={preview.heroMedia.image}

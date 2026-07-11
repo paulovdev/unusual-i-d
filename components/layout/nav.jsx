@@ -78,7 +78,7 @@ const Menu = ({ pathname, setMenu, mobile }) => {
         animate="animate"
         exit="exit"
         className="fixed left-1/2 -translate-x-1/2 bottom-25
-         w-150 bg-p/50 backdrop-blur-2xl rounded-sm z-90 select-none pointer-events-none
+         w-150 bg-p/50 backdrop-blur-2xl  z-90 select-none pointer-events-none
          max-lg:w-[calc(100vw-40px)]"
       >
         <motion.div
@@ -202,7 +202,7 @@ const Nav = () => {
             initial="initial"
             animate={menu ? "animate" : "exit"}
             exit="exit"
-            className="px-6 h-15 bg-p/50 backdrop-blur-2xl rounded-sm 
+            className="px-6 h-15 bg-p/50 backdrop-blur-2xl  
         flex items-center justify-between gap-8 pointer-events-auto
      "
           >

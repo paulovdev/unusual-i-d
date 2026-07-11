@@ -46,7 +46,7 @@ const TeamCard = ({ item, activeMember, onClick, index, inView }) => {
           delay: index * 0.1,
           ease: [0.76, 0, 0.24, 1],
         }}
-        className="relative w-full h-[65vh] overflow-hidden rounded-sm"
+        className="relative w-full h-[65vh] overflow-hidden"
       >
         <Image
           src={item.src}
@@ -67,12 +67,12 @@ const TeamCard = ({ item, activeMember, onClick, index, inView }) => {
           animate={inView && "animate"}
           variants={textSlide}
           custom={0.3 + index * 0.1}
-          className="paragraph-p"
+          className="font-neue font-bold text-[38px] tracking-[-0.05em] leading-none uppercase"
         >
           {item.name}
         </motion.p>
       </div>
-      <p className=" text-chivo-n-14 text-p/75">{item.role}</p>
+      <p className=" text-chivo-n-14 text-p/50">{item.role}</p>
     </motion.div>
   );
 };
@@ -111,7 +111,7 @@ const Card = ({ member, activeMember, onClick, index, inView }) => {
           alt={member.name}
           fill
           placeholder="blur"
-          className="object-cover rounded-sm brightness-75 
+          className="object-cover brightness-75 
           group-hover:scale-110
            transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
         />
@@ -195,11 +195,7 @@ const StudioTeam = ({ lenis }) => {
 
   return (
     <>
-      <section
-        id="about"
-        className="relative mt-15 px-15 max-lg:px-5"
-        ref={ref}
-      >
+      <section id="about" className="relative mt-15 px-5" ref={ref}>
         <div
           className="mb-10 flex items-center justify-between gap-10 select-none"
           ref={ref}
@@ -222,7 +218,7 @@ const StudioTeam = ({ lenis }) => {
                   : {}
               }
               disabled={!canGoPrev}
-              className={`group size-15 rounded-sm 
+              className={`group size-15 
             border border-p/10 backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer
@@ -247,7 +243,7 @@ const StudioTeam = ({ lenis }) => {
                   : {}
               }
               disabled={!canGoNext}
-              className={`group size-15 rounded-sm 
+              className={`group size-15 
             border border-p/10 backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer
@@ -275,13 +271,13 @@ const StudioTeam = ({ lenis }) => {
               ease: [0.88, 0, 0.24, 1],
             }}
             className="
-            flex gap-5
+            flex gap-2.5
             "
           >
             {team.map((item, i) => (
               <div
                 key={item.name}
-                className="min-w-[calc(33.333%-14px)]
+                className="min-w-[calc(33.333%-7px)]
 max-lg:min-w-[calc(50%-10px)]
 max-md:min-w-full"
               >

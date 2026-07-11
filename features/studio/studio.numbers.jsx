@@ -25,22 +25,26 @@ const numbers = [
     number: 75,
     suffix: "+",
     label: "planejamentos espaciais desenvolvidos para residências",
+    bg: "bg-[#101010]",
   },
   {
     number: 180,
     prefix: "£",
     suffix: "M+",
     label: "em projetos residenciais realizados",
+    bg: "bg-[#202020]",
   },
   {
     number: 300,
     suffix: "+",
     label: "móveis, objetos e obras selecionados",
+    bg: "bg-[#303030]",
   },
   {
     number: 25,
     suffix: "+",
     label: "ambientes residenciais transformados",
+    bg: "bg-[#404040]",
   },
 ];
 
@@ -79,22 +83,20 @@ const StudioNumbers = () => {
   });
 
   return (
-    <section id="what-we-do" className="px-15 bg-bg-p max-lg:px-5" ref={ref}>
-      <div className=" my-15 w-full h-px bg-s/15" />
-
-      <div className="w-full flex max-lg:flex-col max-lg:px-5">
-        <div className="flex-1 size-fit flex items-center gap-4 max-lg:mb-15">
+    <section id="what-we-do" className="p-5 py-15 bg-bg-p" ref={ref}>
+      <div className="w-full flex flex-col justify-center  items-center">
+        <div className="mb-25 size-fit flex items-center gap-4 max-lg:mb-15">
           <span className="triangle-s" />
           <p className="text-chivo-s-14 text-end">MÉTRICAS</p>
         </div>
 
-        <div className="flex-1 flex flex-col">
+        <div className="grid grid-cols-2 gap-2.5">
           {numbers.map((item, i) => (
             <div
               key={i}
-              className="border-b border-p/10 flex flex-col items-start"
+              className={`h-125 border border-s/10 ${item.bg} rounded-md flex flex-col justify-center items-center`}
             >
-              <div className="my-4 h-fit overflow-hidden">
+              <div className="h-fit overflow-hidden">
                 <motion.h2
                   initial={{ y: "100%" }}
                   animate={inView ? { y: "0%" } : {}}
@@ -120,7 +122,9 @@ const StudioNumbers = () => {
                 </motion.h2>
               </div>
 
-              <p className="mb-15 text-chivo-s-14 text-start">{item.label}</p>
+              <p className="mt-5 text-chivo-n-14 text-s/75 text-center">
+                {item.label}
+              </p>
             </div>
           ))}
         </div>

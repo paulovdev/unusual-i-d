@@ -22,7 +22,7 @@ const ProjectsIntro = ({ work }) => {
   return (
     <section id="about" className="relative h-fit max-lg:h-75" ref={ref}>
       <div
-        className="px-15 h-110 w-full flex flex-col items-start justify-center 
+        className="pt-40 mb-10 px-5 h-fit w-full flex flex-col items-start justify-center 
         max-lg:px-5 max-lg:justify-start max-lg:pt-40
        "
       >
@@ -49,6 +49,7 @@ const ProjectsIntro = ({ work }) => {
               initial="initial"
               animate="animate"
               variants={textSlide}
+              custom={0.25}
               className="relative left-1 text-chivo-p-14 text-start"
             >
               Todo projeto é uma prova de conceito.

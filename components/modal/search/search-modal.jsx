@@ -97,9 +97,9 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
+        className="fixed right-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-bg-s backdrop-blur-3xl z-9999
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -127,7 +127,7 @@ export const SearchModal = ({ lenis, work }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 group"
+          className="absolute top-2.5 right-2.5 z-30 group"
         >
           <motion.div
             whileTap={{ scale: 1.1 }}
@@ -135,7 +135,7 @@ export const SearchModal = ({ lenis, work }) => {
               scale: 1.05,
               backgroundColor: "#f5f5f5",
             }}
-            className="group size-15 rounded-sm 
+            className="group size-15 
            backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
@@ -158,7 +158,7 @@ export const SearchModal = ({ lenis, work }) => {
             y: 15,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="px-5 size-full overflow-y-scroll"
+          className="size-full overflow-y-scroll"
           ref={scrollRef}
         >
           <div className="mb-15 flex flex-col items-start">
@@ -181,7 +181,7 @@ export const SearchModal = ({ lenis, work }) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="pesquise por projetos..."
-                className="w-full p-5 border border-p/10 rounded-sm outline-none 
+                className="w-full p-5 border border-p/10 outline-none 
                 text-chivo-p-14"
               />
               {query ? (
@@ -204,7 +204,7 @@ export const SearchModal = ({ lenis, work }) => {
 
             <div className="my-10 w-full flex items-start max-lg:flex-col max-lg:gap-5">
               <div className="flex-1">
-                <div className="size-fit flex items-center gap-5 max-lg:mb-0">
+                <div className="relative left-1 size-fit flex items-center gap-4 max-lg:mb-0">
                   <span className="triangle-p" />
 
                   {query === "" ? (
@@ -220,7 +220,7 @@ export const SearchModal = ({ lenis, work }) => {
                   )}
                 </div>
               </div>
-              <div className="flex-[1.25] w-full flex flex-col gap-5">
+              <div className="flex-[1.25] w-full flex flex-col gap-2.5">
                 {suggestions.map((item, i) => (
                   <motion.div
                     key={item.title}
@@ -235,7 +235,7 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-65 overflow-hidden rounded-sm 
+                      className="w-full h-65 overflow-hidden 
                      group max-lg:h-75"
                     >
                       <Image
@@ -248,12 +248,10 @@ export const SearchModal = ({ lenis, work }) => {
                       />
 
                       <div className="absolute left-5 bottom-5">
-                        <p className="mb-2 text-s text-[14px] tracking-[0.05em] leading-none uppercase ">
-                          {item.title}
-                        </p>
+                        <p className="mb-2 text-chivo-s-14">{item.title}</p>
 
-                        <p className="text-s/75 text-[12px] tracking-[0.05em] leading-none uppercase ">
-                          {item.category} / {item.year}
+                        <p className="text-chivo-n-14 text-[12px] text-s/50">
+                          {item.mark}
                         </p>
                       </div>
                     </figure>
@@ -277,7 +275,7 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="h-15 px-10 w-full bg-p  backdrop-blur-2xl rounded-sm 
+            className="h-15 px-10 w-full bg-p  backdrop-blur-2xl 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate

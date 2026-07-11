@@ -34,7 +34,7 @@ const Works = ({
     offset: ["start start", "end start"],
   });
   const { ref, inView } = useInView({
-    threshold: 0.25,
+    threshold: 0.5,
     triggerOnce: false,
   });
 
@@ -86,7 +86,7 @@ const Works = ({
       <div
         ref={ref}
         className="
-        absolute inset-0 
+        absolute inset-5
         flex items-center justify-center 
         z-30
       "
@@ -107,10 +107,10 @@ const Works = ({
               },
             }}
             custom={0}
-            className="
+            className="max-w-250
               font-neue font-bold
-              text-s text-[82px]
-              text-center tracking-[-0.05em]
+              text-s text-[52px]
+               tracking-[-0.05em]
               leading-none uppercase 
               max-lg:text-[52px]
             "
@@ -208,7 +208,7 @@ const HomeWorks = ({ work, lenis }) => {
     <>
       <section id="works" className="relative pointer-events-none">
         <div
-          className="relative top-0 px-10 flex items-center justify-center 
+          className="relative top-0 px-5 flex items-center justify-center 
           z-50 max-md:px-0"
         >
           <div className="relative top-15 size-fit flex items-center gap-4 max-md:px-5">
@@ -220,7 +220,7 @@ const HomeWorks = ({ work, lenis }) => {
         <div className="absolute inset-0 pointer-events-none z-70">
           <div
             className="
-      sticky top-0 h-screen flex items-center justify-end pr-15 pointer-events-none
+      sticky top-0 h-screen flex items-center justify-end pr-5 pointer-events-none
     max-md:top-[calc(100vh-140px)] max-md:items-start max-md:justify-center max-md:pr-0
     "
           >

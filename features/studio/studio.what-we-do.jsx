@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
-
+import wwww from "@/public/assets/images/about/what-we-do/img-1.png";
 import { LuLampCeiling, LuSofa, LuPanelTop, LuRuler } from "react-icons/lu";
 import { ClipText } from "@/components/ui/clip-text";
 import TransitionLink from "@/components/ui/link";
 import Button from "@/components/ui/button";
+import Image from "next/image";
 
 const services = [
   {
@@ -28,7 +29,7 @@ const services = [
     href: "/studio",
     icon: LuPanelTop,
     bg: "bg-[#202020]",
-    top: "top-10",
+    top: "top-5",
     delay: 0.65,
   },
   {
@@ -40,7 +41,7 @@ const services = [
     href: "/studio",
     icon: LuSofa,
     bg: "bg-[#303030]",
-    top: "top-20",
+    top: "top-10",
     delay: 0.8,
     darkButton: true,
   },
@@ -53,7 +54,7 @@ const services = [
     href: "/studio",
     icon: LuLampCeiling,
     bg: "bg-[#404040]",
-    top: "top-30",
+    top: "top-15",
     delay: 0.95,
     darkButton: true,
   },
@@ -79,19 +80,15 @@ const ServiceCard = ({
   return (
     <motion.div
       ref={ref}
-      className={`sticky ${top} h-[80vh] p-10 ${bg} rounded-sm
+      className={`sticky ${top} h-[90vh] p-15 ${bg}
      overflow-hidden
       max-lg:min-h-100`}
     >
-      <div className="absolute top-0 left-0 flex items-center justify-center">
-        <p className="absolute -top-1/2 left-5 text-[25vw] font-neue tracking-[-0.05em] text-s">
-          {id}
-        </p>
-      </div>
+      <div className="absolute top-40 left-40 flex items-center justify-center"></div>
       <div className="size-full flex items-end justify-end">
         <div className="h-full flex flex-col items-start justify-between">
           <div className="w-full flex items-center justify-between">
-            <div className="p-4 rounded-sm border border-s bg-bg-s backdrop-blur-md">
+            <div className="p-4 border border-s bg-bg-s backdrop-blur-md">
               <Icon className="text-p text-[24px]" />
             </div>
           </div>
@@ -132,7 +129,7 @@ const StudioWhatWeDo = () => {
   });
 
   return (
-    <section id="what-we-do" className="px-15 max-lg:px-5" ref={ref}>
+    <section id="what-we-do" className=" " ref={ref}>
       {/*  <div className="flex flex-col items-center justify-center">
        
         <div className="size-fit flex items-center gap-4">
@@ -152,7 +149,7 @@ const StudioWhatWeDo = () => {
           ease: [0.76, 0, 0.24, 1],
           delay: 0.1,
         }}
-        className="h-fit grid grid-cols-1 gap-5 "
+        className="h-fit grid grid-cols-1"
       >
         {services.map((service) => (
           <ServiceCard key={service.id} {...service} />

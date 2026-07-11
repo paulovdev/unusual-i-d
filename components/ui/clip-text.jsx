@@ -14,11 +14,24 @@ const wordReveal = {
   }),
 };
 
-export const ClipText = ({ text, className, delay = 0, animate, children }) => {
+export const ClipText = ({
+  text,
+  className,
+  delay = 0,
+  animate,
+  children,
+  indent = 0,
+}) => {
+  const words = text.split(" ");
+
   return (
     <h2 className={className}>
-      {text.split(" ").map((word, index) => (
-        <span key={index} className="inline-block overflow-hidden mr-[0.25em]">
+      {words.map((word, index) => (
+        <span
+          key={index}
+          className="inline-block overflow-hidden mr-[0.25em]"
+          style={index === 0 ? { marginLeft: indent } : undefined}
+        >
           <motion.span
             variants={wordReveal}
             initial="initial"

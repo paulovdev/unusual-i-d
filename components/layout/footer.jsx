@@ -50,7 +50,7 @@ const Footer = () => {
     <section ref={container} className="relative h-[400vh] select-none">
       <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center overflow-hidden">
         <div
-          className="sticky top-0 p-10 w-full h-screen 
+          className="sticky top-0 p-5 w-full h-screen 
         flex flex-col items-center justify-center gap-5 overflow-hidden z-30 
         max-lg:p-5"
         >
@@ -91,7 +91,7 @@ const Footer = () => {
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full
+                className="absolute p-5 size-full
                 flex flex-col items-start justify-center 
                  max-lg:p-5 pointer-events-auto
            "
@@ -124,7 +124,7 @@ const Footer = () => {
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full 
+                className="absolute p-5 size-full 
                 flex flex-col items-end justify-center max-lg:p-5
                  pointer-events-auto"
               >
@@ -156,7 +156,7 @@ const Footer = () => {
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full flex flex-col items-start justify-start
+                className="absolute p-5 size-full flex flex-col items-start justify-start
                   font-neue font-bold
       text-s text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
            leading-none uppercase max-lg:p-5"
@@ -173,7 +173,7 @@ const Footer = () => {
 
               <motion.div
                 style={{ opacity: itemOpacity }}
-                className="absolute p-10 size-full flex flex-col items-end justify-start
+                className="absolute p-5 size-full flex flex-col items-end justify-start
                   font-neue font-bold
       text-s text-[clamp(40px,6vw,90px)] text-start tracking-[-0.05em]
            leading-none uppercase max-lg:p-5"

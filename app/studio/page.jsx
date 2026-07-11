@@ -38,9 +38,9 @@ export default function StudioHero({ work }) {
       {isReady && (
         <main className="relative bg-bg-s">
           <StudioIntro />
-          <StudioAbout />
-          <StudioWhatWeDo />
-          <StudioManifesto /> <StudioNumbers /> <StudioAwards />
+          <StudioAbout /> <StudioManifesto />
+          <StudioWhatWeDo /> <StudioNumbers />
+          <StudioAwards />
           <StudioTeam lenis={lenisRef} />
           <StudioTestimonials />
           <div className="bg-bg-p h-screen w-screen flex items-center  justify-center">

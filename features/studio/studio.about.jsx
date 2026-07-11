@@ -9,7 +9,7 @@ const StudioAbout = () => {
   });
 
   return (
-    <section id="about" className="relative mt-25 px-15 max-lg:px-5">
+    <section id="about" className="relative mt-25 px-5">
       <div
         ref={aboutRef}
         className="mb-25 flex items-start gap-10 select-none max-lg:flex-col"

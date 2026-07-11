@@ -13,7 +13,7 @@ const HomeClients = () => {
   return (
     <section
       id="clients"
-      className="relative mt-15 px-15 overflow-hidden max-lg:px-5 max-md:mt-0"
+      className="relative mt-15 px-5 overflow-hidden  max-md:mt-0"
     >
       <div className="mb-10 h-4 flex items-center gap-4">
         <span className="triangle-p" />

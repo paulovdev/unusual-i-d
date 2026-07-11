@@ -183,7 +183,7 @@ const HomeIntro = () => {
       ref={container}
     >
       <motion.div
-        className="relative p-10 w-screen h-screen overflow-hidden transform-gpu"
+        className="relative p-5 w-screen h-screen overflow-hidden transform-gpu"
         style={{ y, filter }}
       >
         <div
@@ -210,7 +210,7 @@ const HomeIntro = () => {
             }
           >
             <div
-              className="loader-image relative w-100 h-100 rounded-sm overflow-hidden
+              className="loader-image relative w-100 h-100  overflow-hidden
               max-md:h-75
           "
               style={
@@ -306,14 +306,26 @@ const HomeIntro = () => {
                     : "inset(0% 0% 0% 100%)",
                 }}
               >
-                <video
+                {/*   <video
                   ref={videoRef}
                   src="/assets/videos/bg.mp4"
                   playsInline
                   loop
                   muted
                   className="object-cover size-full"
-                />
+                /> */}
+                <video
+                  ref={videoRef}
+                  playsInline
+                  loop
+                  muted
+                  className="object-cover size-full"
+                >
+                  <source
+                    src="https://bloom-viz.b-cdn.net/Video_calab4k_cler.webm"
+                    type="video/webm"
+                  />
+                </video>
               </motion.div>
             </div>
           </div>
@@ -350,7 +362,7 @@ const HomeIntro = () => {
           </div>
         </div>
 
-        <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
+        <div className="absolute inset-0 p-5 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="relative flex items-center">
               <div className="overflow-hidden h-[125px] max-lg:h-fit">
@@ -360,7 +372,7 @@ const HomeIntro = () => {
                   variants={textSlide}
                   className="big-text-intro-p text-s"
                 >
-                  Maison
+                  BLOOM
                   <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                     ®
                   </span>
@@ -375,13 +387,13 @@ const HomeIntro = () => {
                 custom={0.5}
                 className="relative left-1 text-chivo-n-14 text-s/75 text-start"
               >
-                INTERIORES BESPOKE.
+                Estúdio profissional de renderização 3D
               </motion.p>
             </div>
           </div>
         </div>
         <div
-          className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
+          className="absolute inset-0 p-5 size-full flex items-end justify-end gap-2 
         max-lg:items-end max-lg:justify-center "
         >
           <div className="relative h-fit overflow-hidden max-lg:-top-15">

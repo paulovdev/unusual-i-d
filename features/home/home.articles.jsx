@@ -46,7 +46,7 @@ const ArticleCard = ({ item, index, inView, onClick, activeArticle }) => {
           delay: index * 0.1,
           ease: [0.76, 0, 0.24, 1],
         }}
-        className="relative w-full h-[65vh] overflow-hidden rounded-sm"
+        className="relative w-full h-[65vh] overflow-hidden"
       >
         <ImageComponent
           image={item.heroMedia.image}
@@ -107,9 +107,9 @@ const HomeArticles = ({ article, lenis }) => {
         id="articles"
         ref={ref}
         className="
-        relative py-15 px-15
+        relative py-15 px-5
         overflow-hidden
-        max-lg:px-5
+   
         "
       >
         <div
@@ -137,7 +137,7 @@ const HomeArticles = ({ article, lenis }) => {
               disabled={!canGoPrev}
               onClick={handlePrev}
               className={`
-              size-15 rounded-sm
+              size-15
               border border-p/10
               backdrop-blur-2xl
               flex items-center justify-center
@@ -170,7 +170,7 @@ const HomeArticles = ({ article, lenis }) => {
               disabled={!canGoNext}
               onClick={handleNext}
               className={`
-              size-15 rounded-sm
+              size-15
               border border-p/10
               backdrop-blur-2xl
               flex items-center justify-center
@@ -202,14 +202,14 @@ const HomeArticles = ({ article, lenis }) => {
               ease: [0.88, 0, 0.24, 1],
             }}
             className="
-            flex gap-5
+            flex gap-2.5
             "
           >
             {article.map((item, i) => (
               <div
                 key={i}
                 className="
-min-w-[calc(33.333%-14px)]
+min-w-[calc(33.333%-7px)]
 max-lg:min-w-[calc(50%-10px)]
 max-md:min-w-full
 "

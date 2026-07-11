@@ -88,10 +88,10 @@ export const TeamModal = ({ member, lenis, onClose }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 px-5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-         max-lg:h-dvh max-lg:p-5 max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
-         will-change-auto"
+        className="fixed left-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        bg-bg-s backdrop-blur-3xl z-9999
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 
+        will-change-auto"
         variants={menuAnim}
         initial="initial"
         animate="animate"
@@ -118,7 +118,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 group"
+          className="absolute top-2.5 right-2.5 z-30 group"
         >
           <motion.button
             whileTap={{ scale: 1.1 }}
@@ -126,7 +126,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               scale: 1.05,
               backgroundColor: "#f5f5f5",
             }}
-            className="group size-15 rounded-sm 
+            className="group size-15  
             backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
@@ -159,13 +159,14 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   variants={textSlide}
                   initial="initial"
                   animate="animate"
-                  className=" font-neue font-bold
+                  className="mb-2 font-neue font-bold
                               text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
                               leading-none uppercase"
                 >
                   {member.name}
                 </motion.h2>
               </div>
+              <p className="relative left-1 text-chivo-p-14">{member.role}</p>
             </div>
 
             <div className="mt-10 w-full h-px bg-p/15 max-lg:mt-0"></div>
@@ -205,19 +206,16 @@ export const TeamModal = ({ member, lenis, onClose }) => {
               </div>
             </div>
 
-            <div className="relative w-full h-[50vh]">
-              <figure className="size-full overflow-hidden">
+            <div className="relative w-full">
+              <figure className="relative w-full h-[75vh] overflow-hidden max-lg:h-[60vh] max-lg:mt-5">
                 <Image
                   src={member.src}
                   alt={member.name}
                   fill
                   sizes=""
                   placeholder="blur"
-                  className="object-cover rounded-sm"
+                  className="object-cover "
                 />
-                <p className="absolute right-5 bottom-5 text-chivo-s-14">
-                  {member.role}
-                </p>
               </figure>
             </div>
 

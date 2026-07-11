@@ -56,9 +56,8 @@ const StudioManifesto = () => {
   });
   return (
     <>
-      <div className="px-15 my-15 w-full h-px bg-p/15" />
       <div
-        className="mb-25 px-15 flex items-start gap-10 select-none max-lg:flex-col"
+        className="mb-25 px-5 py-15 flex items-start gap-10 select-none max-lg:flex-col"
         ref={ref}
       >
         <div className="sticky top-15 flex-2 flex items-center gap-4 max-lg:relative max-lg:mb-25">

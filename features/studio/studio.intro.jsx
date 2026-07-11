@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import bgCover from "@/public/assets/images/about/bg.jpg";
+import bgCover from "@/public/assets/images/about/bg-hero.webp";
 import Image from "next/image";
 
 import {
@@ -54,7 +54,7 @@ const StudioIntro = () => {
             priority
           />
         </figure>
-        <div className="absolute inset-0 p-15 size-full flex items-center justify-center">
+        <div className="absolute inset-0 p-5 size-full flex items-center justify-center">
           <div className="relative flex flex-col items-start">
             <div className="mb-4 relative flex items-center">
               <div className="overflow-hidden h-[125px] max-lg:h-fit">
@@ -85,7 +85,7 @@ const StudioIntro = () => {
           </div>
         </div>
         <div
-          className="absolute inset-0 p-15 size-full flex items-end justify-end gap-2 
+          className="absolute inset-0 p-5 size-full flex items-end justify-end gap-2 
              max-lg:items-end max-lg:justify-center "
         >
           <div className="relative h-fit overflow-hidden max-lg:-top-15">
