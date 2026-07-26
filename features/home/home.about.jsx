@@ -20,8 +20,12 @@ const textSlide = {
 const HomeAbout = () => {
   const container = useRef(null);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const { ref, inView } = useInView({
+  const { ref: reelView, inView: reelInView } = useInView({
     threshold: 0,
+    triggerOnce: true,
+  });
+  const { ref, inView } = useInView({
+    threshold: 0.5,
     triggerOnce: true,
   });
 
@@ -31,13 +35,16 @@ const HomeAbout = () => {
       className="pb-55 w-full h-fit flex flex-col items-start p-5"
       ref={container}
     >
-      <div className="relative w-full max-h-125 flex items-end justify-end">
+      <div
+        className="relative w-full max-h-125 flex items-end justify-end"
+        ref={reelView}
+      >
         <motion.figure
           initial={{
             clipPath: "inset(100% 100% 100% 100%)",
           }}
           animate={{
-            clipPath: inView
+            clipPath: reelInView
               ? "inset(0% 0% 0% 0%)"
               : "inset(100% 100% 100% 100%)",
 
@@ -93,8 +100,8 @@ const HomeAbout = () => {
           </div>
         </motion.figure>
       </div>
-      <div className="my-15 w-full h-px bg-p/10" ref={ref}></div>
-      <div className="mb-25 flex flex-col items-start ">
+      <div className="my-15 w-full h-px bg-p/10"></div>
+      <div className="mb-25 flex flex-col items-start " ref={ref}>
         <div className="mb-15 flex items-center gap-4">
           <span className="relative -top-px size-2.5 bg-p rotate-45" />
           <p className="text-chivo-p-14">NOSSA FILOSOFIA</p>
@@ -106,7 +113,7 @@ const HomeAbout = () => {
             key={i}
             text={phrases}
             animate={inView && "animate"}
-            delay={0.15 * i}
+            delay={0.06 * i}
             indent="175px"
             className="
             font-neue font-bold 
@@ -136,7 +143,7 @@ const HomeAbout = () => {
               <ClipText
                 text={phrases}
                 animate={inView && "animate"}
-                delay={0.5 + 0.15 * i}
+                delay={0.25 + 0.06 * i}
                 tag="h2"
                 className="paragraph-p leading-[1.05]"
               />

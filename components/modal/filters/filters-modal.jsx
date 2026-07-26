@@ -63,28 +63,20 @@ export const FiltersModal = ({ lenis }) => {
   const years = ["all", "2026", "2025", "2024", "2023", "2022"];
   const categories = [
     {
-      label: "Todos",
-      value: "all",
+      label: "Arquitetura de Interiores",
+      value: "interior-architecture",
     },
     {
-      label: "Marca",
-      value: "marca",
+      label: "Design de Interiores Completo",
+      value: "full-interior-design",
     },
     {
-      label: "Web Design",
-      value: "web design",
+      label: "Curadoria de Mobiliário e Arte",
+      value: "furniture-art-curation",
     },
     {
-      label: "Direção Criativa",
-      value: "direção criativa",
-    },
-    {
-      label: "Motion",
-      value: "motion",
-    },
-    {
-      label: "3D",
-      value: "3D",
+      label: "Renovação Residencial",
+      value: "residential-renovation",
     },
   ];
 
@@ -132,8 +124,8 @@ export const FiltersModal = ({ lenis }) => {
   ];
 
   const yearLabel = (y) => {
-    if (y === "all") return "Todos os espaços";
-    if (y === "2026") return "Mais recentes (2026)";
+    if (y === "all") return "Todos";
+    if (y === "2026") return "2026";
     if (y === "2025") return "2025";
     if (y === "2024") return "2024";
     return y;
@@ -171,10 +163,31 @@ export const FiltersModal = ({ lenis }) => {
 
   const Item = ({ label, active, onClick }) => (
     <button onClick={onClick} className="flex items-center gap-2 uppercase ">
-      {active && <span className="size-2 rounded-full bg-p" />}
       <span
         className={`text-chivo-n-14
            ${active ? "text-p" : "text-p/50 hover:text-p/75"}`}
+      >
+        {label}
+      </span>
+      {active && (
+        <span className="relative -top-px size-3.5 rounded-full border border-p flex justify-center items-center">
+          <IoClose className="text-p text-[14px]" />
+        </span>
+      )}
+    </button>
+  );
+
+  const ItemYear = ({ label, active, onClick }) => (
+    <button
+      onClick={onClick}
+      className={`p-2 size-25 rounded-full group
+         ${active ? "bg-p" : "border border-p/10 hover:bg-p"} 
+        flex items-center justify-center gap-2 uppercase 
+        transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]`}
+    >
+      <span
+        className={`text-chivo-n-14 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]
+           ${active ? "text-s" : "text-p/50 group-hover:text-s"}`}
       >
         {label}
       </span>
@@ -184,9 +197,9 @@ export const FiltersModal = ({ lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
-        bg-bg-s backdrop-blur-3xl rounded-sm z-9999
-        max-lg:h-dvh max-lg:w-screen max-lg:m-0 max-lg:rounded-none 
+        className="fixed left-0 top-0 m-2.5 px-2.5 pt-1 w-full max-w-180 h-[calc(100vh-10px)] 
+        bg-bg-s backdrop-blur-3xl z-9999
+        max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
         variants={menuAnim}
         initial="initial"
@@ -214,7 +227,7 @@ export const FiltersModal = ({ lenis }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-5 z-30 group"
+          className="absolute top-2.5 right-2.5 z-30 group"
         >
           <motion.div
             whileTap={{ scale: 1.1 }}
@@ -222,7 +235,7 @@ export const FiltersModal = ({ lenis }) => {
               scale: 1.05,
               backgroundColor: "#f5f5f5",
             }}
-            className="group size-15 rounded-sm 
+            className="group size-15 
             backdrop-blur-2xl 
             flex items-center justify-center
             cursor-pointer bg-p"
@@ -246,7 +259,7 @@ export const FiltersModal = ({ lenis }) => {
             y: 15,
             transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
           }}
-          className="relative px-5 size-full overflow-y-scroll flex flex-col justify-between"
+          className="relative size-full overflow-y-scroll flex flex-col justify-between"
           ref={scrollRef}
         >
           <div className="mb-15 flex flex-col items-start">
@@ -263,19 +276,42 @@ export const FiltersModal = ({ lenis }) => {
               </motion.h2>
             </div>
             <div className="my-5 w-full h-px bg-p/15"></div>
-
-            {/* YEAR */}
+            {/* CATEGORY */}
 
             <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
               <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="triangle-p" />
+                  <span className="relative left-1 triangle-p" />
+
+                  <p className="text-chivo-p-14">categoria</p>
+                </div>
+              </div>
+
+              <div className="flex-1 flex flex-col gap-4">
+                {categories.map((cat) => (
+                  <Item
+                    key={cat.value}
+                    label={cat.label}
+                    active={activeCategory.includes(cat.value)}
+                    onClick={() => setActiveCategory(cat.value)}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="w-full h-px bg-p/10 mt-15 mb-5 " />
+
+            {/* YEAR */}
+
+            <div className=" w-full flex items-start flex-col max-lg:gap-5">
+              <div className="mb-10">
+                <div className="size-fit flex items-center gap-5">
+                  <span className="relative left-1 triangle-p" />
                   <p className="text-chivo-p-14">ano</p>
                 </div>
               </div>
-              <div className="flex-1 flex flex-col gap-4">
+              <div className="w-full flex items-center justify-between">
                 {years.map((y) => (
-                  <Item
+                  <ItemYear
                     key={y}
                     label={yearLabel(y)}
                     active={activeYear === y}
@@ -284,39 +320,15 @@ export const FiltersModal = ({ lenis }) => {
                 ))}
               </div>
             </div>
-            <div className="w-full h-px bg-p/10 my-5 max-lg:mb-15" />
 
-            {/* CATEGORY */}
-
-            <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
-              <div className="flex-1 max-lg:mb-5">
-                <div className="size-fit flex items-center gap-5">
-                  <span className="triangle-p" />
-
-                  <p className="text-chivo-p-14">categoria</p>
-                </div>
-              </div>
-
-              <div className="flex-1 flex flex-col gap-4">
-                {categories.map((item) => (
-                  <Item
-                    key={item.value}
-                    label={item.label}
-                    active={activeCategory === item.value}
-                    onClick={() => setActiveCategory(item.value)}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="w-full h-px bg-p/10 my-5 max-lg:mb-15" />
+            <div className="w-full h-px bg-p/10 mt-15 mb-5 " />
 
             {/* SERVICES */}
 
             <div className="w-full flex items-start max-lg:flex-col max-lg:gap-5">
               <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="triangle-p" />
+                  <span className="relative left-1 triangle-p" />
 
                   <p className="text-chivo-p-14">serviços</p>
                 </div>
@@ -339,7 +351,7 @@ export const FiltersModal = ({ lenis }) => {
             <div className="mb-15 w-full flex items-start max-lg:flex-col max-lg:gap-5">
               <div className="flex-1 max-lg:mb-5">
                 <div className="size-fit flex items-center gap-5">
-                  <span className="triangle-p" />
+                  <span className="relative left-1 triangle-p" />
 
                   <p className="text-chivo-p-14">destaque</p>
                 </div>
@@ -355,7 +367,7 @@ export const FiltersModal = ({ lenis }) => {
             </div>
           </div>
         </motion.div>
-        <div className="fixed bottom-0 bg-bg-s p-5 w-full">
+        <div className="fixed bottom-0 left-0 bg-bg-s p-2.5 w-full">
           <div className="flex items-center justify-between gap-5">
             <motion.button
               whileTap={{ scale: 1.1 }}
@@ -364,7 +376,7 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#f5f5f5",
               }}
               onClick={resetAll}
-              className="h-15 px-10 w-full bg-p  backdrop-blur-2xl rounded-sm group "
+              className="h-15 px-10 w-full bg-p  backdrop-blur-2xl group "
             >
               <p
                 className="text-chivo-n-14 text-s  
@@ -381,7 +393,7 @@ export const FiltersModal = ({ lenis }) => {
                 backgroundColor: "#000",
               }}
               onClick={closeFilters}
-              className="h-15 px-10 w-full bg-bg-s-2  backdrop-blur-2xl rounded-sm group"
+              className="h-15 px-10 w-full bg-bg-s-2  backdrop-blur-2xl group"
             >
               <p
                 className="text-chivo-p-14

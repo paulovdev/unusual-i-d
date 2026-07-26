@@ -97,7 +97,7 @@ export const SearchModal = ({ lenis, work }) => {
   return (
     <>
       <motion.div
-        className="fixed right-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        className="fixed right-0 top-0 m-2.5 px-2.5 pt-1 w-full max-w-180 h-[calc(100vh-10px)] 
         bg-bg-s backdrop-blur-3xl z-9999
         max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
@@ -168,7 +168,7 @@ export const SearchModal = ({ lenis, work }) => {
                 initial="initial"
                 animate="animate"
                 className="font-neue font-bold
-                              text-p text-[clamp(52px,6vw,74px)] text-start tracking-[-0.05em]
+                              text-p text-[clamp(42px,6vw,74px)] text-start tracking-[-0.05em]
                               leading-none uppercase"
               >
                 Pesquisar
@@ -235,7 +235,7 @@ export const SearchModal = ({ lenis, work }) => {
                     }}
                   >
                     <figure
-                      className="w-full h-65 overflow-hidden 
+                      className="w-full h-60 overflow-hidden 
                      group max-lg:h-75"
                     >
                       <Image
@@ -250,9 +250,12 @@ export const SearchModal = ({ lenis, work }) => {
                       <div className="absolute left-5 bottom-5">
                         <p className="mb-2 text-chivo-s-14">{item.title}</p>
 
-                        <p className="text-chivo-n-14 text-[12px] text-s/50">
-                          {item.mark}
-                        </p>
+                        <div className="size-fit flex items-center gap-3">
+                          <span className="triangle-s size-2 bg-s/50" />
+                          <p className="text-chivo-n-14 text-[12px] text-s/50">
+                            {item.mark}
+                          </p>
+                        </div>
                       </div>
                     </figure>
                   </motion.div>
@@ -261,7 +264,7 @@ export const SearchModal = ({ lenis, work }) => {
             </div>
           </div>
         </motion.div>
-        <div className="fixed bottom-0 bg-bg-s p-5 w-full">
+        <div className="fixed bottom-0 left-0 bg-bg-s p-2.5 w-full">
           <motion.button
             whileTap={{ scale: 1.1 }}
             whileHover={{
@@ -275,7 +278,7 @@ export const SearchModal = ({ lenis, work }) => {
                 shuffleSuggestions();
               }
             }}
-            className="h-15 px-10 w-full bg-p  backdrop-blur-2xl 
+            className="h-15 px-10 w-full bg-p backdrop-blur-2xl 
             flex items-center justify-center gap-5 group"
           >
             <RxUpdate

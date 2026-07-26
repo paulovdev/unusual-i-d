@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import bgCover from "@/public/assets/images/about/bg-hero.webp";
+import bgCover from "@/public/assets/images/about/bg-hero.jpg";
 import Image from "next/image";
 
 import {

@@ -119,7 +119,7 @@ const Works = ({
 
             <span
               className="
-                relative top-2 left-2 align-top text-[28px]
+                relative font-inter font-black top-0.5 left-1 align-top text-[28px]
                 tracking-[0.3em]
                 max-lg:top-1
               "

@@ -1,6 +1,9 @@
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import wwww from "@/public/assets/images/about/what-we-do/img-1.png";
+import bg1 from "@/public/assets/images/price.jpg";
+import bg2 from "@/public/assets/images/reel.jpg";
+import bg3 from "@/public/assets/images/studio.jpg";
+import bg4 from "@/public/assets/images/circle.png";
 import { LuLampCeiling, LuSofa, LuPanelTop, LuRuler } from "react-icons/lu";
 import { ClipText } from "@/components/ui/clip-text";
 import TransitionLink from "@/components/ui/link";
@@ -17,6 +20,7 @@ const services = [
     href: "/studio",
     icon: LuRuler,
     bg: "bg-[#101010]",
+    img: bg1,
     top: "top-0",
     delay: 0.5,
   },
@@ -28,7 +32,8 @@ const services = [
     button: "interiores exclusivos",
     href: "/studio",
     icon: LuPanelTop,
-    bg: "bg-[#202020]",
+    bg: "bg-[#151515]",
+    img: bg2,
     top: "top-5",
     delay: 0.65,
   },
@@ -40,7 +45,8 @@ const services = [
     button: "mobiliário sob medida",
     href: "/studio",
     icon: LuSofa,
-    bg: "bg-[#303030]",
+    bg: "bg-[#202020]",
+    img: bg3,
     top: "top-10",
     delay: 0.8,
     darkButton: true,
@@ -53,7 +59,8 @@ const services = [
     button: "projeto luminotécnico",
     href: "/studio",
     icon: LuLampCeiling,
-    bg: "bg-[#404040]",
+    bg: "bg-[#252525]",
+    img: bg4,
     top: "top-15",
     delay: 0.95,
     darkButton: true,
@@ -61,14 +68,15 @@ const services = [
 ];
 
 const ServiceCard = ({
-  id,
+  index,
   title,
   description,
   button,
   href,
   icon: Icon,
   bg,
-  top,
+  img,
+
   delay,
   darkButton = false,
 }) => {
@@ -80,42 +88,40 @@ const ServiceCard = ({
   return (
     <motion.div
       ref={ref}
-      className={`sticky ${top} h-[90vh] p-15 ${bg}
+      className={`sticky top-0 h-[90vh] bg-bg-s ${index === 0 && "border-t border-p/5"} ${index === 3 && "border-b border-p/5"}
      overflow-hidden
       max-lg:min-h-100`}
     >
-      <div className="absolute top-40 left-40 flex items-center justify-center"></div>
-      <div className="size-full flex items-end justify-end">
-        <div className="h-full flex flex-col items-start justify-between">
+      <div className="size-full flex items-start justify-between gap-5">
+        <div className="w-[75vw] h-full">
+          <Image
+            src={img}
+            width={2000}
+            height={2000}
+            alt=""
+            placeholder="blur"
+            className="size-full object-cover"
+          />
+        </div>
+
+        <div className="py-10 px-5 w-[38vw] h-full flex flex-col items-start justify-between">
           <div className="w-full flex items-center justify-between">
-            <div className="p-4 border border-s bg-bg-s backdrop-blur-md">
-              <Icon className="text-p text-[24px]" />
+            <div className="p-4 border border-s bg-bg-p backdrop-blur-md">
+              <Icon className="text-s text-[24px]" />
             </div>
           </div>
 
           <div className="max-w-139 flex flex-col items-start">
-            <p className="mb-15 text-chivo-s-14">{title}</p>
+            <p className="mb-15 text-chivo-p-14">{title}</p>
 
             <ClipText
               text={description}
               animate={inView && "animate"}
               delay={delay}
               tag="h2"
-              className="paragraph-n text-s/75 font-normal"
+              className="paragraph-n text-p/75 font-normal"
             />
           </div>
-
-          <TransitionLink href={href}>
-            <Button
-              text={button}
-              bg={darkButton ? "bg-p" : "bg-s"}
-              textColor={darkButton ? "text-s" : "text-p"}
-              iconColor={darkButton ? "text-s" : "text-p"}
-              hoverBg={darkButton ? "bg-bg-s-2" : "bg-bg-p-2"}
-              hoverTextColor={darkButton ? "text-p" : "text-s"}
-              hoverIconColor={darkButton ? "text-p" : "text-s"}
-            />
-          </TransitionLink>
         </div>
       </div>
     </motion.div>
@@ -149,10 +155,10 @@ const StudioWhatWeDo = () => {
           ease: [0.76, 0, 0.24, 1],
           delay: 0.1,
         }}
-        className="h-fit grid grid-cols-1"
+        className="h-fit grid grid-cols-1 p-5"
       >
-        {services.map((service) => (
-          <ServiceCard key={service.id} {...service} />
+        {services.map((service, i) => (
+          <ServiceCard key={service.id} {...service} index={i} />
         ))}
       </motion.div>
     </section>

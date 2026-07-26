@@ -316,15 +316,16 @@ const HomeIntro = () => {
                 /> */}
                 <video
                   ref={videoRef}
+                  src="/assets/videos/bg.mp4"
                   playsInline
                   loop
                   muted
                   className="object-cover size-full"
                 >
-                  <source
+                  {/* <source
                     src="https://bloom-viz.b-cdn.net/Video_calab4k_cler.webm"
                     type="video/webm"
-                  />
+                  /> */}
                 </video>
               </motion.div>
             </div>
@@ -372,7 +373,7 @@ const HomeIntro = () => {
                   variants={textSlide}
                   className="big-text-intro-p text-s"
                 >
-                  BLOOM
+                  INCOMUM 
                   <span className="relative top-3.5 left-2 align-top text-[28px] tracking-[0.4em] max-lg:top-1.5">
                     ®
                   </span>
@@ -387,7 +388,7 @@ const HomeIntro = () => {
                 custom={0.5}
                 className="relative left-1 text-chivo-n-14 text-s/75 text-start"
               >
-                Estúdio profissional de renderização 3D
+                #1 Agência de marketing de conteúdo mais recomendada
               </motion.p>
             </div>
           </div>

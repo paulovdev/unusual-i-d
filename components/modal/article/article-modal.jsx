@@ -72,7 +72,7 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        className="fixed left-0 top-0 m-2.5 px-2.5 pt-1 w-full max-w-180 h-[calc(100vh-10px)] 
         bg-bg-s backdrop-blur-3xl z-9999
         max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
@@ -102,7 +102,7 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
               ease: [0.76, 0, 0.24, 1],
             },
           }}
-          className="absolute top-5 right-2.5 z-30 will-change-auto"
+          className="absolute top-2.5 right-2.5 z-30 will-change-auto"
         >
           <motion.button
             whileTap={{ scale: 1.1 }}
@@ -140,12 +140,12 @@ const ArticleModal = ({ article, isOpen, onClose, lenis }) => {
           <ArticleModalContent article={article} />
         </motion.div>
 
-        <div className="fixed right-0 top-0 w-full h-2 rounded-t-sm z-30">
+        <div className="fixed right-0 top-0 w-full h-2.5 z-30">
           <motion.div
-            className="absolute left-0 top-0 origin-left w-full h-2 bg-p rounded-tl-sm z-20"
+            className="absolute left-0 top-0 origin-left w-full h-2.5 bg-p  z-20"
             style={{ scaleX }}
           />
-          <div className="absolute left-0 top-0 w-full h-2 bg-[#cdcdcd] rounded-t-sm z-10" />
+          <div className="absolute left-0 top-0 w-full h-2.5 bg-[#f0f0ed]  z-10" />
         </div>
       </motion.div>
 
@@ -178,7 +178,7 @@ const ArticleModalContent = ({ article }) => {
                 delay={0.15 * i}
                 tag="h2"
                 className="font-neue font-bold
-                   text-[clamp(42px,6vw,62px)] text-start tracking-[-0.05em]
+                   text-[clamp(32px,6vw,52px)] text-start tracking-[-0.05em]
                   leading-none uppercase"
               />
             </div>

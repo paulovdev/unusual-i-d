@@ -39,7 +39,6 @@ const navData = [
   { label: "Início", href: "/" },
   { label: "Estúdio", href: "/studio" },
   { label: "Projetos", href: "/projects" },
-  { label: "Preços", href: "/pricing" },
   { label: "Contato", href: "/contact" },
 ];
 

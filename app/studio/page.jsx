@@ -38,8 +38,10 @@ export default function StudioHero({ work }) {
       {isReady && (
         <main className="relative bg-bg-s">
           <StudioIntro />
-          <StudioAbout /> <StudioManifesto />
-          <StudioWhatWeDo /> <StudioNumbers />
+          <StudioAbout />
+          <StudioWhatWeDo />
+          <StudioManifesto />
+          <StudioNumbers />
           <StudioAwards />
           <StudioTeam lenis={lenisRef} />
           <StudioTestimonials />

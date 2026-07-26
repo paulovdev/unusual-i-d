@@ -229,7 +229,6 @@ const WorksList = ({
 const SpacesWorks = ({ work, activeFiltersCount }) => {
   const {
     activeCategory,
-    setActiveCategory,
     activeYear,
     activeServices,
     activeFeatured,
@@ -250,18 +249,10 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
     setMediaTick((t) => t + 1);
   }, []);
 
-  const categories = [
-    "all",
-    "marca",
-    "web design",
-    "direção criativa",
-    "motion",
-    "3D",
-  ];
-
   const filteredWorks = work.filter((item) => {
     const matchCategory =
-      activeCategory === "all" || item.category === activeCategory;
+      activeCategory.length === 0 ||
+      activeCategory.every((cat) => item.scope?.includes(cat));
 
     const matchYear =
       activeYear === "all" || String(item.year) === String(activeYear);
@@ -345,20 +336,11 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                 {activeFiltersCount > 0 && (
                   <div
                     className="
-                absolute
-                -right-2.5
-                -top-2.5
-                
-               
-                bg-bg-s-2
-                p-2
-              "
+                absolute -right-4 -top-3 bg-red-400 size-8 flex justify-center items-center"
                   >
                     <p
                       className="
-                  text-[14px]
-                  font-medium
-                  text-p
+                  text-chivo-s-14
                 "
                     >
                       {activeFiltersCount}
@@ -379,11 +361,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                     backgroundColor: "#f5f5f5",
                   }}
                   onClick={openSearch}
-                  className="
-            group size-15 
-              bg-p
-            flex items-center justify-center
-            cursor-pointer
+                  className=" group size-15    bg-p flex items-center justify-center cursor-pointer
           "
                 >
                   <IoIosSearch
@@ -406,11 +384,7 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
                     backgroundColor: "#f5f5f5",
                   }}
                   onClick={() => setLayout(layout === "grid" ? "list" : "grid")}
-                  className="
-            group size-15 
-             bg-p
-            flex items-center justify-center
-            cursor-pointer
+                  className=" group size-15   bg-p flex items-center justify-center cursor-pointer
           "
                 >
                   {layout === "grid" ? (
@@ -435,8 +409,6 @@ const SpacesWorks = ({ work, activeFiltersCount }) => {
         </div>
       ) : (
         <div className="relative -top-50 px-5 max-lg:px-5">
-           
-
           <div className="flex flex-col">
             <AnimatePresence mode="wait">
               {filteredWorks.map((item, i) => (

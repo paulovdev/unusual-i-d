@@ -29,7 +29,7 @@ const textSlide = {
 const services = [
   {
     id: "01",
-    title: "arquitetura de interiores",
+    title: "RP digital",
     description:
       "Desenvolvemos layouts, fluxos espaciais e detalhes arquitetônicos que definem como cada ambiente funciona e é vivido.",
     button: "projetos arquitetônicos",
@@ -41,7 +41,7 @@ const services = [
   },
   {
     id: "02",
-    title: "design de interiores",
+    title: "Estratégia de Pesquisa e Crescimento",
     description:
       "Criamos interiores completos com equilíbrio entre materiais, iluminação, proporção e uma linguagem estética atemporal.",
     button: "interiores exclusivos",
@@ -53,7 +53,7 @@ const services = [
   },
   {
     id: "03",
-    title: "mobiliário & curadoria",
+    title: "Dados e insights",
     description:
       "Selecionamos móveis, obras de arte, objetos e materiais que reforçam a identidade e atmosfera de cada residência.",
     button: "mobiliário sob medida",
@@ -67,7 +67,7 @@ const services = [
   },
   {
     id: "04",
-    title: "iluminação & atmosfera",
+    title: "Social e conteúdo orgânico",
     description:
       "Criamos ambientes onde luz, textura e materiais trabalham juntos para construir experiências sensoriais e acolhedoras.",
     button: "projeto luminotécnico",

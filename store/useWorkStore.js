@@ -16,16 +16,21 @@ export const useWorkStore = create((set) => ({
   // FILTERS
 
   activeYear: "all",
-  activeCategory: "all",
+  activeCategory: [],
   activeServices: [],
   activeFeatured: false,
   setActiveYear: (v) =>
     set({
       activeYear: v,
     }),
-  setActiveCategory: (v) =>
-    set({
-      activeCategory: v,
+  setActiveCategory: (value) =>
+    set((state) => {
+      const exists = state.activeCategory.includes(value);
+      return {
+        activeCategory: exists
+          ? state.activeCategory.filter((v) => v !== value)
+          : [...state.activeCategory, value],
+      };
     }),
   setActiveServices: (value) =>
     set((state) => {
@@ -45,7 +50,7 @@ export const useWorkStore = create((set) => ({
   resetFilters: () =>
     set({
       activeYear: "all",
-      activeCategory: "all",
+      activeCategory: [],
       activeServices: [],
       activeFeatured: false,
     }),

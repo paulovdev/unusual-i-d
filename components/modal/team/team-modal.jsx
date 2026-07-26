@@ -88,7 +88,7 @@ export const TeamModal = ({ member, lenis, onClose }) => {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 m-4 px-2.5 pt-1 w-full max-w-200 h-[calc(100vh-32px)] 
+        className="fixed left-0 top-0 m-2.5 px-2.5 pt-1 w-full max-w-180 h-[calc(100vh-10px)]
         bg-bg-s backdrop-blur-3xl z-9999
         max-lg:h-dvh max-lg:w-screen max-lg:m-0 
         will-change-auto"
@@ -155,6 +155,9 @@ export const TeamModal = ({ member, lenis, onClose }) => {
           >
             <div className="w-full flex flex-col max-lg:mb-0">
               <div className="mt-25 h-fit overflow-hidden">
+                <p className="relative mb-2 left-1 text-chivo-p-14">
+                  {member.role}
+                </p>
                 <motion.h2
                   variants={textSlide}
                   initial="initial"
@@ -166,7 +169,6 @@ export const TeamModal = ({ member, lenis, onClose }) => {
                   {member.name}
                 </motion.h2>
               </div>
-              <p className="relative left-1 text-chivo-p-14">{member.role}</p>
             </div>
 
             <div className="mt-10 w-full h-px bg-p/15 max-lg:mt-0"></div>

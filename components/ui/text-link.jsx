@@ -12,7 +12,7 @@ const TextLink = ({ children, className = "", bgColor = "bg-white" }) => {
       <div className="relative p-1 z-20">{children}</div>
 
       <motion.span
-        className={`absolute inset-0 rounded-xs z-10 ${bgColor}`}
+        className={`absolute inset-0 z-10 ${bgColor}`}
         variants={{
           initial: {
             clipPath: "inset(0 100% 0 0)",
